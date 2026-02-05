@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Procedural Skybox - Three.js</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #000;
+            font-family: Arial, sans-serif;
+        }
+
+        canvas {
+            display: block;
+        }
+
+        /* 搜索UI样式 */
+        #search-panel {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            border-radius: 8px;
+            color: white;
+            z-index: 100;
+        }
+
+        #search-input {
+            width: 250px;
+            padding: 8px;
+            border: 1px solid #444;
+            border-radius: 4px;
+            background: #222;
+            color: white;
+            font-size: 14px;
+        }
+
+        #search-results {
+            max-height: 300px;
+            overflow-y: auto;
+            margin-top: 10px;
+        }
+
+        .result-item {
+            padding: 8px;
+            cursor: pointer;
+            border-bottom: 1px solid #333;
+            transition: background 0.2s;
+        }
+
+        .result-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .result-item.selected {
+            background: rgba(100, 150, 255, 0.3);
+        }
+
+        .star-info {
+            font-size: 12px;
+            color: #aaa;
+            margin-top: 3px;
+        }
+
+        #info-panel {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            border-radius: 8px;
+            color: white;
+            max-width: 300px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 搜索面板 -->
+    <div id="search-panel">
+        <input type="text" id="search-input" placeholder="搜索星星 (例如: Sys_1, Bg_100)">
+        <div id="search-results"></div>
+    </div>
+
+    <!-- 信息面板 -->
+    <div id="info-panel">
+        <h3 id="star-name" style="margin-top: 0;"></h3>
+        <div id="star-details"></div>
+    </div>
+
+    <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+    }
+  }
+</script>
+
+    <script type="module">
+        import * as THREE from 'three';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+        // ==========================================
+        // 1. 基础场景设置
+        // ==========================================
+        const scene = new THREE.Scene();
+
+        const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 5000);
+        camera.position.set(0, 0, 0.1);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.toneMapping = THREE.ACESFilmicToneMapping;
+        document.body.appendChild(renderer.domElement);
+
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.enableZoom = false;
+        controls.enablePan = false;
+        controls.rotateSpeed = 0.5;
+
+        // ==========================================
+        // 2. 数据存储
+        // ==========================================
+        let starsData = [];
+        let selectedStar = null;
+        let highlightMarker = null;
+
+        // ==========================================
+        // 3. 自定义 Shader
+        // ==========================================
+        const vertexShader = `
+        attribute float mag;
+        attribute vec3 color;
+        varying vec3 vColor;
+        
+        void main() {
+            vColor = color;
+            
+            vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
+            gl_Position = projectionMatrix * mvPosition;
+            
+            float baseSize = 50.0; 
+            float sizeFactor = 1.0 / (1.0 + exp((mag - 2.0) * 0.8)); 
+            
+            gl_PointSize = baseSize * sizeFactor * (1000.0 / length(mvPosition.xyz));
+            gl_PointSize = clamp(gl_PointSize, 2.0, 64.0);
+        }
+    `;
+
+        const fragmentShader = `
+        varying vec3 vColor;
+        
+        void main() {
+            vec2 coord = gl_PointCoord - vec2(0.5);
+            float dist = length(coord);
+            
+            if (dist > 0.5) discard;
+            
+            float intensity = 1.0 - (dist * 2.0);
+            intensity = pow(intensity, 3.0);
+            
+            gl_FragColor = vec4(vColor * intensity * 2.0, 1.0);
+        }
+    `;
+
+        // ==========================================
+        // 4. 高亮标记
+        // ==========================================
+        function createHighlightMarker() {
+            // 创建一个组来包含多个标记元素
+            highlightMarker = new THREE.Group();
+
+            // 1. 中圈光环
+            const ring2Geometry = new THREE.RingGeometry(18, 21, 32);
+            const ring2Material = new THREE.MeshBasicMaterial({
+                color: 0xffff00,
+                side: THREE.DoubleSide,
+                transparent: true,
+                opacity: 0.7
+            });
+            const ring2 = new THREE.Mesh(ring2Geometry, ring2Material);
+            highlightMarker.add(ring2);
+
+            // 2. 十字准星 - 分段显示，中心留空不遮挡星星
+            const crossMaterial = new THREE.LineBasicMaterial({
+                color: 0xff0000,
+                transparent: true,
+                opacity: 1.0,
+                linewidth: 3
+            });
+
+            // 水平线 - 分为左右两段
+            const crossGeometry1 = new THREE.BufferGeometry().setFromPoints([
+                new THREE.Vector3(-40, 0, 0),
+                new THREE.Vector3(-12, 0, 0)
+            ]);
+            const crossGeometry2 = new THREE.BufferGeometry().setFromPoints([
+                new THREE.Vector3(12, 0, 0),
+                new THREE.Vector3(40, 0, 0)
+            ]);
+            // 垂直线 - 分为上下两段
+            const crossGeometry3 = new THREE.BufferGeometry().setFromPoints([
+                new THREE.Vector3(0, -40, 0),
+                new THREE.Vector3(0, -12, 0)
+            ]);
+            const crossGeometry4 = new THREE.BufferGeometry().setFromPoints([
+                new THREE.Vector3(0, 12, 0),
+                new THREE.Vector3(0, 40, 0)
+            ]);
+
+            const crossLine1 = new THREE.Line(crossGeometry1, crossMaterial);
+            const crossLine2 = new THREE.Line(crossGeometry2, crossMaterial);
+            const crossLine3 = new THREE.Line(crossGeometry3, crossMaterial);
+            const crossLine4 = new THREE.Line(crossGeometry4, crossMaterial);
+            highlightMarker.add(crossLine1);
+            highlightMarker.add(crossLine2);
+            highlightMarker.add(crossLine3);
+            highlightMarker.add(crossLine4);
+
+            highlightMarker.visible = false;
+            scene.add(highlightMarker);
+        }
+
+        // ==========================================
+        // 5. 加载数据并生成几何体
+        // ==========================================
+        async function loadStarData() {
+            try {
+                const response = await fetch('./stars_data_1000.json');
+                const data = await response.json();
+                starsData = data.stars;
+                createStarField(starsData);
+            } catch (err) {
+                console.error("加载 JSON 失败:", err);
+            }
+        }
+
+        function createStarField(stars) {
+            const geometry = new THREE.BufferGeometry();
+
+            const positions = [];
+            const colors = [];
+            const mags = [];
+
+            const SKY_RADIUS = 1000;
+
+            stars.forEach(star => {
+                const x = star.pos_cartesian[0];
+                const y = star.pos_cartesian[1];
+                const z = star.pos_cartesian[2];
+
+                const vec = new THREE.Vector3(x, y, z).normalize().multiplyScalar(SKY_RADIUS);
+
+                // 保存归一化后的位置以便检索
+                star.normalizedPos = vec;
+
+                positions.push(vec.x, vec.y, vec.z);
+
+                const color = new THREE.Color(star.color_hex);
+                colors.push(color.r, color.g, color.b);
+
+                mags.push(star.app_mag);
+            });
+
+            geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+            geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+            geometry.setAttribute('mag', new THREE.Float32BufferAttribute(mags, 1));
+
+            const material = new THREE.ShaderMaterial({
+                uniforms: {},
+                vertexShader: vertexShader,
+                fragmentShader: fragmentShader,
+                transparent: true,
+                depthWrite: false,
+                blending: THREE.AdditiveBlending
+            });
+
+            const points = new THREE.Points(geometry, material);
+            scene.add(points);
+
+            console.log(`已渲染 ${stars.length} 颗恒星`);
+        }
+
+        // ==========================================
+        // 6. 搜索功能
+        // ==========================================
+        const searchInput = document.getElementById('search-input');
+        const searchResults = document.getElementById('search-results');
+        const infoPanel = document.getElementById('info-panel');
+        const starName = document.getElementById('star-name');
+        const starDetails = document.getElementById('star-details');
+
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase().trim();
+
+            if (query.length === 0) {
+                searchResults.innerHTML = '';
+                return;
+            }
+
+            const matches = starsData.filter(star =>
+                star.id.toLowerCase().includes(query)
+            ).slice(0, 20); // 限制显示前20个结果
+
+            displaySearchResults(matches);
+        });
+
+        function displaySearchResults(matches) {
+            if (matches.length === 0) {
+                searchResults.innerHTML = '<div style="padding: 8px; color: #666;">未找到匹配的星星</div>';
+                return;
+            }
+
+            searchResults.innerHTML = matches.map(star => `
+            <div class="result-item" data-star-id="${star.id}">
+                <strong>${star.id}</strong>
+                <div class="star-info">
+                    类型: ${star.type} | 视星等: ${star.app_mag} | 距离: ${star.dist_ly} ly
+                </div>
+            </div>
+        `).join('');
+
+            // 绑定点击事件
+            document.querySelectorAll('.result-item').forEach(item => {
+                item.addEventListener('click', () => {
+                    const starId = item.getAttribute('data-star-id');
+                    selectStar(starId);
+                });
+            });
+        }
+
+        function selectStar(starId) {
+            selectedStar = starsData.find(s => s.id === starId);
+
+            if (!selectedStar) return;
+
+            // 更新选中状态
+            document.querySelectorAll('.result-item').forEach(item => {
+                item.classList.remove('selected');
+                if (item.getAttribute('data-star-id') === starId) {
+                    item.classList.add('selected');
+                }
+            });
+
+            // 显示星星信息
+            showStarInfo(selectedStar);
+
+            // 移动相机朝向该星星
+            focusOnStar(selectedStar);
+
+            // 显示高亮标记
+            showHighlight(selectedStar);
+        }
+
+        function showStarInfo(star) {
+            starName.textContent = star.id;
+            starDetails.innerHTML = `
+            <p><strong>类型:</strong> ${star.type}</p>
+            <p><strong>视星等:</strong> ${star.app_mag}</p>
+            <p><strong>绝对星等:</strong> ${star.abs_mag}</p>
+            <p><strong>距离:</strong> ${star.dist_ly} 光年</p>
+            <p><strong>赤经 (RA):</strong> ${star.ra}°</p>
+            <p><strong>赤纬 (Dec):</strong> ${star.dec}°</p>
+            <p><strong>角直径:</strong> ${star.angular_diameter_mas} mas</p>
+            <p><strong>颜色:</strong> <span style="display:inline-block;width:20px;height:20px;background:${star.color_hex};border:1px solid #fff;vertical-align:middle;"></span></p>
+        `;
+            infoPanel.style.display = 'block';
+        }
+
+        function focusOnStar(star) {
+            // 确保星星有归一化位置数据
+            if (!star.normalizedPos) {
+                console.error('星星缺少归一化位置数据:', star.id);
+                return;
+            }
+
+            const targetPos = star.normalizedPos.clone();
+            const n = targetPos.clone().normalize();
+
+            // 禁用controls以防止干扰动画
+            controls.enabled = false;
+
+            // 获取当前相机距离原点的距离
+            const startPos = camera.position.clone();
+            const dist = startPos.length() || 0.1;
+
+            // 目标位置是在原点的另一侧（相对于星星方向）
+            // 这样相机看向原点时，星星就会在视野中心
+            const endPos = n.clone().multiplyScalar(-dist);
+
+            let progress = 0;
+            const duration = 1000; // 1秒
+            const startTime = Date.now();
+
+            function animateCamera() {
+                const elapsed = Date.now() - startTime;
+                progress = Math.min(elapsed / duration, 1);
+
+                const eased = 1 - Math.pow(1 - progress, 3);
+
+                // 在球面上插值位置
+                camera.position.lerpVectors(startPos, endPos, eased).normalize().multiplyScalar(dist);
+
+                // 确保相机始终看向原点（从而看向背景中的星星）
+                camera.lookAt(0, 0, 0);
+
+                if (progress < 1) {
+                    requestAnimationFrame(animateCamera);
+                } else {
+                    // 动画完成后重新启用controls
+                    controls.target.set(0, 0, 0);
+                    controls.enabled = true;
+                    controls.update();
+                }
+            }
+
+            animateCamera();
+        }
+
+        function showHighlight(star) {
+            if (!highlightMarker) return;
+
+            const pos = star.normalizedPos.clone();
+            highlightMarker.position.copy(pos);
+            highlightMarker.visible = true;
+
+            function updateHighlight() {
+                if (selectedStar && selectedStar.id === star.id) {
+                    // 保持标记始终面向相机
+                    highlightMarker.lookAt(camera.position);
+
+                    // 计算星星在屏幕上的位置
+                    const vector = pos.clone().project(camera);
+                    const isInView = Math.abs(vector.x) <= 1 && Math.abs(vector.y) <= 1 && vector.z < 1;
+
+
+                    requestAnimationFrame(updateHighlight);
+                }
+            }
+            updateHighlight();
+        }
+
+        // ==========================================
+        // 7. 渲染循环
+        // ==========================================
+        function animate() {
+            requestAnimationFrame(animate);
+
+            // 保持高亮标记始终面向相机
+            if (highlightMarker && highlightMarker.visible) {
+                highlightMarker.lookAt(camera.position);
+            }
+
+            controls.update();
+            renderer.render(scene, camera);
+        }
+
+        // 窗口自适应
+        window.addEventListener('resize', onWindowResize, false);
+        function onWindowResize() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        }
+
+        // ==========================================
+        // 8. 点击星星交互
+        // ==========================================
+        function findNearestStar(mouseNDC) {
+            let nearestStar = null;
+            let minDistance = Infinity;
+            const threshold = 0.05; // 点击容差（NDC空间，可调整）
+
+            starsData.forEach(star => {
+                if (!star.normalizedPos) return;
+
+                // 投影到屏幕空间
+                const screenPos = star.normalizedPos.clone().project(camera);
+
+                // 检查是否在视野内
+                if (Math.abs(screenPos.x) > 1 || Math.abs(screenPos.y) > 1 || screenPos.z > 1) {
+                    return; // 在视野外或在相机后面
+                }
+
+                // 计算距离
+                const distance = Math.sqrt(
+                    Math.pow(screenPos.x - mouseNDC.x, 2) +
+                    Math.pow(screenPos.y - mouseNDC.y, 2)
+                );
+
+                if (distance < threshold && distance < minDistance) {
+                    minDistance = distance;
+                    nearestStar = star;
+                }
+            });
+
+            return nearestStar;
+        }
+
+        function onStarClick(event) {
+            // 计算归一化设备坐标 (NDC: -1 到 +1)
+            const mouse = new THREE.Vector2();
+            mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+            mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+            // 查找最近的星星
+            const clickedStar = findNearestStar(mouse);
+
+            if (clickedStar) {
+                selectStar(clickedStar.id);
+            }
+        }
+
+        // 添加点击事件监听器
+        renderer.domElement.addEventListener('click', onStarClick, false);
+
+        // 启动
+        createHighlightMarker();
+        loadStarData();
+        animate();
+
+    </script>
+</body>
+
+</html>
