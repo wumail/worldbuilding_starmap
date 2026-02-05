@@ -76,6 +76,24 @@
             max-width: 300px;
             display: none;
         }
+
+        #reset-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            border: 1px solid #444;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            z-index: 100;
+        }
+
+        #reset-button:hover {
+            background: rgba(50, 50, 50, 0.9);
+        }
     </style>
 </head>
 
@@ -92,6 +110,9 @@
         <h3 id="star-name" style="margin-top: 0;"></h3>
         <div id="star-details"></div>
     </div>
+
+    <!-- 重置按钮 -->
+    <button id="reset-button">返回原点</button>
 
     <script type="importmap">
   {
@@ -180,7 +201,7 @@
             // 1. 中圈光环
             const ring2Geometry = new THREE.RingGeometry(18, 21, 32);
             const ring2Material = new THREE.MeshBasicMaterial({
-                color: 0xffff00,
+                color: 0x666666,
                 side: THREE.DoubleSide,
                 transparent: true,
                 opacity: 0.7
@@ -229,7 +250,370 @@
         }
 
         // ==========================================
-        // 5. 加载数据并生成几何体
+        // 5. 银道和天极标记
+        // ==========================================
+        function createGalacticPlane() {
+            // 创建银道平面圆形线条
+            const segments = 128;
+            const radius = 1000;
+            const points = [];
+
+            for (let i = 0; i <= segments; i++) {
+                const theta = (i / segments) * Math.PI * 2;
+                points.push(new THREE.Vector3(
+                    Math.cos(theta) * radius,
+                    Math.sin(theta) * radius,
+                    0
+                ));
+            }
+
+            const galacticPlaneGeometry = new THREE.BufferGeometry().setFromPoints(points);
+            const galacticPlaneMaterial = new THREE.LineBasicMaterial({
+                color: 0x4488ff,
+                transparent: true,
+                opacity: 0.5,
+                linewidth: 2
+            });
+            const galacticPlane = new THREE.Line(galacticPlaneGeometry, galacticPlaneMaterial);
+
+            // 银道在XY平面上，垂直于天轴（Z轴）
+            // 不需要旋转，保持在XY平面
+            scene.add(galacticPlane);
+
+            // 添加银道标签线
+            const lineGeometry = new THREE.BufferGeometry().setFromPoints([
+                new THREE.Vector3(1000, 0, 0),
+                new THREE.Vector3(1100, 0, 0)
+            ]);
+            const lineMaterial = new THREE.LineBasicMaterial({
+                color: 0x4488ff,
+                transparent: true,
+                opacity: 0.6
+            });
+            const labelLine = new THREE.Line(lineGeometry, lineMaterial);
+            scene.add(labelLine);
+
+            // 创建银道文字标签（使用精灵）
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+            canvas.width = 256;
+            canvas.height = 64;
+            context.fillStyle = '#4488ff';
+            context.font = 'Bold 40px Arial';
+            context.fillText('银道面', 10, 45);
+
+            const texture = new THREE.CanvasTexture(canvas);
+            const spriteMaterial = new THREE.SpriteMaterial({
+                map: texture,
+                transparent: true,
+                opacity: 0.2
+            });
+            const sprite = new THREE.Sprite(spriteMaterial);
+            sprite.position.set(1200, 0, 0);
+            sprite.scale.set(200, 50, 1);
+            scene.add(sprite);
+        }
+
+        function createCelestialPoles() {
+            // // 北天极 (North Celestial Pole) - Z轴正方向
+            // const northPoleGeometry = new THREE.SphereGeometry(15, 16, 16);
+            // const northPoleMaterial = new THREE.MeshBasicMaterial({
+            //     color: 0xff6666,
+            //     transparent: true,
+            //     opacity: 0.1
+            // });
+            // const northPole = new THREE.Mesh(northPoleGeometry, northPoleMaterial);
+            // northPole.position.set(0, 0, 1000);
+            // scene.add(northPole);
+
+            // 北天极标签
+            const canvasNorth = document.createElement('canvas');
+            const contextNorth = canvasNorth.getContext('2d');
+            canvasNorth.width = 256;
+            canvasNorth.height = 64;
+            contextNorth.fillStyle = '#ff6666';
+            contextNorth.font = 'Bold 40px Arial';
+            contextNorth.fillText('N', 10, 45);
+
+            const textureNorth = new THREE.CanvasTexture(canvasNorth);
+            const spriteNorthMaterial = new THREE.SpriteMaterial({
+                map: textureNorth,
+                transparent: true,
+                opacity: 0.4
+            });
+            const spriteNorth = new THREE.Sprite(spriteNorthMaterial);
+            spriteNorth.position.set(0, 80, 1000);
+            spriteNorth.scale.set(200, 50, 1);
+            scene.add(spriteNorth);
+
+            // // 南天极 (South Celestial Pole) - Z轴负方向
+            // const southPoleGeometry = new THREE.SphereGeometry(15, 16, 16);
+            // const southPoleMaterial = new THREE.MeshBasicMaterial({
+            //     color: 0x66ff66,
+            //     transparent: true,
+            //     opacity: 0.1
+            // });
+            // const southPole = new THREE.Mesh(southPoleGeometry, southPoleMaterial);
+            // southPole.position.set(0, 0, -1000);
+            // scene.add(southPole);
+
+            // 南天极标签
+            const canvasSouth = document.createElement('canvas');
+            const contextSouth = canvasSouth.getContext('2d');
+            canvasSouth.width = 256;
+            canvasSouth.height = 64;
+            contextSouth.fillStyle = '#66ff66';
+            contextSouth.font = 'Bold 40px Arial';
+            contextSouth.fillText('S', 10, 45);
+
+            const textureSouth = new THREE.CanvasTexture(canvasSouth);
+            const spriteSouthMaterial = new THREE.SpriteMaterial({
+                map: textureSouth,
+                transparent: true,
+                opacity: 0.4
+            });
+            const spriteSouth = new THREE.Sprite(spriteSouthMaterial);
+            spriteSouth.position.set(0, -80, -1000);
+            spriteSouth.scale.set(200, 50, 1);
+            scene.add(spriteSouth);
+        }
+
+        function createCelestialMeridians() {
+            // 创建52条天经线（赤经线），从北天极到南天极
+            const numMeridians = 52;
+            const angleStep = (Math.PI * 2) / numMeridians;
+            const radius = 1000;
+            const segments = 64; // 每条经线的分段数
+
+            for (let i = 0; i < numMeridians; i++) {
+                const angle = i * angleStep;
+                const points = [];
+
+                // 经线连接至80度纬线（10度和170度）
+                const startPhi = (10 / 180) * Math.PI; // 10度纬线（北纬80度）
+                const endPhi = (170 / 180) * Math.PI;   // 170度纬线（南纬80度）
+
+                // 从南纬80度到北纬80度绘制半圆弧
+                for (let j = 0; j <= segments; j++) {
+                    const phi = startPhi + (j / segments) * (endPhi - startPhi);
+                    const z = radius * Math.cos(phi);
+                    const r = radius * Math.sin(phi); // 在XY平面上的半径
+
+                    const x = r * Math.cos(angle);
+                    const y = r * Math.sin(angle);
+
+                    points.push(new THREE.Vector3(x, y, z));
+                }
+
+                const meridianGeometry = new THREE.BufferGeometry().setFromPoints(points);
+                const meridianMaterial = new THREE.LineBasicMaterial({
+                    color: 0x666666,
+                    transparent: true,
+                    opacity: 0.2,
+                    linewidth: 1
+                });
+                const meridianLine = new THREE.Line(meridianGeometry, meridianMaterial);
+                scene.add(meridianLine);
+
+                // 添加度数标签（在赤道位置，每隔一条经线标记）
+                if (i % 2 === 0) { // 每隔一条经线标记，避免过于拥挤
+                    const degrees = Math.round((i / numMeridians) * 360);
+                    const equatorPhi = Math.PI / 2; // 赤道位置
+                    const labelR = radius * Math.sin(equatorPhi);
+                    const labelZ = radius * Math.cos(equatorPhi);
+                    const labelX = labelR * Math.cos(angle);
+                    const labelY = labelR * Math.sin(angle);
+
+                    // 创建文字标签
+                    const canvas = document.createElement('canvas');
+                    const context = canvas.getContext('2d');
+                    canvas.width = 128;
+                    canvas.height = 64;
+                    context.fillStyle = '#888888';
+                    context.font = 'Bold 32px Arial';
+                    context.textAlign = 'center';
+                    context.fillText(degrees + '°', 64, 45);
+
+                    const texture = new THREE.CanvasTexture(canvas);
+                    const spriteMaterial = new THREE.SpriteMaterial({
+                        map: texture,
+                        transparent: true,
+                        opacity: 0.5
+                    });
+                    const sprite = new THREE.Sprite(spriteMaterial);
+                    sprite.position.set(labelX * 1.05, labelY * 1.05, labelZ);
+                    sprite.scale.set(80, 40, 1);
+                    scene.add(sprite);
+                }
+            }
+        }
+
+        function createPolarCrosses() {
+            // 在两极创建十字，连接0、13、26、39经线
+            const crossMeridians = [0, 13, 26, 39];
+            const numMeridians = 52;
+            const angleStep = (Math.PI * 2) / numMeridians;
+            const radius = 1000;
+
+            // 北极十字（10度纬线位置）
+            const northPhi = (10 / 180) * Math.PI;
+            const northR = radius * Math.sin(northPhi);
+            const northZ = radius * Math.cos(northPhi);
+
+            // 南极十字（170度纬线位置）
+            const southPhi = (170 / 180) * Math.PI;
+            const southR = radius * Math.sin(southPhi);
+            const southZ = radius * Math.cos(southPhi);
+
+            // 绘制十字线（连接对角的经线）
+            for (let i = 0; i < 2; i++) {
+                const idx1 = crossMeridians[i];
+                const idx2 = crossMeridians[i + 2];
+
+                const angle1 = idx1 * angleStep;
+                const angle2 = idx2 * angleStep;
+
+                // 北极十字线
+                const northPoints = [
+                    new THREE.Vector3(
+                        northR * Math.cos(angle1),
+                        northR * Math.sin(angle1),
+                        northZ
+                    ),
+                    new THREE.Vector3(
+                        northR * Math.cos(angle2),
+                        northR * Math.sin(angle2),
+                        northZ
+                    )
+                ];
+
+                const northGeometry = new THREE.BufferGeometry().setFromPoints(northPoints);
+                const northMaterial = new THREE.LineBasicMaterial({
+                    color: 0x666666,
+                    transparent: true,
+                    opacity: 0.2,
+                    linewidth: 2
+                });
+                const northLine = new THREE.Line(northGeometry, northMaterial);
+                scene.add(northLine);
+
+                // 南极十字线
+                const southPoints = [
+                    new THREE.Vector3(
+                        southR * Math.cos(angle1),
+                        southR * Math.sin(angle1),
+                        southZ
+                    ),
+                    new THREE.Vector3(
+                        southR * Math.cos(angle2),
+                        southR * Math.sin(angle2),
+                        southZ
+                    )
+                ];
+
+                const southGeometry = new THREE.BufferGeometry().setFromPoints(southPoints);
+                const southMaterial = new THREE.LineBasicMaterial({
+                    color: 0x666666,
+                    transparent: true,
+                    opacity: 0.2,
+                    linewidth: 2
+                });
+                const southLine = new THREE.Line(southGeometry, southMaterial);
+                scene.add(southLine);
+            }
+        }
+
+        function createPolarCircles() {
+            // 创建极点圆环，连接经线端点（80度纬线）
+            const radius = 1000;
+            const segments = 128;
+
+            // 北极圆环（10度纬线，即北纬80度）
+            const northPhi = (10 / 180) * Math.PI;
+            const northR = radius * Math.sin(northPhi); // 圆环在XY平面上的半径
+            const northZ = radius * Math.cos(northPhi); // Z坐标
+
+            const northPoints = [];
+            for (let i = 0; i <= segments; i++) {
+                const theta = (i / segments) * Math.PI * 2;
+                northPoints.push(new THREE.Vector3(
+                    northR * Math.cos(theta),
+                    northR * Math.sin(theta),
+                    northZ
+                ));
+            }
+
+            const northGeometry = new THREE.BufferGeometry().setFromPoints(northPoints);
+            const northMaterial = new THREE.LineBasicMaterial({
+                color: 0x666666,
+                transparent: true,
+                opacity: 0.2,
+                linewidth: 1
+            });
+            const northCircle = new THREE.Line(northGeometry, northMaterial);
+            scene.add(northCircle);
+
+            // 南极圆环（170度纬线，即南纬80度）
+            const southPhi = (170 / 180) * Math.PI;
+            const southR = radius * Math.sin(southPhi); // 圆环在XY平面上的半径
+            const southZ = radius * Math.cos(southPhi); // Z坐标
+
+            const southPoints = [];
+            for (let i = 0; i <= segments; i++) {
+                const theta = (i / segments) * Math.PI * 2;
+                southPoints.push(new THREE.Vector3(
+                    southR * Math.cos(theta),
+                    southR * Math.sin(theta),
+                    southZ
+                ));
+            }
+
+            const southGeometry = new THREE.BufferGeometry().setFromPoints(southPoints);
+            const southMaterial = new THREE.LineBasicMaterial({
+                color: 0x666666,
+                transparent: true,
+                opacity: 0.2,
+                linewidth: 1
+            });
+            const southCircle = new THREE.Line(southGeometry, southMaterial);
+            scene.add(southCircle);
+        }
+
+        function createLatitudeLines() {
+            // 创建纬线（赤纬线），每10度一条，忽略两极
+            const radius = 1000;
+            const segments = 128;
+
+            // 从10度到170度，每10度一条纬线
+            for (let deg = 10; deg <= 170; deg += 10) {
+                const phi = (deg / 180) * Math.PI; // 转换为弧度
+                const z = radius * Math.cos(phi); // Z坐标
+                const r = radius * Math.sin(phi); // 在XY平面上的半径
+
+                const points = [];
+                for (let i = 0; i <= segments; i++) {
+                    const theta = (i / segments) * Math.PI * 2;
+                    points.push(new THREE.Vector3(
+                        r * Math.cos(theta),
+                        r * Math.sin(theta),
+                        z
+                    ));
+                }
+
+                const latGeometry = new THREE.BufferGeometry().setFromPoints(points);
+                const latMaterial = new THREE.LineBasicMaterial({
+                    color: 0x666666,
+                    transparent: true,
+                    opacity: 0.15,
+                    linewidth: 1
+                });
+                const latLine = new THREE.Line(latGeometry, latMaterial);
+                scene.add(latLine);
+            }
+        }
+
+        // ==========================================
+        // 6. 加载数据并生成几何体
         // ==========================================
         async function loadStarData() {
             try {
@@ -289,7 +673,7 @@
         }
 
         // ==========================================
-        // 6. 搜索功能
+        // 7. 搜索功能
         // ==========================================
         const searchInput = document.getElementById('search-input');
         const searchResults = document.getElementById('search-results');
@@ -448,7 +832,7 @@
         }
 
         // ==========================================
-        // 7. 渲染循环
+        // 8. 渲染循环
         // ==========================================
         function animate() {
             requestAnimationFrame(animate);
@@ -471,7 +855,7 @@
         }
 
         // ==========================================
-        // 8. 点击星星交互
+        // 9. 点击星星交互
         // ==========================================
         function findNearestStar(mouseNDC) {
             let nearestStar = null;
@@ -504,7 +888,30 @@
             return nearestStar;
         }
 
+        // 跟踪鼠标按下和松开的位置，区分点击和拖动
+        let mouseDownPosition = { x: 0, y: 0 };
+        let mouseUpPosition = { x: 0, y: 0 };
+
+        function onMouseDown(event) {
+            mouseDownPosition.x = event.clientX;
+            mouseDownPosition.y = event.clientY;
+        }
+
         function onStarClick(event) {
+            mouseUpPosition.x = event.clientX;
+            mouseUpPosition.y = event.clientY;
+
+            // 计算鼠标移动距离
+            const dx = mouseUpPosition.x - mouseDownPosition.x;
+            const dy = mouseUpPosition.y - mouseDownPosition.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            // 如果移动距离小于阈值，认为是点击而非拖动
+            const clickThreshold = 5; // 像素
+            if (distance > clickThreshold) {
+                return; // 是拖动操作，不选择星星
+            }
+
             // 计算归一化设备坐标 (NDC: -1 到 +1)
             const mouse = new THREE.Vector2();
             mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
@@ -518,11 +925,59 @@
             }
         }
 
-        // 添加点击事件监听器
+        // 添加鼠标事件监听器
+        renderer.domElement.addEventListener('mousedown', onMouseDown, false);
         renderer.domElement.addEventListener('click', onStarClick, false);
+
+        // ==========================================
+        // 10. 相机缩放控制（沿当前方向移动）
+        // ==========================================
+        const minDistance = 50;  // 距离原点的最小距离
+        const maxDistance = 900; // 距离原点的最大距离
+        const zoomSpeed = 50;    // 每次滚轮滚动的移动距离
+
+        function onMouseWheel(event) {
+            event.preventDefault();
+
+            // 获取相机当前位置和距离
+            const currentDistance = camera.position.length();
+
+            // 根据滚轮方向调整距离
+            const delta = event.deltaY > 0 ? -zoomSpeed : zoomSpeed;
+            let newDistance = currentDistance + delta;
+
+            // 限制在范围内
+            newDistance = Math.max(minDistance, Math.min(maxDistance, newDistance));
+
+            // 沿着当前方向移动相机（保持方向，只改变距离）
+            const direction = camera.position.clone().normalize();
+            camera.position.copy(direction.multiplyScalar(newDistance));
+
+            camera.lookAt(0, 0, 0);
+            controls.update();
+        }
+
+        function resetCamera() {
+            // 返回原点
+            camera.position.set(0, 0, 0.1);
+            camera.lookAt(0, 0, 0);
+            controls.update();
+        }
+
+        // 添加滚轮事件监听器
+        renderer.domElement.addEventListener('wheel', onMouseWheel, { passive: false });
+
+        // 添加重置按钮事件监听器
+        document.getElementById('reset-button').addEventListener('click', resetCamera);
 
         // 启动
         createHighlightMarker();
+        createGalacticPlane();
+        createCelestialPoles();
+        createCelestialMeridians();
+        createPolarCrosses();
+        createPolarCircles();
+        createLatitudeLines();
         loadStarData();
         animate();
 
