@@ -7,7 +7,7 @@ import numpy as np
 # 1. 配置参数与邻居数据
 # ==========================================
 OUTPUT_FILE = "stars_data_1000.json"
-TOTAL_STARS = 14000
+TOTAL_STARS = 7000
 GALAXY_TYPE = "SBbc-Spiral-Arm"
 
 # 颜色映射 (近似 RGB Hex)
@@ -28,6 +28,29 @@ RADIUS_MAP = {
     "G": 1.0, "K": 0.8, "M": 0.3, "D": 0.01,
     "Supergiant": 100.0, "Giant": 20.0
 }
+
+# 基于肉眼可见星星的光谱类型分布（而非全部恒星）
+# (光谱型, 累计概率, 绝对星等范围, 半径太阳倍数)
+# 数据来源: 实际肉眼可见6000颗星的统计分布
+# 目标: 符合Hipparcos星表统计 (mag<0: ~4-5颗, mag<1: ~25颗)
+SPECTRAL_DISTRIBUTION = [
+    ("O", 0.005, (-6.5, -4.0), 15.0),    # 目标1% - O型超巨星
+    ("B", 0.055, (-3.5, 0.5), 7.0),      # 目标10% - B型亮星
+    ("A", 0.285, (0.5, 2.5), 2.5),       # 目标22% - A型主序星
+    ("F", 0.530, (1.5, 3.5), 1.5),       # 目标19% - F型恒星
+    ("G", 0.700, (0.5, 4.0), 10.0),      # 目标14% - G型巨星
+    ("K", 0.980, (-0.3, 3.5), 20.0),     # 目标31% - K型巨星
+    ("M", 1.0, (-2.0, 1.0), 100.0),      # 目标3% - M型红巨星
+]
+
+def sample_spectral_type():
+    """基于肉眼可见星星的真实分布随机抽样光谱类型"""
+    roll = random.random()
+    for s_type, cumulative_prob, abs_mag_range, radius in SPECTRAL_DISTRIBUTION:
+        if roll < cumulative_prob:
+            abs_mag = random.uniform(*abs_mag_range)
+            return s_type, abs_mag, radius
+    return "M", 0.0, 100.0  # 默认红巨星
 
 # 24 个邻居数据
 fixed_neighbors = [
@@ -113,57 +136,50 @@ for neighbor in fixed_neighbors:
         "pos_cartesian": neighbor["pos"] # 保存直角坐标方便引擎使用
     })
 
-# --- 步骤 B: 生成背景星 (Voronoi/Fibonacci Sampling) ---
+# --- 步骤 B: 生成背景星 (随机均匀球面采样) ---
 num_bg_stars = TOTAL_STARS - len(fixed_neighbors)
-phi = (1 + math.sqrt(5)) / 2  # 黄金比例
+generated_count = 0
+attempt_id = 0
 
-for i in range(num_bg_stars):
-    # 1. 斐波那契球采样 (生成均匀的方向向量)
-    y = 1 - (i / float(num_bg_stars - 1)) * 2
-    radius_at_y = math.sqrt(1 - y * y)
-    theta = phi * i * 2 * math.pi
+# 统计各类型星星数量
+type_counts = {"O": 0, "B": 0, "A": 0, "F": 0, "G": 0, "K": 0, "M": 0}
+
+while generated_count < num_bg_stars:
+    attempt_id += 1
     
-    x = math.cos(theta) * radius_at_y
-    z = math.sin(theta) * radius_at_y
+    # 1. 随机均匀球面采样 (生成均匀的方向向量)
+    # 使用极坐标方法确保在球面上均匀分布
+    theta = random.uniform(0, 2 * math.pi)  # 方位角
+    cos_phi = random.uniform(-1, 1)  # cos(天顶角)，保证均匀分布
+    sin_phi = math.sqrt(1 - cos_phi * cos_phi)
     
-    # 这里 x, z, y 是单位向量坐标 (y 为天轴)
-    # 我们映射为: X=x, Y=z, Z=y (Z为Declination轴)
-    vec = np.array([x, z, y])
+    x = sin_phi * math.cos(theta)
+    y = sin_phi * math.sin(theta)
+    z = cos_phi  # Z为Declination轴
     
-    # 2. 距离生成 (加权随机: 远处星星更多)
-    dist = random.triangular(40, 1500, 800)
+    vec = np.array([x, y, z])
     
-    # 3. 旋臂环境模拟 (SBbc Context)
-    # 银河平面判定: Z轴接近 0 (即 y 接近 0)
-    # sin(lat) = y component
-    sin_lat = abs(y)
+    # 2. 基于真实恒星分布抽样光谱类型（与银河位置无关）
+    # 这符合肉眼观测：近距离恒星在天球上均匀分布
+    s_type, abs_mag, radius = sample_spectral_type()
+    color = COLOR_MAP[s_type]
     
-    roll = random.random()
-    
-    # 默认参数 (背景填充星)
-    s_type = "K" # 橙巨星
-    radius = RADIUS_MAP["Giant"]
-    abs_mag = 0.5 
-    color = COLOR_MAP["K"]
-    
-    # 逻辑: 靠近平面 -> 更多蓝超巨星
-    if sin_lat < 0.25: # 银河带内 (~15度)
-        if roll < 0.20: # 20% 概率是明亮的蓝星
-            s_type = "B"
-            radius = RADIUS_MAP["Supergiant"]
-            abs_mag = -4.5 + random.uniform(-1, 1) # 极亮
-            color = COLOR_MAP["B"]
-        elif roll < 0.50:
-            s_type = "A"
-            radius = 30.0
-            abs_mag = -1.0 + random.uniform(-0.5, 0.5)
-            color = COLOR_MAP["A"]
-    else: # 银晕/高纬度
-        if roll < 0.10: # 偶尔有蓝星跑出来
-            s_type = "B"
-            radius = RADIUS_MAP["B"]
-            abs_mag = -1.5
-            color = COLOR_MAP["B"]
+    # 3. 根据星型调整距离分布
+    # 最小距离经过校准，符合真实天文观测 (mag<0: ~5颗, mag<1: ~25颗)
+    if s_type == "O":
+        dist = random.triangular(300, 1500, 1000)  # 超巨星，最近300ly
+    elif s_type == "B":
+        dist = random.triangular(150, 1400, 850)   # 蓝白巨星，最近150ly
+    elif s_type == "A":
+        dist = random.triangular(40, 1080, 520)    # 白色主序星，最近40ly
+    elif s_type == "F":
+        dist = random.triangular(35, 870, 420)     # 黄白星，最近35ly
+    elif s_type == "G":
+        dist = random.triangular(40, 950, 470)     # 黄色巨星，最近40ly
+    elif s_type == "K":
+        dist = random.triangular(50, 1120, 540)    # 橙色巨星，最近50ly
+    else:  # M型
+        dist = random.triangular(100, 1320, 780)   # 红巨星，最近100ly
             
     # 计算视参数
     app_mag = calculate_apparent_mag(abs_mag, dist)
@@ -171,7 +187,9 @@ for i in range(num_bg_stars):
     # 剔除过暗的星 (视星等 > 6.5 肉眼不可见)
     if app_mag > 7.0:
         continue
-        
+    
+    generated_count += 1
+    type_counts[s_type] += 1  # 统计类型
     ang_diam = calculate_angular_diameter_mas(radius, dist)
     
     # 计算最终坐标
@@ -179,7 +197,7 @@ for i in range(num_bg_stars):
     ra, dec = cartesian_to_spherical(final_pos[0], final_pos[1], final_pos[2])
     
     stars_list.append({
-        "id": f"Bg_{i}",
+        "id": f"Bg_{generated_count}",
         "is_neighbor": False,
         "type": s_type,
         "ra": round(ra, 4),
@@ -209,3 +227,12 @@ with open(OUTPUT_FILE, "w", encoding='utf-8') as f:
 
 print(f"成功生成 {len(stars_list)} 颗恒星数据，已保存至 {OUTPUT_FILE}")
 print("包含关键字段: id, ra, dec, app_mag, angular_diameter_mas, color_hex")
+
+# 输出各光谱类型占比统计
+print("\n=== 光谱类型分布统计 ===")
+total_bg = sum(type_counts.values())
+for s_type in ["O", "B", "A", "F", "G", "K", "M"]:
+    count = type_counts[s_type]
+    percentage = (count / total_bg * 100) if total_bg > 0 else 0
+    print(f"{s_type} 型: {count:4d} 颗 ({percentage:5.2f}%)")
+print(f"总计背景星: {total_bg} 颗")

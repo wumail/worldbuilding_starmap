@@ -120,6 +120,23 @@
     <!-- 搜索面板 -->
     <div id="search-panel">
         <input type="text" id="search-input" placeholder="搜索星星 (例如: Sys_1, Bg_100)">
+
+        <!-- 视星等筛选 -->
+        <div style="margin-top: 10px; font-size: 12px;">
+            <label>视星等范围: <span id="mag-range-display">-2 到 7</span></label>
+            <div style="display: flex; gap: 10px; margin-top: 5px;">
+                <input type="range" id="mag-min" min="-2" max="7" value="-2" step="0.5" style="flex: 1;">
+                <input type="range" id="mag-max" min="-2" max="7" value="7" step="0.5" style="flex: 1;">
+            </div>
+        </div>
+
+        <!-- 排序按钮 -->
+        <div style="margin-top: 10px; display: flex; gap: 5px;">
+            <button id="sort-bright" style="flex: 1; padding: 5px; font-size: 11px; cursor: pointer;">⭐ 最亮优先</button>
+            <button id="sort-dim" style="flex: 1; padding: 5px; font-size: 11px; cursor: pointer;">🌑 最暗优先</button>
+            <button id="sort-near" style="flex: 1; padding: 5px; font-size: 11px; cursor: pointer;">📍 最近优先</button>
+        </div>
+
         <div id="search-results"></div>
     </div>
 
@@ -641,9 +658,15 @@
         // ==========================================
         async function loadStarData() {
             try {
-                const response = await fetch('./stars_data_1000.json');
+                const response = await fetch('./star_map.json');
                 const data = await response.json();
-                starsData = data.stars;
+
+                // 合并邻居和背景星星
+                const neighbors = data.neighbors || [];
+                const stars = data.stars || [];
+                starsData = [...neighbors, ...stars];
+
+                console.log(`加载了 ${neighbors.length} 个邻居 + ${stars.length} 颗背景星`);
                 createStarField(starsData);
             } catch (err) {
                 console.error("加载 JSON 失败:", err);
@@ -710,19 +733,83 @@
         const starName = document.getElementById('star-name');
         const starDetails = document.getElementById('star-details');
 
-        searchInput.addEventListener('input', (e) => {
-            const query = e.target.value.toLowerCase().trim();
+        // 筛选和排序状态
+        let magMin = -2;
+        let magMax = 7;
+        let currentSort = 'bright'; // 'bright', 'dim', 'near'
 
-            if (query.length === 0) {
-                searchResults.innerHTML = '';
-                return;
+        // 视星等滑块
+        const magMinSlider = document.getElementById('mag-min');
+        const magMaxSlider = document.getElementById('mag-max');
+        const magRangeDisplay = document.getElementById('mag-range-display');
+
+        function updateMagDisplay() {
+            magRangeDisplay.textContent = `${magMin} 到 ${magMax}`;
+        }
+
+        magMinSlider.addEventListener('input', (e) => {
+            magMin = parseFloat(e.target.value);
+            if (magMin > magMax) {
+                magMax = magMin;
+                magMaxSlider.value = magMax;
+            }
+            updateMagDisplay();
+            refreshFilteredList();
+        });
+
+        magMaxSlider.addEventListener('input', (e) => {
+            magMax = parseFloat(e.target.value);
+            if (magMax < magMin) {
+                magMin = magMax;
+                magMinSlider.value = magMin;
+            }
+            updateMagDisplay();
+            refreshFilteredList();
+        });
+
+        // 排序按钮
+        document.getElementById('sort-bright').addEventListener('click', () => {
+            currentSort = 'bright';
+            refreshFilteredList();
+        });
+
+        document.getElementById('sort-dim').addEventListener('click', () => {
+            currentSort = 'dim';
+            refreshFilteredList();
+        });
+
+        document.getElementById('sort-near').addEventListener('click', () => {
+            currentSort = 'near';
+            refreshFilteredList();
+        });
+
+        function getFilteredAndSortedStars(query = '') {
+            let filtered = starsData.filter(star => {
+                const magOk = star.app_mag >= magMin && star.app_mag <= magMax;
+                const queryOk = query.length === 0 || star.id.toLowerCase().includes(query);
+                return magOk && queryOk;
+            });
+
+            // 排序
+            if (currentSort === 'bright') {
+                filtered.sort((a, b) => a.app_mag - b.app_mag);
+            } else if (currentSort === 'dim') {
+                filtered.sort((a, b) => b.app_mag - a.app_mag);
+            } else if (currentSort === 'near') {
+                filtered.sort((a, b) => a.dist_ly - b.dist_ly);
             }
 
-            const matches = starsData.filter(star =>
-                star.id.toLowerCase().includes(query)
-            ).slice(0, 20); // 限制显示前20个结果
+            return filtered.slice(0, 50); // 限制显示前50个结果
+        }
 
+        function refreshFilteredList() {
+            const query = searchInput.value.toLowerCase().trim();
+            const matches = getFilteredAndSortedStars(query);
             displaySearchResults(matches);
+        }
+
+        searchInput.addEventListener('input', (e) => {
+            refreshFilteredList();
         });
 
         function displaySearchResults(matches) {
@@ -735,7 +822,7 @@
             <div class="result-item" data-star-id="${star.id}">
                 <strong>${star.id}</strong>
                 <div class="star-info">
-                    类型: ${star.type} | 视星等: ${star.app_mag} | 距离: ${star.dist_ly} ly
+                    类型: ${star.spectral_type} | 视星等: ${star.app_mag} | 距离: ${star.dist_ly} ly
                 </div>
             </div>
         `).join('');
@@ -774,14 +861,16 @@
 
         function showStarInfo(star) {
             starName.textContent = star.id;
+            const isNeighbor = star.is_neighbor ? '是 (邻近恒星)' : '否 (背景星)';
             starDetails.innerHTML = `
-            <p><strong>类型:</strong> ${star.type}</p>
+            <p><strong>类型:</strong> ${star.spectral_type}</p>
             <p><strong>视星等:</strong> ${star.app_mag}</p>
             <p><strong>绝对星等:</strong> ${star.abs_mag}</p>
             <p><strong>距离:</strong> ${star.dist_ly} 光年</p>
             <p><strong>赤经 (RA):</strong> ${star.ra}°</p>
             <p><strong>赤纬 (Dec):</strong> ${star.dec}°</p>
             <p><strong>角直径:</strong> ${star.angular_diameter_mas} mas</p>
+            <p><strong>邻近恒星:</strong> ${isNeighbor}</p>
             <p><strong>颜色:</strong> <span style="display:inline-block;width:20px;height:20px;background:${star.color_hex};border:1px solid #fff;vertical-align:middle;"></span></p>
         `;
             infoPanel.style.display = 'block';
