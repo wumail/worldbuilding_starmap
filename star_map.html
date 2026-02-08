@@ -206,11 +206,11 @@
             vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
             gl_Position = projectionMatrix * mvPosition;
             
-            float baseSize = 50.0; 
+            float baseSize = 70.0; 
             float sizeFactor = 1.0 / (1.0 + exp((mag - 2.0) * 0.8)); 
             
             gl_PointSize = baseSize * sizeFactor * (1000.0 / length(mvPosition.xyz));
-            gl_PointSize = clamp(gl_PointSize, 2.0, 64.0);
+            gl_PointSize = clamp(gl_PointSize, 4.4, 64.0);
         }
     `;
 
@@ -222,13 +222,20 @@
             vec2 coord = gl_PointCoord - vec2(0.5);
             float dist = length(coord);
             
+            // 边缘区域直接丢弃，避免过多碎片计算
             if (dist > 0.5) discard;
             
-            float intensity = 1.0 - (dist * 2.0);
-            intensity = pow(intensity, 3.0);
+            // 使用 smoothstep 创建更平滑的边缘过渡，减少闪烁
+            // 核心区域 (dist < 0.3) 保持 alpha = 1.0，只在边缘淡出
+            float alpha = 1.0 - smoothstep(0.3, 0.5, dist);
+            
+            // 核心区域保持明亮，边缘平滑淡出
+            float coreIntensity = 1.0 - smoothstep(0.0, 0.18, dist);
+            float glowIntensity = (1.0 - smoothstep(0.1, 0.36, dist)) * 0.3;
+            float intensity = coreIntensity + glowIntensity;
             
             vec3 finalColor = useWhiteColor ? vec3(1.0, 1.0, 1.0) : vColor;
-            gl_FragColor = vec4(finalColor * intensity * 2.0, 1.0);
+            gl_FragColor = vec4(finalColor * intensity, alpha);
         }
     `;
 
@@ -711,6 +718,7 @@
                 vertexShader: vertexShader,
                 fragmentShader: fragmentShader,
                 transparent: true,
+                depthTest: false,
                 depthWrite: false,
                 blending: THREE.AdditiveBlending
             });
