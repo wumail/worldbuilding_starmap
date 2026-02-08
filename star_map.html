@@ -222,7 +222,7 @@
                 gl_PointSize = baseSize * sizeFactor * (1000.0 / length(mvPosition.xyz));
                 
                 // 限制尺寸范围。4.4 是为了保证 6.5 等星在远处依然能占 1-2 像素，避免闪烁
-                gl_PointSize = clamp(gl_PointSize, 4.0, 64.0);
+                gl_PointSize = clamp(gl_PointSize, 4.0, 32.0);
             }
         `;
 
@@ -900,7 +900,6 @@
             <p><strong>赤经 (RA):</strong> ${star.ra}°</p>
             <p><strong>赤纬 (Dec):</strong> ${star.dec}°</p>
             <p><strong>角直径:</strong> ${star.angular_diameter_mas} mas</p>
-            <p><strong>邻近恒星:</strong> ${isNeighbor}</p>
             <p><strong>颜色:</strong> <span style="display:inline-block;width:20px;height:20px;background:${star.color_hex};border:1px solid #fff;vertical-align:middle;"></span></p>
         `;
             infoPanel.style.display = 'block';
