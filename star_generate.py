@@ -126,7 +126,7 @@ def estimate_stellar_radius(mass, giant=False):
 # 工具函数
 # =========================
 
-def sample_apparent_magnitude(size, m_min=-1.5, m_max=7.0):
+def sample_apparent_magnitude(size, m_min=-1.5, m_max=6.5):
     """
     根据 p(m) ∝ 10^(0.5m) 分布采样视星等
     使用逆变换采样方法
@@ -307,7 +307,7 @@ SPECTRAL_TEMP = {
 
 while len(generated_stars) < TARGET_COUNT * 1.2:  # 多生成一些以便筛选
     # 1. 采样视星等 (使用 p(m) ∝ 10^(0.5m) 分布)
-    app_mags = sample_apparent_magnitude(batch_size, m_min=-1.5, m_max=7.0)
+    app_mags = sample_apparent_magnitude(batch_size, m_min=-1.8, m_max=6.5)
     
     # 2. 按目标分布采样光谱类型
     type_probs = list(TARGET_DISTRIBUTION.values())
