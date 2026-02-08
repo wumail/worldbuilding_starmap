@@ -196,48 +196,70 @@
         // 3. 自定义 Shader
         // ==========================================
         const vertexShader = `
-        attribute float mag;
-        attribute vec3 color;
-        varying vec3 vColor;
-        
-        void main() {
-            vColor = color;
-            
-            vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
-            gl_Position = projectionMatrix * mvPosition;
-            
-            float baseSize = 70.0; 
-            float sizeFactor = 1.0 / (1.0 + exp((mag - 2.0) * 0.8)); 
-            
-            gl_PointSize = baseSize * sizeFactor * (1000.0 / length(mvPosition.xyz));
-            gl_PointSize = clamp(gl_PointSize, 4.4, 64.0);
-        }
-    `;
+            attribute float mag;
+            attribute vec3 color;
+            varying vec3 vColor;
+            varying float vIntensity; // 新增：向片元传递物理亮度
+
+            void main() {
+                vColor = color;
+                
+                // 1. 应用普格森公式计算物理亮度 (以0等星为基准 1.0)
+                // I = 10^(-0.4 * m)
+                float intensity = pow(10.0, -0.4 * mag);
+                vIntensity = intensity;
+                
+                vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
+                gl_Position = projectionMatrix * mvPosition;
+                
+                // 2. 改造后的对数缩放尺寸逻辑
+                // 理由：直接用强度控制尺寸会导致亮星过大或暗星消失
+                // 使用 log 映射可以模拟人眼的非线性感知，既保留了亮星的地位，又让暗星清晰可见
+                float baseSize = 70.0; 
+                float sizeFactor = log2(intensity * 10.0 + 1.01); 
+                
+                // 结合距离衰减
+                gl_PointSize = baseSize * sizeFactor * (1000.0 / length(mvPosition.xyz));
+                
+                // 限制尺寸范围。4.4 是为了保证 6.5 等星在远处依然能占 1-2 像素，避免闪烁
+                gl_PointSize = clamp(gl_PointSize, 4.0, 64.0);
+            }
+        `;
 
         const fragmentShader = `
-        uniform bool useWhiteColor;
-        varying vec3 vColor;
-        
-        void main() {
-            vec2 coord = gl_PointCoord - vec2(0.5);
-            float dist = length(coord);
-            
-            // 边缘区域直接丢弃，避免过多碎片计算
-            if (dist > 0.5) discard;
-            
-            // 使用 smoothstep 创建更平滑的边缘过渡，减少闪烁
-            // 核心区域 (dist < 0.3) 保持 alpha = 1.0，只在边缘淡出
-            float alpha = 1.0 - smoothstep(0.3, 0.5, dist);
-            
-            // 核心区域保持明亮，边缘平滑淡出
-            float coreIntensity = 1.0 - smoothstep(0.0, 0.18, dist);
-            float glowIntensity = (1.0 - smoothstep(0.1, 0.36, dist)) * 0.3;
-            float intensity = coreIntensity + glowIntensity;
-            
-            vec3 finalColor = useWhiteColor ? vec3(1.0, 1.0, 1.0) : vColor;
-            gl_FragColor = vec4(finalColor * intensity, alpha);
-        }
-    `;
+            uniform bool useWhiteColor;
+            varying vec3 vColor;
+            varying float vIntensity; // 接收物理亮度
+
+            void main() {
+                vec2 coord = gl_PointCoord - vec2(0.5);
+                float dist = length(coord);
+                
+                if (dist > 0.5) discard;
+                
+                // 1. 模拟点扩散函数 (PSF)
+                // 核心区域 (Core) 模拟星星实体，边缘 (Glow) 模拟光晕
+                // 引入 vIntensity 让亮星看起来更“通透”
+                float core = 1.0 - smoothstep(0.0, 0.2, dist);
+                float glow = (1.0 - smoothstep(0.0, 0.5, dist)) * 0.4;
+                
+                // 2. 计算最终强度
+                // 物理亮度高的星星，中心和光晕会更亮
+                float intensity = (core + glow) * (vIntensity + 0.6);
+                
+                // 3. alpha 计算
+                // 使用平滑淡出，确保星星边缘不生硬
+                float alpha = 1.0 - smoothstep(0.3, 0.5, dist);
+                
+                // 4. 颜色与白色切换逻辑
+                vec3 starColor = useWhiteColor ? vec3(1.0) : vColor;
+                
+                // 亮星（vIntensity > 1.0）会自动呈现出一种过曝的白色倾向，更符合摄影规律
+                vec3 finalColor = mix(starColor, vec3(1.0), clamp(vIntensity * 0.1, 0.0, 1.0));
+                
+                gl_FragColor = vec4(finalColor * intensity, alpha);
+            }
+        `;
 
         // ==========================================
         // 4. 高亮标记

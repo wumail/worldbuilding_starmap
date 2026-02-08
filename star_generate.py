@@ -7,7 +7,7 @@ import random
 # 基本参数
 # =========================
 
-TARGET_COUNT = 7000
+TARGET_COUNT = 9000
 
 # IMF 参数
 M_MIN = 0.08
@@ -126,21 +126,31 @@ def estimate_stellar_radius(mass, giant=False):
 # 工具函数
 # =========================
 
-def sample_apparent_magnitude(size, m_min=-1.5, m_max=7.0):
+def sample_apparent_magnitude(size, m_min=-1.5, m_max=6.5, b=0.51):
     """
-    根据 p(m) ∝ 10^(0.5m) 分布采样视星等
-    使用逆变换采样方法
+    根据恒星计数规律 log10(N(m)) = a + b*m 采样视星等
+    使用逆变换采样方法 (Inverse Transform Sampling)
     
-    CDF: F(m) = (10^(0.5m) - 10^(0.5*m_min)) / (10^(0.5*m_max) - 10^(0.5*m_min))
-    逆CDF: m = 2 * log10(u * (10^(0.5*m_max) - 10^(0.5*m_min)) + 10^(0.5*m_min))
+    核心公式：
+    m = log10(r * (10^(b*m_max) - 10^(b*m_min)) + 10^(b*m_min)) / b
+    
+    参数:
+        size: 需要生成的星等数量
+        m_min: 最亮极限（默认 -1.5，天狼星级别）
+        m_max: 最暗极限（默认 6.5，肉眼可见极限）
+        b: 分布斜率（默认 0.51，根据实际数据拟合的最优值）
+    
+    返回:
+        符合恒星计数规律分布的视星等数组
     """
-    u = np.random.rand(size)
+    r = np.random.rand(size)
     
-    a = 10 ** (0.5 * m_min)
-    b = 10 ** (0.5 * m_max)
+    # 计算 10^(b*m_min) 和 10^(b*m_max)
+    term_min = 10 ** (b * m_min)
+    term_max = 10 ** (b * m_max)
     
     # 逆变换采样
-    m = 2 * np.log10(u * (b - a) + a)
+    m = np.log10(r * (term_max - term_min) + term_min) / b
     
     return m
 
@@ -306,8 +316,8 @@ SPECTRAL_TEMP = {
 }
 
 while len(generated_stars) < TARGET_COUNT * 1.2:  # 多生成一些以便筛选
-    # 1. 采样视星等 (使用 p(m) ∝ 10^(0.5m) 分布)
-    app_mags = sample_apparent_magnitude(batch_size, m_min=-1.5, m_max=7.0)
+    # 1. 采样视星等 (使用恒星计数规律 log10(N) = a + 0.51*m)
+    app_mags = sample_apparent_magnitude(batch_size, m_min=-2.0, m_max=6.5)
     
     # 2. 按目标分布采样光谱类型
     type_probs = list(TARGET_DISTRIBUTION.values())
