@@ -6,7 +6,7 @@
 import json
 from collections import defaultdict
 
-def analyze_star_distribution(json_path: str = "star_map.json"):
+def analyze_star_distribution(json_path: str = "star_map_fixed.json"):
     """分析星星视星等分布"""
     
     with open(json_path, 'r', encoding='utf-8') as f:
@@ -128,5 +128,5 @@ def analyze_star_distribution(json_path: str = "star_map.json"):
 
 if __name__ == "__main__":
     import sys
-    path = sys.argv[1] if len(sys.argv) > 1 else "star_map.json"
+    path = sys.argv[1] if len(sys.argv) > 1 else "star_map_fixed.json"
     analyze_star_distribution(path)
