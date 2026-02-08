@@ -112,6 +112,42 @@
         #color-toggle-button:hover {
             background: rgba(50, 50, 50, 0.9);
         }
+
+        #folder-selector {
+            position: absolute;
+            top: 110px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            border: 1px solid #444;
+            padding: 10px;
+            border-radius: 4px;
+            z-index: 100;
+            min-width: 200px;
+        }
+
+        #folder-selector label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 12px;
+            color: #aaa;
+        }
+
+        #folder-select {
+            width: 100%;
+            padding: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid #666;
+            border-radius: 3px;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        #folder-select option {
+            background: #222;
+            color: white;
+        }
     </style>
 </head>
 
@@ -150,7 +186,15 @@
     <button id="reset-button">返回原点</button>
 
     <!-- 颜色切换按钮 -->
-    <button id="color-toggle-button">切换为白色</button>
+    <button id="color-toggle-button">切换白色模式</button>
+
+    <!-- 文件夹选择器 -->
+    <div id="folder-selector">
+        <label for="folder-select">选择数据集:</label>
+        <select id="folder-select">
+            <option value="default">默认 (default)</option>
+        </select>
+    </div>
 
     <script type="importmap">
   {
@@ -860,9 +904,51 @@
         // ==========================================
         // 6. 加载数据并生成几何体
         // ==========================================
+
+        let currentFolder = 'default';
+
+        // 发现可用的文件夹
+        async function discoverFolders() {
+            const folderSelect = document.getElementById('folder-select');
+
+            try {
+                // 尝试加载 folders.json（如果存在）
+                const response = await fetch('./folders.json');
+                if (response.ok) {
+                    const folders = await response.json();
+                    folders.forEach(folder => {
+                        if (folder !== 'default') {
+                            const option = document.createElement('option');
+                            option.value = folder;
+                            option.textContent = folder.replace('output_', '');
+                            folderSelect.appendChild(option);
+                        }
+                    });
+                }
+            } catch (err) {
+                console.log('No folders.json found, using default only');
+            }
+
+            // 监听选择变化
+            folderSelect.addEventListener('change', async (e) => {
+                currentFolder = e.target.value;
+                await loadStarData();
+            });
+        }
+
         async function loadStarData() {
             try {
-                const response = await fetch('./default/star_map_complete.json');
+                let jsonPath;
+                if (currentFolder === 'default') {
+                    jsonPath = './default/star_map_complete.json';
+                } else {
+                    // 对于 output_* 文件夹，需要找到对应的 JSON 文件
+                    const id = currentFolder.replace('output_', '');
+                    jsonPath = `./${currentFolder}/star_map_${id}.json`;
+                }
+
+                console.log(`Loading: ${jsonPath}`);
+                const response = await fetch(jsonPath);
                 const data = await response.json();
 
                 // 合并邻居和背景星星
@@ -871,9 +957,16 @@
                 starsData = [...neighbors, ...stars];
 
                 console.log(`加载了 ${neighbors.length} 个邻居 + ${stars.length} 颗背景星`);
+
+                // 清除现有星星
+                if (window.starField) {
+                    scene.remove(window.starField);
+                }
+
                 createStarField(starsData);
             } catch (err) {
                 console.error("加载 JSON 失败:", err);
+                alert(`无法加载数据: ${err.message}`);
             }
         }
 
@@ -919,11 +1012,11 @@
                 depthWrite: false,
                 blending: THREE.AdditiveBlending
             });
-
             // 保存材质引用以便切换颜色
             starMaterial = material;
 
             const points = new THREE.Points(geometry, material);
+            window.starField = points;  // 保存引用以便切换文件夹时移除
             scene.add(points);
 
             console.log(`已渲染 ${stars.length} 颗恒星`);
@@ -1315,7 +1408,12 @@
         createPolarCrosses();
         createPolarCircles();
         createLatitudeLines();
-        loadStarData();
+
+        // 先发现可用文件夹，再加载数据
+        discoverFolders().then(() => {
+            loadStarData();
+        });
+
         animate();
 
     </script>
