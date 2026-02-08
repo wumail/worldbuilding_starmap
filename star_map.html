@@ -171,7 +171,35 @@
         const scene = new THREE.Scene();
 
         const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 5000);
-        camera.position.set(0, 0, 0.1);
+
+        // 天球赤道面的法向量计算（与 createCelestialEquator 保持一致）
+        // 天球赤道与银道面的夹角 = 63°，与黄道面的夹角 = 25°
+        const equatorGalacticAngle = 63 * Math.PI / 180;
+        const eclipticAngle = 60 * Math.PI / 180;
+        const axialTilt = 25 * Math.PI / 180;
+
+        const nz = Math.cos(equatorGalacticAngle);
+        const ny = (nz * Math.cos(eclipticAngle) - Math.cos(axialTilt)) / Math.sin(eclipticAngle);
+        const nx = Math.sqrt(Math.max(0, 1 - ny * ny - nz * nz));
+
+        // 天球赤道法向量（天球北极方向）
+        const normal = { x: nx, y: ny, z: nz };
+
+        // 相机需要在天球赤道平面内，这样赤道线会在屏幕中央水平显示
+        // 计算一个与法向量垂直的向量（在赤道平面内）
+        // 使用 (0, 1, 0) × normal 来得到一个在赤道平面内的向量
+        let tangentX = -normal.z;  // 简化：使用 y 方向的叉积
+        let tangentY = 0;
+        let tangentZ = normal.x;
+        const tangentLen = Math.sqrt(tangentX * tangentX + tangentZ * tangentZ);
+        tangentX /= tangentLen;
+        tangentZ /= tangentLen;
+
+        // 相机位置：在赤道平面内
+        const camDist = 0.1;
+        camera.position.set(tangentX * camDist, tangentY * camDist, tangentZ * camDist);
+        // up 向量设为法向量方向（天球北极），这样天球赤道线会水平显示
+        camera.up.set(normal.x, normal.y, normal.z);
 
         const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
         renderer.setSize(window.innerWidth, window.innerHeight);
@@ -379,7 +407,154 @@
                 opacity: 0.2
             });
             const sprite = new THREE.Sprite(spriteMaterial);
+            // 银道面标签放在 theta=0 的位置 (x轴正方向)
             sprite.position.set(1200, 0, 0);
+            sprite.scale.set(200, 50, 1);
+            scene.add(sprite);
+        }
+
+        function createEclipticPlane() {
+            // 黄道面：与银道面成 60 度
+            // 银道面在 XY 平面，黄道面绕 X 轴旋转 60 度
+            const segments = 128;
+            const radius = 1000;
+            const points = [];
+            const eclipticAngle = 60 * Math.PI / 180; // 60 度转弧度
+
+            for (let i = 0; i <= segments; i++) {
+                const theta = (i / segments) * Math.PI * 2;
+                // 先在 XY 平面创建圆，然后绕 X 轴旋转 60 度
+                const x = Math.cos(theta) * radius;
+                const y = Math.sin(theta) * radius * Math.cos(eclipticAngle);
+                const z = Math.sin(theta) * radius * Math.sin(eclipticAngle);
+                points.push(new THREE.Vector3(x, y, z));
+            }
+
+            const eclipticGeometry = new THREE.BufferGeometry().setFromPoints(points);
+            const eclipticMaterial = new THREE.LineBasicMaterial({
+                color: 0xffaa00, // 橙黄色
+                transparent: true,
+                opacity: 0.5,
+                linewidth: 2
+            });
+            const eclipticPlane = new THREE.Line(eclipticGeometry, eclipticMaterial);
+            scene.add(eclipticPlane);
+
+            // 黄道标签
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+            canvas.width = 256;
+            canvas.height = 64;
+            context.fillStyle = '#ffaa00';
+            context.font = 'Bold 40px Arial';
+            context.fillText('黄道面', 10, 45);
+
+            const texture = new THREE.CanvasTexture(canvas);
+            const spriteMaterial = new THREE.SpriteMaterial({
+                map: texture,
+                transparent: true,
+                opacity: 0.2
+            });
+            const sprite = new THREE.Sprite(spriteMaterial);
+            // 黄道面标签放在 theta=120度 的位置
+            const labelTheta = (2 * Math.PI / 3); // 120度
+            const labelRadius = 1100;
+            sprite.position.set(
+                Math.cos(labelTheta) * labelRadius,
+                Math.sin(labelTheta) * labelRadius * Math.cos(eclipticAngle),
+                Math.sin(labelTheta) * labelRadius * Math.sin(eclipticAngle)
+            );
+            sprite.scale.set(200, 50, 1);
+            scene.add(sprite);
+        }
+
+        function createCelestialEquator() {
+            // 天球赤道面：与银道面成 63 度，与黄道面成 25 度
+            // 由于 60 + 25 ≠ 63，需要使用不同的旋转轴
+            // 
+            // 几何关系：
+            // - 银道面法向量: (0, 0, 1)
+            // - 黄道面法向量: (0, -sin(60°), cos(60°))
+            // - 天球赤道法向量需要满足两个角度约束
+            //
+            // 使用球面三角学：天球赤道法向量绕 Y 轴有一定偏转
+
+            const segments = 128;
+            const radius = 1000;
+            const points = [];
+
+            // 天球赤道与银道面的夹角
+            const equatorGalacticAngle = 63 * Math.PI / 180;
+
+            // 为了满足角度约束，天球赤道需要同时绕 X 和 Y 轴旋转
+            // 计算旋转参数（通过球面三角学推导）
+            // 天球赤道法向量: n = (nx, ny, nz) 其中 nz = cos(63°)
+            const nz = Math.cos(equatorGalacticAngle);
+
+            // 与黄道面夹角 25°，黄道法向量 e = (0, -sin60, cos60)
+            // cos(25°) = n · e = -ny*sin(60°) + nz*cos(60°)
+            // ny = (nz*cos(60°) - cos(25°)) / sin(60°)
+            const eclipticAngle = 60 * Math.PI / 180;
+            const axialTilt = 25 * Math.PI / 180;
+            const ny = (nz * Math.cos(eclipticAngle) - Math.cos(axialTilt)) / Math.sin(eclipticAngle);
+
+            // nx² + ny² + nz² = 1
+            const nx = Math.sqrt(Math.max(0, 1 - ny * ny - nz * nz));
+
+            // 天球赤道法向量
+            const normal = new THREE.Vector3(nx, ny, nz).normalize();
+
+            // 创建天球赤道圆环
+            // 需要找到两个与法向量垂直的向量作为圆的基底
+            const up = new THREE.Vector3(0, 1, 0);
+            let tangent1 = new THREE.Vector3().crossVectors(normal, up);
+            if (tangent1.length() < 0.001) {
+                tangent1 = new THREE.Vector3().crossVectors(normal, new THREE.Vector3(1, 0, 0));
+            }
+            tangent1.normalize();
+            const tangent2 = new THREE.Vector3().crossVectors(normal, tangent1).normalize();
+
+            for (let i = 0; i <= segments; i++) {
+                const theta = (i / segments) * Math.PI * 2;
+                const x = tangent1.x * Math.cos(theta) + tangent2.x * Math.sin(theta);
+                const y = tangent1.y * Math.cos(theta) + tangent2.y * Math.sin(theta);
+                const z = tangent1.z * Math.cos(theta) + tangent2.z * Math.sin(theta);
+                points.push(new THREE.Vector3(x * radius, y * radius, z * radius));
+            }
+
+            const equatorGeometry = new THREE.BufferGeometry().setFromPoints(points);
+            const equatorMaterial = new THREE.LineBasicMaterial({
+                color: 0x00ff88, // 青绿色
+                transparent: true,
+                opacity: 0.5,
+                linewidth: 2
+            });
+            const equatorPlane = new THREE.Line(equatorGeometry, equatorMaterial);
+            scene.add(equatorPlane);
+
+            // 天球赤道标签
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+            canvas.width = 256;
+            canvas.height = 64;
+            context.fillStyle = '#00ff88';
+            context.font = 'Bold 40px Arial';
+            context.fillText('天球赤道', 10, 45);
+
+            const texture = new THREE.CanvasTexture(canvas);
+            const spriteMaterial = new THREE.SpriteMaterial({
+                map: texture,
+                transparent: true,
+                opacity: 0.2
+            });
+            const sprite = new THREE.Sprite(spriteMaterial);
+            // 天球赤道标签放在圆上的一点
+            const labelTheta = Math.PI; // 240度
+            const labelRadius = 1100;
+            const lx = tangent1.x * Math.cos(labelTheta) + tangent2.x * Math.sin(labelTheta);
+            const ly = tangent1.y * Math.cos(labelTheta) + tangent2.y * Math.sin(labelTheta);
+            const lz = tangent1.z * Math.cos(labelTheta) + tangent2.z * Math.sin(labelTheta);
+            sprite.position.set(lx * labelRadius, ly * labelRadius, lz * labelRadius);
             sprite.scale.set(200, 50, 1);
             scene.add(sprite);
         }
@@ -1131,6 +1306,8 @@
         // 启动
         createHighlightMarker();
         createGalacticPlane();
+        createEclipticPlane();
+        createCelestialEquator();
         createCelestialPoles();
         createCelestialMeridians();
         createPolarCrosses();
