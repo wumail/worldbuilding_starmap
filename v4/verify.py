@@ -1,27 +1,56 @@
 import json
 import matplotlib.pyplot as plt
 import os
+import sys
 
 # =========================
 # 配置项
 # =========================
-INPUT_FILE = "star_map_complete.json"
-OUTPUT_HR_IMG = "validation_hr_diagram.png"
-OUTPUT_DIST_IMG = "validation_dist_mag.png"
-OUTPUT_REPORT = "validation_report.txt"
+
+# 支持命令行参数指定输入文件，默认查找最新的输出文件夹
+if len(sys.argv) > 1:
+    INPUT_FILE = sys.argv[1]
+else:
+    # 查找最新的 output_* 文件夹
+    output_dirs = [
+        d for d in os.listdir(".") if d.startswith("output_") and os.path.isdir(d)
+    ]
+    if not output_dirs:
+        print("错误: 未找到 output_* 文件夹，请先运行 star.py 生成数据")
+        sys.exit(1)
+    latest_dir = sorted(output_dirs)[-1]
+    json_files = [
+        f
+        for f in os.listdir(latest_dir)
+        if f.startswith("star_map_") and f.endswith(".json")
+    ]
+    if not json_files:
+        print(f"错误: 在 {latest_dir} 中未找到 JSON 文件")
+        sys.exit(1)
+    INPUT_FILE = os.path.join(latest_dir, json_files[0])
+
+print(f"正在验证: {INPUT_FILE}")
 
 # =========================
 # 1. 加载数据
 # =========================
 if not os.path.exists(INPUT_FILE):
-    print(f"错误: 找不到文件 {INPUT_FILE}，请先运行生成脚本。")
-    exit()
+    print(f"错误: 找不到文件 {INPUT_FILE}")
+    sys.exit(1)
 
 with open(INPUT_FILE, "r", encoding="utf-8") as f:
     data = json.load(f)
 
 stars = data["stars"]
-print(f"成功加载 {len(stars)} 颗恒星数据。")
+generation_id = data["metadata"].get("generation_id", "unknown")
+output_dir = os.path.dirname(INPUT_FILE) if os.path.dirname(INPUT_FILE) else "."
+
+# 设置输出文件路径
+OUTPUT_HR_IMG = os.path.join(output_dir, f"validation_hr_diagram_{generation_id}.png")
+OUTPUT_DIST_IMG = os.path.join(output_dir, f"validation_dist_mag_{generation_id}.png")
+OUTPUT_REPORT = os.path.join(output_dir, f"validation_report_{generation_id}.txt")
+
+print(f"成功加载 {len(stars)} 颗恒星数据 (ID: {generation_id})")
 
 # =========================
 # 2. 异常检测逻辑 (Astrophysical Sanity Check)

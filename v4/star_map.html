@@ -862,7 +862,7 @@
         // ==========================================
         async function loadStarData() {
             try {
-                const response = await fetch('./star_map_complete.json');
+                const response = await fetch('./default/star_map_complete.json');
                 const data = await response.json();
 
                 // 合并邻居和背景星星

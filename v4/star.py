@@ -3,6 +3,8 @@ import json
 import math
 from collections import Counter
 import random
+from datetime import datetime
+import os
 
 # =========================
 # 基本参数配置
@@ -607,8 +609,14 @@ else:
 # 结果保存
 # =========================
 
+# 生成唯一ID（基于时间戳）
+generation_id = datetime.now().strftime("%Y%m%d_%H%M%S")
+output_dir = f"output_{generation_id}"
+os.makedirs(output_dir, exist_ok=True)
+
 output = {
     "metadata": {
+        "generation_id": generation_id,
         "count": len(stars),
         "note": "All stars validated with final physical checks (100% pass rate)",
         "generation_stats": {
@@ -621,10 +629,14 @@ output = {
     "stars": stars,
 }
 
-with open("star_map_complete.json", "w", encoding="utf-8") as f:
+output_file = os.path.join(output_dir, f"star_map_{generation_id}.json")
+with open(output_file, "w", encoding="utf-8") as f:
     json.dump(output, f, indent=2, ensure_ascii=False)
 
 print("\nGeneration Complete!")
+print(f"Generation ID: {generation_id}")
+print(f"Output Directory: {output_dir}/")
+print(f"Output File: {output_file}")
 print(f"Total Stars: {len(stars)}")
 print(
     f"Rejection Rate: {rejected_count / (validated_count + rejected_count) * 100:.1f}%"
