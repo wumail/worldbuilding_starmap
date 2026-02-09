@@ -426,9 +426,9 @@ def render_hemisphere(
     # 北半球：逆时针旋转90度
     # 南半球：顺时针旋转90度
     if is_north:
-        image = image.rotate(-90, expand=False)
-    else:
         image = image.rotate(90, expand=False)
+    else:
+        image = image.rotate(-90, expand=False)
 
     return image
 

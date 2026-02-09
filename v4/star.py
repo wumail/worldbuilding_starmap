@@ -536,15 +536,13 @@ def get_weighted_class(stype):
 def generate_folders_json():
     """生成 folders.json 文件，列出所有可用的数据集文件夹"""
     # 获取当前目录下所有 output_* 文件夹
-    folders = ["default"]
+    folders = []
     for item in os.listdir("."):
         if item.startswith("output_") and os.path.isdir(item):
             folders.append(item)
 
-    # 按名称排序（default 在前，其他按时间戳排序）
-    folders_sorted = ["default"] + sorted(
-        [f for f in folders if f != "default"], reverse=True
-    )
+    # 按名称排序（d其他按时间戳排序）
+    folders_sorted = sorted(folders, reverse=True)
 
     # 写入 JSON 文件
     with open("folders.json", "w", encoding="utf-8") as f:

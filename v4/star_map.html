@@ -192,7 +192,7 @@
     <div id="folder-selector">
         <label for="folder-select">选择数据集:</label>
         <select id="folder-select">
-            <option value="default">默认 (default)</option>
+            <!-- 选项将从 folders.json 动态加载 -->
         </select>
     </div>
 
@@ -882,7 +882,7 @@
         // 6. 加载数据并生成几何体
         // ==========================================
 
-        let currentFolder = 'default';
+        let currentFolder = '';
 
         // 银道坐标系 → 天球赤道坐标系转换（与 generate_star_map.py 保持一致）
         const GALACTIC_POLE_RA = 192.85948;  // 银道北极的赤经（度）
@@ -954,30 +954,35 @@
             const folderSelect = document.getElementById('folder-select');
 
             try {
-                // 尝试加载 folders.json（如果存在）
+                // 加载 folders.json
                 const response = await fetch('./folders.json');
-                if (response.ok) {
-                    const folders = await response.json();
-                    
-                    // 如果 folders.json 存在且有数据，使用第一个作为默认值
-                    if (folders && folders.length > 0) {
-                        currentFolder = folders[0];
-                        
-                        // 清空默认选项，添加所有文件夹
-                        folderSelect.innerHTML = '';
-                        folders.forEach((folder, index) => {
-                            const option = document.createElement('option');
-                            option.value = folder;
-                            option.textContent = folder === 'default' ? '默认 (default)' : folder.replace('output_', '');
-                            if (index === 0) {
-                                option.selected = true;
-                            }
-                            folderSelect.appendChild(option);
-                        });
-                    }
+                if (!response.ok) {
+                    throw new Error('无法加载 folders.json');
                 }
+                
+                const folders = await response.json();
+                
+                if (!folders || folders.length === 0) {
+                    throw new Error('folders.json 中没有数据集');
+                }
+                
+                // 使用第一个作为默认值
+                currentFolder = folders[0];
+                
+                // 添加所有文件夹选项
+                folderSelect.innerHTML = '';
+                folders.forEach((folder, index) => {
+                    const option = document.createElement('option');
+                    option.value = folder;
+                    option.textContent = folder.replace('output_', '');
+                    if (index === 0) {
+                        option.selected = true;
+                    }
+                    folderSelect.appendChild(option);
+                });
             } catch (err) {
-                console.log('No folders.json found, using default only');
+                console.error('加载文件夹列表失败:', err);
+                alert('无法加载数据集列表，请确保 folders.json 文件存在');
             }
 
             // 监听选择变化
@@ -989,14 +994,14 @@
 
         async function loadStarData() {
             try {
-                let jsonPath;
-                if (currentFolder === 'default') {
-                    jsonPath = './default/star_map_complete.json';
-                } else {
-                    // 对于 output_* 文件夹，需要找到对应的 JSON 文件
-                    const id = currentFolder.replace('output_', '');
-                    jsonPath = `./${currentFolder}/star_map_${id}.json`;
+                if (!currentFolder) {
+                    console.error('未选择数据集');
+                    return;
                 }
+                
+                // 对于 output_* 文件夹，找到对应的 JSON 文件
+                const id = currentFolder.replace('output_', '');
+                const jsonPath = `./${currentFolder}/star_map_${id}.json`;
 
                 console.log(`Loading: ${jsonPath}`);
                 const response = await fetch(jsonPath);
@@ -1251,8 +1256,8 @@
             <p><strong>视星等:</strong> ${star.app_mag}</p>
             <p><strong>绝对星等:</strong> ${star.abs_mag}</p>
             <p><strong>距离:</strong> ${star.dist_ly} 光年</p>
-            <p><strong>赤经 (RA):</strong> ${star.ra}°</p>
-            <p><strong>赤纬 (Dec):</strong> ${star.dec}°</p>
+            <p><strong>银经 (Galactic Longitude):</strong> ${star.gal_lon}°</p>
+            <p><strong>银纬 (Galactic Latitude):</strong> ${star.gal_lat}°</p>
             <p><strong>角直径:</strong> ${star.angular_diameter_mas} mas</p>
             <p><strong>颜色:</strong> <span style="display:inline-block;width:20px;height:20px;background:${star.color_hex};border:1px solid #fff;vertical-align:middle;"></span></p>
         `;
