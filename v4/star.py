@@ -1,10 +1,11 @@
 import numpy as np
 import json
 import math
-from collections import Counter
+from collections import Counter, defaultdict
 import random
 from datetime import datetime
 import os
+import matplotlib.pyplot as plt
 
 # =========================
 # 基本参数配置
@@ -497,10 +498,341 @@ def get_weighted_class(stype):
 
 
 # =========================
+# 统计分析函数
+# =========================
+
+
+def generate_folders_json():
+    """生成 folders.json 文件，列出所有可用的数据集文件夹"""
+    # 获取当前目录下所有 output_* 文件夹
+    folders = ["default"]
+    for item in os.listdir("."):
+        if item.startswith("output_") and os.path.isdir(item):
+            folders.append(item)
+
+    # 按名称排序（default 在前，其他按时间戳排序）
+    folders_sorted = ["default"] + sorted(
+        [f for f in folders if f != "default"], reverse=True
+    )
+
+    # 写入 JSON 文件
+    with open("folders.json", "w", encoding="utf-8") as f:
+        json.dump(folders_sorted, f, indent=2, ensure_ascii=False)
+
+    print(f"\nGenerated folders.json with {len(folders_sorted)} folders:")
+    for folder in folders_sorted:
+        print(f"  - {folder}")
+
+
+def verify_and_visualize(stars, generation_id, output_dir):
+    """验证恒星数据并生成可视化图表和报告"""
+
+    print("\n正在验证生成的数据...")
+
+    # 异常检测逻辑
+    flagged_stars = []
+    valid_stars = []
+
+    for s in stars:
+        reasons = []
+
+        # 规则 A: 不可能的红矮星
+        if (
+            s["spectral_type"] == "M"
+            and s["luminosity_class"] == "V"
+            and s["distance_pc"] > 20
+        ):
+            reasons.append(f"M型主序星距离过远 ({s['distance_pc']}pc) - 物理上应不可见")
+
+        # 规则 B: 超爱丁顿光度极限
+        if s["luminosity_solar"] > 1_500_000:
+            reasons.append(
+                f"光度异常过高 ({s['luminosity_solar']:.1e} Lsun) - 超过稳定极限"
+            )
+
+        # 规则 C: 错误的分类
+        if s["luminosity_class"] in ["0", "I"] and s["abs_mag"] > -3:
+            reasons.append(f"超巨星绝对星等过暗 (Mv={s['abs_mag']})")
+        elif s["luminosity_class"] == "II" and s["abs_mag"] > -1.0:
+            reasons.append(f"亮巨星绝对星等过暗 (Mv={s['abs_mag']})")
+
+        # 规则 D: 错误的温度-光度关系
+        if (
+            s["luminosity_class"] == "V"
+            and s["temperature_K"] < 4000
+            and s["abs_mag"] < 5
+        ):
+            reasons.append("主序星异常: 温度低但过亮 (疑似应为巨星)")
+
+        if reasons:
+            s["flag_reasons"] = reasons
+            flagged_stars.append(s)
+        else:
+            valid_stars.append(s)
+
+    print(
+        f"检测完成: 正常恒星 {len(valid_stars)} 颗, 异常恒星 {len(flagged_stars)} 颗。"
+    )
+
+    # 提取绘图数据
+    def get_data(star_list):
+        return {
+            "temp": [s["temperature_K"] for s in star_list],
+            "abs_mag": [s["abs_mag"] for s in star_list],
+            "color": [s["color_hex"] for s in star_list],
+            "dist": [s["distance_pc"] for s in star_list],
+            "app_mag": [s["app_mag"] for s in star_list],
+            "type": [s["spectral_type"] for s in star_list],
+        }
+
+    v_data = get_data(valid_stars)
+    f_data = get_data(flagged_stars)
+
+    # 图表 1: 赫罗图 (H-R Diagram)
+    OUTPUT_HR_IMG = os.path.join(
+        output_dir, f"validation_hr_diagram_{generation_id}.png"
+    )
+    plt.figure(figsize=(12, 10))
+    ax = plt.gca()
+
+    plt.scatter(
+        v_data["temp"],
+        v_data["abs_mag"],
+        c=v_data["color"],
+        s=15,
+        alpha=0.6,
+        edgecolors="none",
+        label="Valid Stars",
+    )
+
+    if f_data["temp"]:
+        plt.scatter(
+            f_data["temp"],
+            f_data["abs_mag"],
+            c="red",
+            marker="x",
+            s=50,
+            linewidth=1.5,
+            label="Problematic Stars",
+        )
+
+    plt.gca().invert_xaxis()
+    plt.gca().invert_yaxis()
+    plt.xscale("log")
+    plt.title(
+        f"Hertzsprung-Russell Diagram Validation\n(Flagged: {len(flagged_stars)} stars)",
+        fontsize=16,
+    )
+    plt.xlabel("Temperature (K)", fontsize=12)
+    plt.ylabel("Absolute Magnitude (Mv)", fontsize=12)
+    plt.grid(True, which="both", ls="-", alpha=0.2)
+    plt.legend()
+    ax.set_xticks([30000, 10000, 6000, 3000])
+    ax.set_xticklabels(["30k", "10k", "6k", "3k"])
+    plt.savefig(OUTPUT_HR_IMG, dpi=150, bbox_inches="tight")
+    print(f"图表已保存: {OUTPUT_HR_IMG}")
+    plt.close()
+
+    # 图表 2: 距离 vs 视星等
+    OUTPUT_DIST_IMG = os.path.join(
+        output_dir, f"validation_dist_mag_{generation_id}.png"
+    )
+    plt.figure(figsize=(12, 8))
+
+    plt.scatter(
+        v_data["dist"],
+        v_data["app_mag"],
+        c="blue",
+        s=10,
+        alpha=0.3,
+        label="Valid Stars",
+    )
+
+    if f_data["dist"]:
+        plt.scatter(
+            f_data["dist"],
+            f_data["app_mag"],
+            c="red",
+            marker="x",
+            s=40,
+            label="Problematic Stars",
+        )
+
+    plt.axhline(
+        y=6.5, color="green", linestyle="--", linewidth=2, label="Naked Eye Limit (6.5)"
+    )
+
+    plt.xlabel("Distance (pc)", fontsize=12)
+    plt.ylabel("Apparent Magnitude (m)", fontsize=12)
+    plt.title("Distance vs. Visibility Check", fontsize=16)
+    plt.gca().invert_yaxis()
+    plt.legend()
+    plt.grid(True, alpha=0.3)
+    plt.savefig(OUTPUT_DIST_IMG, dpi=150, bbox_inches="tight")
+    print(f"图表已保存: {OUTPUT_DIST_IMG}")
+    plt.close()
+
+    # 生成文本报告
+    OUTPUT_REPORT = os.path.join(output_dir, f"validation_report_{generation_id}.txt")
+    with open(OUTPUT_REPORT, "w", encoding="utf-8") as f:
+        f.write("=== 恒星生成质量验证报告 ===\n")
+        f.write(f"总数: {len(stars)}\n")
+        f.write(f"通过物理校验: {len(valid_stars)}\n")
+        f.write(f"标记为异常: {len(flagged_stars)}\n\n")
+
+        if len(flagged_stars) > 0:
+            f.write("--- 异常详情 (前 20 例) ---\n")
+            for i, s in enumerate(flagged_stars[:20]):
+                f.write(
+                    f"[{i + 1}] ID: {s['id']} | Type: {s['spectral_type']}{s['luminosity_class']}\n"
+                )
+                for r in s["flag_reasons"]:
+                    f.write(f"    - {r}\n")
+                f.write("\n")
+
+        f.write("\n--- 关键统计 ---\n")
+        f.write(f"最远恒星: {max([s['distance_pc'] for s in stars]):.1f} pc\n")
+        f.write(f"最大光度: {max([s['luminosity_solar'] for s in stars]):.1e} L_sun\n")
+
+        m_stars = [s for s in stars if s["spectral_type"] == "M"]
+        m_giants = [s for s in m_stars if s["luminosity_class"] in ["I", "II", "III"]]
+        m_dwarfs = [s for s in m_stars if s["luminosity_class"] == "V"]
+        f.write(
+            f"M型星总数: {len(m_stars)} (巨星: {len(m_giants)}, 矮星: {len(m_dwarfs)})\n"
+        )
+
+    print(f"文本报告已保存: {OUTPUT_REPORT}")
+    print("验证完成。")
+
+
+def analyze_star_distribution(stars_list):
+    """分析星星视星等分布"""
+
+    all_stars = stars_list
+
+    print("=" * 50)
+    print("星图数据统计报告")
+    print("=" * 50)
+    print(f"总计: {len(all_stars)}")
+    print()
+
+    # 使用天文学标准区间统计（以 x.5 为边界）
+    # 理论分布基于 log10(N) = a + 0.51*m
+    STANDARD_BINS = [
+        (-1.5, -0.5, 0.02),
+        (-0.5, 0.5, 0.07),
+        (0.5, 1.5, 0.16),
+        (1.5, 2.5, 0.81),
+        (2.5, 3.5, 2.17),
+        (3.5, 4.5, 6.96),
+        (4.5, 5.5, 22.00),
+        (5.5, 6.5, 67.81),
+    ]
+
+    print(f"{'=' * 60}")
+    print("视星等分布 (天文学标准区间)")
+    print(f"{'=' * 60}")
+    print(f"{'区间':<15} {'数量':>8} {'实际%':>10} {'理论%':>10} {'偏差':>10}")
+    print(f"{'-' * 60}")
+
+    total = len(all_stars)
+    max_count = 1
+    bin_counts = []
+
+    for m_min, m_max, theory_pct in STANDARD_BINS:
+        count = sum(1 for s in all_stars if m_min <= s.get("app_mag", 999) < m_max)
+        bin_counts.append(count)
+        if count > max_count:
+            max_count = count
+
+    for i, (m_min, m_max, theory_pct) in enumerate(STANDARD_BINS):
+        count = bin_counts[i]
+        actual_pct = (count / total) * 100 if total > 0 else 0
+        diff = actual_pct - theory_pct
+        bar_length = int((count / max_count) * 25)
+        bar = "█" * bar_length
+        diff_str = f"+{diff:.2f}" if diff >= 0 else f"{diff:.2f}"
+        print(
+            f"{m_min:>4.1f} ~ {m_max:<4.1f}   {count:>8}   {actual_pct:>8.2f}%   {theory_pct:>8.2f}%   {diff_str:>8}%  {bar}"
+        )
+
+    print()
+
+    # 更细致的统计：0.5 等间隔
+    print(f"{'=' * 50}")
+    print("视星等分布 (0.5等间隔)")
+    print(f"{'=' * 50}")
+
+    fine_bins = defaultdict(int)
+    for star in all_stars:
+        mag = star.get("app_mag", 0)
+        bin_key = round(mag * 2) / 2  # 四舍五入到0.5
+        fine_bins[bin_key] += 1
+
+    print(f"{'区间':<15} {'数量':>10} {'柱状图'}")
+    print(f"{'-' * 50}")
+
+    max_fine = max(fine_bins.values()) if fine_bins else 1
+    for mag in sorted(fine_bins.keys()):
+        count = fine_bins[mag]
+        bar_length = int((count / max_fine) * 30)
+        bar = "▓" * bar_length
+        print(f"{mag:>5.1f} 等       {count:>10}  {bar}")
+
+    print()
+
+    # 统计亮星和暗星
+    print(f"{'=' * 50}")
+    print("特殊统计")
+    print(f"{'=' * 50}")
+
+    a1 = [s for s in all_stars if s.get("app_mag", 0) < 0.5]
+    a2 = [s for s in all_stars if 0.5 <= s.get("app_mag", 0) < 1.5]
+    a3 = [s for s in all_stars if 1.5 <= s.get("app_mag", 0) < 2.5]
+    a4 = [s for s in all_stars if 2.5 <= s.get("app_mag", 0) < 3.5]
+    a5 = [s for s in all_stars if 3.5 <= s.get("app_mag", 0) < 4.5]
+    a6 = [s for s in all_stars if 4.5 <= s.get("app_mag", 0) < 5.5]
+    a7 = [s for s in all_stars if 5.5 <= s.get("app_mag", 0) < 6.5]
+    a8 = [s for s in all_stars if s.get("app_mag", 0) >= 6.5]
+
+    print(f"<0.5:  {len(a1):>6}")
+    print(f"0.5 ~ 1.5:  {len(a2):>6}")
+    print(f"1.5 ~ 2.5:  {len(a3):>6}")
+    print(f"2.5 ~ 3.5:  {len(a4):>6}")
+    print(f"3.5 ~ 4.5:  {len(a5):>6}")
+    print(f"4.5 ~ 5.5:  {len(a6):>6}")
+    print(f"5.5 ~ 6.5:  {len(a7):>6}")
+    print(f">= 6.5: {len(a8):>6}")
+
+    print()
+
+    # 找出最亮和最暗的星
+    if all_stars:
+        brightest = min(all_stars, key=lambda s: s.get("app_mag", 999))
+        dimmest = max(all_stars, key=lambda s: s.get("app_mag", -999))
+
+        print(
+            f"最亮星: {brightest.get('id', 'N/A')} (视星等: {brightest.get('app_mag', 'N/A'):.2f})"
+        )
+        print(
+            f"最暗星: {dimmest.get('id', 'N/A')} (视星等: {dimmest.get('app_mag', 'N/A'):.2f})"
+        )
+
+        # 平均视星等
+        avg_mag = sum(s.get("app_mag", 0) for s in all_stars) / len(all_stars)
+        print(f"平均视星等: {avg_mag:.2f}")
+
+
+# =========================
 # 主生成循环 (优化版)
 # =========================
 
 print("Starting full spectrum generation (Magnitude Limited Mode)...")
+
+# 生成唯一ID（基于时间戳）- 在开始时生成，用于所有星体ID
+generation_id = datetime.now().strftime("%Y%m%d_%H%M%S")
+print(f"Generation ID: {generation_id}")
+
 stars = []
 validated_count = 0
 rejected_count = 0
@@ -533,7 +865,7 @@ for stype, percentage in TARGET_DISTRIBUTION.items():
             is_valid, msgs = validate_star_strict(star)
 
             if is_valid:
-                star["id"] = f"Star_{len(stars) + 1}"
+                star["id"] = f"{generation_id}_{len(stars) + 1:05d}"
                 stars.append(star)
                 validated_count += 1
                 generated += 1
@@ -587,7 +919,7 @@ if invalid_indices:
             # 再通过最终验证
             is_final_valid, _ = validate_star_final(new_star)
             if is_final_valid:
-                new_star["id"] = old_id
+                new_star["id"] = old_id  # 保持原ID
                 stars[idx] = new_star
                 regenerated_count += 1
                 success = True
@@ -605,14 +937,8 @@ if invalid_indices:
 else:
     print("所有恒星均通过最终验证！")
 
-# =========================
-# 结果保存
-# =========================
-
-# 生成唯一ID（基于时间戳）
-generation_id = datetime.now().strftime("%Y%m%d_%H%M%S")
+# 使用之前生成的 generation_id
 output_dir = f"output_{generation_id}"
-os.makedirs(output_dir, exist_ok=True)
 
 output = {
     "metadata": {
@@ -628,15 +954,11 @@ output = {
     },
     "stars": stars,
 }
-
-output_file = os.path.join(output_dir, f"star_map_{generation_id}.json")
-with open(output_file, "w", encoding="utf-8") as f:
-    json.dump(output, f, indent=2, ensure_ascii=False)
+# 结果统计 (moved from original saving block)
+# =========================
 
 print("\nGeneration Complete!")
 print(f"Generation ID: {generation_id}")
-print(f"Output Directory: {output_dir}/")
-print(f"Output File: {output_file}")
 print(f"Total Stars: {len(stars)}")
 print(
     f"Rejection Rate: {rejected_count / (validated_count + rejected_count) * 100:.1f}%"
@@ -647,3 +969,63 @@ c = Counter([s["luminosity_class"] for s in stars])
 print("\nLuminosity Class Distribution:")
 for k in sorted(c.keys()):
     print(f"{k}: {c[k]} ({c[k] / len(stars) * 100:.2f}%)")
+
+# =========================
+# 执行统计分析
+# =========================
+
+print("\n" + "=" * 60)
+print("开始统计分析...")
+print("=" * 60 + "\n")
+
+analyze_star_distribution(stars)
+
+# =========================
+# 用户确认
+# =========================
+
+print("\n" + "=" * 60)
+user_input = input("是否保存生成的数据? (y/n, 默认 y): ").strip().lower()
+if user_input == "" or user_input == "y" or user_input == "yes":
+    print("正在保存数据...")
+
+    # 生成唯一ID（基于时间戳）
+    generation_id = datetime.now().strftime("%Y%m%d_%H%M%S")
+    output_dir = f"output_{generation_id}"
+    os.makedirs(output_dir, exist_ok=True)
+
+    # 保存 JSON 文件
+    output = {
+        "metadata": {
+            "generation_id": generation_id,
+            "count": len(stars),
+            "note": "All stars validated with final physical checks (100% pass rate)",
+            "generation_stats": {
+                "initial_validated": validated_count,
+                "initial_rejected": rejected_count,
+                "final_regenerated": len(invalid_indices) if invalid_indices else 0,
+            },
+            "validation_stats": "Final pass rate: 100%",
+        },
+        "stars": stars,
+    }
+
+    output_file = os.path.join(output_dir, f"star_map_{generation_id}.json")
+    with open(output_file, "w", encoding="utf-8") as f:
+        json.dump(output, f, indent=2, ensure_ascii=False)
+
+    print(f"Output Directory: {output_dir}/")
+    print(f"Output File: {output_file}")
+    print("数据保存成功！")
+
+    # 执行验证和可视化
+    verify_and_visualize(stars, generation_id, output_dir)
+
+    # 生成 folders.json
+    generate_folders_json()
+
+    print("\n" + "=" * 60)
+    print("所有操作完成！")
+    print("=" * 60)
+else:
+    print("已取消保存，数据未写入文件。")
