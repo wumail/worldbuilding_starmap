@@ -216,34 +216,16 @@
 
         const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 5000);
 
-        // 天球赤道面的法向量计算（与 createCelestialEquator 保持一致）
-        // 天球赤道与银道面的夹角 = 63°，与黄道面的夹角 = 25°
-        const equatorGalacticAngle = 63 * Math.PI / 180;
-        const eclipticAngle = 60 * Math.PI / 180;
-        const axialTilt = 25 * Math.PI / 180;
-
-        const nz = Math.cos(equatorGalacticAngle);
-        const ny = (nz * Math.cos(eclipticAngle) - Math.cos(axialTilt)) / Math.sin(eclipticAngle);
-        const nx = Math.sqrt(Math.max(0, 1 - ny * ny - nz * nz));
-
-        // 天球赤道法向量（天球北极方向）
-        const normal = { x: nx, y: ny, z: nz };
-
-        // 相机需要在天球赤道平面内，这样赤道线会在屏幕中央水平显示
-        // 计算一个与法向量垂直的向量（在赤道平面内）
-        // 使用 (0, 1, 0) × normal 来得到一个在赤道平面内的向量
-        let tangentX = -normal.z;  // 简化：使用 y 方向的叉积
-        let tangentY = 0;
-        let tangentZ = normal.x;
-        const tangentLen = Math.sqrt(tangentX * tangentX + tangentZ * tangentZ);
-        tangentX /= tangentLen;
-        tangentZ /= tangentLen;
-
-        // 相机位置：在赤道平面内
+        // 现在星星坐标已经在天球赤道坐标系中（与 generate_star_map.py 一致）
+        // 坐标系定义：
+        // x: 指向春分点（RA=0, Dec=0）
+        // y: 指向东方（RA=90, Dec=0）
+        // z: 指向天球北极（Dec=90）
+        
+        // 相机初始位置：在天球赤道平面内，朝向春分点方向
         const camDist = 0.1;
-        camera.position.set(tangentX * camDist, tangentY * camDist, tangentZ * camDist);
-        // up 向量设为法向量方向（天球北极），这样天球赤道线会水平显示
-        camera.up.set(normal.x, normal.y, normal.z);
+        camera.position.set(camDist, 0, 0);  // 位于春分点方向
+        camera.up.set(0, 0, 1);  // up 向量指向天球北极
 
         const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
         renderer.setSize(window.innerWidth, window.innerHeight);
@@ -396,17 +378,38 @@
         // ==========================================
         function createGalacticPlane() {
             // 创建银道平面圆形线条
+            // 使用真实的银道北极在天球赤道坐标系中的位置（与地球相同）
+            // 银道北极：RA = 192.85948°, Dec = 27.12825°
             const segments = 128;
             const radius = 1000;
             const points = [];
-
+            
+            // 银道北极在天球赤道坐标系中的位置
+            const galacticPoleRA = 192.85948 * Math.PI / 180;
+            const galacticPoleDec = 27.12825 * Math.PI / 180;
+            
+            // 银道北极的笛卡尔坐标（单位向量）
+            const poleX = Math.cos(galacticPoleDec) * Math.cos(galacticPoleRA);
+            const poleY = Math.cos(galacticPoleDec) * Math.sin(galacticPoleRA);
+            const poleZ = Math.sin(galacticPoleDec);
+            const normal = new THREE.Vector3(poleX, poleY, poleZ).normalize();
+            
+            // 创建与法向量垂直的两个切线向量（银道平面的基底）
+            const up = new THREE.Vector3(0, 0, 1);
+            let tangent1 = new THREE.Vector3().crossVectors(normal, up);
+            if (tangent1.length() < 0.001) {
+                tangent1 = new THREE.Vector3().crossVectors(normal, new THREE.Vector3(1, 0, 0));
+            }
+            tangent1.normalize();
+            const tangent2 = new THREE.Vector3().crossVectors(normal, tangent1).normalize();
+            
+            // 在银道平面上创建圆（大圆）
             for (let i = 0; i <= segments; i++) {
                 const theta = (i / segments) * Math.PI * 2;
-                points.push(new THREE.Vector3(
-                    Math.cos(theta) * radius,
-                    Math.sin(theta) * radius,
-                    0
-                ));
+                const x = tangent1.x * Math.cos(theta) + tangent2.x * Math.sin(theta);
+                const y = tangent1.y * Math.cos(theta) + tangent2.y * Math.sin(theta);
+                const z = tangent1.z * Math.cos(theta) + tangent2.z * Math.sin(theta);
+                points.push(new THREE.Vector3(x * radius, y * radius, z * radius));
             }
 
             const galacticPlaneGeometry = new THREE.BufferGeometry().setFromPoints(points);
@@ -417,23 +420,7 @@
                 linewidth: 2
             });
             const galacticPlane = new THREE.Line(galacticPlaneGeometry, galacticPlaneMaterial);
-
-            // 银道在XY平面上，垂直于天轴（Z轴）
-            // 不需要旋转，保持在XY平面
             scene.add(galacticPlane);
-
-            // 添加银道标签线
-            const lineGeometry = new THREE.BufferGeometry().setFromPoints([
-                new THREE.Vector3(1000, 0, 0),
-                new THREE.Vector3(1100, 0, 0)
-            ]);
-            const lineMaterial = new THREE.LineBasicMaterial({
-                color: 0x4488ff,
-                transparent: true,
-                opacity: 0.6
-            });
-            const labelLine = new THREE.Line(lineGeometry, lineMaterial);
-            scene.add(labelLine);
 
             // 创建银道文字标签（使用精灵）
             const canvas = document.createElement('canvas');
@@ -451,27 +438,53 @@
                 opacity: 0.2
             });
             const sprite = new THREE.Sprite(spriteMaterial);
-            // 银道面标签放在 theta=0 的位置 (x轴正方向)
-            sprite.position.set(1200, 0, 0);
+            // 银道面标签放在银道中心方向（l=0, b=0）
+            // 银道中心在赤道坐标系中约为 RA=266.4°, Dec=-28.9°
+            const galacticCenterRA = 266.4 * Math.PI / 180;
+            const galacticCenterDec = -28.9 * Math.PI / 180;
+            const labelRadius = 1100;
+            sprite.position.set(
+                labelRadius * Math.cos(galacticCenterDec) * Math.cos(galacticCenterRA),
+                labelRadius * Math.cos(galacticCenterDec) * Math.sin(galacticCenterRA),
+                labelRadius * Math.sin(galacticCenterDec)
+            );
             sprite.scale.set(200, 50, 1);
             scene.add(sprite);
         }
 
         function createEclipticPlane() {
-            // 黄道面：与银道面成 60 度
-            // 银道面在 XY 平面，黄道面绕 X 轴旋转 60 度
+            // 黄道面：与天球赤道面成 25 度（行星自转轴倾角）
+            // 黄道北极：RA = 270°, Dec = 65° (对应25度倾角)
             const segments = 128;
             const radius = 1000;
             const points = [];
-            const eclipticAngle = 60 * Math.PI / 180; // 60 度转弧度
-
+            
+            // 黄道北极在天球赤道坐标系中的位置
+            const eclipticPoleRA = 270 * Math.PI / 180;  // 18h
+            const eclipticPoleDec = 65 * Math.PI / 180;  // 90° - 25° = 65°
+            
+            // 黄道北极的笛卡尔坐标（单位向量）
+            const poleX = Math.cos(eclipticPoleDec) * Math.cos(eclipticPoleRA);
+            const poleY = Math.cos(eclipticPoleDec) * Math.sin(eclipticPoleRA);
+            const poleZ = Math.sin(eclipticPoleDec);
+            const normal = new THREE.Vector3(poleX, poleY, poleZ).normalize();
+            
+            // 创建与法向量垂直的两个切线向量（黄道平面的基底）
+            const up = new THREE.Vector3(0, 0, 1);
+            let tangent1 = new THREE.Vector3().crossVectors(normal, up);
+            if (tangent1.length() < 0.001) {
+                tangent1 = new THREE.Vector3().crossVectors(normal, new THREE.Vector3(1, 0, 0));
+            }
+            tangent1.normalize();
+            const tangent2 = new THREE.Vector3().crossVectors(normal, tangent1).normalize();
+            
+            // 在黄道平面上创建圆（大圆）
             for (let i = 0; i <= segments; i++) {
                 const theta = (i / segments) * Math.PI * 2;
-                // 先在 XY 平面创建圆，然后绕 X 轴旋转 60 度
-                const x = Math.cos(theta) * radius;
-                const y = Math.sin(theta) * radius * Math.cos(eclipticAngle);
-                const z = Math.sin(theta) * radius * Math.sin(eclipticAngle);
-                points.push(new THREE.Vector3(x, y, z));
+                const x = tangent1.x * Math.cos(theta) + tangent2.x * Math.sin(theta);
+                const y = tangent1.y * Math.cos(theta) + tangent2.y * Math.sin(theta);
+                const z = tangent1.z * Math.cos(theta) + tangent2.z * Math.sin(theta);
+                points.push(new THREE.Vector3(x * radius, y * radius, z * radius));
             }
 
             const eclipticGeometry = new THREE.BufferGeometry().setFromPoints(points);
@@ -504,66 +517,29 @@
             const labelTheta = (2 * Math.PI / 3); // 120度
             const labelRadius = 1100;
             sprite.position.set(
-                Math.cos(labelTheta) * labelRadius,
-                Math.sin(labelTheta) * labelRadius * Math.cos(eclipticAngle),
-                Math.sin(labelTheta) * labelRadius * Math.sin(eclipticAngle)
+                (tangent1.x * Math.cos(labelTheta) + tangent2.x * Math.sin(labelTheta)) * labelRadius,
+                (tangent1.y * Math.cos(labelTheta) + tangent2.y * Math.sin(labelTheta)) * labelRadius,
+                (tangent1.z * Math.cos(labelTheta) + tangent2.z * Math.sin(labelTheta)) * labelRadius
             );
             sprite.scale.set(200, 50, 1);
             scene.add(sprite);
         }
 
         function createCelestialEquator() {
-            // 天球赤道面：与银道面成 63 度，与黄道面成 25 度
-            // 由于 60 + 25 ≠ 63，需要使用不同的旋转轴
-            // 
-            // 几何关系：
-            // - 银道面法向量: (0, 0, 1)
-            // - 黄道面法向量: (0, -sin(60°), cos(60°))
-            // - 天球赤道法向量需要满足两个角度约束
-            //
-            // 使用球面三角学：天球赤道法向量绕 Y 轴有一定偏转
-
+            // 天球赤道面：现在是基准平面（z=0，在 XY 平面）
+            // 坐标系定义：z 轴指向天球北极
             const segments = 128;
             const radius = 1000;
             const points = [];
 
-            // 天球赤道与银道面的夹角
-            const equatorGalacticAngle = 63 * Math.PI / 180;
-
-            // 为了满足角度约束，天球赤道需要同时绕 X 和 Y 轴旋转
-            // 计算旋转参数（通过球面三角学推导）
-            // 天球赤道法向量: n = (nx, ny, nz) 其中 nz = cos(63°)
-            const nz = Math.cos(equatorGalacticAngle);
-
-            // 与黄道面夹角 25°，黄道法向量 e = (0, -sin60, cos60)
-            // cos(25°) = n · e = -ny*sin(60°) + nz*cos(60°)
-            // ny = (nz*cos(60°) - cos(25°)) / sin(60°)
-            const eclipticAngle = 60 * Math.PI / 180;
-            const axialTilt = 25 * Math.PI / 180;
-            const ny = (nz * Math.cos(eclipticAngle) - Math.cos(axialTilt)) / Math.sin(eclipticAngle);
-
-            // nx² + ny² + nz² = 1
-            const nx = Math.sqrt(Math.max(0, 1 - ny * ny - nz * nz));
-
-            // 天球赤道法向量
-            const normal = new THREE.Vector3(nx, ny, nz).normalize();
-
-            // 创建天球赤道圆环
-            // 需要找到两个与法向量垂直的向量作为圆的基底
-            const up = new THREE.Vector3(0, 1, 0);
-            let tangent1 = new THREE.Vector3().crossVectors(normal, up);
-            if (tangent1.length() < 0.001) {
-                tangent1 = new THREE.Vector3().crossVectors(normal, new THREE.Vector3(1, 0, 0));
-            }
-            tangent1.normalize();
-            const tangent2 = new THREE.Vector3().crossVectors(normal, tangent1).normalize();
-
+            // 天球赤道就是 XY 平面上的圆
             for (let i = 0; i <= segments; i++) {
                 const theta = (i / segments) * Math.PI * 2;
-                const x = tangent1.x * Math.cos(theta) + tangent2.x * Math.sin(theta);
-                const y = tangent1.y * Math.cos(theta) + tangent2.y * Math.sin(theta);
-                const z = tangent1.z * Math.cos(theta) + tangent2.z * Math.sin(theta);
-                points.push(new THREE.Vector3(x * radius, y * radius, z * radius));
+                points.push(new THREE.Vector3(
+                    Math.cos(theta) * radius,
+                    Math.sin(theta) * radius,
+                    0  // z = 0，在天球赤道平面
+                ));
             }
 
             const equatorGeometry = new THREE.BufferGeometry().setFromPoints(points);
@@ -592,13 +568,14 @@
                 opacity: 0.2
             });
             const sprite = new THREE.Sprite(spriteMaterial);
-            // 天球赤道标签放在圆上的一点
-            const labelTheta = Math.PI; // 240度
+            // 天球赤道标签放在圆上的一点（180度位置，X轴负方向）
+            const labelTheta = Math.PI; // 180度
             const labelRadius = 1100;
-            const lx = tangent1.x * Math.cos(labelTheta) + tangent2.x * Math.sin(labelTheta);
-            const ly = tangent1.y * Math.cos(labelTheta) + tangent2.y * Math.sin(labelTheta);
-            const lz = tangent1.z * Math.cos(labelTheta) + tangent2.z * Math.sin(labelTheta);
-            sprite.position.set(lx * labelRadius, ly * labelRadius, lz * labelRadius);
+            sprite.position.set(
+                Math.cos(labelTheta) * labelRadius,
+                Math.sin(labelTheta) * labelRadius,
+                0  // z = 0，在天球赤道平面
+            );
             sprite.scale.set(200, 50, 1);
             scene.add(sprite);
         }
@@ -907,6 +884,71 @@
 
         let currentFolder = 'default';
 
+        // 银道坐标系 → 天球赤道坐标系转换（与 generate_star_map.py 保持一致）
+        const GALACTIC_POLE_RA = 192.85948;  // 银道北极的赤经（度）
+        const GALACTIC_POLE_DEC = 27.12825;  // 银道北极的赤纬（度）
+        const GALACTIC_CENTER_RA = 266.4;    // 银道中心方向的赤经（度）
+        const GALACTIC_CENTER_DEC = -28.9;   // 银道中心方向的赤纬（度）
+
+        function galacticToEquatorialRotationMatrix() {
+            // 构建银道坐标系到天球赤道坐标系的旋转矩阵
+            const poleRaRad = GALACTIC_POLE_RA * Math.PI / 180;
+            const poleDecRad = GALACTIC_POLE_DEC * Math.PI / 180;
+            const centerRaRad = GALACTIC_CENTER_RA * Math.PI / 180;
+            const centerDecRad = GALACTIC_CENTER_DEC * Math.PI / 180;
+
+            // 银道北极方向（z_gal）
+            const z_gal = new THREE.Vector3(
+                Math.cos(poleDecRad) * Math.cos(poleRaRad),
+                Math.cos(poleDecRad) * Math.sin(poleRaRad),
+                Math.sin(poleDecRad)
+            );
+
+            // 银道中心方向（x_gal，l=0, b=0）
+            const x_gal = new THREE.Vector3(
+                Math.cos(centerDecRad) * Math.cos(centerRaRad),
+                Math.cos(centerDecRad) * Math.sin(centerRaRad),
+                Math.sin(centerDecRad)
+            );
+
+            // y_gal = z × x（右手系）
+            const y_gal = new THREE.Vector3().crossVectors(z_gal, x_gal).normalize();
+            
+            // 重新正交化 x
+            x_gal.crossVectors(y_gal, z_gal).normalize();
+
+            // 旋转矩阵：列向量是银道系基向量在赤道系中的表示
+            return new THREE.Matrix3().set(
+                x_gal.x, y_gal.x, z_gal.x,
+                x_gal.y, y_gal.y, z_gal.y,
+                x_gal.z, y_gal.z, z_gal.z
+            );
+        }
+
+        function galacticToEquatorial(l_deg, b_deg) {
+            // 将银道坐标(l, b)转换为天球赤道坐标(RA, Dec)
+            const l_rad = l_deg * Math.PI / 180;
+            const b_rad = b_deg * Math.PI / 180;
+
+            // 银道系中的笛卡尔坐标
+            const vec_gal = new THREE.Vector3(
+                Math.cos(b_rad) * Math.cos(l_rad),
+                Math.cos(b_rad) * Math.sin(l_rad),
+                Math.sin(b_rad)
+            );
+
+            // 旋转到天球赤道系
+            const R = galacticToEquatorialRotationMatrix();
+            const vec_eq = vec_gal.clone().applyMatrix3(R);
+
+            // 转换为 RA/Dec
+            const dec = Math.asin(Math.max(-1, Math.min(1, vec_eq.z))) * 180 / Math.PI;
+            let ra = Math.atan2(vec_eq.y, vec_eq.x) * 180 / Math.PI;
+            if (ra < 0) ra += 360;
+
+            return { ra, dec };
+        }
+
         // 发现可用的文件夹
         async function discoverFolders() {
             const folderSelect = document.getElementById('folder-select');
@@ -916,14 +958,23 @@
                 const response = await fetch('./folders.json');
                 if (response.ok) {
                     const folders = await response.json();
-                    folders.forEach(folder => {
-                        if (folder !== 'default') {
+                    
+                    // 如果 folders.json 存在且有数据，使用第一个作为默认值
+                    if (folders && folders.length > 0) {
+                        currentFolder = folders[0];
+                        
+                        // 清空默认选项，添加所有文件夹
+                        folderSelect.innerHTML = '';
+                        folders.forEach((folder, index) => {
                             const option = document.createElement('option');
                             option.value = folder;
-                            option.textContent = folder.replace('output_', '');
+                            option.textContent = folder === 'default' ? '默认 (default)' : folder.replace('output_', '');
+                            if (index === 0) {
+                                option.selected = true;
+                            }
                             folderSelect.appendChild(option);
-                        }
-                    });
+                        });
+                    }
                 }
             } catch (err) {
                 console.log('No folders.json found, using default only');
@@ -980,9 +1031,42 @@
             const SKY_RADIUS = 1000;
 
             stars.forEach(star => {
-                const x = star.pos_cartesian[0];
-                const y = star.pos_cartesian[1];
-                const z = star.pos_cartesian[2];
+                // 坐标转换：银道坐标 → 天球赤道坐标（与 generate_star_map.py 一致）
+                let ra, dec;
+                
+                // 检查数据是否已经包含天球赤道坐标
+                if (star.ra !== undefined && star.dec !== undefined) {
+                    // 如果数据已包含 ra/dec，检查是否需要转换
+                    // 如果同时存在 gal_lon/gal_lat，说明 ra/dec 已经是转换后的赤道坐标
+                    if (star.gal_lon !== undefined && star.gal_lat !== undefined) {
+                        ra = star.ra;
+                        dec = star.dec;
+                    } else {
+                        // 旧数据格式：ra/dec 实际上是银道坐标，需要转换
+                        const coords = galacticToEquatorial(star.ra, star.dec);
+                        ra = coords.ra;
+                        dec = coords.dec;
+                    }
+                } else if (star.gal_lon !== undefined && star.gal_lat !== undefined) {
+                    // 新数据格式：只有银道坐标，需要转换
+                    const coords = galacticToEquatorial(star.gal_lon, star.gal_lat);
+                    ra = coords.ra;
+                    dec = coords.dec;
+                } else {
+                    console.warn('星星缺少坐标数据:', star.id);
+                    return;
+                }
+                
+                const raRad = ra * Math.PI / 180;
+                const decRad = dec * Math.PI / 180;
+                
+                // 天球赤道坐标系的笛卡尔坐标
+                // x: 指向春分点（RA=0, Dec=0）
+                // y: 指向东方（RA=90, Dec=0）
+                // z: 指向天球北极（Dec=90）
+                const x = Math.cos(decRad) * Math.cos(raRad);
+                const y = Math.cos(decRad) * Math.sin(raRad);
+                const z = Math.sin(decRad);
 
                 const vec = new THREE.Vector3(x, y, z).normalize().multiplyScalar(SKY_RADIUS);
 
@@ -1397,7 +1481,6 @@
             }
             colorToggleButton.textContent = isWhiteMode ? '切换为彩色' : '切换为白色';
         });
-
         // 启动
         createHighlightMarker();
         createGalacticPlane();

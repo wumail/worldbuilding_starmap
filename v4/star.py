@@ -1,3 +1,17 @@
+#!/usr/bin/env python3
+"""
+恒星生成器 - 银道坐标系版本
+
+本脚本在银道坐标系中生成恒星数据：
+- 坐标系：观测者位于银河系内，银道面为基准面
+- 输出坐标：gal_lon (银经), gal_lat (银纬)
+- z轴：指向银道北极方向
+- xy平面：银道面
+
+注意：生成的数据需要通过坐标转换才能用于天球赤道坐标系的渲染。
+参见 generate_star_map.py 中的坐标转换逻辑。
+"""
+
 import numpy as np
 import json
 import math
@@ -183,18 +197,35 @@ COLOR_MAP = {
 # =========================
 
 
-def cartesian_to_spherical(x, y, z):
+def cartesian_to_galactic(x, y, z):
+    """笛卡尔坐标转银道坐标 (l, b)
+    
+    参数:
+        x, y, z: 笛卡尔坐标（银道坐标系）
+    
+    返回:
+        (l, b): 银经、银纬（度）
+    
+    注意: 
+        此函数在银道坐标系中工作。生成的星星位置是以观测者处于银道面上为前提。
+        z轴指向银道北极，xy平面为银道面。
+    """
     dist = math.sqrt(x**2 + y**2 + z**2)
     if dist == 0:
         return 0.0, 0.0
-    dec = math.degrees(math.asin(z / dist))
-    ra = math.degrees(math.atan2(y, x))
-    if ra < 0:
-        ra += 360
-    return ra, dec
+    b = math.degrees(math.asin(z / dist))  # 银纬
+    l = math.degrees(math.atan2(y, x))     # 银经
+    if l < 0:
+        l += 360
+    return l, b
 
 
 def uniform_sphere_sample():
+    """在银道坐标系中均匀采样球面方向
+    
+    返回:
+        单位向量 [x, y, z]，其中 z 轴指向银道北极
+    """
     theta = np.random.uniform(0, 2 * np.pi)
     cos_phi = np.random.uniform(-1, 1)
     sin_phi = np.sqrt(1 - cos_phi * cos_phi)
@@ -426,7 +457,7 @@ def generate_star_physically(stype, lclass, app_mag_target):
 
     # 7. 几何参数
     pos = uniform_sphere_sample() * dist_pc
-    ra, dec = cartesian_to_spherical(pos[0], pos[1], pos[2])
+    gal_lon, gal_lat = cartesian_to_galactic(pos[0], pos[1], pos[2])
     theta = 9.305 * radius_solar / dist_pc
 
     return {
@@ -445,8 +476,8 @@ def generate_star_physically(stype, lclass, app_mag_target):
         "bc_correction": round(float(bc), 2),
         "app_mag": round(float(final_app_mag), 3),
         "color_hex": COLOR_MAP.get(stype, "#ffffff"),
-        "ra": round(float(ra), 4),
-        "dec": round(float(dec), 4),
+        "gal_lon": round(float(gal_lon), 4),  # 银经 (度)
+        "gal_lat": round(float(gal_lat), 4),  # 银纬 (度)
         "pos_cartesian": [round(float(x), 2) for x in pos],
         "angular_diameter_mas": round(float(theta), 5),
     }
