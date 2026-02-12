@@ -13,7 +13,7 @@ Image.MAX_IMAGE_PIXELS = None
 # --- 辅助数学函数 ---
 
 # 坐标系转换参数：银道坐标系 → 天球赤道坐标系
-# 
+#
 # 天文学标准参数（与真实地球-太阳-银河系统一致）：
 # 1. 行星自转轴倾角（黄赤交角）：25° （地球为23.44°）
 # 2. 黄道面与银道面夹角：约60°
@@ -28,6 +28,7 @@ GALACTIC_CENTER_RA = 266.4  # 银道中心方向的赤经（度）17h 45m 36s
 ECLIPTIC_POLE_RA = 270.0  # 黄道北极的赤经（度）18h 00m 00s（垂直于春分点）
 ECLIPTIC_POLE_DEC = 65.0  # 黄道北极的赤纬（度）= 90° - 25°（行星倾角）
 
+
 def galactic_to_equatorial_rotation_matrix():
     """
     构建银道坐标系到天球赤道坐标系的旋转矩阵
@@ -36,73 +37,79 @@ def galactic_to_equatorial_rotation_matrix():
     # 银道北极在天球赤道系中的单位向量
     pole_ra_rad = np.radians(GALACTIC_POLE_RA)
     pole_dec_rad = np.radians(GALACTIC_POLE_DEC)
-    
+
     # 银道中心方向（l=0, b=0）在天球赤道系中的方向
     center_ra_rad = np.radians(GALACTIC_CENTER_RA)
     center_dec_rad = np.radians(-28.9)  # 标准值
-    
+
     # 构建银道坐标系的三个基向量在天球赤道系中的表示
     # z_gal: 银道北极方向
-    z_gal = np.array([
-        np.cos(pole_dec_rad) * np.cos(pole_ra_rad),
-        np.cos(pole_dec_rad) * np.sin(pole_ra_rad),
-        np.sin(pole_dec_rad)
-    ])
-    
+    z_gal = np.array(
+        [
+            np.cos(pole_dec_rad) * np.cos(pole_ra_rad),
+            np.cos(pole_dec_rad) * np.sin(pole_ra_rad),
+            np.sin(pole_dec_rad),
+        ]
+    )
+
     # x_gal: 银道中心方向（l=0, b=0）
-    x_gal = np.array([
-        np.cos(center_dec_rad) * np.cos(center_ra_rad),
-        np.cos(center_dec_rad) * np.sin(center_ra_rad),
-        np.sin(center_dec_rad)
-    ])
-    
+    x_gal = np.array(
+        [
+            np.cos(center_dec_rad) * np.cos(center_ra_rad),
+            np.cos(center_dec_rad) * np.sin(center_ra_rad),
+            np.sin(center_dec_rad),
+        ]
+    )
+
     # y_gal: z × x 确保右手系
     y_gal = np.cross(z_gal, x_gal)
     y_gal = y_gal / np.linalg.norm(y_gal)
-    
+
     # 重新正交化 x
     x_gal = np.cross(y_gal, z_gal)
     x_gal = x_gal / np.linalg.norm(x_gal)
-    
+
     # 旋转矩阵：列向量是银道系基向量在赤道系中的表示
     R = np.column_stack([x_gal, y_gal, z_gal])
-    
+
     return R
+
 
 def galactic_to_equatorial(l_deg, b_deg):
     """
     将银道坐标(l, b)转换为天球赤道坐标(RA, Dec)
-    
+
     参数:
         l_deg: 银经（度）
         b_deg: 银纬（度）
-    
+
     返回:
         (ra, dec): 赤经、赤纬（度）
     """
     # 银道坐标转笛卡尔（在银道坐标系中）
     l_rad = np.radians(l_deg)
     b_rad = np.radians(b_deg)
-    
+
     # 银道系中的笛卡尔坐标
     x_gal = np.cos(b_rad) * np.cos(l_rad)
     y_gal = np.cos(b_rad) * np.sin(l_rad)
     z_gal = np.sin(b_rad)
-    
+
     vec_gal = np.array([x_gal, y_gal, z_gal])
-    
+
     # 旋转到天球赤道系
     R = galactic_to_equatorial_rotation_matrix()
     vec_eq = R @ vec_gal
-    
+
     # 转换为 RA/Dec
     x, y, z = vec_eq
     dec = np.degrees(np.arcsin(np.clip(z, -1, 1)))
     ra = np.degrees(np.arctan2(y, x))
     if ra < 0:
         ra += 360
-    
+
     return ra, dec
+
 
 def ra_dec_to_cartesian(ra, dec):
     """赤经赤纬转单位向量"""
@@ -176,86 +183,84 @@ def load_star_data(json_path):
     stars = data.get("stars", [])
     neighbors = data.get("neighbors", [])
     all_stars = stars + neighbors
-    
+
     # 坐标转换：银道坐标 → 天球赤道坐标
-    print(f"正在转换坐标系：银道坐标 → 天球赤道坐标...")
+    print("正在转换坐标系：银道坐标 → 天球赤道坐标...")
     for star in all_stars:
         # 读取银道坐标 (新数据格式使用 gal_lon/gal_lat，旧数据使用 ra/dec)
         l_gal = star.get("gal_lon")  # 银经
         b_gal = star.get("gal_lat")  # 银纬
-        
+
         # 转换为天球赤道坐标
         ra_eq, dec_eq = galactic_to_equatorial(l_gal, b_gal)
-        
+
         # 保存为天球赤道坐标
         star["ra"] = ra_eq
         star["dec"] = dec_eq
         # 保留原始银道坐标
         star["gal_lon"] = l_gal
         star["gal_lat"] = b_gal
-    
+
     print(f"共加载 {len(all_stars)} 颗星星（坐标已转换）")
     return all_stars
 
 
 # --- Shader 定义 ---
 def create_star_shader(ctx):
-    """星星 Shader: 包含光晕、过曝和极坐标投影"""
+    """星星 Shader: 使用实例化四边形渲染，绕过 macOS gl_PointSize 64px 硬件限制"""
     vertex_shader = """
         #version 330
 
         const float BASE_GRID = 32768.0;  // 固定参考分辨率，用于位置量化，确保不同分辨率一致
 
+        // 四边形顶点属性（每个四边形4个顶点）
+        in vec2 in_quad_pos;  // 四边形局部坐标 (-0.5,-0.5) 到 (0.5,0.5)
+
+        // 星星实例属性（每颗星一份）
         in float in_ra;
         in float in_dec;
         in float in_mag;
         in vec3 in_color;
 
         uniform float scale_factor;
+        uniform float resolution;  // 视口分辨率（像素）
         uniform int is_north;
 
         out vec3 vColor;
         out float vIntensity;
+        out vec2 vUV;  // 模拟 gl_PointCoord
 
         void main() {
             vColor = in_color;
             float intensity = pow(10.0, -0.4 * in_mag);
             vIntensity = intensity;
 
-            // 1. 半球筛选 (星星只画在属于自己的半球)
+            // 1. 半球筛选
             bool visible = (is_north == 1 && in_dec >= 0.0) || (is_north == 0 && in_dec < 0.0);
             if (!visible) {
                 gl_Position = vec4(2.0, 2.0, 2.0, 1.0);
-                gl_PointSize = 0.0;
                 return;
             }
 
             // 2. 投影逻辑 (真实观星视角的极方位投影)
             float r;
             if (is_north == 1) {
-                // 北半球: 北极(90)中心，r = (90 - dec)/90
                 r = (90.0 - in_dec) / 90.0;
             } else {
-                // 南半球: 南极(-90)中心，r = (in_dec + 90.0) / 90.0;
                 r = (in_dec + 90.0) / 90.0;
             }
 
-            // 真实观星视角：
-            // 北半球：站在北极向上看，RA增加方向为逆时针（东方在右）
-            // 南半球：站在南极向上看，RA增加方向为顺时针（东方在左）
             float theta;
             if (is_north == 1) {
-                // 北半球：RA逆时针增加，需要取负并加90度偏移使RA=0在下方
                 theta = radians(-in_ra + 90.0);
             } else {
-                // 南半球：RA顺时针增加，加90度偏移使RA=0在下方
                 theta = radians(in_ra + 90.0);
             }
 
             float x = r * cos(theta);
             float y = r * sin(theta);
 
-            // 将 NDC 位置量化到固定网格，避免不同分辨率的像素中心对齐差异
+            // 将 NDC 位置量化到固定网格
             float px = (x * 0.5 + 0.5) * BASE_GRID;
             float py = (y * 0.5 + 0.5) * BASE_GRID;
             px = floor(px) + 0.5;
@@ -263,15 +268,26 @@ def create_star_shader(ctx):
             float xq = (px / BASE_GRID - 0.5) * 2.0;
             float yq = (py / BASE_GRID - 0.5) * 2.0;
 
-            gl_Position = vec4(xq, yq, 0.0, 1.0);
+            // 分段拟合: 4K下 mag -1.5→64px, mag 0→52px, mag 4→20px, mag 7→4px
+            // 亮星区 (mag ≤ 4): 线性，更大更明显
+            // 暗星区 (mag > 4): 指数衰减
+            float pointSize;
+            if (in_mag <= 4.0) {
+                pointSize = scale_factor * (52.0 - 8.0 * in_mag);
+            } else {
+                pointSize = scale_factor * max(1.0, 163.0 * exp(-0.536 * in_mag));
+            }
 
+            // 将像素大小转换为 NDC 偏移量
+            // NDC 范围是 -1 到 1（宽度为2），对应 resolution 像素
+            float halfSizeNDC = pointSize / resolution;
 
-            // 3. 尺寸计算
-            float baseSize = 70.0 * scale_factor; 
-            float sizeFactor = log2(intensity * 10.0 + 1.01);
-            float finalSize = baseSize * sizeFactor;
-            finalSize = max(finalSize, 3.0 * scale_factor);
-            gl_PointSize = finalSize;
+            // 四边形顶点 = 星星中心 + 局部偏移（缩放到NDC）
+            vec2 offset = in_quad_pos * 2.0 * halfSizeNDC;
+            gl_Position = vec4(xq + offset.x, yq + offset.y, 0.0, 1.0);
+
+            // UV 坐标：模拟 gl_PointCoord（0,0 在左上，1,1 在右下）
+            vUV = in_quad_pos + vec2(0.5);
         }
     """
 
@@ -279,24 +295,38 @@ def create_star_shader(ctx):
         #version 330
         in vec3 vColor;
         in float vIntensity;
+        in vec2 vUV;  // 模拟 gl_PointCoord (0,0)-(1,1)
         out vec4 fColor;
 
         void main() {
-            vec2 coord = gl_PointCoord - vec2(0.5);
-            float dist = length(coord);
+            vec2 coord = vUV - vec2(0.5);
+            float dist = length(coord);  // 0.0 到 0.5 的归一化距离
             if (dist > 0.5) discard;
 
-            // 扩大核心区域，使颜色更鲜艳
-            float core = 1.0 - smoothstep(0.0, 0.2, dist);
-            float glow = (1.0 - smoothstep(0.0, 0.5, dist)) * 0.4;
+            // 固定核心和光晕的比例
+            float coreRadius = 0.2;
+            float glowStart = 0.2;
+            float glowEnd = 0.5;
+            
+            // 核心：高斯分布
+            float coreSigma = coreRadius / 2.5;
+            float core = exp(-dist * dist / (2.0 * coreSigma * coreSigma));
+            
+            // 光晕：反距离衰减
+            float glowDist = max(0.0, dist - glowStart);
+            float glowRange = glowEnd - glowStart;
+            float normalizedGlowDist = glowDist / glowRange;
+            float glow = (1.0 / (1.0 + normalizedGlowDist * 10.0)) * 0.4;
 
             float intensity = (core + glow) * (vIntensity + 0.6);
             
-            // 改进alpha，使边缘更柔和
-            float alpha = 1.0 - smoothstep(0.3, 0.5, dist);
+            // Alpha 高斯衰减
+            float alphaSigma = 0.15;
+            float alphaCenter = 0.4;
+            float alphaDist = max(0.0, dist - alphaCenter);
+            float alpha = exp(-alphaDist * alphaDist / (2.0 * alphaSigma * alphaSigma));
             
-            // 减少变白程度，保留更多原始颜色（从0.1降到0.05）
-            vec3 finalColor = mix(vColor, vec3(1.0), clamp(vIntensity * 0.05, 0.0, 1.0));
+            vec3 finalColor = vec3(1.0);
             fColor = vec4(finalColor * intensity, alpha);
         }
     """
@@ -375,6 +405,7 @@ def render_hemisphere(
     fbo,
     resolution,
     is_north,
+    star_count,
 ):
     """渲染半球，返回图像但不保存"""
     name = "北半球" if is_north else "南半球"
@@ -388,19 +419,17 @@ def render_hemisphere(
     # 开启混合模式 (对星星至关重要，对半透明线条也有用)
     ctx.enable(moderngl.BLEND)
     ctx.blend_func = moderngl.SRC_ALPHA, moderngl.ONE
-    # 开启点大小控制
-    ctx.enable(moderngl.PROGRAM_POINT_SIZE)
     # 设置线宽 (随分辨率缩放，使其更清晰)
-    # 增加基础线宽系数，确保高分辨率可见，并设置最小宽度
-    line_width = max(4.0, 4.0 * (resolution / 4096.0))
+    # 基础线宽 6.0px，按分辨率倍数缩放
+    scale_factor = resolution / 4096.0
+    line_width = max(6.0, 6.0 * scale_factor)
     ctx.line_width = line_width
 
-    scale_factor = resolution / 4096.0
-
-    # 1. 渲染星星
+    # 1. 渲染星星（实例化四边形渲染）
     star_prog["scale_factor"].value = scale_factor
+    star_prog["resolution"].value = float(resolution)
     star_prog["is_north"].value = 1 if is_north else 0
-    vao_stars.render(moderngl.POINTS)
+    vao_stars.render(moderngl.TRIANGLE_STRIP, instances=star_count)
 
     # 2. 渲染线条
     line_prog["is_north"].value = 1 if is_north else 0
@@ -489,36 +518,37 @@ def create_merged_image(north_image, south_image, resolution, output_path):
 
     # 添加文字标签
     from PIL import ImageDraw, ImageFont
+
     draw = ImageDraw.Draw(merged)
-    
+
     # 计算字体大小（根据分辨率自适应）
     font_size = int(resolution * 0.05)
     try:
         # 尝试使用系统字体
         font = ImageFont.truetype("/System/Library/Fonts/Helvetica.ttc", font_size)
-    except:
+    except:  # noqa: E722
         # 如果失败，使用默认字体
         font = ImageFont.load_default()
-    
+
     # 计算文字位置
     south_text = "SOUTH"
     north_text = "NORTH"
-    
+
     # 获取文字边界框来计算居中位置
     south_bbox = draw.textbbox((0, 0), south_text, font=font)
     north_bbox = draw.textbbox((0, 0), north_text, font=font)
-    
+
     south_text_width = south_bbox[2] - south_bbox[0]
     north_text_width = north_bbox[2] - north_bbox[0]
-    
+
     # 南半球标签位置（左侧圆的中心下方）
     south_x = margin + resolution // 2 - south_text_width // 2
     south_y = margin + resolution + int(label_height * 0.3)
-    
+
     # 北半球标签位置（右侧圆的中心下方）
     north_x = resolution + margin + resolution // 2 - north_text_width // 2
     north_y = margin + resolution + int(label_height * 0.3)
-    
+
     # 绘制文字（黑色）
     draw.text((south_x, south_y), south_text, fill=(0, 0, 0), font=font)
     draw.text((north_x, north_y), north_text, fill=(0, 0, 0), font=font)
@@ -588,14 +618,37 @@ def main():
 
     vbo_stars = ctx.buffer(star_data.tobytes())
     prog_stars = create_star_shader(ctx)
+
+    # 创建四边形顶点缓冲 (triangle strip: 4个顶点)
+    # 局部坐标从 (-0.5, -0.5) 到 (0.5, 0.5)
+    quad_vertices = np.array(
+        [
+            [-0.5, -0.5],  # 左下
+            [0.5, -0.5],  # 右下
+            [-0.5, 0.5],  # 左上
+            [0.5, 0.5],  # 右上
+        ],
+        dtype="f4",
+    )
+    vbo_quad = ctx.buffer(quad_vertices.tobytes())
+
+    # 实例化渲染 VAO：
+    # - vbo_quad 是每个顶点的数据（4个顶点/实例）
+    # - vbo_stars 是每个实例的数据（每颗星一份，divisor=1）
     vao_stars = ctx.vertex_array(
         prog_stars,
-        [(vbo_stars, "1f 1f 1f 3f", "in_ra", "in_dec", "in_mag", "in_color")],
+        [
+            (vbo_quad, "2f", "in_quad_pos"),
+            (vbo_stars, "1f 1f 1f 3f/i", "in_ra", "in_dec", "in_mag", "in_color"),
+        ],
     )
 
     # --- 2. 准备线条数据 ---
     # 定义极点在天球赤道坐标系中的位置
-    galactic_pole = (GALACTIC_POLE_RA, GALACTIC_POLE_DEC)  # 银道北极（已在天球赤道系中定义）
+    galactic_pole = (
+        GALACTIC_POLE_RA,
+        GALACTIC_POLE_DEC,
+    )  # 银道北极（已在天球赤道系中定义）
     ecliptic_pole = (ECLIPTIC_POLE_RA, ECLIPTIC_POLE_DEC)  # 黄道北极（天球赤道系）
 
     # 生成点集
@@ -634,6 +687,7 @@ def main():
         fbo,
         resolution,
         True,
+        star_count,
     )
 
     # 渲染南半球
@@ -647,6 +701,7 @@ def main():
         fbo,
         resolution,
         False,
+        star_count,
     )
 
     # 创建并保存合并图像
