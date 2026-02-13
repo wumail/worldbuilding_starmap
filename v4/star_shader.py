@@ -165,6 +165,48 @@ def create_great_circle_points(pole_ra, pole_dec, num_points=1080):
     return np.array(points, dtype="f4")
 
 
+def create_meridian_line(ra, south_lat=-80.0, north_lat=80.0, num_points=180):
+    """
+    生成经线（meridian）路径点
+    
+    参数:
+        ra: 赤经（度）
+        south_lat: 南端纬度（度）
+        north_lat: 北端纬度（度）
+        num_points: 点数
+    
+    返回:
+        numpy array of (RA, Dec) points
+    """
+    points = []
+    for i in range(num_points):
+        # 从南纬到北纬线性插值
+        dec = south_lat + (north_lat - south_lat) * i / (num_points - 1)
+        points.append((ra, dec))
+    
+    return np.array(points, dtype="f4")
+
+
+def create_latitude_circle(dec, num_points=360):
+    """
+    生成纬线（latitude circle）路径点
+    
+    参数:
+        dec: 赤纬（度）
+        num_points: 点数
+    
+    返回:
+        numpy array of (RA, Dec) points
+    """
+    points = []
+    for i in range(num_points):
+        # RA 从 0 到 360 度
+        ra = 360.0 * i / num_points
+        points.append((ra, dec))
+    
+    return np.array(points, dtype="f4")
+
+
 def hex_to_rgb(hex_color):
     h = hex_color.lstrip("#")
     return tuple(int(h[i : i + 2], 16) / 255.0 for i in (0, 2, 4))
@@ -402,10 +444,14 @@ def render_hemisphere(
     vao_stars,
     vao_galactic,
     vao_ecliptic,
+    vao_meridians,
+    vao_latitudes,
     fbo,
     resolution,
     is_north,
     star_count,
+    num_meridians,
+    num_latitudes,
 ):
     """渲染半球，返回图像但不保存"""
     name = "北半球" if is_north else "南半球"
@@ -441,6 +487,16 @@ def render_hemisphere(
     # 绘制黄道线 (橙色 #ffaa00, alpha 提高到 0.9)
     line_prog["line_color"].value = (1.0, 0.66, 0.0, 0.9)
     vao_ecliptic.render(moderngl.LINE_LOOP)
+
+    # 绘制经线 (浅灰色, alpha 0.4)
+    line_prog["line_color"].value = (0.7, 0.7, 0.7, 0.4)
+    for i in range(num_meridians):
+        vao_meridians[i].render(moderngl.LINE_STRIP)
+
+    # 绘制纬线 (浅灰色, alpha 0.4)
+    line_prog["line_color"].value = (0.7, 0.7, 0.7, 0.4)
+    for i in range(num_latitudes):
+        vao_latitudes[i].render(moderngl.LINE_LOOP)
 
     # 读取图像数据
     print("正在读取图像数据...")
@@ -670,6 +726,38 @@ def main():
         prog_lines, [(vbo_ecliptic, "1f 1f", "in_ra", "in_dec")]
     )
 
+    # --- 2.1 准备经纬网格线数据 ---
+    # 26条经线，均匀分布在360度
+    num_meridians = 26
+    meridian_ras = [i * 360.0 / num_meridians for i in range(num_meridians)]
+    vao_meridians = []
+    
+    print(f"正在生成 {num_meridians} 条经线...")
+    for ra in meridian_ras:
+        meridian_points = create_meridian_line(ra, south_lat=-88.0, north_lat=88.0)
+        vbo_meridian = ctx.buffer(meridian_points.tobytes())
+        vao_meridian = ctx.vertex_array(
+            prog_lines, [(vbo_meridian, "1f 1f", "in_ra", "in_dec")]
+        )
+        vao_meridians.append(vao_meridian)
+    
+    # 7条纬线（忽略0纬）：±10°, ±30°, ±50°, ±70°, ±80°, ±90°
+    # 实际上我们需要7条，所以选择：±10°, ±30°, ±50°, ±70° (8条)
+    # 根据要求，7条纬线忽略0纬，所以应该是：±10°, ±30°, ±50°, ±70°, ±80°, ±90° 中选7条
+    # 让我们选择：±10°, ±30°, ±50°, ±70°, ±80°, 90°, -90° = 7条
+    latitude_decs = [-88, -74, -58, -34, 34, 58, 74, 88]
+    num_latitudes = len(latitude_decs)
+    vao_latitudes = []
+    
+    print(f"正在生成 {num_latitudes} 条纬线...")
+    for dec in latitude_decs:
+        latitude_points = create_latitude_circle(dec)
+        vbo_latitude = ctx.buffer(latitude_points.tobytes())
+        vao_latitude = ctx.vertex_array(
+            prog_lines, [(vbo_latitude, "1f 1f", "in_ra", "in_dec")]
+        )
+        vao_latitudes.append(vao_latitude)
+
     # --- 3. 渲染输出 ---
     input_dir = os.path.dirname(args.input) or "."
     input_base = os.path.basename(args.input).replace(".json", "")
@@ -684,10 +772,14 @@ def main():
         vao_stars,
         vao_galactic,
         vao_ecliptic,
+        vao_meridians,
+        vao_latitudes,
         fbo,
         resolution,
         True,
         star_count,
+        num_meridians,
+        num_latitudes,
     )
 
     # 渲染南半球
@@ -698,10 +790,14 @@ def main():
         vao_stars,
         vao_galactic,
         vao_ecliptic,
+        vao_meridians,
+        vao_latitudes,
         fbo,
         resolution,
         False,
         star_count,
+        num_meridians,
+        num_latitudes,
     )
 
     # 创建并保存合并图像
