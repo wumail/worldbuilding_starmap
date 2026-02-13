@@ -252,9 +252,9 @@ def create_star_shader(ctx):
 
             float theta;
             if (is_north == 1) {
-                theta = radians(-in_ra + 90.0);
+                theta = radians(-in_ra + 27.12825 / 2.0 + 180.0);
             } else {
-                theta = radians(in_ra + 90.0);
+                theta = radians(in_ra - 27.12825 / 2.0);
             }
 
             float x = r * cos(theta);
@@ -358,11 +358,11 @@ def create_line_shader(ctx):
             // 使用与星星相同的 theta 计算逻辑
             float theta;
             if (is_north == 1) {
-                // 北半球：RA逆时针增加，需要取负并加90度偏移使RA=0在下方
-                theta = radians(-in_ra + 90.0);
+                // 北半球：RA逆时针增加，需要取负并加180度偏移使RA=0在下方
+                theta = radians(-in_ra + 27.12825 / 2.0 + 180.0);
             } else {
                 // 南半球：RA顺时针增加，加90度偏移使RA=0在下方
-                theta = radians(in_ra + 90.0);
+                theta = radians(in_ra - 27.12825 / 2.0);
             }
 
             float x = r * cos(theta);
