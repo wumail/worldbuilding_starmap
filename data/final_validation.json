@@ -1,0 +1,122 @@
+{
+  "verified_at_utc": "2026-09-13T08:56:00.036936+00:00",
+  "catalog": "v4/output_20260913_085102_565478/star_map_20260913_085102_565478.json",
+  "catalog_sha256": "a27c7e2eb09efd8bb52f93190f447162d094bea6640520c4d62d73bda795b2a2",
+  "physical_validation": {
+    "checked": 9327,
+    "passed": 9327,
+    "failed": 0,
+    "all_passed": true,
+    "errors": []
+  },
+  "image": "v4/output_20260913_085102_565478/star_map_20260913_085102_565478_Merged_4k.png",
+  "image_sha256": "90d32608e3db8345f35bea9446e15ce1a44c9df02828e65c81ef83ecf7ceb4ba",
+  "render_report": "v4/output_20260913_085102_565478/star_map_20260913_085102_565478_Merged_4k.render.json",
+  "render_report_sha256": "48fd92db12db2c717923698d07cb42d1da6c201c644e322717baa8d3f0a96611",
+  "north_validation": {
+    "checked_stars": 4513,
+    "all_passed": true,
+    "max_channel_error": 1,
+    "tolerance_codes": 2,
+    "pixels_outside_tolerance": 0,
+    "minimum_witness_peak_code": 104
+  },
+  "south_validation": {
+    "checked_stars": 4814,
+    "all_passed": true,
+    "max_channel_error": 1,
+    "tolerance_codes": 2,
+    "pixels_outside_tolerance": 0,
+    "minimum_witness_peak_code": 104
+  },
+  "png_validation": {
+    "checked_stars": 9327,
+    "all_passed": true,
+    "hemisphere_pixels_checked": 33554432,
+    "roundtrip_pixels_checked": 41546600,
+    "differing_pixels": 0
+  },
+  "population_runs": 24,
+  "population_minimum": 9080,
+  "population_maximum": 9336,
+  "source_fingerprints_match": true,
+  "unit_tests": {
+    "passed": 38,
+    "failed": 0
+  },
+  "browser_tests": {
+    "passed": 9,
+    "failed": 0,
+    "rendered_stars": 9327
+  },
+  "preserved_artifacts": {
+    "v4/output_20260210_021525/validation_dist_mag_20260210_021525.png": {
+      "sha256": "90e836585dfb31163b6fd0b715902a7a97e0eef410af633e611bdd1d2b4c941b",
+      "unchanged": true
+    },
+    "v4/output_20260210_021525/validation_hr_diagram_20260210_021525.png": {
+      "sha256": "9ac2ef84fae20f8665044567e015b0a9db3ccdf84861cb2aaf1bee6ba8da9eea",
+      "unchanged": true
+    },
+    "v4/output_20260210_021525/validation_report_20260210_021525.txt": {
+      "sha256": "2fa4b89677020225c06b376bd1caca1eae5cdc26684342f8371dca10dbb774e9",
+      "unchanged": true
+    },
+    "v4/output_20260210_021525/star_map_20260210_021525_Merged_8k.png": {
+      "sha256": "83eae2f013ca6dfcf1c67f0bb7b0632a0837cb412428c6da01833c423d88b6d2",
+      "unchanged": true
+    },
+    "v4/output_20260210_021525/star_map_20260210_021525_Merged_16k.png": {
+      "sha256": "67cdda894b92476dc653e01a99f7baa469963eefd47c120070ff80642b162d02",
+      "unchanged": true
+    },
+    "v4/output_20260210_021525/star_map_20260210_021525_Merged_4k.png": {
+      "sha256": "e233936add908b38a7afc6eb9ca50809be3a0c6ebe375b8b777d15df79bab139",
+      "unchanged": true
+    },
+    "v4/output_20260210_021525/star_map_20260210_021525.json": {
+      "sha256": "3addfe73ec6c28c636818e0ab6de10e8ef242ff6fbac4840e7bd8af8a805ec38",
+      "unchanged": true
+    },
+    "v4/output_20260913_070620_305589/star_map_20260913_070620_305589.json": {
+      "sha256": "de31f6146b3d29c509c3b46173a231f9273af54cad3db3286ae8440db8c56fc4",
+      "unchanged": true
+    },
+    "v4/output_20260913_070620_305589/validation_dist_mag_20260913_070620_305589.png": {
+      "sha256": "33bef3dce8d3d5ebcb0efc7a5f960ab3fc861800d4313248afb06b3f197a4435",
+      "unchanged": true
+    },
+    "v4/output_20260913_070620_305589/validation_report_20260913_070620_305589.txt": {
+      "sha256": "956243f38b8e137bead2646ad3d236ff4ef235366ffad255b1f8f8df1ff2503f",
+      "unchanged": true
+    },
+    "v4/output_20260913_070620_305589/validation_hr_diagram_20260913_070620_305589.png": {
+      "sha256": "eeb20d1902e23b555f6ed71929cc41887eeefa42dc55cd338e61b44c9b9a9370",
+      "unchanged": true
+    },
+    "v4/output_20260913_070620_305589/star_map_20260913_070620_305589_Merged_4k.png": {
+      "sha256": "10e082491ea7b6c098562d7dc0fdccbefcd5f8682305421ee1d57d2198e3a028",
+      "unchanged": true
+    },
+    "v4/output_20260913_075854_929210/validation_report_20260913_075854_929210.txt": {
+      "sha256": "1b50d3fca6c2e1b770a3d3bb135452cebbfadb3b60774462db291ebe06b89a74",
+      "unchanged": true
+    },
+    "v4/output_20260913_075854_929210/validation_dist_mag_20260913_075854_929210.png": {
+      "sha256": "ed627b78519d21734dc3b0780b6d88d33e3ed7687e3e92188377f8c693f0f5f5",
+      "unchanged": true
+    },
+    "v4/output_20260913_075854_929210/star_map_20260913_075854_929210.json": {
+      "sha256": "f82a4ce2bc3dc1769b734593ae80558517d50713e1e1cf7112ca43394d0000db",
+      "unchanged": true
+    },
+    "v4/output_20260913_075854_929210/star_map_20260913_075854_929210_Merged_4k.png": {
+      "sha256": "b3d0a69b377bec8c6c0fdc441e5dc2b0099b6ca8831aebf153704d53d4476ff5",
+      "unchanged": true
+    },
+    "v4/output_20260913_075854_929210/validation_hr_diagram_20260913_075854_929210.png": {
+      "sha256": "3b8d8354e30327f528ffe370d85b1ea16d579e744c5855ee794e93db30176fcb",
+      "unchanged": true
+    }
+  }
+}

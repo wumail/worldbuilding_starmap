@@ -1,0 +1,19 @@
+{
+  "revision": "20260915-nebula-smoke-4",
+  "preserved_files": 12,
+  "changed_preserved_files": [],
+  "unexpected_object_changes": [],
+  "checks": {
+    "stars_unchanged": true,
+    "galaxy_unchanged": true,
+    "other_data_unchanged": true,
+    "ledger_unchanged": true,
+    "generation_id_unchanged": true,
+    "objects_count_unchanged": true,
+    "parent_fingerprint": true,
+    "source_fingerprint": true
+  },
+  "stars": 9356,
+  "deep_sky": 8947,
+  "clouds": 160
+}

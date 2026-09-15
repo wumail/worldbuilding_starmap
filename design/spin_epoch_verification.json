@@ -1,0 +1,294 @@
+{
+  "selection": "moon inclinations are osculating elements at day zero relative to the initial Terrax equator",
+  "initial_inclinations_deg": {
+    "Luna": 0.40000000000119235,
+    "Echo": 1.100000000000168
+  },
+  "source_sha256": "5de9a8b5aaa55a484e897bb2f8473a86386b9d48711bddbf46ae666dadde23c2",
+  "trajectory_sha256": {
+    "reference": "a46ee74a2a916eef8586fcbedca7c8d1984bdd7058afe82133d2d27af09852b7",
+    "comparison": "053feb47e5b705b601d5ed7d9a00d5ecfa34166303097fc28485a85e8449b751"
+  },
+  "sample_count": 10264,
+  "max_sample_interval_days": 4.999899883077887,
+  "geometry": {
+    "Luna": {
+      "sampled_equatorial_inclination_deg": [
+        0.10749182581877623,
+        51.158445065095464
+      ],
+      "sampled_radius_km": [
+        378752.63382169796,
+        389757.6053559679
+      ],
+      "sampled_osculating_eccentricity": [
+        6.771167024098171e-05,
+        0.017695722018580343
+      ]
+    },
+    "Echo": {
+      "sampled_equatorial_inclination_deg": [
+        1.100000000000168,
+        53.57315897912071
+      ],
+      "sampled_radius_km": [
+        649797.9205470711,
+        806152.458816351
+      ],
+      "sampled_osculating_eccentricity": [
+        0.0005944362656315473,
+        0.16641638209895804
+      ]
+    }
+  },
+  "sampled_closest_moon_separation": {
+    "year": 123.18712949429992,
+    "distance_km": 276893.0842020984,
+    "instantaneous_mutual_Hill_radii_diagnostic_only": 3.1142163699810315,
+    "minimum_is_an_upper_bound_on_true_continuous_minimum": true
+  },
+  "convergence_samples": [
+    {
+      "year": 0.0,
+      "axis_difference_arcsec": 0.0,
+      "moons": {
+        "Luna": {
+          "position_difference_km": 0.0,
+          "sky_direction_difference_deg": 0.0,
+          "orbital_normal_difference_deg": 0.0,
+          "radial_difference_km": 0.0,
+          "eccentricity_vector_difference": 0.0
+        },
+        "Echo": {
+          "position_difference_km": 0.0,
+          "sky_direction_difference_deg": 0.0,
+          "orbital_normal_difference_deg": 0.0,
+          "radial_difference_km": 0.0,
+          "eccentricity_vector_difference": 0.0
+        }
+      }
+    },
+    {
+      "year": 0.9992955276235019,
+      "axis_difference_arcsec": 3.264416146468141e-10,
+      "moons": {
+        "Luna": {
+          "position_difference_km": 0.0025906388100083288,
+          "sky_direction_difference_deg": 3.8470806640398197e-07,
+          "orbital_normal_difference_deg": 1.7135800228526736e-10,
+          "radial_difference_km": 8.442734232128698e-06,
+          "eccentricity_vector_difference": 5.747734018373932e-10
+        },
+        "Echo": {
+          "position_difference_km": 0.0001394968420492128,
+          "sky_direction_difference_deg": 1.1080769436600257e-08,
+          "orbital_normal_difference_deg": 3.6116292635491737e-10,
+          "radial_difference_km": 5.161996950652946e-05,
+          "eccentricity_vector_difference": 4.1767141941087725e-11
+        }
+      }
+    },
+    {
+      "year": 10.006644256065478,
+      "axis_difference_arcsec": 9.286820827686433e-08,
+      "moons": {
+        "Luna": {
+          "position_difference_km": 0.4620769661284105,
+          "sky_direction_difference_deg": 6.920467718548925e-05,
+          "orbital_normal_difference_deg": 6.064743963748003e-08,
+          "radial_difference_km": 0.0015981470544936152,
+          "eccentricity_vector_difference": 8.438344124436248e-09
+        },
+        "Echo": {
+          "position_difference_km": 0.3039679618570139,
+          "sky_direction_difference_deg": 2.541835031139383e-05,
+          "orbital_normal_difference_deg": 4.502068933712697e-07,
+          "radial_difference_km": 0.009835918704174463,
+          "eccentricity_vector_difference": 2.85964763844791e-08
+        }
+      }
+    },
+    {
+      "year": 50.005843320666465,
+      "axis_difference_arcsec": 1.0660367209331298e-05,
+      "moons": {
+        "Luna": {
+          "position_difference_km": 11.959056231710052,
+          "sky_direction_difference_deg": 0.0017835670177486164,
+          "orbital_normal_difference_deg": 1.1427383467947806e-06,
+          "radial_difference_km": 0.02030562592122552,
+          "eccentricity_vector_difference": 2.062110123105558e-07
+        },
+        "Echo": {
+          "position_difference_km": 7.966805705272726,
+          "sky_direction_difference_deg": 0.000590306563854499,
+          "orbital_normal_difference_deg": 4.853100401143702e-06,
+          "radial_difference_km": 0.055940678188292334,
+          "eccentricity_vector_difference": 3.287921537991189e-07
+        }
+      }
+    },
+    {
+      "year": 75.00192049108448,
+      "axis_difference_arcsec": 2.8051996505631555e-05,
+      "moons": {
+        "Luna": {
+          "position_difference_km": 26.509984757623318,
+          "sky_direction_difference_deg": 0.003939238061459478,
+          "orbital_normal_difference_deg": 3.6521900702022343e-06,
+          "radial_difference_km": 0.3158291420612457,
+          "eccentricity_vector_difference": 1.5789548156472255e-07
+        },
+        "Echo": {
+          "position_difference_km": 20.34433471696031,
+          "sky_direction_difference_deg": 0.0016319757770219977,
+          "orbital_normal_difference_deg": 1.9306780840192633e-05,
+          "radial_difference_km": 2.0936922236377193,
+          "eccentricity_vector_difference": 9.897904083633655e-07
+        }
+      }
+    },
+    {
+      "year": 99.99799766150248,
+      "axis_difference_arcsec": 4.33651684354231e-05,
+      "moons": {
+        "Luna": {
+          "position_difference_km": 51.14174456043903,
+          "sky_direction_difference_deg": 0.0076282057994302085,
+          "orbital_normal_difference_deg": 4.631621289156728e-06,
+          "radial_difference_km": 0.4710693037840711,
+          "eccentricity_vector_difference": 5.720009618938262e-07
+        },
+        "Echo": {
+          "position_difference_km": 33.706375248423015,
+          "sky_direction_difference_deg": 0.002491001663268021,
+          "orbital_normal_difference_deg": 3.817050564141234e-05,
+          "radial_difference_km": 1.2174980870846066,
+          "eccentricity_vector_difference": 1.5288034060057017e-06
+        }
+      }
+    },
+    {
+      "year": 110.00464191756795,
+      "axis_difference_arcsec": 5.6752164533498643e-05,
+      "moons": {
+        "Luna": {
+          "position_difference_km": 57.0056854950249,
+          "sky_direction_difference_deg": 0.00852014026715091,
+          "orbital_normal_difference_deg": 1.644137531690562e-05,
+          "radial_difference_km": 0.5074511566469186,
+          "eccentricity_vector_difference": 8.103922283468076e-07
+        },
+        "Echo": {
+          "position_difference_km": 33.66570657091062,
+          "sky_direction_difference_deg": 0.0028328970824548576,
+          "orbital_normal_difference_deg": 7.398641452177292e-05,
+          "radial_difference_km": 2.417420905908231,
+          "eccentricity_vector_difference": 9.430755332718431e-06
+        }
+      }
+    },
+    {
+      "year": 119.99759719380297,
+      "axis_difference_arcsec": 0.00020287710061275791,
+      "moons": {
+        "Luna": {
+          "position_difference_km": 46.882147338611965,
+          "sky_direction_difference_deg": 0.006924799234908638,
+          "orbital_normal_difference_deg": 3.9169348082431026e-05,
+          "radial_difference_km": 3.097924385477004,
+          "eccentricity_vector_difference": 1.1849507630693853e-05
+        },
+        "Echo": {
+          "position_difference_km": 2091.954078474965,
+          "sky_direction_difference_deg": 0.16045750243392679,
+          "orbital_normal_difference_deg": 0.0013439842901577723,
+          "radial_difference_km": 85.52939250013581,
+          "eccentricity_vector_difference": 0.00022607293011793922
+        }
+      }
+    },
+    {
+      "year": 124.99407483192049,
+      "axis_difference_arcsec": 0.00013021880484373967,
+      "moons": {
+        "Luna": {
+          "position_difference_km": 251.0935197557731,
+          "sky_direction_difference_deg": 0.03736649318180181,
+          "orbital_normal_difference_deg": 0.0003076352332041786,
+          "radial_difference_km": 2.931168651254166,
+          "eccentricity_vector_difference": 1.1605576388338274e-05
+        },
+        "Echo": {
+          "position_difference_km": 6026.68623442104,
+          "sky_direction_difference_deg": 0.4954966434051175,
+          "orbital_normal_difference_deg": 0.0019279006172392501,
+          "radial_difference_km": 443.39213256234694,
+          "eccentricity_vector_difference": 0.0005518367720426393
+        }
+      }
+    },
+    {
+      "year": 130.00424144986846,
+      "axis_difference_arcsec": 0.0004851248491989919,
+      "moons": {
+        "Luna": {
+          "position_difference_km": 439.71257869689776,
+          "sky_direction_difference_deg": 0.06574343639814215,
+          "orbital_normal_difference_deg": 0.0010332004372980328,
+          "radial_difference_km": 3.8699960519074272,
+          "eccentricity_vector_difference": 2.2242796527584526e-05
+        },
+        "Echo": {
+          "position_difference_km": 7264.995948110928,
+          "sky_direction_difference_deg": 0.5966884068497762,
+          "orbital_normal_difference_deg": 0.007919380322622379,
+          "radial_difference_km": 757.8078500797754,
+          "eccentricity_vector_difference": 0.00024918402574406444
+        }
+      }
+    },
+    {
+      "year": 135.00071908798597,
+      "axis_difference_arcsec": 0.0023103052620763783,
+      "moons": {
+        "Luna": {
+          "position_difference_km": 1832.6556822721172,
+          "sky_direction_difference_deg": 0.27266874061581253,
+          "orbital_normal_difference_deg": 0.002509450429181304,
+          "radial_difference_km": 49.59979201015862,
+          "eccentricity_vector_difference": 0.00012533720172023055
+        },
+        "Echo": {
+          "position_difference_km": 31188.82879106591,
+          "sky_direction_difference_deg": 2.3566366184633054,
+          "orbital_normal_difference_deg": 0.026218634816764244,
+          "radial_difference_km": 233.76160706622767,
+          "eccentricity_vector_difference": 0.002181031968382296
+        }
+      }
+    },
+    {
+      "year": 140.49,
+      "axis_difference_arcsec": 0.05193644560907918,
+      "moons": {
+        "Luna": {
+          "position_difference_km": 43781.8584035145,
+          "sky_direction_difference_deg": 6.537822136010549,
+          "orbital_normal_difference_deg": 0.02132603677193,
+          "radial_difference_km": 1258.9243871052263,
+          "eccentricity_vector_difference": 0.002835334076416541
+        },
+        "Echo": {
+          "position_difference_km": 779820.7910687131,
+          "sky_direction_difference_deg": 64.91688169552557,
+          "orbital_normal_difference_deg": 0.5251158542387178,
+          "radial_difference_km": 76344.56191330845,
+          "eccentricity_vector_difference": 0.040327035831110365
+        }
+      }
+    }
+  ],
+  "max_axis_difference_arcsec": 0.07009221859520895,
+  "scope": "Sampled diagnostics only. Far-future lunar ephemerides remain unconverged; no chaos or long-term stability claim."
+}

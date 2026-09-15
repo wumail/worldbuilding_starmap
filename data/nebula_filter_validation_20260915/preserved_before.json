@@ -1,0 +1,23 @@
+{
+  "output/output_20260915_galactic_01/validation_report_20260915_galactic_01.txt": "3ae9e3b3189f41532591170450555e0dd6aa8f50ac66d39bb7023cb024bd1c16",
+  "output/output_20260915_galactic_01/diffuse_validation.json": "4cd6afa5dd50330f95c1db16d694875916796124331939f526cd7b4dd6f4aa3a",
+  "output/output_20260915_galactic_01/sky_view_20260915_galactic_01.json": "c2f7d441d441c05b4f6fd9d683d1a790052d5bb4aac10c0c2d923a0e3dcf0093",
+  "output/output_20260915_galactic_01/diffuse_20260915_galactic_01.f32": "2b8380ec5618d0a718a37ecd3d77a88615d0ff69586174a5bdd3b32a930fe5df",
+  "output/output_20260915_galactic_01/star_map_20260915_galactic_01.json": "623869fdda53a9bafad399d8d413efe9c11a45789118c9b319f6f79b843688d1",
+  "output/output_20260915_nebula_01/diffuse_20260915_nebula_01.f32": "51f3d047bcbef42cc3dae0e2ef10f4e97db8e526b4f3cb96f5f8e1ada46f70af",
+  "output/output_20260915_nebula_01/diffuse_validation.json": "29cbb4c2fb6adce4e59f7f791f6d8c1ce438fad0f10b78c2498ee9a56e8fdb39",
+  "output/output_20260915_nebula_01/morphology_validation.json": "ef7945439c5e829664c3a31ddd9b4f3ba761327e41424579e12bd35c45a07222",
+  "output/output_20260915_nebula_01/star_map_20260915_nebula_01.json": "2e6967ee0169a8a320add967187399202a1d1574da6202dceed82c27f52312fb",
+  "output/output_20260915_nebula_01/sky_view_20260915_nebula_01.json": "7f49d277d8463766bcdb4ddea01f5b325b8febc9e55b20451b74e4b58b549445",
+  "output/output_20260915_nebula_02/sky_view_20260915_nebula_02.json": "2c83ed9cf30c189c58aa1c07df496f7e1084eb82df0cd0aac3e6b35fe0f6ccea",
+  "output/output_20260915_nebula_02/diffuse_validation.json": "1db5135369760f3b265f435e923847d86248b146e8f6842139881ef585e93fd4",
+  "output/output_20260915_nebula_02/diffuse_20260915_nebula_02.f32": "e90b2c0f275e205b43eb84a44be492695e5b22881eddd4156b607f8cb348fee8",
+  "output/output_20260915_nebula_02/morphology_validation.json": "ef7945439c5e829664c3a31ddd9b4f3ba761327e41424579e12bd35c45a07222",
+  "output/output_20260915_nebula_02/star_map_20260915_nebula_02.json": "ae50d1b7a51a605d92a853fc4c1382adcf408ee3f51f4c92591a0af3192aa5a6",
+  "reference/\u6052\u661f\u7cfb\u6700\u7ec8\u8bbe\u5b9a.md": "e20a4a343afbeb0b8ea920be709318a2ce8022fdd1b9f1da438a7561f4e42aac",
+  "reference/\u6bcd\u661f\u6700\u7ec8\u8bbe\u5b9a.md": "71c7afa062b4ab03cc9196410af6ffc66cc07b370fe215eb848206b976239cd2",
+  "src/nebula_morphology.py": "ee8ca70c2fbdb52b7129d597cce15b868848aa5655eff7f198633ba9edd96cb4",
+  "web/shared/nebula_morphology.mjs": "6f6b0544bd26478953e39a5d70134e3ae343c6617c0a5ba3a2787bdcb8928cec",
+  "web/shared/deep_sky_profiles.mjs": "8d11df12bf8fe2d29052bb520d55bc7bfd75d9f38d8871959ebd4216b72b3e6f",
+  "web/shared/deep_sky_view.js": "cbbd8ffb3fa18ac7dcc1ca0c1a5cea47a4118cd2d56a42a9ecbf1a56f17d7420"
+}

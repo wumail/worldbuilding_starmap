@@ -1,0 +1,1403 @@
+{
+  "generator_version": "4.3",
+  "population_profile_sha256": "a46c680495141136b4d170554a8989ebe791e4d5e6769211b8138825716be3ec",
+  "generation_parameters": {
+    "seed": 23,
+    "limiting_magnitude": 6.5,
+    "min_distance_pc": 1.0,
+    "max_distance_pc": 10000.0,
+    "local_density_per_pc3": 0.12003484623382714,
+    "observer_radius_pc": 8200.0,
+    "observer_height_pc": 20.0,
+    "radial_scale_pc": 2600.0,
+    "av_per_kpc": 0.7,
+    "dust_scale_height_pc": 120.0,
+    "batch_size": 20000,
+    "max_candidate_points": 20000000,
+    "minimum_visible_stars": 9000,
+    "maximum_visible_stars": 9500,
+    "max_catalog_attempts": 8
+  },
+  "source_sha256": {
+    "star_generator.py": "666c9718170d690f3346c59ea8105ad40ade8e85b3b9db06bef64be68c4005fb",
+    "stellar_physics.py": "565300ed840c36ee9cbfd02225004f13325ab60b7f7483ba49fcafdc02e9fdf1"
+  },
+  "reference_sha256": "3dc44b1e90be8fbe5bcc7656032560f51275f985c7e3f783c9028e1838ec7bed",
+  "reference_count": 8404,
+  "runs": 24,
+  "minimum": 9080,
+  "maximum": 9336,
+  "mean": 9197.208333333334,
+  "sample_stddev": 69.54509276387682,
+  "all_passed": true,
+  "results": [
+    {
+      "seed": 0,
+      "count": 9168,
+      "count_selection": {
+        "mode": "whole_catalog_rejection",
+        "minimum": 9000,
+        "maximum": 9500,
+        "max_attempts": 8,
+        "accepted_attempt": 1,
+        "attempts": [
+          {
+            "attempt": 1,
+            "spawn_key": [
+              0
+            ],
+            "visible_count": 9168,
+            "accepted": true
+          }
+        ]
+      },
+      "population_sampled": 62919,
+      "validation": {
+        "checked": 9168,
+        "passed": 9168,
+        "failed": 0,
+        "all_passed": true
+      },
+      "comparison": {
+        "applicable": true,
+        "reference": "BSC5 V <= 6.5",
+        "reference_count": 8404,
+        "relative_difference": 0.09090909090909091,
+        "tolerance_fraction": 0.05,
+        "calibration_parameters_match": false,
+        "within_tolerance": false
+      },
+      "cumulative_magnitude_counts": {
+        "0": 5,
+        "1": 17,
+        "2": 38,
+        "3": 140,
+        "4": 462,
+        "5": 1500,
+        "6": 5132,
+        "6.5": 9168
+      },
+      "spectral_counts": {
+        "O": 73,
+        "B": 1782,
+        "A": 1901,
+        "F": 1258,
+        "G": 1311,
+        "K": 2343,
+        "M": 500
+      },
+      "within_galactic_latitude_10_deg": 2433
+    },
+    {
+      "seed": 1,
+      "count": 9287,
+      "count_selection": {
+        "mode": "whole_catalog_rejection",
+        "minimum": 9000,
+        "maximum": 9500,
+        "max_attempts": 8,
+        "accepted_attempt": 1,
+        "attempts": [
+          {
+            "attempt": 1,
+            "spawn_key": [
+              0
+            ],
+            "visible_count": 9287,
+            "accepted": true
+          }
+        ]
+      },
+      "population_sampled": 62990,
+      "validation": {
+        "checked": 9287,
+        "passed": 9287,
+        "failed": 0,
+        "all_passed": true
+      },
+      "comparison": {
+        "applicable": true,
+        "reference": "BSC5 V <= 6.5",
+        "reference_count": 8404,
+        "relative_difference": 0.10506901475487863,
+        "tolerance_fraction": 0.05,
+        "calibration_parameters_match": false,
+        "within_tolerance": false
+      },
+      "cumulative_magnitude_counts": {
+        "0": 1,
+        "1": 5,
+        "2": 30,
+        "3": 119,
+        "4": 453,
+        "5": 1549,
+        "6": 5175,
+        "6.5": 9287
+      },
+      "spectral_counts": {
+        "O": 60,
+        "B": 1722,
+        "A": 1920,
+        "F": 1305,
+        "G": 1370,
+        "K": 2396,
+        "M": 514
+      },
+      "within_galactic_latitude_10_deg": 2340
+    },
+    {
+      "seed": 2,
+      "count": 9222,
+      "count_selection": {
+        "mode": "whole_catalog_rejection",
+        "minimum": 9000,
+        "maximum": 9500,
+        "max_attempts": 8,
+        "accepted_attempt": 1,
+        "attempts": [
+          {
+            "attempt": 1,
+            "spawn_key": [
+              0
+            ],
+            "visible_count": 9222,
+            "accepted": true
+          }
+        ]
+      },
+      "population_sampled": 63167,
+      "validation": {
+        "checked": 9222,
+        "passed": 9222,
+        "failed": 0,
+        "all_passed": true
+      },
+      "comparison": {
+        "applicable": true,
+        "reference": "BSC5 V <= 6.5",
+        "reference_count": 8404,
+        "relative_difference": 0.09733460257020467,
+        "tolerance_fraction": 0.05,
+        "calibration_parameters_match": false,
+        "within_tolerance": false
+      },
+      "cumulative_magnitude_counts": {
+        "0": 4,
+        "1": 15,
+        "2": 48,
+        "3": 130,
+        "4": 464,
+        "5": 1616,
+        "6": 5136,
+        "6.5": 9222
+      },
+      "spectral_counts": {
+        "O": 68,
+        "B": 1694,
+        "A": 1928,
+        "F": 1269,
+        "G": 1312,
+        "K": 2394,
+        "M": 557
+      },
+      "within_galactic_latitude_10_deg": 2405
+    },
+    {
+      "seed": 3,
+      "count": 9126,
+      "count_selection": {
+        "mode": "whole_catalog_rejection",
+        "minimum": 9000,
+        "maximum": 9500,
+        "max_attempts": 8,
+        "accepted_attempt": 1,
+        "attempts": [
+          {
+            "attempt": 1,
+            "spawn_key": [
+              0
+            ],
+            "visible_count": 9126,
+            "accepted": true
+          }
+        ]
+      },
+      "population_sampled": 63099,
+      "validation": {
+        "checked": 9126,
+        "passed": 9126,
+        "failed": 0,
+        "all_passed": true
+      },
+      "comparison": {
+        "applicable": true,
+        "reference": "BSC5 V <= 6.5",
+        "reference_count": 8404,
+        "relative_difference": 0.08591147072822465,
+        "tolerance_fraction": 0.05,
+        "calibration_parameters_match": false,
+        "within_tolerance": false
+      },
+      "cumulative_magnitude_counts": {
+        "0": 3,
+        "1": 13,
+        "2": 43,
+        "3": 133,
+        "4": 466,
+        "5": 1547,
+        "6": 5073,
+        "6.5": 9126
+      },
+      "spectral_counts": {
+        "O": 63,
+        "B": 1740,
+        "A": 1899,
+        "F": 1251,
+        "G": 1275,
+        "K": 2355,
+        "M": 543
+      },
+      "within_galactic_latitude_10_deg": 2423
+    },
+    {
+      "seed": 4,
+      "count": 9154,
+      "count_selection": {
+        "mode": "whole_catalog_rejection",
+        "minimum": 9000,
+        "maximum": 9500,
+        "max_attempts": 8,
+        "accepted_attempt": 1,
+        "attempts": [
+          {
+            "attempt": 1,
+            "spawn_key": [
+              0
+            ],
+            "visible_count": 9154,
+            "accepted": true
+          }
+        ]
+      },
+      "population_sampled": 63034,
+      "validation": {
+        "checked": 9154,
+        "passed": 9154,
+        "failed": 0,
+        "all_passed": true
+      },
+      "comparison": {
+        "applicable": true,
+        "reference": "BSC5 V <= 6.5",
+        "reference_count": 8404,
+        "relative_difference": 0.08924321751546882,
+        "tolerance_fraction": 0.05,
+        "calibration_parameters_match": false,
+        "within_tolerance": false
+      },
+      "cumulative_magnitude_counts": {
+        "0": 1,
+        "1": 8,
+        "2": 36,
+        "3": 126,
+        "4": 433,
+        "5": 1570,
+        "6": 5120,
+        "6.5": 9154
+      },
+      "spectral_counts": {
+        "O": 61,
+        "B": 1764,
+        "A": 1869,
+        "F": 1276,
+        "G": 1293,
+        "K": 2379,
+        "M": 512
+      },
+      "within_galactic_latitude_10_deg": 2426
+    },
+    {
+      "seed": 5,
+      "count": 9135,
+      "count_selection": {
+        "mode": "whole_catalog_rejection",
+        "minimum": 9000,
+        "maximum": 9500,
+        "max_attempts": 8,
+        "accepted_attempt": 1,
+        "attempts": [
+          {
+            "attempt": 1,
+            "spawn_key": [
+              0
+            ],
+            "visible_count": 9135,
+            "accepted": true
+          }
+        ]
+      },
+      "population_sampled": 63117,
+      "validation": {
+        "checked": 9135,
+        "passed": 9135,
+        "failed": 0,
+        "all_passed": true
+      },
+      "comparison": {
+        "applicable": true,
+        "reference": "BSC5 V <= 6.5",
+        "reference_count": 8404,
+        "relative_difference": 0.08698238933841028,
+        "tolerance_fraction": 0.05,
+        "calibration_parameters_match": false,
+        "within_tolerance": false
+      },
+      "cumulative_magnitude_counts": {
+        "0": 9,
+        "1": 13,
+        "2": 38,
+        "3": 131,
+        "4": 453,
+        "5": 1531,
+        "6": 5080,
+        "6.5": 9135
+      },
+      "spectral_counts": {
+        "O": 74,
+        "B": 1714,
+        "A": 1836,
+        "F": 1285,
+        "G": 1271,
+        "K": 2399,
+        "M": 556
+      },
+      "within_galactic_latitude_10_deg": 2398
+    },
+    {
+      "seed": 6,
+      "count": 9190,
+      "count_selection": {
+        "mode": "whole_catalog_rejection",
+        "minimum": 9000,
+        "maximum": 9500,
+        "max_attempts": 8,
+        "accepted_attempt": 1,
+        "attempts": [
+          {
+            "attempt": 1,
+            "spawn_key": [
+              0
+            ],
+            "visible_count": 9190,
+            "accepted": true
+          }
+        ]
+      },
+      "population_sampled": 62762,
+      "validation": {
+        "checked": 9190,
+        "passed": 9190,
+        "failed": 0,
+        "all_passed": true
+      },
+      "comparison": {
+        "applicable": true,
+        "reference": "BSC5 V <= 6.5",
+        "reference_count": 8404,
+        "relative_difference": 0.09352689195621133,
+        "tolerance_fraction": 0.05,
+        "calibration_parameters_match": false,
+        "within_tolerance": false
+      },
+      "cumulative_magnitude_counts": {
+        "0": 4,
+        "1": 14,
+        "2": 32,
+        "3": 117,
+        "4": 459,
+        "5": 1510,
+        "6": 5127,
+        "6.5": 9190
+      },
+      "spectral_counts": {
+        "O": 59,
+        "B": 1732,
+        "A": 1894,
+        "F": 1295,
+        "G": 1259,
+        "K": 2398,
+        "M": 553
+      },
+      "within_galactic_latitude_10_deg": 2372
+    },
+    {
+      "seed": 7,
+      "count": 9178,
+      "count_selection": {
+        "mode": "whole_catalog_rejection",
+        "minimum": 9000,
+        "maximum": 9500,
+        "max_attempts": 8,
+        "accepted_attempt": 1,
+        "attempts": [
+          {
+            "attempt": 1,
+            "spawn_key": [
+              0
+            ],
+            "visible_count": 9178,
+            "accepted": true
+          }
+        ]
+      },
+      "population_sampled": 63224,
+      "validation": {
+        "checked": 9178,
+        "passed": 9178,
+        "failed": 0,
+        "all_passed": true
+      },
+      "comparison": {
+        "applicable": true,
+        "reference": "BSC5 V <= 6.5",
+        "reference_count": 8404,
+        "relative_difference": 0.09209900047596382,
+        "tolerance_fraction": 0.05,
+        "calibration_parameters_match": false,
+        "within_tolerance": false
+      },
+      "cumulative_magnitude_counts": {
+        "0": 4,
+        "1": 8,
+        "2": 33,
+        "3": 122,
+        "4": 420,
+        "5": 1576,
+        "6": 5126,
+        "6.5": 9178
+      },
+      "spectral_counts": {
+        "O": 57,
+        "B": 1744,
+        "A": 1979,
+        "F": 1245,
+        "G": 1237,
+        "K": 2368,
+        "M": 548
+      },
+      "within_galactic_latitude_10_deg": 2410
+    },
+    {
+      "seed": 8,
+      "count": 9237,
+      "count_selection": {
+        "mode": "whole_catalog_rejection",
+        "minimum": 9000,
+        "maximum": 9500,
+        "max_attempts": 8,
+        "accepted_attempt": 1,
+        "attempts": [
+          {
+            "attempt": 1,
+            "spawn_key": [
+              0
+            ],
+            "visible_count": 9237,
+            "accepted": true
+          }
+        ]
+      },
+      "population_sampled": 63138,
+      "validation": {
+        "checked": 9237,
+        "passed": 9237,
+        "failed": 0,
+        "all_passed": true
+      },
+      "comparison": {
+        "applicable": true,
+        "reference": "BSC5 V <= 6.5",
+        "reference_count": 8404,
+        "relative_difference": 0.09911946692051404,
+        "tolerance_fraction": 0.05,
+        "calibration_parameters_match": false,
+        "within_tolerance": false
+      },
+      "cumulative_magnitude_counts": {
+        "0": 5,
+        "1": 10,
+        "2": 40,
+        "3": 140,
+        "4": 489,
+        "5": 1630,
+        "6": 5201,
+        "6.5": 9237
+      },
+      "spectral_counts": {
+        "O": 65,
+        "B": 1770,
+        "A": 1877,
+        "F": 1285,
+        "G": 1372,
+        "K": 2293,
+        "M": 575
+      },
+      "within_galactic_latitude_10_deg": 2440
+    },
+    {
+      "seed": 9,
+      "count": 9218,
+      "count_selection": {
+        "mode": "whole_catalog_rejection",
+        "minimum": 9000,
+        "maximum": 9500,
+        "max_attempts": 8,
+        "accepted_attempt": 1,
+        "attempts": [
+          {
+            "attempt": 1,
+            "spawn_key": [
+              0
+            ],
+            "visible_count": 9218,
+            "accepted": true
+          }
+        ]
+      },
+      "population_sampled": 62766,
+      "validation": {
+        "checked": 9218,
+        "passed": 9218,
+        "failed": 0,
+        "all_passed": true
+      },
+      "comparison": {
+        "applicable": true,
+        "reference": "BSC5 V <= 6.5",
+        "reference_count": 8404,
+        "relative_difference": 0.0968586387434555,
+        "tolerance_fraction": 0.05,
+        "calibration_parameters_match": false,
+        "within_tolerance": false
+      },
+      "cumulative_magnitude_counts": {
+        "0": 5,
+        "1": 11,
+        "2": 33,
+        "3": 134,
+        "4": 451,
+        "5": 1525,
+        "6": 5129,
+        "6.5": 9218
+      },
+      "spectral_counts": {
+        "O": 67,
+        "B": 1707,
+        "A": 1872,
+        "F": 1286,
+        "G": 1346,
+        "K": 2385,
+        "M": 555
+      },
+      "within_galactic_latitude_10_deg": 2409
+    },
+    {
+      "seed": 10,
+      "count": 9225,
+      "count_selection": {
+        "mode": "whole_catalog_rejection",
+        "minimum": 9000,
+        "maximum": 9500,
+        "max_attempts": 8,
+        "accepted_attempt": 1,
+        "attempts": [
+          {
+            "attempt": 1,
+            "spawn_key": [
+              0
+            ],
+            "visible_count": 9225,
+            "accepted": true
+          }
+        ]
+      },
+      "population_sampled": 62894,
+      "validation": {
+        "checked": 9225,
+        "passed": 9225,
+        "failed": 0,
+        "all_passed": true
+      },
+      "comparison": {
+        "applicable": true,
+        "reference": "BSC5 V <= 6.5",
+        "reference_count": 8404,
+        "relative_difference": 0.09769157544026653,
+        "tolerance_fraction": 0.05,
+        "calibration_parameters_match": false,
+        "within_tolerance": false
+      },
+      "cumulative_magnitude_counts": {
+        "0": 1,
+        "1": 6,
+        "2": 31,
+        "3": 120,
+        "4": 438,
+        "5": 1515,
+        "6": 5069,
+        "6.5": 9225
+      },
+      "spectral_counts": {
+        "O": 57,
+        "B": 1693,
+        "A": 1901,
+        "F": 1284,
+        "G": 1298,
+        "K": 2434,
+        "M": 558
+      },
+      "within_galactic_latitude_10_deg": 2397
+    },
+    {
+      "seed": 11,
+      "count": 9296,
+      "count_selection": {
+        "mode": "whole_catalog_rejection",
+        "minimum": 9000,
+        "maximum": 9500,
+        "max_attempts": 8,
+        "accepted_attempt": 1,
+        "attempts": [
+          {
+            "attempt": 1,
+            "spawn_key": [
+              0
+            ],
+            "visible_count": 9296,
+            "accepted": true
+          }
+        ]
+      },
+      "population_sampled": 63200,
+      "validation": {
+        "checked": 9296,
+        "passed": 9296,
+        "failed": 0,
+        "all_passed": true
+      },
+      "comparison": {
+        "applicable": true,
+        "reference": "BSC5 V <= 6.5",
+        "reference_count": 8404,
+        "relative_difference": 0.10613993336506425,
+        "tolerance_fraction": 0.05,
+        "calibration_parameters_match": false,
+        "within_tolerance": false
+      },
+      "cumulative_magnitude_counts": {
+        "0": 0,
+        "1": 8,
+        "2": 43,
+        "3": 140,
+        "4": 450,
+        "5": 1512,
+        "6": 5153,
+        "6.5": 9296
+      },
+      "spectral_counts": {
+        "O": 76,
+        "B": 1704,
+        "A": 1934,
+        "F": 1314,
+        "G": 1233,
+        "K": 2462,
+        "M": 573
+      },
+      "within_galactic_latitude_10_deg": 2408
+    },
+    {
+      "seed": 12,
+      "count": 9336,
+      "count_selection": {
+        "mode": "whole_catalog_rejection",
+        "minimum": 9000,
+        "maximum": 9500,
+        "max_attempts": 8,
+        "accepted_attempt": 1,
+        "attempts": [
+          {
+            "attempt": 1,
+            "spawn_key": [
+              0
+            ],
+            "visible_count": 9336,
+            "accepted": true
+          }
+        ]
+      },
+      "population_sampled": 62937,
+      "validation": {
+        "checked": 9336,
+        "passed": 9336,
+        "failed": 0,
+        "all_passed": true
+      },
+      "comparison": {
+        "applicable": true,
+        "reference": "BSC5 V <= 6.5",
+        "reference_count": 8404,
+        "relative_difference": 0.11089957163255593,
+        "tolerance_fraction": 0.05,
+        "calibration_parameters_match": false,
+        "within_tolerance": false
+      },
+      "cumulative_magnitude_counts": {
+        "0": 4,
+        "1": 11,
+        "2": 50,
+        "3": 165,
+        "4": 472,
+        "5": 1620,
+        "6": 5230,
+        "6.5": 9336
+      },
+      "spectral_counts": {
+        "O": 62,
+        "B": 1802,
+        "A": 1917,
+        "F": 1277,
+        "G": 1311,
+        "K": 2394,
+        "M": 573
+      },
+      "within_galactic_latitude_10_deg": 2414
+    },
+    {
+      "seed": 13,
+      "count": 9162,
+      "count_selection": {
+        "mode": "whole_catalog_rejection",
+        "minimum": 9000,
+        "maximum": 9500,
+        "max_attempts": 8,
+        "accepted_attempt": 1,
+        "attempts": [
+          {
+            "attempt": 1,
+            "spawn_key": [
+              0
+            ],
+            "visible_count": 9162,
+            "accepted": true
+          }
+        ]
+      },
+      "population_sampled": 62965,
+      "validation": {
+        "checked": 9162,
+        "passed": 9162,
+        "failed": 0,
+        "all_passed": true
+      },
+      "comparison": {
+        "applicable": true,
+        "reference": "BSC5 V <= 6.5",
+        "reference_count": 8404,
+        "relative_difference": 0.09019514516896716,
+        "tolerance_fraction": 0.05,
+        "calibration_parameters_match": false,
+        "within_tolerance": false
+      },
+      "cumulative_magnitude_counts": {
+        "0": 1,
+        "1": 14,
+        "2": 56,
+        "3": 155,
+        "4": 488,
+        "5": 1590,
+        "6": 5200,
+        "6.5": 9162
+      },
+      "spectral_counts": {
+        "O": 68,
+        "B": 1695,
+        "A": 1896,
+        "F": 1323,
+        "G": 1310,
+        "K": 2332,
+        "M": 538
+      },
+      "within_galactic_latitude_10_deg": 2445
+    },
+    {
+      "seed": 14,
+      "count": 9196,
+      "count_selection": {
+        "mode": "whole_catalog_rejection",
+        "minimum": 9000,
+        "maximum": 9500,
+        "max_attempts": 8,
+        "accepted_attempt": 1,
+        "attempts": [
+          {
+            "attempt": 1,
+            "spawn_key": [
+              0
+            ],
+            "visible_count": 9196,
+            "accepted": true
+          }
+        ]
+      },
+      "population_sampled": 62814,
+      "validation": {
+        "checked": 9196,
+        "passed": 9196,
+        "failed": 0,
+        "all_passed": true
+      },
+      "comparison": {
+        "applicable": true,
+        "reference": "BSC5 V <= 6.5",
+        "reference_count": 8404,
+        "relative_difference": 0.09424083769633508,
+        "tolerance_fraction": 0.05,
+        "calibration_parameters_match": false,
+        "within_tolerance": false
+      },
+      "cumulative_magnitude_counts": {
+        "0": 2,
+        "1": 9,
+        "2": 39,
+        "3": 127,
+        "4": 464,
+        "5": 1572,
+        "6": 5131,
+        "6.5": 9196
+      },
+      "spectral_counts": {
+        "O": 64,
+        "B": 1684,
+        "A": 1875,
+        "F": 1353,
+        "G": 1262,
+        "K": 2440,
+        "M": 518
+      },
+      "within_galactic_latitude_10_deg": 2325
+    },
+    {
+      "seed": 15,
+      "count": 9153,
+      "count_selection": {
+        "mode": "whole_catalog_rejection",
+        "minimum": 9000,
+        "maximum": 9500,
+        "max_attempts": 8,
+        "accepted_attempt": 1,
+        "attempts": [
+          {
+            "attempt": 1,
+            "spawn_key": [
+              0
+            ],
+            "visible_count": 9153,
+            "accepted": true
+          }
+        ]
+      },
+      "population_sampled": 62543,
+      "validation": {
+        "checked": 9153,
+        "passed": 9153,
+        "failed": 0,
+        "all_passed": true
+      },
+      "comparison": {
+        "applicable": true,
+        "reference": "BSC5 V <= 6.5",
+        "reference_count": 8404,
+        "relative_difference": 0.08912422655878154,
+        "tolerance_fraction": 0.05,
+        "calibration_parameters_match": false,
+        "within_tolerance": false
+      },
+      "cumulative_magnitude_counts": {
+        "0": 3,
+        "1": 9,
+        "2": 35,
+        "3": 124,
+        "4": 447,
+        "5": 1518,
+        "6": 5093,
+        "6.5": 9153
+      },
+      "spectral_counts": {
+        "O": 57,
+        "B": 1627,
+        "A": 1878,
+        "F": 1358,
+        "G": 1297,
+        "K": 2405,
+        "M": 531
+      },
+      "within_galactic_latitude_10_deg": 2300
+    },
+    {
+      "seed": 16,
+      "count": 9080,
+      "count_selection": {
+        "mode": "whole_catalog_rejection",
+        "minimum": 9000,
+        "maximum": 9500,
+        "max_attempts": 8,
+        "accepted_attempt": 1,
+        "attempts": [
+          {
+            "attempt": 1,
+            "spawn_key": [
+              0
+            ],
+            "visible_count": 9080,
+            "accepted": true
+          }
+        ]
+      },
+      "population_sampled": 63023,
+      "validation": {
+        "checked": 9080,
+        "passed": 9080,
+        "failed": 0,
+        "all_passed": true
+      },
+      "comparison": {
+        "applicable": true,
+        "reference": "BSC5 V <= 6.5",
+        "reference_count": 8404,
+        "relative_difference": 0.08043788672060924,
+        "tolerance_fraction": 0.05,
+        "calibration_parameters_match": false,
+        "within_tolerance": false
+      },
+      "cumulative_magnitude_counts": {
+        "0": 4,
+        "1": 17,
+        "2": 50,
+        "3": 149,
+        "4": 450,
+        "5": 1518,
+        "6": 5002,
+        "6.5": 9080
+      },
+      "spectral_counts": {
+        "O": 59,
+        "B": 1752,
+        "A": 1889,
+        "F": 1255,
+        "G": 1222,
+        "K": 2377,
+        "M": 526
+      },
+      "within_galactic_latitude_10_deg": 2272
+    },
+    {
+      "seed": 17,
+      "count": 9204,
+      "count_selection": {
+        "mode": "whole_catalog_rejection",
+        "minimum": 9000,
+        "maximum": 9500,
+        "max_attempts": 8,
+        "accepted_attempt": 1,
+        "attempts": [
+          {
+            "attempt": 1,
+            "spawn_key": [
+              0
+            ],
+            "visible_count": 9204,
+            "accepted": true
+          }
+        ]
+      },
+      "population_sampled": 62890,
+      "validation": {
+        "checked": 9204,
+        "passed": 9204,
+        "failed": 0,
+        "all_passed": true
+      },
+      "comparison": {
+        "applicable": true,
+        "reference": "BSC5 V <= 6.5",
+        "reference_count": 8404,
+        "relative_difference": 0.09519276534983341,
+        "tolerance_fraction": 0.05,
+        "calibration_parameters_match": false,
+        "within_tolerance": false
+      },
+      "cumulative_magnitude_counts": {
+        "0": 2,
+        "1": 11,
+        "2": 39,
+        "3": 148,
+        "4": 459,
+        "5": 1565,
+        "6": 5129,
+        "6.5": 9204
+      },
+      "spectral_counts": {
+        "O": 61,
+        "B": 1705,
+        "A": 1880,
+        "F": 1286,
+        "G": 1273,
+        "K": 2452,
+        "M": 547
+      },
+      "within_galactic_latitude_10_deg": 2392
+    },
+    {
+      "seed": 18,
+      "count": 9163,
+      "count_selection": {
+        "mode": "whole_catalog_rejection",
+        "minimum": 9000,
+        "maximum": 9500,
+        "max_attempts": 8,
+        "accepted_attempt": 1,
+        "attempts": [
+          {
+            "attempt": 1,
+            "spawn_key": [
+              0
+            ],
+            "visible_count": 9163,
+            "accepted": true
+          }
+        ]
+      },
+      "population_sampled": 62741,
+      "validation": {
+        "checked": 9163,
+        "passed": 9163,
+        "failed": 0,
+        "all_passed": true
+      },
+      "comparison": {
+        "applicable": true,
+        "reference": "BSC5 V <= 6.5",
+        "reference_count": 8404,
+        "relative_difference": 0.09031413612565445,
+        "tolerance_fraction": 0.05,
+        "calibration_parameters_match": false,
+        "within_tolerance": false
+      },
+      "cumulative_magnitude_counts": {
+        "0": 5,
+        "1": 14,
+        "2": 38,
+        "3": 130,
+        "4": 452,
+        "5": 1548,
+        "6": 5076,
+        "6.5": 9163
+      },
+      "spectral_counts": {
+        "O": 64,
+        "B": 1749,
+        "A": 1910,
+        "F": 1261,
+        "G": 1231,
+        "K": 2385,
+        "M": 563
+      },
+      "within_galactic_latitude_10_deg": 2364
+    },
+    {
+      "seed": 19,
+      "count": 9274,
+      "count_selection": {
+        "mode": "whole_catalog_rejection",
+        "minimum": 9000,
+        "maximum": 9500,
+        "max_attempts": 8,
+        "accepted_attempt": 1,
+        "attempts": [
+          {
+            "attempt": 1,
+            "spawn_key": [
+              0
+            ],
+            "visible_count": 9274,
+            "accepted": true
+          }
+        ]
+      },
+      "population_sampled": 63124,
+      "validation": {
+        "checked": 9274,
+        "passed": 9274,
+        "failed": 0,
+        "all_passed": true
+      },
+      "comparison": {
+        "applicable": true,
+        "reference": "BSC5 V <= 6.5",
+        "reference_count": 8404,
+        "relative_difference": 0.10352213231794384,
+        "tolerance_fraction": 0.05,
+        "calibration_parameters_match": false,
+        "within_tolerance": false
+      },
+      "cumulative_magnitude_counts": {
+        "0": 5,
+        "1": 19,
+        "2": 44,
+        "3": 132,
+        "4": 468,
+        "5": 1550,
+        "6": 5171,
+        "6.5": 9274
+      },
+      "spectral_counts": {
+        "O": 59,
+        "B": 1797,
+        "A": 1939,
+        "F": 1285,
+        "G": 1287,
+        "K": 2387,
+        "M": 520
+      },
+      "within_galactic_latitude_10_deg": 2412
+    },
+    {
+      "seed": 20,
+      "count": 9188,
+      "count_selection": {
+        "mode": "whole_catalog_rejection",
+        "minimum": 9000,
+        "maximum": 9500,
+        "max_attempts": 8,
+        "accepted_attempt": 1,
+        "attempts": [
+          {
+            "attempt": 1,
+            "spawn_key": [
+              0
+            ],
+            "visible_count": 9188,
+            "accepted": true
+          }
+        ]
+      },
+      "population_sampled": 62851,
+      "validation": {
+        "checked": 9188,
+        "passed": 9188,
+        "failed": 0,
+        "all_passed": true
+      },
+      "comparison": {
+        "applicable": true,
+        "reference": "BSC5 V <= 6.5",
+        "reference_count": 8404,
+        "relative_difference": 0.09328891004283675,
+        "tolerance_fraction": 0.05,
+        "calibration_parameters_match": false,
+        "within_tolerance": false
+      },
+      "cumulative_magnitude_counts": {
+        "0": 0,
+        "1": 5,
+        "2": 35,
+        "3": 126,
+        "4": 460,
+        "5": 1560,
+        "6": 5156,
+        "6.5": 9188
+      },
+      "spectral_counts": {
+        "O": 56,
+        "B": 1734,
+        "A": 1947,
+        "F": 1282,
+        "G": 1279,
+        "K": 2368,
+        "M": 522
+      },
+      "within_galactic_latitude_10_deg": 2366
+    },
+    {
+      "seed": 21,
+      "count": 9099,
+      "count_selection": {
+        "mode": "whole_catalog_rejection",
+        "minimum": 9000,
+        "maximum": 9500,
+        "max_attempts": 8,
+        "accepted_attempt": 1,
+        "attempts": [
+          {
+            "attempt": 1,
+            "spawn_key": [
+              0
+            ],
+            "visible_count": 9099,
+            "accepted": true
+          }
+        ]
+      },
+      "population_sampled": 62926,
+      "validation": {
+        "checked": 9099,
+        "passed": 9099,
+        "failed": 0,
+        "all_passed": true
+      },
+      "comparison": {
+        "applicable": true,
+        "reference": "BSC5 V <= 6.5",
+        "reference_count": 8404,
+        "relative_difference": 0.08269871489766778,
+        "tolerance_fraction": 0.05,
+        "calibration_parameters_match": false,
+        "within_tolerance": false
+      },
+      "cumulative_magnitude_counts": {
+        "0": 2,
+        "1": 12,
+        "2": 44,
+        "3": 149,
+        "4": 453,
+        "5": 1556,
+        "6": 5062,
+        "6.5": 9099
+      },
+      "spectral_counts": {
+        "O": 81,
+        "B": 1743,
+        "A": 1821,
+        "F": 1296,
+        "G": 1243,
+        "K": 2392,
+        "M": 523
+      },
+      "within_galactic_latitude_10_deg": 2394
+    },
+    {
+      "seed": 22,
+      "count": 9112,
+      "count_selection": {
+        "mode": "whole_catalog_rejection",
+        "minimum": 9000,
+        "maximum": 9500,
+        "max_attempts": 8,
+        "accepted_attempt": 1,
+        "attempts": [
+          {
+            "attempt": 1,
+            "spawn_key": [
+              0
+            ],
+            "visible_count": 9112,
+            "accepted": true
+          }
+        ]
+      },
+      "population_sampled": 62779,
+      "validation": {
+        "checked": 9112,
+        "passed": 9112,
+        "failed": 0,
+        "all_passed": true
+      },
+      "comparison": {
+        "applicable": true,
+        "reference": "BSC5 V <= 6.5",
+        "reference_count": 8404,
+        "relative_difference": 0.08424559733460257,
+        "tolerance_fraction": 0.05,
+        "calibration_parameters_match": false,
+        "within_tolerance": false
+      },
+      "cumulative_magnitude_counts": {
+        "0": 2,
+        "1": 10,
+        "2": 43,
+        "3": 139,
+        "4": 470,
+        "5": 1525,
+        "6": 5072,
+        "6.5": 9112
+      },
+      "spectral_counts": {
+        "O": 62,
+        "B": 1729,
+        "A": 1886,
+        "F": 1267,
+        "G": 1259,
+        "K": 2336,
+        "M": 573
+      },
+      "within_galactic_latitude_10_deg": 2374
+    },
+    {
+      "seed": 23,
+      "count": 9330,
+      "count_selection": {
+        "mode": "whole_catalog_rejection",
+        "minimum": 9000,
+        "maximum": 9500,
+        "max_attempts": 8,
+        "accepted_attempt": 1,
+        "attempts": [
+          {
+            "attempt": 1,
+            "spawn_key": [
+              0
+            ],
+            "visible_count": 9330,
+            "accepted": true
+          }
+        ]
+      },
+      "population_sampled": 63419,
+      "validation": {
+        "checked": 9330,
+        "passed": 9330,
+        "failed": 0,
+        "all_passed": true
+      },
+      "comparison": {
+        "applicable": true,
+        "reference": "BSC5 V <= 6.5",
+        "reference_count": 8404,
+        "relative_difference": 0.11018562589243218,
+        "tolerance_fraction": 0.05,
+        "calibration_parameters_match": false,
+        "within_tolerance": false
+      },
+      "cumulative_magnitude_counts": {
+        "0": 3,
+        "1": 14,
+        "2": 44,
+        "3": 155,
+        "4": 500,
+        "5": 1580,
+        "6": 5215,
+        "6.5": 9330
+      },
+      "spectral_counts": {
+        "O": 49,
+        "B": 1811,
+        "A": 1953,
+        "F": 1288,
+        "G": 1288,
+        "K": 2388,
+        "M": 553
+      },
+      "within_galactic_latitude_10_deg": 2493
+    }
+  ]
+}

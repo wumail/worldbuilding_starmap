@@ -1,0 +1,400 @@
+{
+  "profile_version": "bsc5_v1",
+  "reference_file": "bsc5_reference.json",
+  "reference_sha256": "3dc44b1e90be8fbe5bcc7656032560f51275f985c7e3f783c9028e1838ec7bed",
+  "default_local_density_per_pc3": 0.10905652408098199,
+  "calibrated_parameters": {
+    "limiting_magnitude": 6.5,
+    "min_distance_pc": 1.0,
+    "max_distance_pc": 10000.0,
+    "local_density_per_pc3": 0.10905652408098199,
+    "observer_radius_pc": 8200.0,
+    "observer_height_pc": 20.0,
+    "radial_scale_pc": 2600.0,
+    "av_per_kpc": 0.7,
+    "dust_scale_height_pc": 120.0
+  },
+  "reference_count": 8404,
+  "count_tolerance_fraction": 0.05,
+  "pilot_seeds": [
+    20260913,
+    42,
+    1369,
+    2718
+  ],
+  "prior_strength": 5.0,
+  "pilot_stellar_physics_sha256": "565300ed840c36ee9cbfd02225004f13325ab60b7f7483ba49fcafdc02e9fdf1",
+  "estimated_visible_count": 8378.394651477745,
+  "fit_method": "Per-component density scaled by observed counts / pilot effective visible volume. Unclassified luminosity classes use the classified distribution within the same spectral type with a weak prior. M dwarfs retain their local-density prior; I and 0 share calibration.",
+  "components": [
+    {
+      "spectral_type": "O",
+      "luminosity_class": "V",
+      "scale_height_pc": 45.0,
+      "local_density_per_pc3": 3.611059225268726e-08,
+      "pilot_mean_visible": 16.5,
+      "estimated_visible": 20.037372430645394,
+      "fraction": 3.3111812940115947e-07
+    },
+    {
+      "spectral_type": "B",
+      "luminosity_class": "V",
+      "scale_height_pc": 90.0,
+      "local_density_per_pc3": 3.24259266863797e-05,
+      "pilot_mean_visible": 3395.0,
+      "estimated_visible": 854.3430528418422,
+      "fraction": 0.0002973313789306288
+    },
+    {
+      "spectral_type": "A",
+      "luminosity_class": "V",
+      "scale_height_pc": 150.0,
+      "local_density_per_pc3": 0.00047761834836960293,
+      "pilot_mean_visible": 1615.0,
+      "estimated_visible": 1297.0172384913435,
+      "fraction": 0.004379548609260079
+    },
+    {
+      "spectral_type": "F",
+      "luminosity_class": "V",
+      "scale_height_pc": 220.0,
+      "local_density_per_pc3": 0.0026649158360275028,
+      "pilot_mean_visible": 766.75,
+      "estimated_visible": 687.1625727981898,
+      "fraction": 0.02443609732186787
+    },
+    {
+      "spectral_type": "G",
+      "luminosity_class": "V",
+      "scale_height_pc": 300.0,
+      "local_density_per_pc3": 0.006775501965389797,
+      "pilot_mean_visible": 246.5,
+      "estimated_visible": 221.71152871286455,
+      "fraction": 0.0621283506189737
+    },
+    {
+      "spectral_type": "K",
+      "luminosity_class": "V",
+      "scale_height_pc": 330.0,
+      "local_density_per_pc3": 0.022301190491821898,
+      "pilot_mean_visible": 31.0,
+      "estimated_visible": 57.64316790727561,
+      "fraction": 0.20449203456422035
+    },
+    {
+      "spectral_type": "M",
+      "luminosity_class": "V",
+      "scale_height_pc": 350.0,
+      "local_density_per_pc3": 0.07577640895782671,
+      "pilot_mean_visible": 0.5,
+      "estimated_visible": 0.5,
+      "fraction": 0.694836091617568
+    },
+    {
+      "spectral_type": "O",
+      "luminosity_class": "IV",
+      "scale_height_pc": 45.0,
+      "local_density_per_pc3": 2.874802357337933e-09,
+      "pilot_mean_visible": 61.0,
+      "estimated_visible": 2.1920367974701738,
+      "fraction": 2.6360663716030357e-08
+    },
+    {
+      "spectral_type": "B",
+      "luminosity_class": "IV",
+      "scale_height_pc": 90.0,
+      "local_density_per_pc3": 3.593728774462043e-06,
+      "pilot_mean_visible": 2045.5,
+      "estimated_visible": 306.2905086734212,
+      "fraction": 3.295290038579857e-05
+    },
+    {
+      "spectral_type": "A",
+      "luminosity_class": "IV",
+      "scale_height_pc": 150.0,
+      "local_density_per_pc3": 3.4706681570928374e-05,
+      "pilot_mean_visible": 783.75,
+      "estimated_visible": 226.67801401012593,
+      "fraction": 0.00031824489055928715
+    },
+    {
+      "spectral_type": "F",
+      "luminosity_class": "IV",
+      "scale_height_pc": 220.0,
+      "local_density_per_pc3": 0.00024824909164514994,
+      "pilot_mean_visible": 277.5,
+      "estimated_visible": 246.03258189831828,
+      "fraction": 0.002276334164664994
+    },
+    {
+      "spectral_type": "G",
+      "luminosity_class": "IV",
+      "scale_height_pc": 250.0,
+      "local_density_per_pc3": 0.00018705169732762122,
+      "pilot_mean_visible": 122.25,
+      "estimated_visible": 95.27945832625706,
+      "fraction": 0.001715181176952994
+    },
+    {
+      "spectral_type": "K",
+      "luminosity_class": "IV",
+      "scale_height_pc": 250.0,
+      "local_density_per_pc3": 0.0003934811583847751,
+      "pilot_mean_visible": 22.5,
+      "estimated_visible": 65.13630123350087,
+      "fraction": 0.003608047860507531
+    },
+    {
+      "spectral_type": "O",
+      "luminosity_class": "III",
+      "scale_height_pc": 45.0,
+      "local_density_per_pc3": 2.881839633941833e-09,
+      "pilot_mean_visible": 24.0,
+      "estimated_visible": 3.6402184849791572,
+      "fraction": 2.6425192424085225e-08
+    },
+    {
+      "spectral_type": "B",
+      "luminosity_class": "III",
+      "scale_height_pc": 90.0,
+      "local_density_per_pc3": 1.9784254011420988e-06,
+      "pilot_mean_visible": 602.25,
+      "estimated_visible": 313.5543941678497,
+      "fraction": 1.8141284235989235e-05
+    },
+    {
+      "spectral_type": "A",
+      "luminosity_class": "III",
+      "scale_height_pc": 150.0,
+      "local_density_per_pc3": 4.252670706939076e-06,
+      "pilot_mean_visible": 374.5,
+      "estimated_visible": 167.64475576301936,
+      "fraction": 3.8995105912060564e-05
+    },
+    {
+      "spectral_type": "F",
+      "luminosity_class": "III",
+      "scale_height_pc": 220.0,
+      "local_density_per_pc3": 2.0453418970662108e-05,
+      "pilot_mean_visible": 148.5,
+      "estimated_visible": 159.8596166917538,
+      "fraction": 0.00018754878851148817
+    },
+    {
+      "spectral_type": "G",
+      "luminosity_class": "III",
+      "scale_height_pc": 250.0,
+      "local_density_per_pc3": 5.1469908116614626e-05,
+      "pilot_mean_visible": 540.0,
+      "estimated_visible": 731.4144837624183,
+      "fraction": 0.0004719562497553532
+    },
+    {
+      "spectral_type": "K",
+      "luminosity_class": "III",
+      "scale_height_pc": 250.0,
+      "local_density_per_pc3": 7.164752872054754e-05,
+      "pilot_mean_visible": 2297.0,
+      "estimated_visible": 1924.846473346172,
+      "fraction": 0.0006569760894574663
+    },
+    {
+      "spectral_type": "M",
+      "luminosity_class": "III",
+      "scale_height_pc": 250.0,
+      "local_density_per_pc3": 1.0503737988925205e-05,
+      "pilot_mean_visible": 1508.75,
+      "estimated_visible": 463.63519764754983,
+      "fraction": 9.631462287506481e-05
+    },
+    {
+      "spectral_type": "O",
+      "luminosity_class": "II",
+      "scale_height_pc": 45.0,
+      "local_density_per_pc3": 3.8321871950250795e-09,
+      "pilot_mean_visible": 14.25,
+      "estimated_visible": 6.067629725456376,
+      "fraction": 3.513945843514521e-08
+    },
+    {
+      "spectral_type": "B",
+      "luminosity_class": "II",
+      "scale_height_pc": 90.0,
+      "local_density_per_pc3": 3.6937301667511966e-08,
+      "pilot_mean_visible": 625.75,
+      "estimated_visible": 25.681685020495124,
+      "fraction": 3.386986883983527e-07
+    },
+    {
+      "spectral_type": "A",
+      "luminosity_class": "II",
+      "scale_height_pc": 150.0,
+      "local_density_per_pc3": 3.0518540166652484e-08,
+      "pilot_mean_visible": 405.25,
+      "estimated_visible": 13.741820447262132,
+      "fraction": 2.7984148975801174e-07
+    },
+    {
+      "spectral_type": "F",
+      "luminosity_class": "II",
+      "scale_height_pc": 220.0,
+      "local_density_per_pc3": 1.0447254533441363e-07,
+      "pilot_mean_visible": 333.25,
+      "estimated_visible": 38.68386192521482,
+      "fraction": 9.579669461758709e-07
+    },
+    {
+      "spectral_type": "G",
+      "luminosity_class": "II",
+      "scale_height_pc": 250.0,
+      "local_density_per_pc3": 2.4891425523187993e-07,
+      "pilot_mean_visible": 333.25,
+      "estimated_visible": 61.444944856314066,
+      "fraction": 2.2824334200037766e-06
+    },
+    {
+      "spectral_type": "K",
+      "luminosity_class": "II",
+      "scale_height_pc": 250.0,
+      "local_density_per_pc3": 3.0329107972311076e-07,
+      "pilot_mean_visible": 658.25,
+      "estimated_visible": 73.94124193619913,
+      "fraction": 2.7810448047830337e-06
+    },
+    {
+      "spectral_type": "M",
+      "luminosity_class": "II",
+      "scale_height_pc": 250.0,
+      "local_density_per_pc3": 4.5533137764798445e-08,
+      "pilot_mean_visible": 908.25,
+      "estimated_visible": 18.45402604858464,
+      "fraction": 4.175186963687468e-07
+    },
+    {
+      "spectral_type": "O",
+      "luminosity_class": "I",
+      "scale_height_pc": 60.0,
+      "local_density_per_pc3": 6.922109084839127e-09,
+      "pilot_mean_visible": 73.0,
+      "estimated_visible": 17.013938154655094,
+      "fraction": 6.34726729388421e-08
+    },
+    {
+      "spectral_type": "B",
+      "luminosity_class": "I",
+      "scale_height_pc": 60.0,
+      "local_density_per_pc3": 4.4371942234273607e-08,
+      "pilot_mean_visible": 962.75,
+      "estimated_visible": 86.30118663847861,
+      "fraction": 4.0687104791020464e-07
+    },
+    {
+      "spectral_type": "A",
+      "luminosity_class": "I",
+      "scale_height_pc": 60.0,
+      "local_density_per_pc3": 3.077783806908171e-08,
+      "pilot_mean_visible": 78.0,
+      "estimated_visible": 48.49841150279541,
+      "fraction": 2.8221913662154726e-07
+    },
+    {
+      "spectral_type": "F",
+      "luminosity_class": "I",
+      "scale_height_pc": 60.0,
+      "local_density_per_pc3": 4.5206524656674524e-08,
+      "pilot_mean_visible": 50.0,
+      "estimated_visible": 45.66315621886315,
+      "fraction": 4.1452379889813433e-07
+    },
+    {
+      "spectral_type": "G",
+      "luminosity_class": "I",
+      "scale_height_pc": 60.0,
+      "local_density_per_pc3": 6.641060786717976e-08,
+      "pilot_mean_visible": 14.5,
+      "estimated_visible": 48.63403101384376,
+      "fraction": 6.089558458498577e-07
+    },
+    {
+      "spectral_type": "K",
+      "luminosity_class": "I",
+      "scale_height_pc": 60.0,
+      "local_density_per_pc3": 5.5489980647821495e-08,
+      "pilot_mean_visible": 64.5,
+      "estimated_visible": 36.15256314933824,
+      "fraction": 5.088185334663367e-07
+    },
+    {
+      "spectral_type": "M",
+      "luminosity_class": "I",
+      "scale_height_pc": 60.0,
+      "local_density_per_pc3": 3.978219116996214e-09,
+      "pilot_mean_visible": 234.5,
+      "estimated_visible": 3.7692621532752004,
+      "fraction": 3.647850644902373e-08
+    },
+    {
+      "spectral_type": "O",
+      "luminosity_class": "0",
+      "scale_height_pc": 60.0,
+      "local_density_per_pc3": 2.3306764595417936e-10,
+      "pilot_mean_visible": 4.5,
+      "estimated_visible": 1.0488044067938072,
+      "fraction": 2.1371270349778483e-09
+    },
+    {
+      "spectral_type": "B",
+      "luminosity_class": "0",
+      "scale_height_pc": 60.0,
+      "local_density_per_pc3": 2.6892086202590066e-10,
+      "pilot_mean_visible": 9.25,
+      "estimated_visible": 0.8291726579131936,
+      "fraction": 2.465885138849725e-09
+    },
+    {
+      "spectral_type": "A",
+      "luminosity_class": "0",
+      "scale_height_pc": 60.0,
+      "local_density_per_pc3": 6.217745064460952e-10,
+      "pilot_mean_visible": 5.5,
+      "estimated_visible": 3.419759785453523,
+      "fraction": 5.701396699425196e-09
+    },
+    {
+      "spectral_type": "F",
+      "luminosity_class": "0",
+      "scale_height_pc": 60.0,
+      "local_density_per_pc3": 9.132631243772629e-10,
+      "pilot_mean_visible": 1.75,
+      "estimated_visible": 1.59821046766021,
+      "fraction": 8.374218159558267e-09
+    },
+    {
+      "spectral_type": "G",
+      "luminosity_class": "0",
+      "scale_height_pc": 60.0,
+      "local_density_per_pc3": 3.3540711044030184e-09,
+      "pilot_mean_visible": 0.75,
+      "estimated_visible": 2.5155533283022637,
+      "fraction": 3.075534574999282e-08
+    },
+    {
+      "spectral_type": "K",
+      "luminosity_class": "0",
+      "scale_height_pc": 60.0,
+      "local_density_per_pc3": 5.605048550284999e-10,
+      "pilot_mean_visible": 0.5,
+      "estimated_visible": 0.28025242751424995,
+      "fraction": 5.139581146124613e-09
+    },
+    {
+      "spectral_type": "M",
+      "luminosity_class": "0",
+      "scale_height_pc": 60.0,
+      "local_density_per_pc3": 3.214722518784819e-11,
+      "pilot_mean_visible": 2.25,
+      "estimated_visible": 0.03616562833632921,
+      "fraction": 2.9477580968908063e-10
+    }
+  ]
+}

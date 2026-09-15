@@ -1,0 +1,23 @@
+{
+  "checks": {
+    "stars_equal": true,
+    "galaxy_equal": true,
+    "clusters_equal": true,
+    "objects_physics_equal": true,
+    "object_counts_equal": true,
+    "original_files_unchanged": true,
+    "parent_hash_matches": true,
+    "morphology_hash_matches": true,
+    "catalog_valid": true
+  },
+  "original_files": 7,
+  "stars": 9356,
+  "objects": 8947,
+  "validation": {
+    "checked": 9356,
+    "passed": 9356,
+    "failed": 0,
+    "all_passed": true,
+    "errors": []
+  }
+}

@@ -1,0 +1,419 @@
+{
+  "path": "web/v2/tests/render_checks.html",
+  "status": "49/49 通过；0 失败",
+  "failures": [],
+  "metrics": {
+    "total": 49,
+    "failures": 0,
+    "metrics": {
+      "samples": 403,
+      "pointFluxError": 2.2647166408873431e-7,
+      "diskDiameterPixelError": 1.0420928347177982,
+      "diskFluxError": 0.04869748471158819,
+      "systemFlux": [
+        {
+          "id": "Sol",
+          "visible": true,
+          "fluxRatio": 0.99862497592762
+        },
+        {
+          "id": "Mercury-Sol",
+          "visible": true,
+          "fluxRatio": 0.9999999842956954
+        },
+        {
+          "id": "Venus-Sol",
+          "visible": true,
+          "fluxRatio": 0.9999999856914265
+        },
+        {
+          "id": "Mars-Sol",
+          "visible": true,
+          "fluxRatio": 0.9999999597101754
+        },
+        {
+          "id": "Jupiter-Sol",
+          "visible": true,
+          "fluxRatio": 1.0000000170931493
+        },
+        {
+          "id": "Saturn-Sol",
+          "visible": true,
+          "fluxRatio": 0.9999999939963452
+        },
+        {
+          "id": "Neptune-Sol",
+          "visible": false,
+          "fluxRatio": 0
+        }
+      ],
+      "hiddenStarLeak": 0,
+      "blurChangedPixels": 84,
+      "wideBlurFluxError": 5.029195282446608e-9,
+      "oddSizeBlurFluxError": 4.4178056990418213e-7,
+      "partialPointVisibleFraction": 0.2356340980447556,
+      "catalogCounts": [
+        9356,
+        118,
+        0
+      ],
+      "finalLimbCoverageError": 0.028287994549541617,
+      "lunarSurfaceContrast": {
+        "center": 255,
+        "nearLimb": 174
+      },
+      "finalSolarRadialSpread": 0.4999999999999982,
+      "finalOccultationLeak": 0,
+      "finalNightRGB": [
+        [
+          9,
+          14,
+          23
+        ],
+        [
+          9,
+          14,
+          23
+        ],
+        [
+          9,
+          14,
+          23
+        ]
+      ],
+      "atlasBackground": {
+        "inside": [
+          5,
+          9,
+          17
+        ],
+        "outside": [
+          3,
+          6,
+          13
+        ],
+        "edge": [
+          72,
+          84,
+          98
+        ],
+        "leak": 0
+      },
+      "finalSmallDiskContinuity": 0.02211310654270693,
+      "finalOffAxisAreas": [
+        7.97323081194171,
+        3.973644900241298
+      ],
+      "offscreenStarPeak": 193,
+      "chartV1PixelDifference": 1,
+      "chartStarPixels": {
+        "threshold": 24,
+        "old": [
+          112,
+          160
+        ],
+        "current": [
+          5808,
+          6390
+        ]
+      },
+      "finalStarAreas": [
+        12,
+        12,
+        4,
+        4,
+        0
+      ],
+      "finalStarEffectiveAreas": [
+        3.2322822299883214,
+        1.308059889901868,
+        0.3159419655046806,
+        0.05719173388906479,
+        0.008635489625212994
+      ],
+      "enhancedPhysicalDifference": 0,
+      "enhancedDisks": {
+        "worst": 1.523788771450569,
+        "measures": [
+          {
+            "mode": "perspective",
+            "dpr": 1,
+            "id": "Sol",
+            "width": 70,
+            "height": 70,
+            "expected": 69.24732688698873
+          },
+          {
+            "mode": "perspective",
+            "dpr": 1,
+            "id": "Luna",
+            "width": 84,
+            "height": 84,
+            "expected": 83.49533511845128
+          },
+          {
+            "mode": "perspective",
+            "dpr": 1,
+            "id": "Echo",
+            "width": 18,
+            "height": 18,
+            "expected": 17.99520579459849
+          },
+          {
+            "mode": "perspective",
+            "dpr": 2,
+            "id": "Sol",
+            "width": 140,
+            "height": 140,
+            "expected": 138.49465377397746
+          },
+          {
+            "mode": "perspective",
+            "dpr": 2,
+            "id": "Luna",
+            "width": 168,
+            "height": 168,
+            "expected": 166.99067023690256
+          },
+          {
+            "mode": "perspective",
+            "dpr": 2,
+            "id": "Echo",
+            "width": 36,
+            "height": 36,
+            "expected": 35.99041158919698
+          },
+          {
+            "mode": "stereographic",
+            "dpr": 1,
+            "id": "Sol",
+            "width": 70,
+            "height": 70,
+            "expected": 69.23810561427472
+          },
+          {
+            "mode": "stereographic",
+            "dpr": 1,
+            "id": "Luna",
+            "width": 84,
+            "height": 84,
+            "expected": 83.47917234146682
+          },
+          {
+            "mode": "stereographic",
+            "dpr": 1,
+            "id": "Echo",
+            "width": 18,
+            "height": 18,
+            "expected": 17.995043926919617
+          },
+          {
+            "mode": "stereographic",
+            "dpr": 2,
+            "id": "Sol",
+            "width": 140,
+            "height": 140,
+            "expected": 138.47621122854943
+          },
+          {
+            "mode": "stereographic",
+            "dpr": 2,
+            "id": "Luna",
+            "width": 168,
+            "height": 168,
+            "expected": 166.95834468293364
+          },
+          {
+            "mode": "stereographic",
+            "dpr": 2,
+            "id": "Echo",
+            "width": 36,
+            "height": 36,
+            "expected": 35.990087853839235
+          }
+        ]
+      },
+      "enhancedDarkSideLeak": 0,
+      "atlasSolarRoundness": {
+        "maxRadialSpread": 0.8000000000000114,
+        "maxV1V2DiameterDifference": 0.899999999999995,
+        "glareSpread": 0.20000000000000284,
+        "samples": 20
+      },
+      "circularSolarOccultation": {
+        "coveredLeak": 0,
+        "exposedSignal": 9709
+      },
+      "solarSeam": {
+        "leak": 0,
+        "physicalDifference": 0,
+        "sides": [
+          [
+            26,
+            49
+          ],
+          [
+            38,
+            38
+          ],
+          [
+            49,
+            25
+          ]
+        ]
+      },
+      "farOffscreenLeak": 0,
+      "catalogGrowth": {
+        "sources": 1301,
+        "maxPixelDifference": 0,
+        "stableAfterGrowth": true
+      },
+      "nativeHighZoomAtlas": {
+        "maxChannelDifference": 1,
+        "cases": 12,
+        "witness": {
+          "magnitude": -2,
+          "x": 124,
+          "y": 296,
+          "channel": 1,
+          "actual": 9,
+          "wanted": 10,
+          "width": 760,
+          "height": 600,
+          "focal": 853.070494972559,
+          "gain": 6,
+          "dpr": 1,
+          "point": {
+            "x": 125.20999999999992,
+            "y": 300.49000000000024,
+            "north": true,
+            "visible": true
+          },
+          "zoom": 8
+        }
+      },
+      "nativeSymbolReference": {
+        "maxChannelDifference": 1,
+        "cases": 32,
+        "witness": {
+          "magnitude": 3,
+          "x": 105,
+          "y": 127,
+          "channel": 2,
+          "actual": 121,
+          "wanted": 122,
+          "width": 256,
+          "height": 256,
+          "focal": 338,
+          "gain": 3,
+          "dpr": 1,
+          "point": {
+            "x": 105.28999999999999,
+            "y": 127.79,
+            "visible": true
+          },
+          "projection": "perspective",
+          "offset": 0.21
+        }
+      },
+      "nativeWideField": {
+        "maxChannelDifference": 1,
+        "fov": 88.3,
+        "magnification": 0.22,
+        "displayScale": 8,
+        "sizes": [
+          {
+            "dpr": 1.5,
+            "output": [
+              1710,
+              984
+            ],
+            "physical": [
+              1710,
+              984
+            ]
+          },
+          {
+            "dpr": 1.75,
+            "output": [
+              1995,
+              1148
+            ],
+            "physical": [
+              1955,
+              1125
+            ]
+          },
+          {
+            "dpr": 2,
+            "output": [
+              2280,
+              1312
+            ],
+            "physical": [
+              1955,
+              1125
+            ]
+          }
+        ],
+        "witness": {
+          "magnitude": -2,
+          "x": 1060,
+          "y": 493,
+          "channel": 1,
+          "actual": 184,
+          "wanted": 183,
+          "width": 1140,
+          "height": 656,
+          "focal": 337.8792421892362,
+          "gain": 8,
+          "dpr": 1.5,
+          "point": {
+            "x": 706.8410930866406,
+            "y": 327.7634845304675,
+            "visible": true
+          }
+        }
+      },
+      "nativePhysical": {
+        "physicalDifference": 0,
+        "enhancedBlurDifference": 0,
+        "fluxRatio": 1.00000002668184
+      },
+      "nativeOccultation": {
+        "moonLeak": 0,
+        "mapCases": [
+          {
+            "id": "Sol",
+            "leak": 0,
+            "visibleOutside": 1780
+          },
+          {
+            "id": "Luna",
+            "leak": 0,
+            "visibleOutside": 1780
+          },
+          {
+            "id": "Echo",
+            "leak": 0,
+            "visibleOutside": 1780
+          }
+        ]
+      },
+      "nativeResources": {
+        "maxPixelDifference": 0,
+        "reused": true,
+        "resizeReleased": 1,
+        "disposeReleased": 1
+      },
+      "playback": {
+        "seconds": 12.214199999988079,
+        "frames": 363,
+        "day": 0.6528708333333333
+      },
+      "simulatedContextRecovery": true
+    }
+  },
+  "errors": [],
+  "httpFailures": []
+}

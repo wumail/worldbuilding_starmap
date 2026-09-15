@@ -1,0 +1,19 @@
+{
+  "revision": "20260915-atlas-disks-1",
+  "source_sha256": {
+    "web/shared/sky_render.mjs": "64fa594f87f71780b6b80205fbae892d9a927a7f8d16e09e5f9b493b5e83e763",
+    "web/v1/sky_atlas_bodies.mjs": "7dadcc78de93ad7669b2693e2fe3e231a1342c7d55107ad169f66b60bcc74178",
+    "web/v2/eye_renderer.mjs": "16b50d396a9f213194b822030e6207fbe5475a044d2cc12dbe4576a42099d983",
+    "web/v2/eye_app.mjs": "dea310e9c621ea37467aa68521ca3b7cbad8d66a0b492fd765689f7ebc4b7de1",
+    "tests/atlas_body_render_checks.mjs": "d66981ae9e7805a7019b8b7cce35409f848a2c4c33158adcfee82e71a5771cc9",
+    "tests/atlas_body_render_checks.html": "f74eb73bf9a06479025c5f70d4cd89cc009b47625b73a65c086def9e45e43f88",
+    "web/v2/tests/native_star_checks.mjs": "7fa3730be2e3c356727042f2658543e5101e591cd24b00c2f7e456009b2d46bd",
+    "web/v2/tests/render_checks.mjs": "857b7c1e5d18145f9383db57d556b93ba70fb3d6193013c74994e182c6af8d54",
+    "web/v1/sky_atlas.html": "ba004b20384510ba6b1b8f9060aa2f9686fe926939d3655fe27fdea8a53d3b28",
+    "web/v1/index.html": "9d29623abb2cde28d3fe2055d37534b8498269b8a0633361aba11df1e1441d27",
+    "web/v1/star_map.html": "a57651a17fba5f2f7da97aa1c4a5ca05840e0a7191120eb3646a0ccc9fb0c0c1",
+    "web/v2/sky_atlas.html": "c4209090f03e90dbfc761b23d8c2d84d0335fd6531eb953bee128bc1a9071278",
+    "web/v2/index.html": "9d29623abb2cde28d3fe2055d37534b8498269b8a0633361aba11df1e1441d27",
+    "web/v2/star_map.html": "82e1f8d070dae90637bbca1042f1b063e8950aca0a508655418bf6dc5411cbb0"
+  }
+}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Terrax · 星图</title>
+</head>
+
+<body>
+    <p>星图现在分为 V1 和 V2。<a id="home" href="./index.html">选择星图版本</a></p>
+    <script type="module">
+        const match=location.pathname.match(/^(.*?)\/(?:v4|web)(?:\/|$)/);
+        const root=match?match[1]:location.pathname.replace(/\/[^/]*$/,'');
+        document.querySelector('#home').href=root+'/index.html';
+        const {legacyDestination}=await import(root+'/web/legacy_routes.mjs');
+        const destination=legacyDestination(location.pathname);
+        if(destination)location.replace(destination+location.search+location.hash);
+    </script>
+</body>
+
+</html>

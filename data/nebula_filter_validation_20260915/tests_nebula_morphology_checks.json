@@ -1,0 +1,1577 @@
+{
+  "path": "tests/nebula_morphology_checks.html",
+  "status": "10/10 通过；0 失败",
+  "failures": [],
+  "metrics": {
+    "total": 10,
+    "failures": 0,
+    "metrics": {
+      "flux": {
+        "worst": 0.0016736966876604864,
+        "witness": {
+          "family": "filament",
+          "a": 0.001,
+          "focal": 200,
+          "dpr": 1,
+          "mode": "stereographic",
+          "ratio": 1.0016736966876605
+        },
+        "cases": [
+          {
+            "family": "turbulent",
+            "a": 0.0001,
+            "focal": 200,
+            "dpr": 1,
+            "mode": "perspective",
+            "ratio": 0.9999801920747958
+          },
+          {
+            "family": "turbulent",
+            "a": 0.0001,
+            "focal": 200,
+            "dpr": 1,
+            "mode": "stereographic",
+            "ratio": 0.9999981660064979
+          },
+          {
+            "family": "turbulent",
+            "a": 0.0001,
+            "focal": 200,
+            "dpr": 2,
+            "mode": "perspective",
+            "ratio": 0.9999901376710896
+          },
+          {
+            "family": "turbulent",
+            "a": 0.0001,
+            "focal": 200,
+            "dpr": 2,
+            "mode": "stereographic",
+            "ratio": 0.9999982691069687
+          },
+          {
+            "family": "turbulent",
+            "a": 0.0001,
+            "focal": 500,
+            "dpr": 1,
+            "mode": "perspective",
+            "ratio": 1.0000052695202424
+          },
+          {
+            "family": "turbulent",
+            "a": 0.0001,
+            "focal": 500,
+            "dpr": 1,
+            "mode": "stereographic",
+            "ratio": 0.9999979347977089
+          },
+          {
+            "family": "turbulent",
+            "a": 0.0001,
+            "focal": 500,
+            "dpr": 2,
+            "mode": "perspective",
+            "ratio": 0.9999853229212683
+          },
+          {
+            "family": "turbulent",
+            "a": 0.0001,
+            "focal": 500,
+            "dpr": 2,
+            "mode": "stereographic",
+            "ratio": 0.9999862188807973
+          },
+          {
+            "family": "turbulent",
+            "a": 0.001,
+            "focal": 200,
+            "dpr": 1,
+            "mode": "perspective",
+            "ratio": 0.9998542952839217
+          },
+          {
+            "family": "turbulent",
+            "a": 0.001,
+            "focal": 200,
+            "dpr": 1,
+            "mode": "stereographic",
+            "ratio": 0.9998737037475769
+          },
+          {
+            "family": "turbulent",
+            "a": 0.001,
+            "focal": 200,
+            "dpr": 2,
+            "mode": "perspective",
+            "ratio": 0.9998383060314251
+          },
+          {
+            "family": "turbulent",
+            "a": 0.001,
+            "focal": 200,
+            "dpr": 2,
+            "mode": "stereographic",
+            "ratio": 0.9998486035083941
+          },
+          {
+            "family": "turbulent",
+            "a": 0.001,
+            "focal": 500,
+            "dpr": 1,
+            "mode": "perspective",
+            "ratio": 1.0000076050459872
+          },
+          {
+            "family": "turbulent",
+            "a": 0.001,
+            "focal": 500,
+            "dpr": 1,
+            "mode": "stereographic",
+            "ratio": 0.9999913807089251
+          },
+          {
+            "family": "turbulent",
+            "a": 0.001,
+            "focal": 500,
+            "dpr": 2,
+            "mode": "perspective",
+            "ratio": 0.9999569899895777
+          },
+          {
+            "family": "turbulent",
+            "a": 0.001,
+            "focal": 500,
+            "dpr": 2,
+            "mode": "stereographic",
+            "ratio": 0.9999583092434857
+          },
+          {
+            "family": "turbulent",
+            "a": 0.005,
+            "focal": 200,
+            "dpr": 1,
+            "mode": "perspective",
+            "ratio": 0.9999458441459812
+          },
+          {
+            "family": "turbulent",
+            "a": 0.005,
+            "focal": 200,
+            "dpr": 1,
+            "mode": "stereographic",
+            "ratio": 0.9999641367431095
+          },
+          {
+            "family": "turbulent",
+            "a": 0.005,
+            "focal": 200,
+            "dpr": 2,
+            "mode": "perspective",
+            "ratio": 0.9999899772394006
+          },
+          {
+            "family": "turbulent",
+            "a": 0.005,
+            "focal": 200,
+            "dpr": 2,
+            "mode": "stereographic",
+            "ratio": 0.9999912972649864
+          },
+          {
+            "family": "turbulent",
+            "a": 0.005,
+            "focal": 500,
+            "dpr": 1,
+            "mode": "perspective",
+            "ratio": 0.999996578432451
+          },
+          {
+            "family": "turbulent",
+            "a": 0.005,
+            "focal": 500,
+            "dpr": 1,
+            "mode": "stereographic",
+            "ratio": 0.9999900677993424
+          },
+          {
+            "family": "turbulent",
+            "a": 0.005,
+            "focal": 500,
+            "dpr": 2,
+            "mode": "perspective",
+            "ratio": 0.999991277082934
+          },
+          {
+            "family": "turbulent",
+            "a": 0.005,
+            "focal": 500,
+            "dpr": 2,
+            "mode": "stereographic",
+            "ratio": 0.9999927929469432
+          },
+          {
+            "family": "turbulent",
+            "a": 0.03,
+            "focal": 200,
+            "dpr": 1,
+            "mode": "perspective",
+            "ratio": 0.9999788291979121
+          },
+          {
+            "family": "turbulent",
+            "a": 0.03,
+            "focal": 200,
+            "dpr": 1,
+            "mode": "stereographic",
+            "ratio": 0.9999929229130209
+          },
+          {
+            "family": "turbulent",
+            "a": 0.03,
+            "focal": 200,
+            "dpr": 2,
+            "mode": "perspective",
+            "ratio": 0.9999908047726261
+          },
+          {
+            "family": "turbulent",
+            "a": 0.03,
+            "focal": 200,
+            "dpr": 2,
+            "mode": "stereographic",
+            "ratio": 0.9999947968649678
+          },
+          {
+            "family": "turbulent",
+            "a": 0.03,
+            "focal": 500,
+            "dpr": 1,
+            "mode": "perspective",
+            "ratio": 0.999992427744858
+          },
+          {
+            "family": "turbulent",
+            "a": 0.03,
+            "focal": 500,
+            "dpr": 1,
+            "mode": "stereographic",
+            "ratio": 0.999994594566325
+          },
+          {
+            "family": "turbulent",
+            "a": 0.03,
+            "focal": 500,
+            "dpr": 2,
+            "mode": "perspective",
+            "ratio": 0.9999945542772353
+          },
+          {
+            "family": "turbulent",
+            "a": 0.03,
+            "focal": 500,
+            "dpr": 2,
+            "mode": "stereographic",
+            "ratio": 0.9999951535398949
+          },
+          {
+            "family": "filament",
+            "a": 0.0001,
+            "focal": 200,
+            "dpr": 1,
+            "mode": "perspective",
+            "ratio": 0.9999801920747958
+          },
+          {
+            "family": "filament",
+            "a": 0.0001,
+            "focal": 200,
+            "dpr": 1,
+            "mode": "stereographic",
+            "ratio": 0.9999981660064979
+          },
+          {
+            "family": "filament",
+            "a": 0.0001,
+            "focal": 200,
+            "dpr": 2,
+            "mode": "perspective",
+            "ratio": 0.9999901376710896
+          },
+          {
+            "family": "filament",
+            "a": 0.0001,
+            "focal": 200,
+            "dpr": 2,
+            "mode": "stereographic",
+            "ratio": 0.9999982691069687
+          },
+          {
+            "family": "filament",
+            "a": 0.0001,
+            "focal": 500,
+            "dpr": 1,
+            "mode": "perspective",
+            "ratio": 1.0000052695202424
+          },
+          {
+            "family": "filament",
+            "a": 0.0001,
+            "focal": 500,
+            "dpr": 1,
+            "mode": "stereographic",
+            "ratio": 0.9999979347977089
+          },
+          {
+            "family": "filament",
+            "a": 0.0001,
+            "focal": 500,
+            "dpr": 2,
+            "mode": "perspective",
+            "ratio": 0.9999853229212683
+          },
+          {
+            "family": "filament",
+            "a": 0.0001,
+            "focal": 500,
+            "dpr": 2,
+            "mode": "stereographic",
+            "ratio": 0.9999862188807973
+          },
+          {
+            "family": "filament",
+            "a": 0.001,
+            "focal": 200,
+            "dpr": 1,
+            "mode": "perspective",
+            "ratio": 1.001654208860407
+          },
+          {
+            "family": "filament",
+            "a": 0.001,
+            "focal": 200,
+            "dpr": 1,
+            "mode": "stereographic",
+            "ratio": 1.0016736966876605
+          },
+          {
+            "family": "filament",
+            "a": 0.001,
+            "focal": 200,
+            "dpr": 2,
+            "mode": "perspective",
+            "ratio": 1.0002305092574535
+          },
+          {
+            "family": "filament",
+            "a": 0.001,
+            "focal": 200,
+            "dpr": 2,
+            "mode": "stereographic",
+            "ratio": 1.0002394629053422
+          },
+          {
+            "family": "filament",
+            "a": 0.001,
+            "focal": 500,
+            "dpr": 1,
+            "mode": "perspective",
+            "ratio": 0.999969550573382
+          },
+          {
+            "family": "filament",
+            "a": 0.001,
+            "focal": 500,
+            "dpr": 1,
+            "mode": "stereographic",
+            "ratio": 0.9999531217630411
+          },
+          {
+            "family": "filament",
+            "a": 0.001,
+            "focal": 500,
+            "dpr": 2,
+            "mode": "perspective",
+            "ratio": 0.9999510635752209
+          },
+          {
+            "family": "filament",
+            "a": 0.001,
+            "focal": 500,
+            "dpr": 2,
+            "mode": "stereographic",
+            "ratio": 0.999952426615956
+          },
+          {
+            "family": "filament",
+            "a": 0.005,
+            "focal": 200,
+            "dpr": 1,
+            "mode": "perspective",
+            "ratio": 0.9999405414278872
+          },
+          {
+            "family": "filament",
+            "a": 0.005,
+            "focal": 200,
+            "dpr": 1,
+            "mode": "stereographic",
+            "ratio": 0.9999589479646772
+          },
+          {
+            "family": "filament",
+            "a": 0.005,
+            "focal": 200,
+            "dpr": 2,
+            "mode": "perspective",
+            "ratio": 0.9999891361040814
+          },
+          {
+            "family": "filament",
+            "a": 0.005,
+            "focal": 200,
+            "dpr": 2,
+            "mode": "stereographic",
+            "ratio": 0.9999888850203925
+          },
+          {
+            "family": "filament",
+            "a": 0.005,
+            "focal": 500,
+            "dpr": 1,
+            "mode": "perspective",
+            "ratio": 0.9999891702142994
+          },
+          {
+            "family": "filament",
+            "a": 0.005,
+            "focal": 500,
+            "dpr": 1,
+            "mode": "stereographic",
+            "ratio": 0.9999813769222687
+          },
+          {
+            "family": "filament",
+            "a": 0.005,
+            "focal": 500,
+            "dpr": 2,
+            "mode": "perspective",
+            "ratio": 0.9999838251668752
+          },
+          {
+            "family": "filament",
+            "a": 0.005,
+            "focal": 500,
+            "dpr": 2,
+            "mode": "stereographic",
+            "ratio": 0.9999841222214958
+          },
+          {
+            "family": "filament",
+            "a": 0.03,
+            "focal": 200,
+            "dpr": 1,
+            "mode": "perspective",
+            "ratio": 0.9999781251979978
+          },
+          {
+            "family": "filament",
+            "a": 0.03,
+            "focal": 200,
+            "dpr": 1,
+            "mode": "stereographic",
+            "ratio": 0.9999923638375843
+          },
+          {
+            "family": "filament",
+            "a": 0.03,
+            "focal": 200,
+            "dpr": 2,
+            "mode": "perspective",
+            "ratio": 0.9999899309898084
+          },
+          {
+            "family": "filament",
+            "a": 0.03,
+            "focal": 200,
+            "dpr": 2,
+            "mode": "stereographic",
+            "ratio": 0.9999941537542896
+          },
+          {
+            "family": "filament",
+            "a": 0.03,
+            "focal": 500,
+            "dpr": 1,
+            "mode": "perspective",
+            "ratio": 0.9999918202941106
+          },
+          {
+            "family": "filament",
+            "a": 0.03,
+            "focal": 500,
+            "dpr": 1,
+            "mode": "stereographic",
+            "ratio": 0.9999939032937437
+          },
+          {
+            "family": "filament",
+            "a": 0.03,
+            "focal": 500,
+            "dpr": 2,
+            "mode": "perspective",
+            "ratio": 0.9999938900833116
+          },
+          {
+            "family": "filament",
+            "a": 0.03,
+            "focal": 500,
+            "dpr": 2,
+            "mode": "stereographic",
+            "ratio": 0.9999945360055743
+          },
+          {
+            "family": "shell",
+            "a": 0.0001,
+            "focal": 200,
+            "dpr": 1,
+            "mode": "perspective",
+            "ratio": 0.9999801920747958
+          },
+          {
+            "family": "shell",
+            "a": 0.0001,
+            "focal": 200,
+            "dpr": 1,
+            "mode": "stereographic",
+            "ratio": 0.9999981660064979
+          },
+          {
+            "family": "shell",
+            "a": 0.0001,
+            "focal": 200,
+            "dpr": 2,
+            "mode": "perspective",
+            "ratio": 0.9999901376710896
+          },
+          {
+            "family": "shell",
+            "a": 0.0001,
+            "focal": 200,
+            "dpr": 2,
+            "mode": "stereographic",
+            "ratio": 0.9999982691069687
+          },
+          {
+            "family": "shell",
+            "a": 0.0001,
+            "focal": 500,
+            "dpr": 1,
+            "mode": "perspective",
+            "ratio": 1.0000052695202424
+          },
+          {
+            "family": "shell",
+            "a": 0.0001,
+            "focal": 500,
+            "dpr": 1,
+            "mode": "stereographic",
+            "ratio": 0.9999979347977089
+          },
+          {
+            "family": "shell",
+            "a": 0.0001,
+            "focal": 500,
+            "dpr": 2,
+            "mode": "perspective",
+            "ratio": 0.9999853229212683
+          },
+          {
+            "family": "shell",
+            "a": 0.0001,
+            "focal": 500,
+            "dpr": 2,
+            "mode": "stereographic",
+            "ratio": 0.9999862188807973
+          },
+          {
+            "family": "shell",
+            "a": 0.001,
+            "focal": 200,
+            "dpr": 1,
+            "mode": "perspective",
+            "ratio": 1.000261589648311
+          },
+          {
+            "family": "shell",
+            "a": 0.001,
+            "focal": 200,
+            "dpr": 1,
+            "mode": "stereographic",
+            "ratio": 1.0002805039766611
+          },
+          {
+            "family": "shell",
+            "a": 0.001,
+            "focal": 200,
+            "dpr": 2,
+            "mode": "perspective",
+            "ratio": 0.9999565417562292
+          },
+          {
+            "family": "shell",
+            "a": 0.001,
+            "focal": 200,
+            "dpr": 2,
+            "mode": "stereographic",
+            "ratio": 0.9999660871259279
+          },
+          {
+            "family": "shell",
+            "a": 0.001,
+            "focal": 500,
+            "dpr": 1,
+            "mode": "perspective",
+            "ratio": 0.9997787527170636
+          },
+          {
+            "family": "shell",
+            "a": 0.001,
+            "focal": 500,
+            "dpr": 1,
+            "mode": "stereographic",
+            "ratio": 0.9997638998189378
+          },
+          {
+            "family": "shell",
+            "a": 0.001,
+            "focal": 500,
+            "dpr": 2,
+            "mode": "perspective",
+            "ratio": 0.9999745940676916
+          },
+          {
+            "family": "shell",
+            "a": 0.001,
+            "focal": 500,
+            "dpr": 2,
+            "mode": "stereographic",
+            "ratio": 0.9999755921988084
+          },
+          {
+            "family": "shell",
+            "a": 0.005,
+            "focal": 200,
+            "dpr": 1,
+            "mode": "perspective",
+            "ratio": 0.9999666102742586
+          },
+          {
+            "family": "shell",
+            "a": 0.005,
+            "focal": 200,
+            "dpr": 1,
+            "mode": "stereographic",
+            "ratio": 0.9999817899936877
+          },
+          {
+            "family": "shell",
+            "a": 0.005,
+            "focal": 200,
+            "dpr": 2,
+            "mode": "perspective",
+            "ratio": 0.9999940540167259
+          },
+          {
+            "family": "shell",
+            "a": 0.005,
+            "focal": 200,
+            "dpr": 2,
+            "mode": "stereographic",
+            "ratio": 0.9999950331586671
+          },
+          {
+            "family": "shell",
+            "a": 0.005,
+            "focal": 500,
+            "dpr": 1,
+            "mode": "perspective",
+            "ratio": 1.0000095303859646
+          },
+          {
+            "family": "shell",
+            "a": 0.005,
+            "focal": 500,
+            "dpr": 1,
+            "mode": "stereographic",
+            "ratio": 1.0000036199101157
+          },
+          {
+            "family": "shell",
+            "a": 0.005,
+            "focal": 500,
+            "dpr": 2,
+            "mode": "perspective",
+            "ratio": 1.0000040822563112
+          },
+          {
+            "family": "shell",
+            "a": 0.005,
+            "focal": 500,
+            "dpr": 2,
+            "mode": "stereographic",
+            "ratio": 1.0000056004655968
+          },
+          {
+            "family": "shell",
+            "a": 0.03,
+            "focal": 200,
+            "dpr": 1,
+            "mode": "perspective",
+            "ratio": 0.9999804170831645
+          },
+          {
+            "family": "shell",
+            "a": 0.03,
+            "focal": 200,
+            "dpr": 1,
+            "mode": "stereographic",
+            "ratio": 0.9999946179175965
+          },
+          {
+            "family": "shell",
+            "a": 0.03,
+            "focal": 200,
+            "dpr": 2,
+            "mode": "perspective",
+            "ratio": 0.9999923870799076
+          },
+          {
+            "family": "shell",
+            "a": 0.03,
+            "focal": 200,
+            "dpr": 2,
+            "mode": "stereographic",
+            "ratio": 0.9999963228645261
+          },
+          {
+            "family": "shell",
+            "a": 0.03,
+            "focal": 500,
+            "dpr": 1,
+            "mode": "perspective",
+            "ratio": 0.9999937644960778
+          },
+          {
+            "family": "shell",
+            "a": 0.03,
+            "focal": 500,
+            "dpr": 1,
+            "mode": "stereographic",
+            "ratio": 0.9999961026703077
+          },
+          {
+            "family": "shell",
+            "a": 0.03,
+            "focal": 500,
+            "dpr": 2,
+            "mode": "perspective",
+            "ratio": 0.9999960527549234
+          },
+          {
+            "family": "shell",
+            "a": 0.03,
+            "focal": 500,
+            "dpr": 2,
+            "mode": "stereographic",
+            "ratio": 0.9999965981150041
+          },
+          {
+            "family": "blister",
+            "a": 0.0001,
+            "focal": 200,
+            "dpr": 1,
+            "mode": "perspective",
+            "ratio": 0.9999801920747958
+          },
+          {
+            "family": "blister",
+            "a": 0.0001,
+            "focal": 200,
+            "dpr": 1,
+            "mode": "stereographic",
+            "ratio": 0.9999981660064979
+          },
+          {
+            "family": "blister",
+            "a": 0.0001,
+            "focal": 200,
+            "dpr": 2,
+            "mode": "perspective",
+            "ratio": 0.9999901376710896
+          },
+          {
+            "family": "blister",
+            "a": 0.0001,
+            "focal": 200,
+            "dpr": 2,
+            "mode": "stereographic",
+            "ratio": 0.9999982691069687
+          },
+          {
+            "family": "blister",
+            "a": 0.0001,
+            "focal": 500,
+            "dpr": 1,
+            "mode": "perspective",
+            "ratio": 1.0000052695202424
+          },
+          {
+            "family": "blister",
+            "a": 0.0001,
+            "focal": 500,
+            "dpr": 1,
+            "mode": "stereographic",
+            "ratio": 0.9999979347977089
+          },
+          {
+            "family": "blister",
+            "a": 0.0001,
+            "focal": 500,
+            "dpr": 2,
+            "mode": "perspective",
+            "ratio": 0.9999853229212683
+          },
+          {
+            "family": "blister",
+            "a": 0.0001,
+            "focal": 500,
+            "dpr": 2,
+            "mode": "stereographic",
+            "ratio": 0.9999862188807973
+          },
+          {
+            "family": "blister",
+            "a": 0.001,
+            "focal": 200,
+            "dpr": 1,
+            "mode": "perspective",
+            "ratio": 0.999977820106272
+          },
+          {
+            "family": "blister",
+            "a": 0.001,
+            "focal": 200,
+            "dpr": 1,
+            "mode": "stereographic",
+            "ratio": 0.9999959992638559
+          },
+          {
+            "family": "blister",
+            "a": 0.001,
+            "focal": 200,
+            "dpr": 2,
+            "mode": "perspective",
+            "ratio": 0.9998264687742543
+          },
+          {
+            "family": "blister",
+            "a": 0.001,
+            "focal": 200,
+            "dpr": 2,
+            "mode": "stereographic",
+            "ratio": 0.9998369942749784
+          },
+          {
+            "family": "blister",
+            "a": 0.001,
+            "focal": 500,
+            "dpr": 1,
+            "mode": "perspective",
+            "ratio": 0.9995063866241066
+          },
+          {
+            "family": "blister",
+            "a": 0.001,
+            "focal": 500,
+            "dpr": 1,
+            "mode": "stereographic",
+            "ratio": 0.9994770817999844
+          },
+          {
+            "family": "blister",
+            "a": 0.001,
+            "focal": 500,
+            "dpr": 2,
+            "mode": "perspective",
+            "ratio": 0.9999836771005323
+          },
+          {
+            "family": "blister",
+            "a": 0.001,
+            "focal": 500,
+            "dpr": 2,
+            "mode": "stereographic",
+            "ratio": 0.9999847920151868
+          },
+          {
+            "family": "blister",
+            "a": 0.005,
+            "focal": 200,
+            "dpr": 1,
+            "mode": "perspective",
+            "ratio": 0.9999543256440077
+          },
+          {
+            "family": "blister",
+            "a": 0.005,
+            "focal": 200,
+            "dpr": 1,
+            "mode": "stereographic",
+            "ratio": 0.9999627027015978
+          },
+          {
+            "family": "blister",
+            "a": 0.005,
+            "focal": 200,
+            "dpr": 2,
+            "mode": "perspective",
+            "ratio": 0.999997985576443
+          },
+          {
+            "family": "blister",
+            "a": 0.005,
+            "focal": 200,
+            "dpr": 2,
+            "mode": "stereographic",
+            "ratio": 0.9999936096498586
+          },
+          {
+            "family": "blister",
+            "a": 0.005,
+            "focal": 500,
+            "dpr": 1,
+            "mode": "perspective",
+            "ratio": 0.9999942123385037
+          },
+          {
+            "family": "blister",
+            "a": 0.005,
+            "focal": 500,
+            "dpr": 1,
+            "mode": "stereographic",
+            "ratio": 0.9999815408150298
+          },
+          {
+            "family": "blister",
+            "a": 0.005,
+            "focal": 500,
+            "dpr": 2,
+            "mode": "perspective",
+            "ratio": 0.9999959582289469
+          },
+          {
+            "family": "blister",
+            "a": 0.005,
+            "focal": 500,
+            "dpr": 2,
+            "mode": "stereographic",
+            "ratio": 0.9999948752766141
+          },
+          {
+            "family": "blister",
+            "a": 0.03,
+            "focal": 200,
+            "dpr": 1,
+            "mode": "perspective",
+            "ratio": 0.9999806663267482
+          },
+          {
+            "family": "blister",
+            "a": 0.03,
+            "focal": 200,
+            "dpr": 1,
+            "mode": "stereographic",
+            "ratio": 0.9999947803193757
+          },
+          {
+            "family": "blister",
+            "a": 0.03,
+            "focal": 200,
+            "dpr": 2,
+            "mode": "perspective",
+            "ratio": 0.9999926671415685
+          },
+          {
+            "family": "blister",
+            "a": 0.03,
+            "focal": 200,
+            "dpr": 2,
+            "mode": "stereographic",
+            "ratio": 0.9999966732629968
+          },
+          {
+            "family": "blister",
+            "a": 0.03,
+            "focal": 500,
+            "dpr": 1,
+            "mode": "perspective",
+            "ratio": 0.9999941535352614
+          },
+          {
+            "family": "blister",
+            "a": 0.03,
+            "focal": 500,
+            "dpr": 1,
+            "mode": "stereographic",
+            "ratio": 0.999996495282311
+          },
+          {
+            "family": "blister",
+            "a": 0.03,
+            "focal": 500,
+            "dpr": 2,
+            "mode": "perspective",
+            "ratio": 0.9999962446232431
+          },
+          {
+            "family": "blister",
+            "a": 0.03,
+            "focal": 500,
+            "dpr": 2,
+            "mode": "stereographic",
+            "ratio": 0.9999970108983945
+          },
+          {
+            "family": "fan",
+            "a": 0.0001,
+            "focal": 200,
+            "dpr": 1,
+            "mode": "perspective",
+            "ratio": 0.9999801920747958
+          },
+          {
+            "family": "fan",
+            "a": 0.0001,
+            "focal": 200,
+            "dpr": 1,
+            "mode": "stereographic",
+            "ratio": 0.9999981660064979
+          },
+          {
+            "family": "fan",
+            "a": 0.0001,
+            "focal": 200,
+            "dpr": 2,
+            "mode": "perspective",
+            "ratio": 0.9999901376710896
+          },
+          {
+            "family": "fan",
+            "a": 0.0001,
+            "focal": 200,
+            "dpr": 2,
+            "mode": "stereographic",
+            "ratio": 0.9999982691069687
+          },
+          {
+            "family": "fan",
+            "a": 0.0001,
+            "focal": 500,
+            "dpr": 1,
+            "mode": "perspective",
+            "ratio": 1.0000052695202424
+          },
+          {
+            "family": "fan",
+            "a": 0.0001,
+            "focal": 500,
+            "dpr": 1,
+            "mode": "stereographic",
+            "ratio": 0.9999979347977089
+          },
+          {
+            "family": "fan",
+            "a": 0.0001,
+            "focal": 500,
+            "dpr": 2,
+            "mode": "perspective",
+            "ratio": 0.9999853229212683
+          },
+          {
+            "family": "fan",
+            "a": 0.0001,
+            "focal": 500,
+            "dpr": 2,
+            "mode": "stereographic",
+            "ratio": 0.9999862188807973
+          },
+          {
+            "family": "fan",
+            "a": 0.001,
+            "focal": 200,
+            "dpr": 1,
+            "mode": "perspective",
+            "ratio": 1.0003446313540307
+          },
+          {
+            "family": "fan",
+            "a": 0.001,
+            "focal": 200,
+            "dpr": 1,
+            "mode": "stereographic",
+            "ratio": 1.0003640718191913
+          },
+          {
+            "family": "fan",
+            "a": 0.001,
+            "focal": 200,
+            "dpr": 2,
+            "mode": "perspective",
+            "ratio": 0.9997237423652034
+          },
+          {
+            "family": "fan",
+            "a": 0.001,
+            "focal": 200,
+            "dpr": 2,
+            "mode": "stereographic",
+            "ratio": 0.9997358411311686
+          },
+          {
+            "family": "fan",
+            "a": 0.001,
+            "focal": 500,
+            "dpr": 1,
+            "mode": "perspective",
+            "ratio": 1.0000618184373395
+          },
+          {
+            "family": "fan",
+            "a": 0.001,
+            "focal": 500,
+            "dpr": 1,
+            "mode": "stereographic",
+            "ratio": 1.0000417844251168
+          },
+          {
+            "family": "fan",
+            "a": 0.001,
+            "focal": 500,
+            "dpr": 2,
+            "mode": "perspective",
+            "ratio": 0.9999603035266686
+          },
+          {
+            "family": "fan",
+            "a": 0.001,
+            "focal": 500,
+            "dpr": 2,
+            "mode": "stereographic",
+            "ratio": 0.9999615206034274
+          },
+          {
+            "family": "fan",
+            "a": 0.005,
+            "focal": 200,
+            "dpr": 1,
+            "mode": "perspective",
+            "ratio": 0.9999447493912779
+          },
+          {
+            "family": "fan",
+            "a": 0.005,
+            "focal": 200,
+            "dpr": 1,
+            "mode": "stereographic",
+            "ratio": 0.9999621866747318
+          },
+          {
+            "family": "fan",
+            "a": 0.005,
+            "focal": 200,
+            "dpr": 2,
+            "mode": "perspective",
+            "ratio": 0.9999892873319307
+          },
+          {
+            "family": "fan",
+            "a": 0.005,
+            "focal": 200,
+            "dpr": 2,
+            "mode": "stereographic",
+            "ratio": 0.9999905855902109
+          },
+          {
+            "family": "fan",
+            "a": 0.005,
+            "focal": 500,
+            "dpr": 1,
+            "mode": "perspective",
+            "ratio": 0.9999965884533165
+          },
+          {
+            "family": "fan",
+            "a": 0.005,
+            "focal": 500,
+            "dpr": 1,
+            "mode": "stereographic",
+            "ratio": 0.999988027371433
+          },
+          {
+            "family": "fan",
+            "a": 0.005,
+            "focal": 500,
+            "dpr": 2,
+            "mode": "perspective",
+            "ratio": 0.9999930427112115
+          },
+          {
+            "family": "fan",
+            "a": 0.005,
+            "focal": 500,
+            "dpr": 2,
+            "mode": "stereographic",
+            "ratio": 0.9999932886232065
+          },
+          {
+            "family": "fan",
+            "a": 0.03,
+            "focal": 200,
+            "dpr": 1,
+            "mode": "perspective",
+            "ratio": 0.9999783233707267
+          },
+          {
+            "family": "fan",
+            "a": 0.03,
+            "focal": 200,
+            "dpr": 1,
+            "mode": "stereographic",
+            "ratio": 0.999992479416846
+          },
+          {
+            "family": "fan",
+            "a": 0.03,
+            "focal": 200,
+            "dpr": 2,
+            "mode": "perspective",
+            "ratio": 0.9999901743325121
+          },
+          {
+            "family": "fan",
+            "a": 0.03,
+            "focal": 200,
+            "dpr": 2,
+            "mode": "stereographic",
+            "ratio": 0.9999941515784594
+          },
+          {
+            "family": "fan",
+            "a": 0.03,
+            "focal": 500,
+            "dpr": 1,
+            "mode": "perspective",
+            "ratio": 0.9999917404112815
+          },
+          {
+            "family": "fan",
+            "a": 0.03,
+            "focal": 500,
+            "dpr": 1,
+            "mode": "stereographic",
+            "ratio": 0.999994045400259
+          },
+          {
+            "family": "fan",
+            "a": 0.03,
+            "focal": 500,
+            "dpr": 2,
+            "mode": "perspective",
+            "ratio": 0.9999938694777347
+          },
+          {
+            "family": "fan",
+            "a": 0.03,
+            "focal": 500,
+            "dpr": 2,
+            "mode": "stereographic",
+            "ratio": 0.9999944884248199
+          }
+        ]
+      },
+      "cameraRollRelativeDifference": 1.3797047804406495e-7,
+      "directions": [
+        {
+          "lon": 359.999,
+          "lat": 0,
+          "ratio": 0.9999896853420649
+        },
+        {
+          "lon": 120,
+          "lat": 89.999,
+          "ratio": 0.9999892774627438
+        },
+        {
+          "lon": 320,
+          "lat": -89.999,
+          "ratio": 0.999998230787495
+        },
+        {
+          "mode": "perspective",
+          "angle": 30,
+          "ratio": 0.9980102412886647
+        },
+        {
+          "mode": "perspective",
+          "angle": 55,
+          "ratio": 0.9999222371902418
+        },
+        {
+          "mode": "stereographic",
+          "angle": 30,
+          "ratio": 0.9999953673186092
+        },
+        {
+          "mode": "stereographic",
+          "angle": 55,
+          "ratio": 1.00089498108499
+        }
+      ],
+      "actualFlux": [
+        {
+          "id": "H-D-OC-6.5-000555",
+          "family": "blister",
+          "mode": "perspective",
+          "ratio": 0.9999974159861799
+        },
+        {
+          "id": "H-D-OC-6.5-000555",
+          "family": "blister",
+          "mode": "stereographic",
+          "ratio": 0.999997184443976
+        },
+        {
+          "id": "R-D-OC-6.5-000555",
+          "family": "filament",
+          "mode": "perspective",
+          "ratio": 0.9999822213811517
+        },
+        {
+          "id": "R-D-OC-6.5-000555",
+          "family": "filament",
+          "mode": "stereographic",
+          "ratio": 0.9999825634709202
+        },
+        {
+          "id": "H-D-OC-6.5-000937",
+          "family": "blister",
+          "mode": "perspective",
+          "ratio": 0.9999971288919369
+        },
+        {
+          "id": "H-D-OC-6.5-000937",
+          "family": "blister",
+          "mode": "stereographic",
+          "ratio": 0.9999980186329822
+        },
+        {
+          "id": "R-D-OC-6.5-000937",
+          "family": "fan",
+          "mode": "perspective",
+          "ratio": 0.9999893073449818
+        },
+        {
+          "id": "R-D-OC-6.5-000937",
+          "family": "fan",
+          "mode": "stereographic",
+          "ratio": 0.9999908166811124
+        },
+        {
+          "id": "H-D-OC-6.5-001138",
+          "family": "shell",
+          "mode": "perspective",
+          "ratio": 0.999996205875443
+        },
+        {
+          "id": "H-D-OC-6.5-001138",
+          "family": "shell",
+          "mode": "stereographic",
+          "ratio": 0.999996942874795
+        },
+        {
+          "id": "R-D-OC-6.5-001138",
+          "family": "fan",
+          "mode": "perspective",
+          "ratio": 0.9999828236256005
+        },
+        {
+          "id": "R-D-OC-6.5-001138",
+          "family": "fan",
+          "mode": "stereographic",
+          "ratio": 0.9999829521591167
+        },
+        {
+          "id": "R-D-OC-6.5-001142",
+          "family": "filament",
+          "mode": "perspective",
+          "ratio": 0.9999786316842354
+        },
+        {
+          "id": "R-D-OC-6.5-001142",
+          "family": "filament",
+          "mode": "stereographic",
+          "ratio": 0.9999793958480057
+        },
+        {
+          "id": "H-D-OC-6.5-001277",
+          "family": "turbulent",
+          "mode": "perspective",
+          "ratio": 0.9999954632022109
+        },
+        {
+          "id": "H-D-OC-6.5-001277",
+          "family": "turbulent",
+          "mode": "stereographic",
+          "ratio": 0.9999956173781374
+        },
+        {
+          "id": "R-D-OC-6.5-001277",
+          "family": "filament",
+          "mode": "perspective",
+          "ratio": 0.9999802342424279
+        },
+        {
+          "id": "R-D-OC-6.5-001277",
+          "family": "filament",
+          "mode": "stereographic",
+          "ratio": 0.9999809976019693
+        },
+        {
+          "id": "H-D-OC-6.5-001558",
+          "family": "blister",
+          "mode": "perspective",
+          "ratio": 0.9999966115879325
+        },
+        {
+          "id": "H-D-OC-6.5-001558",
+          "family": "blister",
+          "mode": "stereographic",
+          "ratio": 0.9999970313355286
+        },
+        {
+          "id": "R-D-OC-6.5-001558",
+          "family": "fan",
+          "mode": "perspective",
+          "ratio": 0.9999864307296538
+        },
+        {
+          "id": "R-D-OC-6.5-001558",
+          "family": "fan",
+          "mode": "stereographic",
+          "ratio": 0.999986445615641
+        },
+        {
+          "id": "H-D-OC-6.5-002177",
+          "family": "blister",
+          "mode": "perspective",
+          "ratio": 0.9999978149400993
+        },
+        {
+          "id": "H-D-OC-6.5-002177",
+          "family": "blister",
+          "mode": "stereographic",
+          "ratio": 0.9999972239194534
+        },
+        {
+          "id": "R-D-OC-6.5-002177",
+          "family": "filament",
+          "mode": "perspective",
+          "ratio": 0.9999819804662611
+        },
+        {
+          "id": "R-D-OC-6.5-002177",
+          "family": "filament",
+          "mode": "stereographic",
+          "ratio": 0.9999820417086851
+        },
+        {
+          "id": "H-D-OC-6.5-002487",
+          "family": "blister",
+          "mode": "perspective",
+          "ratio": 0.9999965425292229
+        },
+        {
+          "id": "H-D-OC-6.5-002487",
+          "family": "blister",
+          "mode": "stereographic",
+          "ratio": 0.9999968575389367
+        },
+        {
+          "id": "R-D-OC-6.5-002487",
+          "family": "turbulent",
+          "mode": "perspective",
+          "ratio": 0.9999834800766443
+        },
+        {
+          "id": "R-D-OC-6.5-002487",
+          "family": "turbulent",
+          "mode": "stereographic",
+          "ratio": 0.9999838412525953
+        },
+        {
+          "id": "H-D-OC-7-000786",
+          "family": "shell",
+          "mode": "perspective",
+          "ratio": 0.999997393485249
+        },
+        {
+          "id": "H-D-OC-7-000786",
+          "family": "shell",
+          "mode": "stereographic",
+          "ratio": 0.999997637039516
+        },
+        {
+          "id": "R-D-OC-7-000786",
+          "family": "fan",
+          "mode": "perspective",
+          "ratio": 0.9999838131570318
+        },
+        {
+          "id": "R-D-OC-7-000786",
+          "family": "fan",
+          "mode": "stereographic",
+          "ratio": 0.9999839242385336
+        },
+        {
+          "id": "R-D-OC-7-002762",
+          "family": "turbulent",
+          "mode": "perspective",
+          "ratio": 0.9999882846399244
+        },
+        {
+          "id": "R-D-OC-7-002762",
+          "family": "turbulent",
+          "mode": "stereographic",
+          "ratio": 0.9999881459797265
+        }
+      ],
+      "catalog": {
+        "stars": 9356,
+        "clouds": 160,
+        "candidates": 18,
+        "families": {
+          "turbulent": 3,
+          "filament": 4,
+          "shell": 2,
+          "blister": 5,
+          "fan": 4
+        }
+      },
+      "gpuNoiseError": 0.00010797009686963621,
+      "gpuSoftShellError": 7.551132484850953e-7,
+      "gpuFilteredError": 2.91919708073074e-7
+    }
+  },
+  "errors": [],
+  "httpFailures": []
+}

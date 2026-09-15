@@ -1,0 +1,1570 @@
+[
+  {
+    "seed": 20260913,
+    "count": 19580,
+    "components": [
+      {
+        "spectral_type": "O",
+        "luminosity_class": "V",
+        "local_density": 2.9735673887963393e-08,
+        "scale_height_pc": 45.0,
+        "horizon_pc": 2884.0369034785954,
+        "sampled": 112,
+        "visible": 18
+      },
+      {
+        "spectral_type": "B",
+        "luminosity_class": "V",
+        "local_density": 0.00012885458684784137,
+        "scale_height_pc": 90.0,
+        "horizon_pc": 1199.5015492130724,
+        "sampled": 131250,
+        "visible": 3349
+      },
+      {
+        "spectral_type": "A",
+        "luminosity_class": "V",
+        "local_density": 0.0005947134777592679,
+        "scale_height_pc": 150.0,
+        "horizon_pc": 125.8927769133312,
+        "sampled": 4090,
+        "visible": 1558
+      },
+      {
+        "spectral_type": "F",
+        "luminosity_class": "V",
+        "local_density": 0.002973567388796339,
+        "scale_height_pc": 220.0,
+        "horizon_pc": 60.81361400121408,
+        "sampled": 2688,
+        "visible": 801
+      },
+      {
+        "spectral_type": "G",
+        "luminosity_class": "V",
+        "local_density": 0.007533037384950726,
+        "scale_height_pc": 300.0,
+        "horizon_pc": 25.351333775289074,
+        "sampled": 510,
+        "visible": 242
+      },
+      {
+        "spectral_type": "K",
+        "luminosity_class": "V",
+        "local_density": 0.011993388468145235,
+        "scale_height_pc": 330.0,
+        "horizon_pc": 13.89955233901102,
+        "sampled": 150,
+        "visible": 38
+      },
+      {
+        "spectral_type": "M",
+        "luminosity_class": "V",
+        "local_density": 0.07577640895782671,
+        "scale_height_pc": 350.0,
+        "horizon_pc": 3.4833796729799666,
+        "sampled": 15,
+        "visible": 1
+      },
+      {
+        "spectral_type": "O",
+        "luminosity_class": "IV",
+        "local_density": 8e-08,
+        "scale_height_pc": 45.0,
+        "horizon_pc": 2511.88643150958,
+        "sampled": 233,
+        "visible": 69
+      },
+      {
+        "spectral_type": "B",
+        "luminosity_class": "IV",
+        "local_density": 2.4e-05,
+        "scale_height_pc": 90.0,
+        "horizon_pc": 575.4399373371573,
+        "sampled": 5267,
+        "visible": 2001
+      },
+      {
+        "spectral_type": "A",
+        "luminosity_class": "IV",
+        "local_density": 0.00012,
+        "scale_height_pc": 150.0,
+        "horizon_pc": 158.48931924611142,
+        "sampled": 1583,
+        "visible": 817
+      },
+      {
+        "spectral_type": "F",
+        "luminosity_class": "IV",
+        "local_density": 0.00028,
+        "scale_height_pc": 220.0,
+        "horizon_pc": 79.43282347242814,
+        "sampled": 555,
+        "visible": 292
+      },
+      {
+        "spectral_type": "G",
+        "luminosity_class": "IV",
+        "local_density": 0.00024,
+        "scale_height_pc": 250.0,
+        "horizon_pc": 63.09573444801933,
+        "sampled": 258,
+        "visible": 137
+      },
+      {
+        "spectral_type": "K",
+        "luminosity_class": "IV",
+        "local_density": 0.00013592,
+        "scale_height_pc": 250.0,
+        "horizon_pc": 50.11872336272722,
+        "sampled": 75,
+        "visible": 26
+      },
+      {
+        "spectral_type": "O",
+        "luminosity_class": "III",
+        "local_density": 1.9e-08,
+        "scale_height_pc": 45.0,
+        "horizon_pc": 3162.2776601683795,
+        "sampled": 94,
+        "visible": 22
+      },
+      {
+        "spectral_type": "B",
+        "luminosity_class": "III",
+        "local_density": 3.8000000000000005e-06,
+        "scale_height_pc": 90.0,
+        "horizon_pc": 794.3282347242813,
+        "sampled": 1648,
+        "visible": 585
+      },
+      {
+        "spectral_type": "A",
+        "luminosity_class": "III",
+        "local_density": 9.5e-06,
+        "scale_height_pc": 150.0,
+        "horizon_pc": 363.0780547701014,
+        "sampled": 1008,
+        "visible": 343
+      },
+      {
+        "spectral_type": "F",
+        "luminosity_class": "III",
+        "local_density": 1.9e-05,
+        "scale_height_pc": 220.0,
+        "horizon_pc": 181.97008586099844,
+        "sampled": 397,
+        "visible": 140
+      },
+      {
+        "spectral_type": "G",
+        "luminosity_class": "III",
+        "local_density": 3.8e-05,
+        "scale_height_pc": 250.0,
+        "horizon_pc": 229.08676527677747,
+        "sampled": 1552,
+        "visible": 536
+      },
+      {
+        "spectral_type": "K",
+        "luminosity_class": "III",
+        "local_density": 8.55e-05,
+        "scale_height_pc": 250.0,
+        "horizon_pc": 316.22776601683796,
+        "sampled": 8045,
+        "visible": 2364
+      },
+      {
+        "spectral_type": "M",
+        "luminosity_class": "III",
+        "local_density": 3.4181000000000004e-05,
+        "scale_height_pc": 250.0,
+        "horizon_pc": 363.0780547701014,
+        "sampled": 4510,
+        "visible": 1484
+      },
+      {
+        "spectral_type": "O",
+        "luminosity_class": "II",
+        "local_density": 9.000000000000001e-09,
+        "scale_height_pc": 45.0,
+        "horizon_pc": 3981.0717055349733,
+        "sampled": 61,
+        "visible": 12
+      },
+      {
+        "spectral_type": "B",
+        "luminosity_class": "II",
+        "local_density": 9.000000000000001e-07,
+        "scale_height_pc": 90.0,
+        "horizon_pc": 1995.2623149688789,
+        "sampled": 2633,
+        "visible": 632
+      },
+      {
+        "spectral_type": "A",
+        "luminosity_class": "II",
+        "local_density": 9.000000000000001e-07,
+        "scale_height_pc": 150.0,
+        "horizon_pc": 1148.1536214968828,
+        "sampled": 1227,
+        "visible": 377
+      },
+      {
+        "spectral_type": "F",
+        "luminosity_class": "II",
+        "local_density": 9.000000000000001e-07,
+        "scale_height_pc": 220.0,
+        "horizon_pc": 794.3282347242813,
+        "sampled": 772,
+        "visible": 347
+      },
+      {
+        "spectral_type": "G",
+        "luminosity_class": "II",
+        "local_density": 1.35e-06,
+        "scale_height_pc": 250.0,
+        "horizon_pc": 630.957344480193,
+        "sampled": 704,
+        "visible": 321
+      },
+      {
+        "spectral_type": "K",
+        "luminosity_class": "II",
+        "local_density": 2.7e-06,
+        "scale_height_pc": 250.0,
+        "horizon_pc": 630.957344480193,
+        "sampled": 1426,
+        "visible": 641
+      },
+      {
+        "spectral_type": "M",
+        "luminosity_class": "II",
+        "local_density": 2.2410000000000002e-06,
+        "scale_height_pc": 250.0,
+        "horizon_pc": 1000.0,
+        "sampled": 3423,
+        "visible": 919
+      },
+      {
+        "spectral_type": "O",
+        "luminosity_class": "I",
+        "local_density": 2.97e-08,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 6309.57344480193,
+        "sampled": 913,
+        "visible": 78
+      },
+      {
+        "spectral_type": "B",
+        "luminosity_class": "I",
+        "local_density": 4.95e-07,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 6309.57344480193,
+        "sampled": 15785,
+        "visible": 948
+      },
+      {
+        "spectral_type": "A",
+        "luminosity_class": "I",
+        "local_density": 4.9500000000000006e-08,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 3981.0717055349733,
+        "sampled": 524,
+        "visible": 81
+      },
+      {
+        "spectral_type": "F",
+        "luminosity_class": "I",
+        "local_density": 4.9500000000000006e-08,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 3162.2776601683795,
+        "sampled": 294,
+        "visible": 57
+      },
+      {
+        "spectral_type": "G",
+        "luminosity_class": "I",
+        "local_density": 1.9800000000000002e-08,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 2511.88643150958,
+        "sampled": 67,
+        "visible": 18
+      },
+      {
+        "spectral_type": "K",
+        "luminosity_class": "I",
+        "local_density": 9.900000000000001e-08,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 1995.2623149688789,
+        "sampled": 184,
+        "visible": 70
+      },
+      {
+        "spectral_type": "M",
+        "luminosity_class": "I",
+        "local_density": 2.475e-07,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 3162.2776601683795,
+        "sampled": 1463,
+        "visible": 229
+      },
+      {
+        "spectral_type": "O",
+        "luminosity_class": "0",
+        "local_density": 1e-09,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 9120.108393559096,
+        "sampled": 87,
+        "visible": 6
+      },
+      {
+        "spectral_type": "B",
+        "luminosity_class": "0",
+        "local_density": 3e-09,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 7943.282347242814,
+        "sampled": 198,
+        "visible": 5
+      },
+      {
+        "spectral_type": "A",
+        "luminosity_class": "0",
+        "local_density": 1e-09,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 7943.282347242814,
+        "sampled": 67,
+        "visible": 8
+      },
+      {
+        "spectral_type": "F",
+        "luminosity_class": "0",
+        "local_density": 1e-09,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 5011.872336272725,
+        "sampled": 26,
+        "visible": 3
+      },
+      {
+        "spectral_type": "G",
+        "luminosity_class": "0",
+        "local_density": 1e-09,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 3162.2776601683795,
+        "sampled": 5,
+        "visible": 0
+      },
+      {
+        "spectral_type": "K",
+        "luminosity_class": "0",
+        "local_density": 1e-09,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 2511.88643150958,
+        "sampled": 4,
+        "visible": 1
+      },
+      {
+        "spectral_type": "M",
+        "luminosity_class": "0",
+        "local_density": 2e-09,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 2511.88643150958,
+        "sampled": 15,
+        "visible": 4
+      }
+    ],
+    "generator_version": "4.1",
+    "numpy_version": "2.5.3",
+    "generation_parameters": {
+      "seed": 20260913,
+      "limiting_magnitude": 6.5,
+      "min_distance_pc": 1,
+      "max_distance_pc": 10000,
+      "local_density_per_pc3": 0.1,
+      "observer_radius_pc": 8200.0,
+      "observer_height_pc": 20.0,
+      "radial_scale_pc": 2600.0,
+      "av_per_kpc": 0.7,
+      "dust_scale_height_pc": 120.0,
+      "batch_size": 20000,
+      "max_candidate_points": 20000000
+    },
+    "stellar_physics_sha256": "565300ed840c36ee9cbfd02225004f13325ab60b7f7483ba49fcafdc02e9fdf1"
+  },
+  {
+    "seed": 42,
+    "count": 19672,
+    "components": [
+      {
+        "spectral_type": "O",
+        "luminosity_class": "V",
+        "local_density": 2.9735673887963393e-08,
+        "scale_height_pc": 45.0,
+        "horizon_pc": 2884.0369034785954,
+        "sampled": 120,
+        "visible": 18
+      },
+      {
+        "spectral_type": "B",
+        "luminosity_class": "V",
+        "local_density": 0.00012885458684784137,
+        "scale_height_pc": 90.0,
+        "horizon_pc": 1199.5015492130724,
+        "sampled": 132126,
+        "visible": 3447
+      },
+      {
+        "spectral_type": "A",
+        "luminosity_class": "V",
+        "local_density": 0.0005947134777592679,
+        "scale_height_pc": 150.0,
+        "horizon_pc": 125.8927769133312,
+        "sampled": 4226,
+        "visible": 1624
+      },
+      {
+        "spectral_type": "F",
+        "luminosity_class": "V",
+        "local_density": 0.002973567388796339,
+        "scale_height_pc": 220.0,
+        "horizon_pc": 60.81361400121408,
+        "sampled": 2718,
+        "visible": 739
+      },
+      {
+        "spectral_type": "G",
+        "luminosity_class": "V",
+        "local_density": 0.007533037384950726,
+        "scale_height_pc": 300.0,
+        "horizon_pc": 25.351333775289074,
+        "sampled": 496,
+        "visible": 253
+      },
+      {
+        "spectral_type": "K",
+        "luminosity_class": "V",
+        "local_density": 0.011993388468145235,
+        "scale_height_pc": 330.0,
+        "horizon_pc": 13.89955233901102,
+        "sampled": 140,
+        "visible": 30
+      },
+      {
+        "spectral_type": "M",
+        "luminosity_class": "V",
+        "local_density": 0.07577640895782671,
+        "scale_height_pc": 350.0,
+        "horizon_pc": 3.4833796729799666,
+        "sampled": 7,
+        "visible": 0
+      },
+      {
+        "spectral_type": "O",
+        "luminosity_class": "IV",
+        "local_density": 8e-08,
+        "scale_height_pc": 45.0,
+        "horizon_pc": 2511.88643150958,
+        "sampled": 218,
+        "visible": 50
+      },
+      {
+        "spectral_type": "B",
+        "luminosity_class": "IV",
+        "local_density": 2.4e-05,
+        "scale_height_pc": 90.0,
+        "horizon_pc": 575.4399373371573,
+        "sampled": 5412,
+        "visible": 2039
+      },
+      {
+        "spectral_type": "A",
+        "luminosity_class": "IV",
+        "local_density": 0.00012,
+        "scale_height_pc": 150.0,
+        "horizon_pc": 158.48931924611142,
+        "sampled": 1566,
+        "visible": 768
+      },
+      {
+        "spectral_type": "F",
+        "luminosity_class": "IV",
+        "local_density": 0.00028,
+        "scale_height_pc": 220.0,
+        "horizon_pc": 79.43282347242814,
+        "sampled": 559,
+        "visible": 277
+      },
+      {
+        "spectral_type": "G",
+        "luminosity_class": "IV",
+        "local_density": 0.00024,
+        "scale_height_pc": 250.0,
+        "horizon_pc": 63.09573444801933,
+        "sampled": 243,
+        "visible": 124
+      },
+      {
+        "spectral_type": "K",
+        "luminosity_class": "IV",
+        "local_density": 0.00013592,
+        "scale_height_pc": 250.0,
+        "horizon_pc": 50.11872336272722,
+        "sampled": 72,
+        "visible": 21
+      },
+      {
+        "spectral_type": "O",
+        "luminosity_class": "III",
+        "local_density": 1.9e-08,
+        "scale_height_pc": 45.0,
+        "horizon_pc": 3162.2776601683795,
+        "sampled": 79,
+        "visible": 20
+      },
+      {
+        "spectral_type": "B",
+        "luminosity_class": "III",
+        "local_density": 3.8000000000000005e-06,
+        "scale_height_pc": 90.0,
+        "horizon_pc": 794.3282347242813,
+        "sampled": 1729,
+        "visible": 628
+      },
+      {
+        "spectral_type": "A",
+        "luminosity_class": "III",
+        "local_density": 9.5e-06,
+        "scale_height_pc": 150.0,
+        "horizon_pc": 363.0780547701014,
+        "sampled": 1064,
+        "visible": 386
+      },
+      {
+        "spectral_type": "F",
+        "luminosity_class": "III",
+        "local_density": 1.9e-05,
+        "scale_height_pc": 220.0,
+        "horizon_pc": 181.97008586099844,
+        "sampled": 401,
+        "visible": 144
+      },
+      {
+        "spectral_type": "G",
+        "luminosity_class": "III",
+        "local_density": 3.8e-05,
+        "scale_height_pc": 250.0,
+        "horizon_pc": 229.08676527677747,
+        "sampled": 1598,
+        "visible": 554
+      },
+      {
+        "spectral_type": "K",
+        "luminosity_class": "III",
+        "local_density": 8.55e-05,
+        "scale_height_pc": 250.0,
+        "horizon_pc": 316.22776601683796,
+        "sampled": 7927,
+        "visible": 2242
+      },
+      {
+        "spectral_type": "M",
+        "luminosity_class": "III",
+        "local_density": 3.4181000000000004e-05,
+        "scale_height_pc": 250.0,
+        "horizon_pc": 363.0780547701014,
+        "sampled": 4601,
+        "visible": 1540
+      },
+      {
+        "spectral_type": "O",
+        "luminosity_class": "II",
+        "local_density": 9.000000000000001e-09,
+        "scale_height_pc": 45.0,
+        "horizon_pc": 3981.0717055349733,
+        "sampled": 68,
+        "visible": 10
+      },
+      {
+        "spectral_type": "B",
+        "luminosity_class": "II",
+        "local_density": 9.000000000000001e-07,
+        "scale_height_pc": 90.0,
+        "horizon_pc": 1995.2623149688789,
+        "sampled": 2608,
+        "visible": 600
+      },
+      {
+        "spectral_type": "A",
+        "luminosity_class": "II",
+        "local_density": 9.000000000000001e-07,
+        "scale_height_pc": 150.0,
+        "horizon_pc": 1148.1536214968828,
+        "sampled": 1139,
+        "visible": 399
+      },
+      {
+        "spectral_type": "F",
+        "luminosity_class": "II",
+        "local_density": 9.000000000000001e-07,
+        "scale_height_pc": 220.0,
+        "horizon_pc": 794.3282347242813,
+        "sampled": 737,
+        "visible": 338
+      },
+      {
+        "spectral_type": "G",
+        "luminosity_class": "II",
+        "local_density": 1.35e-06,
+        "scale_height_pc": 250.0,
+        "horizon_pc": 630.957344480193,
+        "sampled": 721,
+        "visible": 354
+      },
+      {
+        "spectral_type": "K",
+        "luminosity_class": "II",
+        "local_density": 2.7e-06,
+        "scale_height_pc": 250.0,
+        "horizon_pc": 630.957344480193,
+        "sampled": 1420,
+        "visible": 637
+      },
+      {
+        "spectral_type": "M",
+        "luminosity_class": "II",
+        "local_density": 2.2410000000000002e-06,
+        "scale_height_pc": 250.0,
+        "horizon_pc": 1000.0,
+        "sampled": 3425,
+        "visible": 931
+      },
+      {
+        "spectral_type": "O",
+        "luminosity_class": "I",
+        "local_density": 2.97e-08,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 6309.57344480193,
+        "sampled": 938,
+        "visible": 68
+      },
+      {
+        "spectral_type": "B",
+        "luminosity_class": "I",
+        "local_density": 4.95e-07,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 6309.57344480193,
+        "sampled": 15618,
+        "visible": 958
+      },
+      {
+        "spectral_type": "A",
+        "luminosity_class": "I",
+        "local_density": 4.9500000000000006e-08,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 3981.0717055349733,
+        "sampled": 526,
+        "visible": 81
+      },
+      {
+        "spectral_type": "F",
+        "luminosity_class": "I",
+        "local_density": 4.9500000000000006e-08,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 3162.2776601683795,
+        "sampled": 315,
+        "visible": 50
+      },
+      {
+        "spectral_type": "G",
+        "luminosity_class": "I",
+        "local_density": 1.9800000000000002e-08,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 2511.88643150958,
+        "sampled": 79,
+        "visible": 15
+      },
+      {
+        "spectral_type": "K",
+        "luminosity_class": "I",
+        "local_density": 9.900000000000001e-08,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 1995.2623149688789,
+        "sampled": 205,
+        "visible": 66
+      },
+      {
+        "spectral_type": "M",
+        "luminosity_class": "I",
+        "local_density": 2.475e-07,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 3162.2776601683795,
+        "sampled": 1434,
+        "visible": 239
+      },
+      {
+        "spectral_type": "O",
+        "luminosity_class": "0",
+        "local_density": 1e-09,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 9120.108393559096,
+        "sampled": 83,
+        "visible": 6
+      },
+      {
+        "spectral_type": "B",
+        "luminosity_class": "0",
+        "local_density": 3e-09,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 7943.282347242814,
+        "sampled": 151,
+        "visible": 8
+      },
+      {
+        "spectral_type": "A",
+        "luminosity_class": "0",
+        "local_density": 1e-09,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 7943.282347242814,
+        "sampled": 74,
+        "visible": 4
+      },
+      {
+        "spectral_type": "F",
+        "luminosity_class": "0",
+        "local_density": 1e-09,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 5011.872336272725,
+        "sampled": 11,
+        "visible": 1
+      },
+      {
+        "spectral_type": "G",
+        "luminosity_class": "0",
+        "local_density": 1e-09,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 3162.2776601683795,
+        "sampled": 3,
+        "visible": 2
+      },
+      {
+        "spectral_type": "K",
+        "luminosity_class": "0",
+        "local_density": 1e-09,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 2511.88643150958,
+        "sampled": 6,
+        "visible": 0
+      },
+      {
+        "spectral_type": "M",
+        "luminosity_class": "0",
+        "local_density": 2e-09,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 2511.88643150958,
+        "sampled": 6,
+        "visible": 1
+      }
+    ],
+    "generator_version": "4.1",
+    "numpy_version": "2.5.3",
+    "generation_parameters": {
+      "seed": 42,
+      "limiting_magnitude": 6.5,
+      "min_distance_pc": 1,
+      "max_distance_pc": 10000,
+      "local_density_per_pc3": 0.1,
+      "observer_radius_pc": 8200.0,
+      "observer_height_pc": 20.0,
+      "radial_scale_pc": 2600.0,
+      "av_per_kpc": 0.7,
+      "dust_scale_height_pc": 120.0,
+      "batch_size": 20000,
+      "max_candidate_points": 20000000
+    },
+    "stellar_physics_sha256": "565300ed840c36ee9cbfd02225004f13325ab60b7f7483ba49fcafdc02e9fdf1"
+  },
+  {
+    "seed": 1369,
+    "count": 19789,
+    "components": [
+      {
+        "spectral_type": "O",
+        "luminosity_class": "V",
+        "local_density": 2.9735673887963393e-08,
+        "scale_height_pc": 45.0,
+        "horizon_pc": 2884.0369034785954,
+        "sampled": 103,
+        "visible": 16
+      },
+      {
+        "spectral_type": "B",
+        "luminosity_class": "V",
+        "local_density": 0.00012885458684784137,
+        "scale_height_pc": 90.0,
+        "horizon_pc": 1199.5015492130724,
+        "sampled": 131312,
+        "visible": 3447
+      },
+      {
+        "spectral_type": "A",
+        "luminosity_class": "V",
+        "local_density": 0.0005947134777592679,
+        "scale_height_pc": 150.0,
+        "horizon_pc": 125.8927769133312,
+        "sampled": 4308,
+        "visible": 1682
+      },
+      {
+        "spectral_type": "F",
+        "luminosity_class": "V",
+        "local_density": 0.002973567388796339,
+        "scale_height_pc": 220.0,
+        "horizon_pc": 60.81361400121408,
+        "sampled": 2664,
+        "visible": 780
+      },
+      {
+        "spectral_type": "G",
+        "luminosity_class": "V",
+        "local_density": 0.007533037384950726,
+        "scale_height_pc": 300.0,
+        "horizon_pc": 25.351333775289074,
+        "sampled": 491,
+        "visible": 251
+      },
+      {
+        "spectral_type": "K",
+        "luminosity_class": "V",
+        "local_density": 0.011993388468145235,
+        "scale_height_pc": 330.0,
+        "horizon_pc": 13.89955233901102,
+        "sampled": 131,
+        "visible": 25
+      },
+      {
+        "spectral_type": "M",
+        "luminosity_class": "V",
+        "local_density": 0.07577640895782671,
+        "scale_height_pc": 350.0,
+        "horizon_pc": 3.4833796729799666,
+        "sampled": 14,
+        "visible": 1
+      },
+      {
+        "spectral_type": "O",
+        "luminosity_class": "IV",
+        "local_density": 8e-08,
+        "scale_height_pc": 45.0,
+        "horizon_pc": 2511.88643150958,
+        "sampled": 231,
+        "visible": 63
+      },
+      {
+        "spectral_type": "B",
+        "luminosity_class": "IV",
+        "local_density": 2.4e-05,
+        "scale_height_pc": 90.0,
+        "horizon_pc": 575.4399373371573,
+        "sampled": 5432,
+        "visible": 2045
+      },
+      {
+        "spectral_type": "A",
+        "luminosity_class": "IV",
+        "local_density": 0.00012,
+        "scale_height_pc": 150.0,
+        "horizon_pc": 158.48931924611142,
+        "sampled": 1582,
+        "visible": 787
+      },
+      {
+        "spectral_type": "F",
+        "luminosity_class": "IV",
+        "local_density": 0.00028,
+        "scale_height_pc": 220.0,
+        "horizon_pc": 79.43282347242814,
+        "sampled": 535,
+        "visible": 283
+      },
+      {
+        "spectral_type": "G",
+        "luminosity_class": "IV",
+        "local_density": 0.00024,
+        "scale_height_pc": 250.0,
+        "horizon_pc": 63.09573444801933,
+        "sampled": 236,
+        "visible": 105
+      },
+      {
+        "spectral_type": "K",
+        "luminosity_class": "IV",
+        "local_density": 0.00013592,
+        "scale_height_pc": 250.0,
+        "horizon_pc": 50.11872336272722,
+        "sampled": 69,
+        "visible": 19
+      },
+      {
+        "spectral_type": "O",
+        "luminosity_class": "III",
+        "local_density": 1.9e-08,
+        "scale_height_pc": 45.0,
+        "horizon_pc": 3162.2776601683795,
+        "sampled": 85,
+        "visible": 24
+      },
+      {
+        "spectral_type": "B",
+        "luminosity_class": "III",
+        "local_density": 3.8000000000000005e-06,
+        "scale_height_pc": 90.0,
+        "horizon_pc": 794.3282347242813,
+        "sampled": 1690,
+        "visible": 588
+      },
+      {
+        "spectral_type": "A",
+        "luminosity_class": "III",
+        "local_density": 9.5e-06,
+        "scale_height_pc": 150.0,
+        "horizon_pc": 363.0780547701014,
+        "sampled": 1068,
+        "visible": 401
+      },
+      {
+        "spectral_type": "F",
+        "luminosity_class": "III",
+        "local_density": 1.9e-05,
+        "scale_height_pc": 220.0,
+        "horizon_pc": 181.97008586099844,
+        "sampled": 370,
+        "visible": 135
+      },
+      {
+        "spectral_type": "G",
+        "luminosity_class": "III",
+        "local_density": 3.8e-05,
+        "scale_height_pc": 250.0,
+        "horizon_pc": 229.08676527677747,
+        "sampled": 1621,
+        "visible": 548
+      },
+      {
+        "spectral_type": "K",
+        "luminosity_class": "III",
+        "local_density": 8.55e-05,
+        "scale_height_pc": 250.0,
+        "horizon_pc": 316.22776601683796,
+        "sampled": 7921,
+        "visible": 2255
+      },
+      {
+        "spectral_type": "M",
+        "luminosity_class": "III",
+        "local_density": 3.4181000000000004e-05,
+        "scale_height_pc": 250.0,
+        "horizon_pc": 363.0780547701014,
+        "sampled": 4463,
+        "visible": 1464
+      },
+      {
+        "spectral_type": "O",
+        "luminosity_class": "II",
+        "local_density": 9.000000000000001e-09,
+        "scale_height_pc": 45.0,
+        "horizon_pc": 3981.0717055349733,
+        "sampled": 89,
+        "visible": 17
+      },
+      {
+        "spectral_type": "B",
+        "luminosity_class": "II",
+        "local_density": 9.000000000000001e-07,
+        "scale_height_pc": 90.0,
+        "horizon_pc": 1995.2623149688789,
+        "sampled": 2768,
+        "visible": 645
+      },
+      {
+        "spectral_type": "A",
+        "luminosity_class": "II",
+        "local_density": 9.000000000000001e-07,
+        "scale_height_pc": 150.0,
+        "horizon_pc": 1148.1536214968828,
+        "sampled": 1245,
+        "visible": 432
+      },
+      {
+        "spectral_type": "F",
+        "luminosity_class": "II",
+        "local_density": 9.000000000000001e-07,
+        "scale_height_pc": 220.0,
+        "horizon_pc": 794.3282347242813,
+        "sampled": 755,
+        "visible": 329
+      },
+      {
+        "spectral_type": "G",
+        "luminosity_class": "II",
+        "local_density": 1.35e-06,
+        "scale_height_pc": 250.0,
+        "horizon_pc": 630.957344480193,
+        "sampled": 720,
+        "visible": 344
+      },
+      {
+        "spectral_type": "K",
+        "luminosity_class": "II",
+        "local_density": 2.7e-06,
+        "scale_height_pc": 250.0,
+        "horizon_pc": 630.957344480193,
+        "sampled": 1457,
+        "visible": 675
+      },
+      {
+        "spectral_type": "M",
+        "luminosity_class": "II",
+        "local_density": 2.2410000000000002e-06,
+        "scale_height_pc": 250.0,
+        "horizon_pc": 1000.0,
+        "sampled": 3399,
+        "visible": 891
+      },
+      {
+        "spectral_type": "O",
+        "luminosity_class": "I",
+        "local_density": 2.97e-08,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 6309.57344480193,
+        "sampled": 936,
+        "visible": 70
+      },
+      {
+        "spectral_type": "B",
+        "luminosity_class": "I",
+        "local_density": 4.95e-07,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 6309.57344480193,
+        "sampled": 15664,
+        "visible": 986
+      },
+      {
+        "spectral_type": "A",
+        "luminosity_class": "I",
+        "local_density": 4.9500000000000006e-08,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 3981.0717055349733,
+        "sampled": 527,
+        "visible": 76
+      },
+      {
+        "spectral_type": "F",
+        "luminosity_class": "I",
+        "local_density": 4.9500000000000006e-08,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 3162.2776601683795,
+        "sampled": 299,
+        "visible": 46
+      },
+      {
+        "spectral_type": "G",
+        "luminosity_class": "I",
+        "local_density": 1.9800000000000002e-08,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 2511.88643150958,
+        "sampled": 59,
+        "visible": 11
+      },
+      {
+        "spectral_type": "K",
+        "luminosity_class": "I",
+        "local_density": 9.900000000000001e-08,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 1995.2623149688789,
+        "sampled": 219,
+        "visible": 74
+      },
+      {
+        "spectral_type": "M",
+        "luminosity_class": "I",
+        "local_density": 2.475e-07,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 3162.2776601683795,
+        "sampled": 1495,
+        "visible": 244
+      },
+      {
+        "spectral_type": "O",
+        "luminosity_class": "0",
+        "local_density": 1e-09,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 9120.108393559096,
+        "sampled": 97,
+        "visible": 4
+      },
+      {
+        "spectral_type": "B",
+        "luminosity_class": "0",
+        "local_density": 3e-09,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 7943.282347242814,
+        "sampled": 161,
+        "visible": 17
+      },
+      {
+        "spectral_type": "A",
+        "luminosity_class": "0",
+        "local_density": 1e-09,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 7943.282347242814,
+        "sampled": 60,
+        "visible": 4
+      },
+      {
+        "spectral_type": "F",
+        "luminosity_class": "0",
+        "local_density": 1e-09,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 5011.872336272725,
+        "sampled": 23,
+        "visible": 2
+      },
+      {
+        "spectral_type": "G",
+        "luminosity_class": "0",
+        "local_density": 1e-09,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 3162.2776601683795,
+        "sampled": 5,
+        "visible": 0
+      },
+      {
+        "spectral_type": "K",
+        "luminosity_class": "0",
+        "local_density": 1e-09,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 2511.88643150958,
+        "sampled": 4,
+        "visible": 1
+      },
+      {
+        "spectral_type": "M",
+        "luminosity_class": "0",
+        "local_density": 2e-09,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 2511.88643150958,
+        "sampled": 6,
+        "visible": 2
+      }
+    ],
+    "generator_version": "4.1",
+    "numpy_version": "2.5.3",
+    "generation_parameters": {
+      "seed": 1369,
+      "limiting_magnitude": 6.5,
+      "min_distance_pc": 1,
+      "max_distance_pc": 10000,
+      "local_density_per_pc3": 0.1,
+      "observer_radius_pc": 8200.0,
+      "observer_height_pc": 20.0,
+      "radial_scale_pc": 2600.0,
+      "av_per_kpc": 0.7,
+      "dust_scale_height_pc": 120.0,
+      "batch_size": 20000,
+      "max_candidate_points": 20000000
+    },
+    "stellar_physics_sha256": "565300ed840c36ee9cbfd02225004f13325ab60b7f7483ba49fcafdc02e9fdf1"
+  },
+  {
+    "seed": 2718,
+    "count": 19594,
+    "components": [
+      {
+        "spectral_type": "O",
+        "luminosity_class": "V",
+        "local_density": 2.9735673887963393e-08,
+        "scale_height_pc": 45.0,
+        "horizon_pc": 2884.0369034785954,
+        "sampled": 125,
+        "visible": 14
+      },
+      {
+        "spectral_type": "B",
+        "luminosity_class": "V",
+        "local_density": 0.00012885458684784137,
+        "scale_height_pc": 90.0,
+        "horizon_pc": 1199.5015492130724,
+        "sampled": 130808,
+        "visible": 3337
+      },
+      {
+        "spectral_type": "A",
+        "luminosity_class": "V",
+        "local_density": 0.0005947134777592679,
+        "scale_height_pc": 150.0,
+        "horizon_pc": 125.8927769133312,
+        "sampled": 4195,
+        "visible": 1596
+      },
+      {
+        "spectral_type": "F",
+        "luminosity_class": "V",
+        "local_density": 0.002973567388796339,
+        "scale_height_pc": 220.0,
+        "horizon_pc": 60.81361400121408,
+        "sampled": 2752,
+        "visible": 747
+      },
+      {
+        "spectral_type": "G",
+        "luminosity_class": "V",
+        "local_density": 0.007533037384950726,
+        "scale_height_pc": 300.0,
+        "horizon_pc": 25.351333775289074,
+        "sampled": 492,
+        "visible": 240
+      },
+      {
+        "spectral_type": "K",
+        "luminosity_class": "V",
+        "local_density": 0.011993388468145235,
+        "scale_height_pc": 330.0,
+        "horizon_pc": 13.89955233901102,
+        "sampled": 121,
+        "visible": 31
+      },
+      {
+        "spectral_type": "M",
+        "luminosity_class": "V",
+        "local_density": 0.07577640895782671,
+        "scale_height_pc": 350.0,
+        "horizon_pc": 3.4833796729799666,
+        "sampled": 8,
+        "visible": 0
+      },
+      {
+        "spectral_type": "O",
+        "luminosity_class": "IV",
+        "local_density": 8e-08,
+        "scale_height_pc": 45.0,
+        "horizon_pc": 2511.88643150958,
+        "sampled": 238,
+        "visible": 62
+      },
+      {
+        "spectral_type": "B",
+        "luminosity_class": "IV",
+        "local_density": 2.4e-05,
+        "scale_height_pc": 90.0,
+        "horizon_pc": 575.4399373371573,
+        "sampled": 5420,
+        "visible": 2097
+      },
+      {
+        "spectral_type": "A",
+        "luminosity_class": "IV",
+        "local_density": 0.00012,
+        "scale_height_pc": 150.0,
+        "horizon_pc": 158.48931924611142,
+        "sampled": 1504,
+        "visible": 763
+      },
+      {
+        "spectral_type": "F",
+        "luminosity_class": "IV",
+        "local_density": 0.00028,
+        "scale_height_pc": 220.0,
+        "horizon_pc": 79.43282347242814,
+        "sampled": 551,
+        "visible": 258
+      },
+      {
+        "spectral_type": "G",
+        "luminosity_class": "IV",
+        "local_density": 0.00024,
+        "scale_height_pc": 250.0,
+        "horizon_pc": 63.09573444801933,
+        "sampled": 244,
+        "visible": 123
+      },
+      {
+        "spectral_type": "K",
+        "luminosity_class": "IV",
+        "local_density": 0.00013592,
+        "scale_height_pc": 250.0,
+        "horizon_pc": 50.11872336272722,
+        "sampled": 82,
+        "visible": 24
+      },
+      {
+        "spectral_type": "O",
+        "luminosity_class": "III",
+        "local_density": 1.9e-08,
+        "scale_height_pc": 45.0,
+        "horizon_pc": 3162.2776601683795,
+        "sampled": 101,
+        "visible": 30
+      },
+      {
+        "spectral_type": "B",
+        "luminosity_class": "III",
+        "local_density": 3.8000000000000005e-06,
+        "scale_height_pc": 90.0,
+        "horizon_pc": 794.3282347242813,
+        "sampled": 1672,
+        "visible": 608
+      },
+      {
+        "spectral_type": "A",
+        "luminosity_class": "III",
+        "local_density": 9.5e-06,
+        "scale_height_pc": 150.0,
+        "horizon_pc": 363.0780547701014,
+        "sampled": 1016,
+        "visible": 368
+      },
+      {
+        "spectral_type": "F",
+        "luminosity_class": "III",
+        "local_density": 1.9e-05,
+        "scale_height_pc": 220.0,
+        "horizon_pc": 181.97008586099844,
+        "sampled": 412,
+        "visible": 175
+      },
+      {
+        "spectral_type": "G",
+        "luminosity_class": "III",
+        "local_density": 3.8e-05,
+        "scale_height_pc": 250.0,
+        "horizon_pc": 229.08676527677747,
+        "sampled": 1529,
+        "visible": 522
+      },
+      {
+        "spectral_type": "K",
+        "luminosity_class": "III",
+        "local_density": 8.55e-05,
+        "scale_height_pc": 250.0,
+        "horizon_pc": 316.22776601683796,
+        "sampled": 7959,
+        "visible": 2327
+      },
+      {
+        "spectral_type": "M",
+        "luminosity_class": "III",
+        "local_density": 3.4181000000000004e-05,
+        "scale_height_pc": 250.0,
+        "horizon_pc": 363.0780547701014,
+        "sampled": 4571,
+        "visible": 1547
+      },
+      {
+        "spectral_type": "O",
+        "luminosity_class": "II",
+        "local_density": 9.000000000000001e-09,
+        "scale_height_pc": 45.0,
+        "horizon_pc": 3981.0717055349733,
+        "sampled": 79,
+        "visible": 18
+      },
+      {
+        "spectral_type": "B",
+        "luminosity_class": "II",
+        "local_density": 9.000000000000001e-07,
+        "scale_height_pc": 90.0,
+        "horizon_pc": 1995.2623149688789,
+        "sampled": 2644,
+        "visible": 626
+      },
+      {
+        "spectral_type": "A",
+        "luminosity_class": "II",
+        "local_density": 9.000000000000001e-07,
+        "scale_height_pc": 150.0,
+        "horizon_pc": 1148.1536214968828,
+        "sampled": 1246,
+        "visible": 413
+      },
+      {
+        "spectral_type": "F",
+        "luminosity_class": "II",
+        "local_density": 9.000000000000001e-07,
+        "scale_height_pc": 220.0,
+        "horizon_pc": 794.3282347242813,
+        "sampled": 717,
+        "visible": 319
+      },
+      {
+        "spectral_type": "G",
+        "luminosity_class": "II",
+        "local_density": 1.35e-06,
+        "scale_height_pc": 250.0,
+        "horizon_pc": 630.957344480193,
+        "sampled": 700,
+        "visible": 314
+      },
+      {
+        "spectral_type": "K",
+        "luminosity_class": "II",
+        "local_density": 2.7e-06,
+        "scale_height_pc": 250.0,
+        "horizon_pc": 630.957344480193,
+        "sampled": 1463,
+        "visible": 680
+      },
+      {
+        "spectral_type": "M",
+        "luminosity_class": "II",
+        "local_density": 2.2410000000000002e-06,
+        "scale_height_pc": 250.0,
+        "horizon_pc": 1000.0,
+        "sampled": 3414,
+        "visible": 892
+      },
+      {
+        "spectral_type": "O",
+        "luminosity_class": "I",
+        "local_density": 2.97e-08,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 6309.57344480193,
+        "sampled": 983,
+        "visible": 76
+      },
+      {
+        "spectral_type": "B",
+        "luminosity_class": "I",
+        "local_density": 4.95e-07,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 6309.57344480193,
+        "sampled": 15777,
+        "visible": 959
+      },
+      {
+        "spectral_type": "A",
+        "luminosity_class": "I",
+        "local_density": 4.9500000000000006e-08,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 3981.0717055349733,
+        "sampled": 508,
+        "visible": 74
+      },
+      {
+        "spectral_type": "F",
+        "luminosity_class": "I",
+        "local_density": 4.9500000000000006e-08,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 3162.2776601683795,
+        "sampled": 290,
+        "visible": 47
+      },
+      {
+        "spectral_type": "G",
+        "luminosity_class": "I",
+        "local_density": 1.9800000000000002e-08,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 2511.88643150958,
+        "sampled": 58,
+        "visible": 14
+      },
+      {
+        "spectral_type": "K",
+        "luminosity_class": "I",
+        "local_density": 9.900000000000001e-08,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 1995.2623149688789,
+        "sampled": 172,
+        "visible": 48
+      },
+      {
+        "spectral_type": "M",
+        "luminosity_class": "I",
+        "local_density": 2.475e-07,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 3162.2776601683795,
+        "sampled": 1498,
+        "visible": 226
+      },
+      {
+        "spectral_type": "O",
+        "luminosity_class": "0",
+        "local_density": 1e-09,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 9120.108393559096,
+        "sampled": 91,
+        "visible": 2
+      },
+      {
+        "spectral_type": "B",
+        "luminosity_class": "0",
+        "local_density": 3e-09,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 7943.282347242814,
+        "sampled": 184,
+        "visible": 7
+      },
+      {
+        "spectral_type": "A",
+        "luminosity_class": "0",
+        "local_density": 1e-09,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 7943.282347242814,
+        "sampled": 63,
+        "visible": 6
+      },
+      {
+        "spectral_type": "F",
+        "luminosity_class": "0",
+        "local_density": 1e-09,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 5011.872336272725,
+        "sampled": 17,
+        "visible": 1
+      },
+      {
+        "spectral_type": "G",
+        "luminosity_class": "0",
+        "local_density": 1e-09,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 3162.2776601683795,
+        "sampled": 6,
+        "visible": 1
+      },
+      {
+        "spectral_type": "K",
+        "luminosity_class": "0",
+        "local_density": 1e-09,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 2511.88643150958,
+        "sampled": 1,
+        "visible": 0
+      },
+      {
+        "spectral_type": "M",
+        "luminosity_class": "0",
+        "local_density": 2e-09,
+        "scale_height_pc": 60.0,
+        "horizon_pc": 2511.88643150958,
+        "sampled": 9,
+        "visible": 2
+      }
+    ],
+    "generator_version": "4.1",
+    "numpy_version": "2.5.3",
+    "generation_parameters": {
+      "seed": 2718,
+      "limiting_magnitude": 6.5,
+      "min_distance_pc": 1,
+      "max_distance_pc": 10000,
+      "local_density_per_pc3": 0.1,
+      "observer_radius_pc": 8200.0,
+      "observer_height_pc": 20.0,
+      "radial_scale_pc": 2600.0,
+      "av_per_kpc": 0.7,
+      "dust_scale_height_pc": 120.0,
+      "batch_size": 20000,
+      "max_candidate_points": 20000000
+    },
+    "stellar_physics_sha256": "565300ed840c36ee9cbfd02225004f13325ab60b7f7483ba49fcafdc02e9fdf1"
+  }
+]

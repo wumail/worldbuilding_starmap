@@ -1,0 +1,14 @@
+{
+  "revision": "20260915-nebula-smoke-4",
+  "catalogue": "output_20260915_nebula_02",
+  "sha256": {
+    "src/nebula_morphology.py": "ee8ca70c2fbdb52b7129d597cce15b868848aa5655eff7f198633ba9edd96cb4",
+    "src/enrich_nebulae.py": "f8592338481419364359c68770c8365e2f584f3f707332759277f2044eedc5bd",
+    "web/shared/nebula_morphology.mjs": "6f6b0544bd26478953e39a5d70134e3ae343c6617c0a5ba3a2787bdcb8928cec",
+    "web/shared/deep_sky_profiles.mjs": "8d11df12bf8fe2d29052bb520d55bc7bfd75d9f38d8871959ebd4216b72b3e6f",
+    "web/shared/catalog_data.mjs": "bab5d30814a8145c9f540031913e95d82e00fcb8ea247bac3c85cb0c3473f985",
+    "tests/test_nebula_morphology.py": "a42c5007c4f7445b5710685f10d190ca1e6753339253f6d151d500047325cd98",
+    "tests/test_nebula_profiles.mjs": "a64b8d1c924c09820843d9a93b9c8809de54ee843cf542da179ccc03b061a997",
+    "tests/nebula_morphology_checks.mjs": "72b486325c81a1acc4a62af4d195aa429fef72db49ec3b0448d4f3c7ad1b0895"
+  }
+}

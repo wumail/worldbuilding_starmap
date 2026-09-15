@@ -1,0 +1,44 @@
+{
+  "date": "2026-09-14",
+  "authorization": "用户要求：合理放大 V1 与 V2 的天体；随后修复两版平面星图中 Sol 不圆的问题，以及 V2 沉浸星点模糊的问题。",
+  "scope": "V1 前端统一显示倍率、平面太阳圆形显示和对应缓存版本；保留原指纹清单。",
+  "unchanged_original_files": 57,
+  "changes": {
+    "v4/sky_atlas.html": {
+      "before": "5ec6bbfaacbd3ad975ef6b3f5af7aacd6f6e8bd5c05300c95612413a144ea34b",
+      "after": "d1eba5a9950c2c9ead94dc21a3168fed5c67191da4c27c5e8ef125f14e3e7ebc"
+    },
+    "v4/star_map.html": {
+      "before": "90dd3281d60fc76152ad3fef43cb2f88bf8ecbaf9048cb9634fed8077fd44dce",
+      "after": "41fa49d8353f6fc4da86ff48e46c68a872c2392d7b89162d28f1ee0faf9981c4"
+    },
+    "v4/sky_controls.mjs": {
+      "before": "90280f74c3eb7b3bbdeb31758162a44874aa81baf06ff7dacdd4d256846feeed",
+      "after": "d879e074f7760defabc6edf0cdb88a26780979110340627809484880752ceaa2"
+    },
+    "v4/sky_render.mjs": {
+      "before": "8554915e9152faba716798b40c1815c77fb6c65e7ed82060e68fcb373b2d8b78",
+      "after": "2d92ef2c9256d922de7fca8ea8c06b5cbd0182907ba1473724f46b55b2b3ec24"
+    },
+    "v4/sky_motion_3d.js": {
+      "before": "95789f2335bac7b489a8fb3040c57eed33007540c5a2d0fe98067127721d3498",
+      "after": "e9287b0daefdf2d435daad2f510812cec3e83d17c90fdac188440553236202cd"
+    },
+    "v4/sky_points.js": {
+      "before": "18bca32c1b1b38bca2695671501c17c0b8aac88c20da664bd9509cabb9af2ee0",
+      "after": "1afa5b679d9768853fd5909781ea10a706f76c6c3f1b587feaf0b48f3324a6a1"
+    },
+    "v4/sky_state.mjs": {
+      "before": "b15ce41333d43095b7554dbedcca77685fbdad2743094ae6b14c426071b5f8c6",
+      "after": "179996b6df5367ea3ff48f5f176d9e2c53507a1daaeacac2c57a51efd1571f92"
+    },
+    "v4/sky_atlas_bodies.mjs": {
+      "before": "822d119d4b97b0defd0856427e4d35d8c3684962b5f39286222c099aa1ebbd20",
+      "after": "4525420998013c1c57d62ba56cc643670394ad2c7568a9bf592df90117794dbc"
+    },
+    "v4/sky_atlas.mjs": {
+      "before": "0cc8c00b490d46e3a748278a0b53bb5af8a898e41b46f4dfb5b615efe0ae108f",
+      "after": "87154a8c51c4611379dbd50cc010325358f4931e241b1d88a09974f0f74e9cd8"
+    }
+  }
+}

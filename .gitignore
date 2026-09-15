@@ -1,2 +1,18 @@
-/venv   
+/venv
 .DS_Store
+__pycache__/
+*.py[cod]
+.venv/
+
+# Generated catalogs and session evidence. Keep the current browser catalog.
+output/*
+!output/folders.json
+!output/catalog_views.json
+!output/output_20260915_galactic_01/
+output/output_20260915_galactic_01/*
+!output/output_20260915_galactic_01/sky_view_20260915_galactic_01.json
+!output/output_20260915_galactic_01/diffuse_20260915_galactic_01.f32
+!output/output_20260915_galactic_01/diffuse_validation.json
+
+reports/
+web/eye/data/**/*.png

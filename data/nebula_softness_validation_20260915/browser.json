@@ -1,0 +1,187 @@
+{
+  "pages": [
+    {
+      "version": "v1",
+      "view": "sky_atlas",
+      "zodiacOff": "false",
+      "state": {
+        "title": "Terrax V1 · 平面星图",
+        "brand": "✧TERRAX V1 标准星图 · 从母星仰望",
+        "home": "../../index.html",
+        "crossVersion": "../v2/sky_atlas.html",
+        "data": {
+          "days": "0",
+          "visibleStars": "9356",
+          "catalogCount": "9356",
+          "selectedDirection": "[0.7049074653057148,-0.7092651633493462,-0.006956537594060281]",
+          "renderStatus": "ready",
+          "deepSkyCount": "8947",
+          "zodiac": "true",
+          "zoom": "1",
+          "symbolScale": "4.522619845256887",
+          "displayScale": "6",
+          "pixelsPerDegree": "2.9166666666666665",
+          "deepSkyCandidates": "160"
+        }
+      },
+      "overlayChecks": null,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "version": "v1",
+      "view": "star_map",
+      "zodiacOff": "false",
+      "state": {
+        "title": "Terrax V1 · 沉浸天球",
+        "brand": "✧TERRAX V1 标准星图 · 从母星仰望",
+        "home": "../../index.html",
+        "crossVersion": "../v2/star_map.html",
+        "data": {
+          "engine": "three.js r160",
+          "deepSkyCount": "8947",
+          "zodiac": "true",
+          "days": "0",
+          "catalogCount": "9356",
+          "visibleStars": "9356",
+          "selectedDirection": "[0.7049074653057148,-0.7092651633493462,-0.006956537594060281]",
+          "projection": "stereographic",
+          "symbolScale": "3.181550013700613",
+          "fov": "60"
+        }
+      },
+      "overlayChecks": null,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "version": "v2",
+      "view": "sky_atlas",
+      "zodiacOff": "false",
+      "state": {
+        "title": "Terrax V2 · 平面星图",
+        "brand": "✧TERRAX V2 肉眼观察 · 独立版本",
+        "home": "../../index.html",
+        "crossVersion": "../v1/sky_atlas.html",
+        "data": {
+          "state": "ready",
+          "deepSkyCount": "8947",
+          "zodiac": "true",
+          "frames": "18",
+          "time": "0",
+          "stars": "9356",
+          "eligible": "9356",
+          "focal": "167.1126902464901",
+          "displayScale": "6",
+          "pixelsPerDegree": "2.9166666666666665",
+          "deepSkyCandidates": "160"
+        },
+        "v2": {
+          "state": "ready",
+          "frames": 18,
+          "deepSkyCount": 8947,
+          "zodiac": true,
+          "stars": 9356,
+          "time": 0,
+          "focal": 167.1126902464901,
+          "magnification": 1,
+          "displayScale": 6,
+          "blur": true,
+          "overview": true,
+          "atlasZoom": 1,
+          "projection": "stereographic",
+          "resources": 1
+        }
+      },
+      "overlayChecks": {
+        "unchangedByOpticalBlur": true,
+        "gridToggleChangesPixels": true
+      },
+      "errors": [],
+      "failed": []
+    },
+    {
+      "version": "v2",
+      "view": "star_map",
+      "zodiacOff": "false",
+      "state": {
+        "title": "Terrax V2 · 沉浸天球",
+        "brand": "✧TERRAX V2 肉眼观察 · 独立版本",
+        "home": "../../index.html",
+        "crossVersion": "../v1/star_map.html",
+        "data": {
+          "state": "ready",
+          "deepSkyCount": "8947",
+          "zodiac": "true",
+          "frames": "18",
+          "time": "0",
+          "stars": "9356",
+          "eligible": "9356",
+          "focal": "1533.8307612116273",
+          "displayScale": "6",
+          "pixelsPerDegree": "26.770396951513828",
+          "deepSkyCandidates": "160"
+        },
+        "v2": {
+          "state": "ready",
+          "frames": 18,
+          "deepSkyCount": 8947,
+          "zodiac": true,
+          "stars": 9356,
+          "time": 0,
+          "focal": 1533.8307612116273,
+          "magnification": 1,
+          "displayScale": 6,
+          "blur": true,
+          "overview": false,
+          "atlasZoom": 1,
+          "projection": "perspective",
+          "resources": 1
+        }
+      },
+      "overlayChecks": {
+        "unchangedByOpticalBlur": true,
+        "gridToggleChangesPixels": true
+      },
+      "errors": [],
+      "failed": []
+    }
+  ],
+  "renderChecks": [],
+  "redirects": [
+    {
+      "old": "/web/sky_atlas.html",
+      "current": "http://127.0.0.1:8765/web/v1/sky_atlas.html?revision=layout-redirect#test"
+    },
+    {
+      "old": "/web/eye/star_map.html",
+      "current": "http://127.0.0.1:8765/web/v2/star_map.html?revision=layout-redirect#test"
+    },
+    {
+      "old": "/web/v2/",
+      "current": "http://127.0.0.1:8765/web/v2/sky_atlas.html?revision=layout-redirect#test"
+    }
+  ],
+  "entryLinks": [
+    {
+      "label": "平面星图",
+      "version": "v1",
+      "href": "http://127.0.0.1:8765/web/v1/sky_atlas.html?catalog=output_20260915_nebula_02"
+    },
+    {
+      "label": "沉浸天球",
+      "version": "v1",
+      "href": "http://127.0.0.1:8765/web/v1/star_map.html?catalog=output_20260915_nebula_02"
+    },
+    {
+      "label": "平面星图",
+      "version": "v2",
+      "href": "http://127.0.0.1:8765/web/v2/sky_atlas.html?catalog=output_20260915_nebula_02"
+    },
+    {
+      "label": "沉浸天球",
+      "version": "v2",
+      "href": "http://127.0.0.1:8765/web/v2/star_map.html?catalog=output_20260915_nebula_02"
+    }
+  ]
+}

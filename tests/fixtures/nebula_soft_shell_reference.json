@@ -1,0 +1,330 @@
+{
+  "method": "Independent scipy.integrate.quad, epsabs=epsrel=1e-12; split at R=0.68; integrate both near/far halves of radial Gaussian emissivity with smooth cubic taper",
+  "samples": [
+    {
+      "impact": 0,
+      "thickness": 0.15,
+      "column": 0.5758195004318816
+    },
+    {
+      "impact": 0.03,
+      "thickness": 0.15,
+      "column": 0.5766737367701513
+    },
+    {
+      "impact": 0.15,
+      "thickness": 0.15,
+      "column": 0.5988484328204055
+    },
+    {
+      "impact": 0.3,
+      "thickness": 0.15,
+      "column": 0.6971147772363672
+    },
+    {
+      "impact": 0.45,
+      "thickness": 0.15,
+      "column": 0.9234810889165188
+    },
+    {
+      "impact": 0.55,
+      "thickness": 0.15,
+      "column": 0.9504200486850027
+    },
+    {
+      "impact": 0.65,
+      "thickness": 0.15,
+      "column": 0.6428272275429332
+    },
+    {
+      "impact": 0.68,
+      "thickness": 0.15,
+      "column": 0.507106926066249
+    },
+    {
+      "impact": 0.7,
+      "thickness": 0.15,
+      "column": 0.41399408508133645
+    },
+    {
+      "impact": 0.8,
+      "thickness": 0.15,
+      "column": 0.07877853365298336
+    },
+    {
+      "impact": 0.9,
+      "thickness": 0.15,
+      "column": 0.0036890893612103264
+    },
+    {
+      "impact": 0.98,
+      "thickness": 0.15,
+      "column": 1.4772306631405615e-05
+    },
+    {
+      "impact": 1,
+      "thickness": 0.15,
+      "column": 0.0
+    },
+    {
+      "impact": 0,
+      "thickness": 0.2,
+      "column": 0.5966825749289437
+    },
+    {
+      "impact": 0.03,
+      "thickness": 0.2,
+      "column": 0.5975856207191182
+    },
+    {
+      "impact": 0.15,
+      "thickness": 0.2,
+      "column": 0.6211235291306256
+    },
+    {
+      "impact": 0.3,
+      "thickness": 0.2,
+      "column": 0.7251564128749552
+    },
+    {
+      "impact": 0.45,
+      "thickness": 0.2,
+      "column": 0.9482916533464802
+    },
+    {
+      "impact": 0.55,
+      "thickness": 0.2,
+      "column": 0.9644219053905068
+    },
+    {
+      "impact": 0.65,
+      "thickness": 0.2,
+      "column": 0.661408327928827
+    },
+    {
+      "impact": 0.68,
+      "thickness": 0.2,
+      "column": 0.5279629322477694
+    },
+    {
+      "impact": 0.7,
+      "thickness": 0.2,
+      "column": 0.4354443030649101
+    },
+    {
+      "impact": 0.8,
+      "thickness": 0.2,
+      "column": 0.0898722339549072
+    },
+    {
+      "impact": 0.9,
+      "thickness": 0.2,
+      "column": 0.004797059613908784
+    },
+    {
+      "impact": 0.98,
+      "thickness": 0.2,
+      "column": 2.2006004025050715e-05
+    },
+    {
+      "impact": 1,
+      "thickness": 0.2,
+      "column": 0.0
+    },
+    {
+      "impact": 0,
+      "thickness": 0.26,
+      "column": 0.6212589321008145
+    },
+    {
+      "impact": 0.03,
+      "thickness": 0.26,
+      "column": 0.6222246687828347
+    },
+    {
+      "impact": 0.15,
+      "thickness": 0.26,
+      "column": 0.6475045483910249
+    },
+    {
+      "impact": 0.3,
+      "thickness": 0.26,
+      "column": 0.758185397488707
+    },
+    {
+      "impact": 0.45,
+      "thickness": 0.26,
+      "column": 0.9760177290972505
+    },
+    {
+      "impact": 0.55,
+      "thickness": 0.26,
+      "column": 0.9802348945185309
+    },
+    {
+      "impact": 0.65,
+      "thickness": 0.26,
+      "column": 0.6823507799174806
+    },
+    {
+      "impact": 0.68,
+      "thickness": 0.26,
+      "column": 0.5515057672831436
+    },
+    {
+      "impact": 0.7,
+      "thickness": 0.26,
+      "column": 0.4597764730549526
+    },
+    {
+      "impact": 0.8,
+      "thickness": 0.26,
+      "column": 0.10334541528509808
+    },
+    {
+      "impact": 0.9,
+      "thickness": 0.26,
+      "column": 0.00632741041149187
+    },
+    {
+      "impact": 0.98,
+      "thickness": 0.26,
+      "column": 3.347185537117027e-05
+    },
+    {
+      "impact": 1,
+      "thickness": 0.26,
+      "column": 0.0
+    },
+    {
+      "impact": 0,
+      "thickness": 0.32,
+      "column": 0.6453424777484186
+    },
+    {
+      "impact": 0.03,
+      "thickness": 0.32,
+      "column": 0.6463763023960244
+    },
+    {
+      "impact": 0.15,
+      "thickness": 0.32,
+      "column": 0.6735134743261753
+    },
+    {
+      "impact": 0.3,
+      "thickness": 0.32,
+      "column": 0.7904191057207736
+    },
+    {
+      "impact": 0.45,
+      "thickness": 0.32,
+      "column": 1.0016706489900984
+    },
+    {
+      "impact": 0.55,
+      "thickness": 0.32,
+      "column": 0.9950372747261521
+    },
+    {
+      "impact": 0.65,
+      "thickness": 0.32,
+      "column": 0.7019095808151457
+    },
+    {
+      "impact": 0.68,
+      "thickness": 0.32,
+      "column": 0.5735184991000506
+    },
+    {
+      "impact": 0.7,
+      "thickness": 0.32,
+      "column": 0.482628001126805
+    },
+    {
+      "impact": 0.8,
+      "thickness": 0.32,
+      "column": 0.11683708985110607
+    },
+    {
+      "impact": 0.9,
+      "thickness": 0.32,
+      "column": 0.008058299166604227
+    },
+    {
+      "impact": 0.98,
+      "thickness": 0.32,
+      "column": 4.824283561710744e-05
+    },
+    {
+      "impact": 1,
+      "thickness": 0.32,
+      "column": 0.0
+    },
+    {
+      "impact": 0,
+      "thickness": 0.4,
+      "column": 0.6767070999555838
+    },
+    {
+      "impact": 0.03,
+      "thickness": 0.4,
+      "column": 0.6778417472797118
+    },
+    {
+      "impact": 0.15,
+      "thickness": 0.4,
+      "column": 0.7076204555161949
+    },
+    {
+      "impact": 0.3,
+      "thickness": 0.4,
+      "column": 0.8319796957456538
+    },
+    {
+      "impact": 0.45,
+      "thickness": 0.4,
+      "column": 1.0329293937025568
+    },
+    {
+      "impact": 0.55,
+      "thickness": 0.4,
+      "column": 1.013317203979699
+    },
+    {
+      "impact": 0.65,
+      "thickness": 0.4,
+      "column": 0.7259977484400719
+    },
+    {
+      "impact": 0.68,
+      "thickness": 0.4,
+      "column": 0.6006507888100474
+    },
+    {
+      "impact": 0.7,
+      "thickness": 0.4,
+      "column": 0.510911290400962
+    },
+    {
+      "impact": 0.8,
+      "thickness": 0.4,
+      "column": 0.13462396965053544
+    },
+    {
+      "impact": 0.9,
+      "thickness": 0.4,
+      "column": 0.01063565347231686
+    },
+    {
+      "impact": 0.98,
+      "thickness": 0.4,
+      "column": 7.332419761561395e-05
+    },
+    {
+      "impact": 1,
+      "thickness": 0.4,
+      "column": 0.0
+    }
+  ]
+}

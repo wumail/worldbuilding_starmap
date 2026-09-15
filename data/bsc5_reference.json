@@ -1,0 +1,92 @@
+{
+  "catalog": "Bright Star Catalogue, 5th Revised Edition (Hoffleit & Warren, 1991)",
+  "source_url": "https://cdsarc.cds.unistra.fr/ftp/cats/V/50/catalog.gz",
+  "source_sha256": "3dc44b1e90be8fbe5bcc7656032560f51275f985c7e3f783c9028e1838ec7bed",
+  "decompressed_sha256": "69797549cc1605aad7ff94e9325e29a1661f2a253917faaa056d9bf20b809afd",
+  "catalog_entries": 9110,
+  "stellar_entries": 9096,
+  "limiting_magnitude": 6.5,
+  "visible_count": 8404,
+  "modeled_type_count": 8379,
+  "unmodeled_type_count": 25,
+  "spectral_counts": {
+    "G": 1161,
+    "K": 2158,
+    "B": 1587,
+    "A": 1757,
+    "F": 1179,
+    "M": 487,
+    "O": 50
+  },
+  "classified_luminosity_counts": {
+    "O": {
+      "III": 2,
+      "I": 11,
+      "V": 14,
+      "II": 4
+    },
+    "B": {
+      "III": 261,
+      "IV": 254,
+      "V": 710,
+      "I": 72,
+      "II": 21
+    },
+    "A": {
+      "V": 1000,
+      "IV": 174,
+      "III": 129,
+      "I": 40,
+      "II": 10
+    },
+    "F": {
+      "IV": 203,
+      "V": 567,
+      "II": 31,
+      "III": 132,
+      "I": 39
+    },
+    "G": {
+      "III": 585,
+      "V": 177,
+      "IV": 76,
+      "II": 48,
+      "I": 41
+    },
+    "K": {
+      "III": 1534,
+      "V": 46,
+      "IV": 52,
+      "II": 58,
+      "I": 29
+    },
+    "M": {
+      "III": 417,
+      "II": 15,
+      "V": 1,
+      "I": 3
+    }
+  },
+  "unclassified_luminosity_counts": {
+    "A": 404,
+    "K": 439,
+    "F": 207,
+    "G": 234,
+    "B": 269,
+    "M": 51,
+    "O": 19
+  },
+  "cumulative_magnitude_counts": {
+    "0": 4,
+    "1": 15,
+    "2": 50,
+    "3": 174,
+    "4": 518,
+    "5": 1630,
+    "6": 5080,
+    "6.5": 8404
+  },
+  "within_galactic_latitude_10_deg": 2194,
+  "classification_method": "Primary broad spectral type; unambiguous Roman class or legacy g/d prefix. Composite, range and uncertain classes remain unclassified.",
+  "scope": "Catalog entries, including unresolved systems; historical photometry, variability and completeness limit a literal naked-eye count."
+}

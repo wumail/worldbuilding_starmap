@@ -1,0 +1,427 @@
+{
+  "date": "2026-09-14",
+  "default_display_scale": 6,
+  "display_scale_range": [
+    1,
+    8
+  ],
+  "node_checks": {
+    "passed": 58,
+    "failed": 0,
+    "command": "node --test v4/v2/tests/eye_model.test.mjs tests/test_sky_motion.mjs tests/test_sky_projection.mjs tests/test_atlas_resources.mjs tests/test_display_scale.mjs"
+  },
+  "v2": {
+    "total": 41,
+    "failures": 0,
+    "metrics": {
+      "samples": 271,
+      "pointFluxError": 2.2647166408873431e-07,
+      "diskDiameterPixelError": 1.0420928347177982,
+      "diskFluxError": 0.04869748471158819,
+      "systemFlux": [
+        {
+          "id": "Sol",
+          "visible": true,
+          "fluxRatio": 0.99862497592762
+        },
+        {
+          "id": "Mercury-Sol",
+          "visible": true,
+          "fluxRatio": 0.9999999842956954
+        },
+        {
+          "id": "Venus-Sol",
+          "visible": true,
+          "fluxRatio": 0.9999999856914265
+        },
+        {
+          "id": "Mars-Sol",
+          "visible": true,
+          "fluxRatio": 0.9999999597101754
+        },
+        {
+          "id": "Jupiter-Sol",
+          "visible": true,
+          "fluxRatio": 1.0000000170931493
+        },
+        {
+          "id": "Saturn-Sol",
+          "visible": true,
+          "fluxRatio": 0.9999999939963452
+        },
+        {
+          "id": "Neptune-Sol",
+          "visible": false,
+          "fluxRatio": 0
+        }
+      ],
+      "hiddenStarLeak": 0,
+      "blurChangedPixels": 84,
+      "wideBlurFluxError": 5.029195282446608e-09,
+      "oddSizeBlurFluxError": 4.4178056990418213e-07,
+      "partialPointVisibleFraction": 0.2356340980447556,
+      "catalogCounts": [
+        9327,
+        104,
+        0
+      ],
+      "finalLimbCoverageError": 0.028287994549541617,
+      "lunarSurfaceContrast": {
+        "center": 255,
+        "nearLimb": 174
+      },
+      "finalSolarRadialSpread": 0.4999999999999982,
+      "finalOccultationLeak": 0,
+      "finalNightRGB": [
+        [
+          9,
+          14,
+          23
+        ],
+        [
+          9,
+          14,
+          23
+        ],
+        [
+          9,
+          14,
+          23
+        ]
+      ],
+      "atlasBackground": {
+        "inside": [
+          5,
+          9,
+          17
+        ],
+        "outside": [
+          3,
+          6,
+          13
+        ],
+        "edge": [
+          89,
+          103,
+          119
+        ],
+        "leak": 0
+      },
+      "finalSmallDiskContinuity": 0.02211310654270693,
+      "finalOffAxisAreas": [
+        7.97323081194171,
+        3.973644900241298
+      ],
+      "offscreenStarPeak": 193,
+      "chartV1PixelDifference": 1,
+      "chartStarPixels": {
+        "threshold": 24,
+        "old": [
+          115,
+          116
+        ],
+        "current": [
+          5886,
+          6165
+        ]
+      },
+      "finalStarAreas": [
+        12,
+        12,
+        4,
+        4,
+        0
+      ],
+      "finalStarEffectiveAreas": [
+        3.2322822299883214,
+        1.308059889901868,
+        0.3159419655046806,
+        0.05719173388906479,
+        0.008635489625212994
+      ],
+      "enhancedPhysicalDifference": 0,
+      "enhancedDisks": {
+        "worst": 1.523788771450569,
+        "measures": [
+          {
+            "mode": "perspective",
+            "dpr": 1,
+            "id": "Sol",
+            "width": 70,
+            "height": 70,
+            "expected": 69.24732688698873
+          },
+          {
+            "mode": "perspective",
+            "dpr": 1,
+            "id": "Luna",
+            "width": 84,
+            "height": 84,
+            "expected": 83.49533511845128
+          },
+          {
+            "mode": "perspective",
+            "dpr": 1,
+            "id": "Echo",
+            "width": 18,
+            "height": 18,
+            "expected": 17.99520579459849
+          },
+          {
+            "mode": "perspective",
+            "dpr": 2,
+            "id": "Sol",
+            "width": 140,
+            "height": 140,
+            "expected": 138.49465377397746
+          },
+          {
+            "mode": "perspective",
+            "dpr": 2,
+            "id": "Luna",
+            "width": 168,
+            "height": 168,
+            "expected": 166.99067023690256
+          },
+          {
+            "mode": "perspective",
+            "dpr": 2,
+            "id": "Echo",
+            "width": 36,
+            "height": 36,
+            "expected": 35.99041158919698
+          },
+          {
+            "mode": "stereographic",
+            "dpr": 1,
+            "id": "Sol",
+            "width": 70,
+            "height": 70,
+            "expected": 69.23810561427472
+          },
+          {
+            "mode": "stereographic",
+            "dpr": 1,
+            "id": "Luna",
+            "width": 84,
+            "height": 84,
+            "expected": 83.47917234146682
+          },
+          {
+            "mode": "stereographic",
+            "dpr": 1,
+            "id": "Echo",
+            "width": 18,
+            "height": 18,
+            "expected": 17.995043926919617
+          },
+          {
+            "mode": "stereographic",
+            "dpr": 2,
+            "id": "Sol",
+            "width": 140,
+            "height": 140,
+            "expected": 138.47621122854943
+          },
+          {
+            "mode": "stereographic",
+            "dpr": 2,
+            "id": "Luna",
+            "width": 168,
+            "height": 168,
+            "expected": 166.95834468293364
+          },
+          {
+            "mode": "stereographic",
+            "dpr": 2,
+            "id": "Echo",
+            "width": 36,
+            "height": 36,
+            "expected": 35.990087853839235
+          }
+        ]
+      },
+      "enhancedDarkSideLeak": 0,
+      "enhancedPointAreas": [
+        [
+          {
+            "light": 1.308059889901868,
+            "peak": 149
+          },
+          {
+            "light": 0.3159419655046806,
+            "peak": 78
+          },
+          {
+            "light": 0.05719173388906479,
+            "peak": 33
+          },
+          {
+            "light": 0.008635489625212994,
+            "peak": 12
+          }
+        ],
+        [
+          {
+            "light": 47.11959221979476,
+            "peak": 209
+          },
+          {
+            "light": 11.46342659980413,
+            "peak": 128
+          },
+          {
+            "light": 2.0142854115662923,
+            "peak": 59
+          },
+          {
+            "light": 0.3230594981763305,
+            "peak": 23
+          }
+        ]
+      ],
+      "farOffscreenLeak": 0,
+      "catalogGrowth": {
+        "sources": 1301,
+        "maxPixelDifference": 0,
+        "stableAfterGrowth": true
+      },
+      "playback": {
+        "seconds": 12.21140000000596,
+        "frames": 363,
+        "day": 0.6527624999999999
+      },
+      "simulatedContextRecovery": true
+    }
+  },
+  "v1_graphics": {
+    "status": "38/38 通过；0 失败",
+    "failures": [],
+    "metrics": "projectionCircles: [{\"mode\":\"perspective\",\"offset\":0,\"ratio\":1},{\"mode\":\"perspective\",\"offset\":30,\"ratio\":1.1704545454545454},{\"mode\":\"perspective\",\"offset\":40,\"ratio\":1.32},{\"mode\":\"stereographic\",\"offset\":0,\"ratio\":1},{\"mode\":\"stereographic\",\"offset\":30,\"ratio\":1},{\"mode\":\"stereographic\",\"offset\":40,\"ratio\":0.990909090909091}]atlasTextureSamples: 432atlasTextureMaxDelta: 0phaseSamples: 156zoomRasterSamples: 648zoomMaxPixelError: 2.75crossViewMaxPixelError: 2occlusionRasterSamples: 856occlusionMaxInteriorLeak: 0",
+    "errors": []
+  },
+  "final_smoke_and_exports": [
+    {
+      "name": "full-catalog-playback",
+      "frames": 121,
+      "day": 0.21910416666666666,
+      "stars": 9327
+    },
+    {
+      "name": "atlas",
+      "errors": [],
+      "status": {
+        "state": "ready",
+        "frames": 130,
+        "stars": 9327,
+        "time": 0.21910416666666666,
+        "focal": 1456.9317599089427,
+        "magnification": 1,
+        "displayScale": 6,
+        "blur": true,
+        "overview": true,
+        "atlasZoom": 8.718259264212538,
+        "projection": "stereographic",
+        "resources": 1
+      },
+      "bytes": 51490
+    },
+    {
+      "name": "sphere",
+      "errors": [],
+      "status": {
+        "state": "ready",
+        "frames": 22,
+        "stars": 9327,
+        "time": 0,
+        "focal": 1639.205139228353,
+        "magnification": 1.068700133470714,
+        "displayScale": 6,
+        "blur": true,
+        "overview": false,
+        "atlasZoom": 1,
+        "projection": "perspective",
+        "resources": 1
+      },
+      "bytes": 149302
+    }
+  ],
+  "production_pages": {
+    "v1_atlas": {
+      "errors": [],
+      "displayScale": "6",
+      "condition": "质心全天 · 无地面遮挡",
+      "catalog": "背景星表 9,327 颗 · 当前达标 9,327 颗（全天阈值 6.5 等）。"
+    },
+    "v1_sphere": {
+      "errors": [],
+      "displayScale": "6",
+      "condition": "质心全天 · 无地面遮挡",
+      "catalog": "背景星表 9,327 颗 · 当前达标 9,327 颗（全天阈值 6.5 等）。"
+    },
+    "v2_atlas": {
+      "errors": [],
+      "state": {
+        "state": "ready",
+        "frames": 5,
+        "stars": 9327,
+        "time": 0,
+        "focal": 167.1126902464901,
+        "magnification": 1,
+        "displayScale": 6,
+        "blur": true,
+        "overview": true,
+        "atlasZoom": 1,
+        "projection": "stereographic",
+        "resources": 1
+      },
+      "displayScale": "6",
+      "condition": "质心全天 · 无地面遮挡",
+      "catalog": "背景星表 9,327 颗 · 当前达标 9,327 颗（随地平与当前天光筛选）。"
+    },
+    "v2_sphere": {
+      "errors": [],
+      "state": {
+        "state": "ready",
+        "frames": 18,
+        "stars": 9327,
+        "time": 0,
+        "focal": 1533.8307612116273,
+        "magnification": 1,
+        "displayScale": 6,
+        "blur": true,
+        "overview": false,
+        "atlasZoom": 1,
+        "projection": "perspective",
+        "resources": 1
+      },
+      "displayScale": "6",
+      "condition": "质心全天 · 无地面遮挡",
+      "catalog": "背景星表 9,327 颗 · 当前达标 9,327 颗（随地平与当前天光筛选）。"
+    }
+  },
+  "images": [
+    "v2-reset-final.png",
+    "v1_atlas.png",
+    "v1_sphere.png",
+    "v2_sphere.png",
+    "export-final-atlas.png",
+    "export-final-sphere.png",
+    "comparison.png"
+  ],
+  "implementation_sha256": {
+    "v4/sky_render.mjs": "4f79e79390add11de9daced17500275338426e242f6d3a162340095c88d52ef3",
+    "v4/sky_state.mjs": "179996b6df5367ea3ff48f5f176d9e2c53507a1daaeacac2c57a51efd1571f92",
+    "v4/sky_controls.mjs": "d879e074f7760defabc6edf0cdb88a26780979110340627809484880752ceaa2",
+    "v4/v2/sky_state.mjs": "24e304175319f6874918a69be2f393adc80dd364e4aac3036e6801c38f36b991",
+    "v4/v2/eye_app.mjs": "fdcc3aa7f5e42abe413d9a5a276a3924f5797dec6eb5d5fb8947f75fb28a72b0",
+    "v4/v2/eye_renderer.mjs": "fc51dc376b2ae8498709682b11d404aeb20b5e07d41fc774b9fb74bc67b2084e",
+    "v4/v2/sky_controls.mjs": "4bf30348641436b203817fc42fae15bf4853655886497188640dc58209892f1c",
+    "v4/v2/sky_atlas.html": "d81e732e03d9813dba6d5946a3cea0e22dfdc3fc4274b8c1e524ab97118350b2",
+    "v4/v2/star_map.html": "89e552a59453a1c80d2e0c8c7368efff775c9cb8c038c884eca815cf82bc93a7",
+    "tests/test_display_scale.mjs": "2cdc54690683f630768f530b8fb8d54d3b5171076c0502174de069c221a8bfce",
+    "tests/zoom_render_audit.mjs": "137f16abec9ea28c56505668bbb3ac3d650a4795bfb5202d3ff3292ed1901f3b",
+    "v4/v2/tests/render_checks.mjs": "91db1d01a6995a4d84c205b6d100e55831fa736c6dfb2806d50f7d04a4be48c6"
+  },
+  "scope": "Display enhancement and V2 GPU capacity/offscreen fixes. No catalog, generator, original PNG, orbit or reference changes. Independent browser profile; no user settings reset."
+}

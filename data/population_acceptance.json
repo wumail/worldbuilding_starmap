@@ -1,0 +1,482 @@
+{
+  "generator_version": "4.2",
+  "population_profile_sha256": "a46c680495141136b4d170554a8989ebe791e4d5e6769211b8138825716be3ec",
+  "reference_sha256": "3dc44b1e90be8fbe5bcc7656032560f51275f985c7e3f783c9028e1838ec7bed",
+  "reference_count": 8404,
+  "runs": 12,
+  "minimum": 8146,
+  "maximum": 8485,
+  "mean": 8334.333333333334,
+  "sample_stddev": 111.8581352617789,
+  "all_passed": true,
+  "results": [
+    {
+      "seed": 0,
+      "count": 8337,
+      "population_sampled": 57326,
+      "validation": {
+        "checked": 8337,
+        "passed": 8337,
+        "failed": 0,
+        "all_passed": true
+      },
+      "comparison": {
+        "applicable": true,
+        "reference": "BSC5 V <= 6.5",
+        "reference_count": 8404,
+        "relative_difference": -0.00797239409804855,
+        "tolerance_fraction": 0.05,
+        "within_tolerance": true
+      },
+      "cumulative_magnitude_counts": {
+        "0": 0,
+        "1": 4,
+        "2": 27,
+        "3": 113,
+        "4": 403,
+        "5": 1356,
+        "6": 4569,
+        "6.5": 8337
+      },
+      "spectral_counts": {
+        "O": 62,
+        "B": 1593,
+        "A": 1701,
+        "F": 1215,
+        "G": 1092,
+        "K": 2161,
+        "M": 513
+      },
+      "within_galactic_latitude_10_deg": 2123
+    },
+    {
+      "seed": 1,
+      "count": 8484,
+      "population_sampled": 56961,
+      "validation": {
+        "checked": 8484,
+        "passed": 8484,
+        "failed": 0,
+        "all_passed": true
+      },
+      "comparison": {
+        "applicable": true,
+        "reference": "BSC5 V <= 6.5",
+        "reference_count": 8404,
+        "relative_difference": 0.00951927653498334,
+        "tolerance_fraction": 0.05,
+        "within_tolerance": true
+      },
+      "cumulative_magnitude_counts": {
+        "0": 1,
+        "1": 10,
+        "2": 41,
+        "3": 130,
+        "4": 413,
+        "5": 1403,
+        "6": 4681,
+        "6.5": 8484
+      },
+      "spectral_counts": {
+        "O": 59,
+        "B": 1617,
+        "A": 1759,
+        "F": 1170,
+        "G": 1176,
+        "K": 2195,
+        "M": 508
+      },
+      "within_galactic_latitude_10_deg": 2193
+    },
+    {
+      "seed": 2,
+      "count": 8343,
+      "population_sampled": 56979,
+      "validation": {
+        "checked": 8343,
+        "passed": 8343,
+        "failed": 0,
+        "all_passed": true
+      },
+      "comparison": {
+        "applicable": true,
+        "reference": "BSC5 V <= 6.5",
+        "reference_count": 8404,
+        "relative_difference": -0.007258448357924798,
+        "tolerance_fraction": 0.05,
+        "within_tolerance": true
+      },
+      "cumulative_magnitude_counts": {
+        "0": 2,
+        "1": 6,
+        "2": 28,
+        "3": 113,
+        "4": 422,
+        "5": 1423,
+        "6": 4664,
+        "6.5": 8343
+      },
+      "spectral_counts": {
+        "O": 49,
+        "B": 1582,
+        "A": 1679,
+        "F": 1179,
+        "G": 1185,
+        "K": 2162,
+        "M": 507
+      },
+      "within_galactic_latitude_10_deg": 2153
+    },
+    {
+      "seed": 3,
+      "count": 8484,
+      "population_sampled": 57164,
+      "validation": {
+        "checked": 8484,
+        "passed": 8484,
+        "failed": 0,
+        "all_passed": true
+      },
+      "comparison": {
+        "applicable": true,
+        "reference": "BSC5 V <= 6.5",
+        "reference_count": 8404,
+        "relative_difference": 0.00951927653498334,
+        "tolerance_fraction": 0.05,
+        "within_tolerance": true
+      },
+      "cumulative_magnitude_counts": {
+        "0": 0,
+        "1": 10,
+        "2": 31,
+        "3": 106,
+        "4": 418,
+        "5": 1399,
+        "6": 4707,
+        "6.5": 8484
+      },
+      "spectral_counts": {
+        "O": 68,
+        "B": 1545,
+        "A": 1809,
+        "F": 1223,
+        "G": 1199,
+        "K": 2133,
+        "M": 507
+      },
+      "within_galactic_latitude_10_deg": 2263
+    },
+    {
+      "seed": 4,
+      "count": 8264,
+      "population_sampled": 56448,
+      "validation": {
+        "checked": 8264,
+        "passed": 8264,
+        "failed": 0,
+        "all_passed": true
+      },
+      "comparison": {
+        "applicable": true,
+        "reference": "BSC5 V <= 6.5",
+        "reference_count": 8404,
+        "relative_difference": -0.016658733936220846,
+        "tolerance_fraction": 0.05,
+        "within_tolerance": true
+      },
+      "cumulative_magnitude_counts": {
+        "0": 3,
+        "1": 13,
+        "2": 30,
+        "3": 113,
+        "4": 411,
+        "5": 1328,
+        "6": 4561,
+        "6.5": 8264
+      },
+      "spectral_counts": {
+        "O": 68,
+        "B": 1541,
+        "A": 1716,
+        "F": 1167,
+        "G": 1162,
+        "K": 2118,
+        "M": 492
+      },
+      "within_galactic_latitude_10_deg": 2102
+    },
+    {
+      "seed": 5,
+      "count": 8146,
+      "population_sampled": 57278,
+      "validation": {
+        "checked": 8146,
+        "passed": 8146,
+        "failed": 0,
+        "all_passed": true
+      },
+      "comparison": {
+        "applicable": true,
+        "reference": "BSC5 V <= 6.5",
+        "reference_count": 8404,
+        "relative_difference": -0.030699666825321277,
+        "tolerance_fraction": 0.05,
+        "within_tolerance": true
+      },
+      "cumulative_magnitude_counts": {
+        "0": 1,
+        "1": 8,
+        "2": 37,
+        "3": 108,
+        "4": 384,
+        "5": 1316,
+        "6": 4515,
+        "6.5": 8146
+      },
+      "spectral_counts": {
+        "O": 52,
+        "B": 1536,
+        "A": 1708,
+        "F": 1164,
+        "G": 1130,
+        "K": 2105,
+        "M": 451
+      },
+      "within_galactic_latitude_10_deg": 2120
+    },
+    {
+      "seed": 6,
+      "count": 8485,
+      "population_sampled": 57174,
+      "validation": {
+        "checked": 8485,
+        "passed": 8485,
+        "failed": 0,
+        "all_passed": true
+      },
+      "comparison": {
+        "applicable": true,
+        "reference": "BSC5 V <= 6.5",
+        "reference_count": 8404,
+        "relative_difference": 0.009638267491670634,
+        "tolerance_fraction": 0.05,
+        "within_tolerance": true
+      },
+      "cumulative_magnitude_counts": {
+        "0": 3,
+        "1": 12,
+        "2": 40,
+        "3": 123,
+        "4": 411,
+        "5": 1402,
+        "6": 4700,
+        "6.5": 8485
+      },
+      "spectral_counts": {
+        "O": 50,
+        "B": 1580,
+        "A": 1777,
+        "F": 1177,
+        "G": 1155,
+        "K": 2209,
+        "M": 537
+      },
+      "within_galactic_latitude_10_deg": 2162
+    },
+    {
+      "seed": 7,
+      "count": 8200,
+      "population_sampled": 56908,
+      "validation": {
+        "checked": 8200,
+        "passed": 8200,
+        "failed": 0,
+        "all_passed": true
+      },
+      "comparison": {
+        "applicable": true,
+        "reference": "BSC5 V <= 6.5",
+        "reference_count": 8404,
+        "relative_difference": -0.02427415516420752,
+        "tolerance_fraction": 0.05,
+        "within_tolerance": true
+      },
+      "cumulative_magnitude_counts": {
+        "0": 3,
+        "1": 9,
+        "2": 28,
+        "3": 125,
+        "4": 415,
+        "5": 1371,
+        "6": 4493,
+        "6.5": 8200
+      },
+      "spectral_counts": {
+        "O": 53,
+        "B": 1553,
+        "A": 1699,
+        "F": 1147,
+        "G": 1088,
+        "K": 2151,
+        "M": 509
+      },
+      "within_galactic_latitude_10_deg": 2153
+    },
+    {
+      "seed": 8,
+      "count": 8334,
+      "population_sampled": 57329,
+      "validation": {
+        "checked": 8334,
+        "passed": 8334,
+        "failed": 0,
+        "all_passed": true
+      },
+      "comparison": {
+        "applicable": true,
+        "reference": "BSC5 V <= 6.5",
+        "reference_count": 8404,
+        "relative_difference": -0.008329366968110423,
+        "tolerance_fraction": 0.05,
+        "within_tolerance": true
+      },
+      "cumulative_magnitude_counts": {
+        "0": 2,
+        "1": 10,
+        "2": 33,
+        "3": 117,
+        "4": 437,
+        "5": 1420,
+        "6": 4707,
+        "6.5": 8334
+      },
+      "spectral_counts": {
+        "O": 54,
+        "B": 1558,
+        "A": 1751,
+        "F": 1153,
+        "G": 1158,
+        "K": 2165,
+        "M": 495
+      },
+      "within_galactic_latitude_10_deg": 2173
+    },
+    {
+      "seed": 9,
+      "count": 8231,
+      "population_sampled": 57160,
+      "validation": {
+        "checked": 8231,
+        "passed": 8231,
+        "failed": 0,
+        "all_passed": true
+      },
+      "comparison": {
+        "applicable": true,
+        "reference": "BSC5 V <= 6.5",
+        "reference_count": 8404,
+        "relative_difference": -0.020585435506901475,
+        "tolerance_fraction": 0.05,
+        "within_tolerance": true
+      },
+      "cumulative_magnitude_counts": {
+        "0": 8,
+        "1": 17,
+        "2": 53,
+        "3": 132,
+        "4": 402,
+        "5": 1425,
+        "6": 4587,
+        "6.5": 8231
+      },
+      "spectral_counts": {
+        "O": 52,
+        "B": 1550,
+        "A": 1736,
+        "F": 1111,
+        "G": 1103,
+        "K": 2185,
+        "M": 494
+      },
+      "within_galactic_latitude_10_deg": 2109
+    },
+    {
+      "seed": 10,
+      "count": 8364,
+      "population_sampled": 57377,
+      "validation": {
+        "checked": 8364,
+        "passed": 8364,
+        "failed": 0,
+        "all_passed": true
+      },
+      "comparison": {
+        "applicable": true,
+        "reference": "BSC5 V <= 6.5",
+        "reference_count": 8404,
+        "relative_difference": -0.00475963826749167,
+        "tolerance_fraction": 0.05,
+        "within_tolerance": true
+      },
+      "cumulative_magnitude_counts": {
+        "0": 3,
+        "1": 14,
+        "2": 36,
+        "3": 116,
+        "4": 404,
+        "5": 1444,
+        "6": 4706,
+        "6.5": 8364
+      },
+      "spectral_counts": {
+        "O": 55,
+        "B": 1544,
+        "A": 1724,
+        "F": 1122,
+        "G": 1190,
+        "K": 2225,
+        "M": 504
+      },
+      "within_galactic_latitude_10_deg": 2146
+    },
+    {
+      "seed": 11,
+      "count": 8340,
+      "population_sampled": 56848,
+      "validation": {
+        "checked": 8340,
+        "passed": 8340,
+        "failed": 0,
+        "all_passed": true
+      },
+      "comparison": {
+        "applicable": true,
+        "reference": "BSC5 V <= 6.5",
+        "reference_count": 8404,
+        "relative_difference": -0.007615421227986673,
+        "tolerance_fraction": 0.05,
+        "within_tolerance": true
+      },
+      "cumulative_magnitude_counts": {
+        "0": 7,
+        "1": 16,
+        "2": 42,
+        "3": 132,
+        "4": 421,
+        "5": 1374,
+        "6": 4603,
+        "6.5": 8340
+      },
+      "spectral_counts": {
+        "O": 76,
+        "B": 1588,
+        "A": 1724,
+        "F": 1171,
+        "G": 1129,
+        "K": 2140,
+        "M": 512
+      },
+      "within_galactic_latitude_10_deg": 2136
+    }
+  ]
+}

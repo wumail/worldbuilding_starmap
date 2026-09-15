@@ -1,0 +1,26 @@
+{
+  "records": [
+    {
+      "id": "H-D-OC-7-000786",
+      "magnitude": 5.567846761592707,
+      "angularScaleArcmin": 21.29392882932382,
+      "zoom": 64,
+      "pixelsPerDegree": 426.6666666666667
+    },
+    {
+      "id": "H-D-OC-6.5-001558",
+      "magnitude": 4.603121777682407,
+      "angularScaleArcmin": 18.50303878497725,
+      "zoom": 64,
+      "pixelsPerDegree": 426.6666666666667
+    },
+    {
+      "id": "OC-7.5-001432",
+      "magnitude": 5.820922591321347,
+      "angularScaleArcmin": 1.7500610042378384,
+      "zoom": 64,
+      "pixelsPerDegree": 426.6666666666667
+    }
+  ],
+  "errors": []
+}

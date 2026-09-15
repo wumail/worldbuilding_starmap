@@ -1,0 +1,1639 @@
+{
+  "checked_at_utc": "2026-09-13T10:21:21.685375+00:00",
+  "model": "fixed_kepler_ellipses_with_shared_terrax_observer",
+  "max_earth_days": 51313.9725,
+  "max_earth_years": 140.49,
+  "checks": {
+    "orbital_and_shared_state": {
+      "passed": 28,
+      "failed": 0
+    },
+    "existing_python_suite": {
+      "passed": 38,
+      "failed": 0
+    },
+    "actual_browser_gpu": {
+      "passed": 6,
+      "failed": 0
+    },
+    "camera_browser_regression": {
+      "passed": 9,
+      "failed": 0
+    }
+  },
+  "browser_observations": {
+    "at_earth_day_1234_5_center_luna_direction_both_pages": [
+      0.16627339858675358,
+      -0.9860613165871045,
+      -0.0060197053845277935
+    ],
+    "after_edit_luna_mean_40_direction_both_pages": [
+      -0.5647112452856978,
+      0.825259315800529,
+      0.006947742965805415
+    ],
+    "paused_day_both_pages": 0.5590541667,
+    "default_catalog_count_both_pages": 9327,
+    "legacy_catalog_count_both_pages": 9000,
+    "default_surface_day_0_above_horizon_background_count": 4739,
+    "default_surface_day_0_5416666667_with_daylight_background_count": 0,
+    "end_auto_pauses": true,
+    "console_errors_observed": []
+  },
+  "tangent_projection_sample": {
+    "samples": 5616,
+    "disk_diameter_degrees": 0.55,
+    "map_radius_css_pixels": 6400,
+    "max_deviation_css_pixels": 0.07387171202615349
+  },
+  "preservation": {
+    "count": 31,
+    "changed": [],
+    "sha256": {
+      "v4/output_20260913_085102_565478/validation_dist_mag_20260913_085102_565478.png": "fb189d9b7b7f18eb72cf4c990a5f255787297a4118e41d7fc6544f3464341764",
+      "v4/output_20260913_085102_565478/star_map_20260913_085102_565478.json": "a27c7e2eb09efd8bb52f93190f447162d094bea6640520c4d62d73bda795b2a2",
+      "v4/output_20260913_085102_565478/validation_report_20260913_085102_565478.txt": "8ee7276217d3dc2ef38595ac4efea2680c6c4fdbe3f5bbe4bceb94a41dc13835",
+      "v4/output_20260913_085102_565478/star_map_20260913_085102_565478_Merged_4k.png": "90d32608e3db8345f35bea9446e15ce1a44c9df02828e65c81ef83ecf7ceb4ba",
+      "v4/output_20260913_085102_565478/validation_hr_diagram_20260913_085102_565478.png": "6de5c473fe60b6aa3d8a8a88879cd297cfb502e35047f540828843e943d15d50",
+      "v4/output_20260913_085102_565478/star_map_20260913_085102_565478_Merged_4k.render.json": "48fd92db12db2c717923698d07cb42d1da6c201c644e322717baa8d3f0a96611",
+      "v4/output_20260210_021525/validation_dist_mag_20260210_021525.png": "90e836585dfb31163b6fd0b715902a7a97e0eef410af633e611bdd1d2b4c941b",
+      "v4/output_20260210_021525/validation_hr_diagram_20260210_021525.png": "9ac2ef84fae20f8665044567e015b0a9db3ccdf84861cb2aaf1bee6ba8da9eea",
+      "v4/output_20260210_021525/validation_report_20260210_021525.txt": "2fa4b89677020225c06b376bd1caca1eae5cdc26684342f8371dca10dbb774e9",
+      "v4/output_20260210_021525/star_map_20260210_021525_Merged_8k.png": "83eae2f013ca6dfcf1c67f0bb7b0632a0837cb412428c6da01833c423d88b6d2",
+      "v4/output_20260210_021525/star_map_20260210_021525_Merged_16k.png": "67cdda894b92476dc653e01a99f7baa469963eefd47c120070ff80642b162d02",
+      "v4/output_20260210_021525/star_map_20260210_021525_Merged_4k.png": "e233936add908b38a7afc6eb9ca50809be3a0c6ebe375b8b777d15df79bab139",
+      "v4/output_20260210_021525/star_map_20260210_021525.json": "3addfe73ec6c28c636818e0ab6de10e8ef242ff6fbac4840e7bd8af8a805ec38",
+      "v4/output_20260913_083714_453993/star_map_20260913_083714_453993_Merged_4k.png": "d896e12e16503e1987a8801b63077705158220220ceba330fc8e337a4f5c4b71",
+      "v4/output_20260913_083714_453993/validation_dist_mag_20260913_083714_453993.png": "fb189d9b7b7f18eb72cf4c990a5f255787297a4118e41d7fc6544f3464341764",
+      "v4/output_20260913_083714_453993/validation_report_20260913_083714_453993.txt": "8370c3128b3f4e485a7d35b45bfdf73c5d6edfb0809343edd99d01e5048f2754",
+      "v4/output_20260913_083714_453993/validation_hr_diagram_20260913_083714_453993.png": "6de5c473fe60b6aa3d8a8a88879cd297cfb502e35047f540828843e943d15d50",
+      "v4/output_20260913_083714_453993/star_map_20260913_083714_453993_Merged_4k.render.json": "e2b72f1c5d73007771ea7aeaf5975368ba6db6ca93538e39ab022f30c8c268e2",
+      "v4/output_20260913_083714_453993/star_map_20260913_083714_453993.json": "850e65fa57516c62c3d2c22b9289649d08ddc30ba00de5ebd57171293c3738de",
+      "v4/output_20260913_070620_305589/star_map_20260913_070620_305589.json": "de31f6146b3d29c509c3b46173a231f9273af54cad3db3286ae8440db8c56fc4",
+      "v4/output_20260913_070620_305589/validation_dist_mag_20260913_070620_305589.png": "33bef3dce8d3d5ebcb0efc7a5f960ab3fc861800d4313248afb06b3f197a4435",
+      "v4/output_20260913_070620_305589/validation_report_20260913_070620_305589.txt": "956243f38b8e137bead2646ad3d236ff4ef235366ffad255b1f8f8df1ff2503f",
+      "v4/output_20260913_070620_305589/validation_hr_diagram_20260913_070620_305589.png": "eeb20d1902e23b555f6ed71929cc41887eeefa42dc55cd338e61b44c9b9a9370",
+      "v4/output_20260913_070620_305589/star_map_20260913_070620_305589_Merged_4k.png": "10e082491ea7b6c098562d7dc0fdccbefcd5f8682305421ee1d57d2198e3a028",
+      "v4/output_20260913_075854_929210/validation_report_20260913_075854_929210.txt": "1b50d3fca6c2e1b770a3d3bb135452cebbfadb3b60774462db291ebe06b89a74",
+      "v4/output_20260913_075854_929210/validation_dist_mag_20260913_075854_929210.png": "ed627b78519d21734dc3b0780b6d88d33e3ed7687e3e92188377f8c693f0f5f5",
+      "v4/output_20260913_075854_929210/star_map_20260913_075854_929210.json": "f82a4ce2bc3dc1769b734593ae80558517d50713e1e1cf7112ca43394d0000db",
+      "v4/output_20260913_075854_929210/star_map_20260913_075854_929210_Merged_4k.png": "b3d0a69b377bec8c6c0fdc441e5dc2b0099b6ca8831aebf153704d53d4476ff5",
+      "v4/output_20260913_075854_929210/validation_hr_diagram_20260913_075854_929210.png": "3b8d8354e30327f528ffe370d85b1ea16d579e744c5855ee794e93db30176fcb",
+      "reference/恒星系最终设定.md": "e20a4a343afbeb0b8ea920be709318a2ce8022fdd1b9f1da438a7561f4e42aac",
+      "reference/母星最终设定.md": "71c7afa062b4ab03cc9196410af6ffc66cc07b370fe215eb848206b976239cd2"
+    }
+  },
+  "source_sha256": {
+    "index.html": "1fcb209b382c04f8a4ce57f9d3bb50e51e597de43a8c23c5d2a915a0215501b8",
+    "v4/star_map.html": "d45f8af2b8ab06d6692475cfaea8939881a7ed30aa563c3748bf7e2dd2e9e088",
+    "v4/sky_atlas.html": "4d6f342242c44152b980b6e28bd9e26b20366ae3f276f48071107caf7ac265e1",
+    "v4/solar_system.mjs": "7c2fb0041575e8cced6fa7cc52968c7b1708f8e52ca1d81572501e4ab911ecd6",
+    "v4/sky_state.mjs": "d7ccb5a604f7080e00647b41651e4c847de0cdacc8c7dabd1b61324f032f7f83",
+    "v4/sky_controls.mjs": "7dceec213b71531432ed490bf3aa0b5c0ecf497f86c3d369bcfeab47061b98af",
+    "v4/sky_render.mjs": "291133b79365f02c7ebea620cb4d0c8b5b44b85e6a86a295e672bcf1f65667ee",
+    "v4/sky_atlas.mjs": "265eedf46303edb121c78356f208ea6c805dcbb53da7d3f49f2d3b24dc6af63e",
+    "v4/sky_points.js": "bba707b22e2d439bc40826c20bd047ce11e5c89a871d956fdb09339b839806f6",
+    "v4/sky_motion_3d.js": "871353aea5134ce80785decc55f578fb0af1f0728d9063d2caa3ae1d916dc17f",
+    "v4/sky_motion.css": "e740f789c3ed439a961437e1628d122292ae883284f98cb68422c513bc749936",
+    "tests/test_sky_motion.mjs": "92d5209a8399f78c5e1317fc220bd344517d156072576e9aebbd6b8cc415bb63",
+    "tests/motion_render_checks.html": "2bf771118fefe9b9d19556020218995a27979441e62a51df4d7ef16c03c212ce"
+  },
+  "scope": "Passing checks validate the implemented approximate model and sampled rendering cases, not every frame over 140.49 years or a precision ephemeris. Existing output images and reference files are unchanged.",
+  "validation_stage": "original_motion_implementation_baseline; subsequent revisions are recorded in full_sky_fix, solar_glare_fix, body_render_audit, lunar_visibility_fix, stellar_visibility_fix and lunar_phase_contour_fix; atlas_resource_recovery_fix records the latest canvas lifecycle repair; uniform_zoom_fix records the unified body and background scaling revision; opaque_lunar_disk_fix records the latest opaque lunar display and distance-ordered occlusion revision; angular_scale_and_projection_fix supersedes previous angular scale, enlarged lunar disk and point sampling contracts and records the current projection revision",
+  "full_sky_fix": {
+    "checked_at_utc": "2026-09-13T12:32:01.404Z",
+    "cause": "Both pages inherited surface mode and hid every background star below the local horizon; the catalog was complete.",
+    "default_observer_mode": "center",
+    "storage_migration": {
+      "from": "terrax-sky-motion-v1",
+      "to": "terrax-sky-motion-v2",
+      "changed_fields": [
+        "mode"
+      ],
+      "preserves_subsequent_explicit_surface_choice": true
+    },
+    "checks": {
+      "orbital_and_shared_state": {
+        "passed": 30,
+        "failed": 0
+      },
+      "actual_browser_gpu": {
+        "passed": 6,
+        "failed": 0
+      },
+      "unchanged_python_and_camera_suites": "Previous baseline retained; not rerun for this change."
+    },
+    "browser_observations": {
+      "earth_day": 0,
+      "default_visible_background_both_pages": 9327,
+      "atlas_both_hemispheres_have_stars": true,
+      "immersive_view_declinations_checked": [
+        27.8,
+        -43.3
+      ],
+      "manual_surface_visible_background_both_pages": 4739,
+      "surface_choice_survives_reload": true,
+      "return_to_center_visible_background_both_pages": 9327,
+      "console_errors_observed": []
+    },
+    "computed_default_hemisphere_counts": {
+      "north": 4513,
+      "south": 4814,
+      "total": 9327
+    },
+    "numerical_full_catalog_regression_earth_days": [
+      0,
+      0.5416666666666666,
+      25656.98625,
+      51313.9725
+    ],
+    "preservation": {
+      "count": 31,
+      "changed": []
+    },
+    "source_sha256": {
+      "v4/sky_state.mjs": "7d64d805da803f313346b83ea966a33ede3c4e50ef6e0fe9fd2dc47bf6722ba2",
+      "v4/solar_system.mjs": "bc6ecb40b595432b68597864e3b6ff5e7850b01b196d2c0aa826f64ee8de9511",
+      "v4/sky_controls.mjs": "cbb883743aabed0d901aec955e009529b1da24fbf6b2998d629d6e16d0dedfbf",
+      "tests/test_sky_motion.mjs": "8ae62c2fbec57c06fc8d26799f202f457a50bf9e583406a5de985a255981d6f8",
+      "tests/motion_render_checks.html": "fab5ac6da4b6d562a608cc29196965e1f19a0c8827f7f95585b38043b9e0331f"
+    }
+  },
+  "solar_glare_fix": {
+    "checked_at_utc": "2026-09-13T15:36:25.987255+00:00",
+    "cause": "Venus had an enlarged identification point while Sol was drawn only at its true angular diameter, reversing their visual prominence.",
+    "rendering": {
+      "true_angular_diameters_preserved": true,
+      "solar_glow_default_enabled": true,
+      "solar_glow_toggle_shared_between_pages": true,
+      "glare_tangent_plane_scale": 30,
+      "partial_visibility_sample_grid": [
+        48,
+        48
+      ],
+      "foreground_occluders_combined_as_union": true,
+      "atlas_planet_point": "soft radial gradient; previous proportional symbol scaling retained"
+    },
+    "checks": {
+      "orbital_and_shared_state": {
+        "passed": 32,
+        "failed": 0
+      },
+      "actual_browser_canvas_and_gpu": {
+        "passed": 9,
+        "failed": 0
+      },
+      "sampled_sol_angular_diameter_greater_than_venus_factor": 30,
+      "angular_comparison_sample_step_earth_days": 211,
+      "atlas_pixel_test_zoom_factors": [
+        0.55,
+        1,
+        2
+      ],
+      "glare_pixel_comparison_venus_magnitude": -4.8,
+      "tested_sol_to_venus_bright_pixel_area_and_sum_ratio_exceeds": 2,
+      "unchanged_python_and_camera_suites": "Previous baseline retained; not rerun for this change."
+    },
+    "browser_observations": {
+      "paused_earth_day_preserved": 3928.342761,
+      "observer_mode": "center",
+      "visible_background_both_pages": 9327,
+      "sol_angular_diameter_display_arcminutes": 26.406,
+      "glare_visible_in_both_pages": true,
+      "atlas_toggle_off_synced_to_immersive": true,
+      "immersive_toggle_on_synced_to_atlas": true,
+      "true_solar_disk_visible_with_glare_off": true,
+      "final_solar_glow_enabled": true,
+      "console_errors_observed": []
+    },
+    "preservation": {
+      "count": 31,
+      "changed": []
+    },
+    "source_sha256": {
+      "v4/sky_render.mjs": "cc5e9880f54e66f40d60c56b7b2a2f721df5aa73569265e1b08e74218db1c140",
+      "v4/sky_atlas_bodies.mjs": "0119e24854eb44ffe472f4aa2b79eadfc9bbb8aaa7e8960c9da9bc7f61e0b407",
+      "v4/sky_atlas.mjs": "5eb4693e15ed572a82d2cf9a9af3fe33dc16c560f18441c850bdf67098185668",
+      "v4/sky_motion_3d.js": "6f3137cafdecf1dacd96fadd404dfee0c08cf52b57d34ac4dc332e8a21a8b0e4",
+      "v4/sky_state.mjs": "ccda92ffead5acb042f4dbafd0efd78abf9070b71df5730575bd2110110afbb0",
+      "v4/sky_controls.mjs": "1b21de9190a20d28e1189f294594f9af5ea4e3efe356a087054d0922a21764f6",
+      "v4/solar_system.mjs": "bc6ecb40b595432b68597864e3b6ff5e7850b01b196d2c0aa826f64ee8de9511",
+      "v4/sky_points.js": "bba707b22e2d439bc40826c20bd047ce11e5c89a871d956fdb09339b839806f6",
+      "tests/test_sky_motion.mjs": "832c41305663abde9ee1c54171cb5f7aaaf3cc856f78ee83dce278e844d4ef39",
+      "tests/motion_render_checks.html": "23a28115d27aad8909b0e4ba4bc533877af65ab5b2341d4b16c12a79d3b4bba3",
+      "v4/data/sky_motion_validation.md": "d49756ca9e9cc8f498cc5b85b990ba872ef53d0c21d5c42dfe2e2783942e9666"
+    },
+    "scope": "The 30-times glare layer is a switchable visual illustration, not a solar radius, corona, photometry or eye/camera exposure model. The 48-by-48 sampling estimates glare fading only, not precision eclipse or rise/set timing. Pixel comparisons cover the tested view and zoom samples, not every possible field of view."
+  },
+  "body_render_audit": {
+    "checked_at_utc": "2026-09-13T16:19:52.581209+00:00",
+    "findings_fixed": [
+      "Solar glare inherited the body projection and became elliptical; glare is now circular in image space in both pages.",
+      "Planet identification points covered resolved phases; they now fade out between 1 and 4 CSS pixels of disk diameter.",
+      "Dark or subthreshold disks erased foreground sky color; both pages now preserve the shared sky background while retaining occultation.",
+      "Canvas and GPU used different color spaces and an extra illumination exponent; both now use normalized linear Lambert shading followed by sRGB output.",
+      "The solar glare layer could be occulted twice; real disks are covered first and the attenuated glare is drawn afterwards.",
+      "Planet identification points leaked across the horizon; image boundary and horizon fragment clipping added.",
+      "Atlas disk textures stayed at 64 pixels during zoom; they now adapt from 64 to 1024 pixels."
+    ],
+    "same_angular_scale_comparison": [
+      "Sol",
+      "Luna",
+      "Echo"
+    ],
+    "physical_sizes_or_orbit_parameters_changed": false,
+    "checks": {
+      "orbital_and_shared_state": {
+        "passed": 33,
+        "failed": 0
+      },
+      "actual_browser_canvas_and_gpu": {
+        "passed": 19,
+        "failed": 0
+      },
+      "glare_width_height_difference_max_pixels": 1,
+      "glare_gpu_dpr_cases": [
+        1,
+        2
+      ],
+      "glare_gpu_off_axis_degrees": [
+        0,
+        18
+      ],
+      "glare_atlas_declination_degrees": [
+        90,
+        45,
+        15
+      ],
+      "glare_atlas_pixel_scale_factors": [
+        0.55,
+        1,
+        2
+      ],
+      "true_disk_diameter_pixel_error_less_than": 2,
+      "phase_direction_declination_degrees": [
+        90,
+        45,
+        -45,
+        -90
+      ],
+      "lambert_quarter_to_full_linear_flux_target": "1/pi",
+      "lambert_flux_absolute_tolerance": 0.003,
+      "sampled_canvas_gpu_rgb_channel_tolerance": 3,
+      "unchanged_python_and_camera_suites": "Previous baseline retained; not rerun for this rendering change."
+    },
+    "independent_geometry_sampling": {
+      "observer_mode": "center",
+      "angles": "default illustrative initial configuration",
+      "start_earth_day": 0,
+      "end_earth_day": 51313.9725,
+      "step_earth_days": 5,
+      "end_included": true,
+      "samples": 10264,
+      "not_exact_extrema": true,
+      "ranges": {
+        "Sol": {
+          "angular_diameter_arcminutes": [
+            25.581756,
+            26.450702
+          ],
+          "unocculted_magnitude": [
+            -26.52957,
+            -26.45704
+          ]
+        },
+        "Mercury-Sol": {
+          "angular_diameter_arcminutes": [
+            0.055684,
+            0.148709
+          ],
+          "unocculted_magnitude": [
+            -1.79332,
+            13.76608
+          ]
+        },
+        "Venus-Sol": {
+          "angular_diameter_arcminutes": [
+            0.121646,
+            0.7047
+          ],
+          "unocculted_magnitude": [
+            -3.77456,
+            10.78567
+          ]
+        },
+        "Mars-Sol": {
+          "angular_diameter_arcminutes": [
+            0.042188,
+            0.228771
+          ],
+          "unocculted_magnitude": [
+            -1.2237,
+            2.79438
+          ]
+        },
+        "Jupiter-Sol": {
+          "angular_diameter_arcminutes": [
+            0.380209,
+            0.604212
+          ],
+          "unocculted_magnitude": [
+            -1.86343,
+            -0.68424
+          ]
+        },
+        "Saturn-Sol": {
+          "angular_diameter_arcminutes": [
+            0.155336,
+            0.208507
+          ],
+          "unocculted_magnitude": [
+            1.78024,
+            2.63666
+          ]
+        },
+        "Neptune-Sol": {
+          "angular_diameter_arcminutes": [
+            0.040209,
+            0.045758
+          ],
+          "unocculted_magnitude": [
+            6.84677,
+            7.19258
+          ]
+        },
+        "Luna": {
+          "angular_diameter_arcminutes": [
+            31.459418,
+            31.839212
+          ],
+          "unocculted_magnitude": [
+            -12.74832,
+            2.91233
+          ]
+        },
+        "Echo": {
+          "angular_diameter_arcminutes": [
+            6.809748,
+            6.975167
+          ],
+          "unocculted_magnitude": [
+            -9.91135,
+            8.32514
+          ]
+        }
+      },
+      "semimajor_axis_diameter_arcminutes": {
+        "Luna": 31.648176,
+        "Echo": 6.891465
+      },
+      "earth_moon_reference_diameter_arcminutes": 31.1,
+      "ratios_to_earth_moon": {
+        "Luna": 1.017626,
+        "Echo": 0.221591
+      }
+    },
+    "browser_observations": {
+      "paused_earth_day_preserved": 3928.342761,
+      "same_scale_comparison_present_both_pages": true,
+      "visible_background_both_pages": 9327,
+      "final_solar_glow_enabled": true,
+      "console_errors_observed": []
+    },
+    "preservation": {
+      "count": 31,
+      "changed": []
+    },
+    "source_sha256": {
+      "v4/sky_render.mjs": "6bbf976cb013bb2adaf9eb59f8a5728e6f7bf04bff26fd97f8a439d017f99740",
+      "v4/sky_atlas_bodies.mjs": "9640191414d6873ee97e435fa6fa41894fe6bb73597c6aefd7613da0595742f5",
+      "v4/sky_atlas.mjs": "0a8032f742f3dd99e9719aaf4f91ac8251c02337f504c773ae950bbce297c7f0",
+      "v4/sky_motion_3d.js": "c509afe7e784c65e6c813e1ab550c314a4c19a57f815fdbabf965e8b83580243",
+      "v4/sky_controls.mjs": "3aeee8cb28364b5cfb87107b878e87e3212940a18d7e4394919066e952697fb7",
+      "v4/sky_motion.css": "2791b83e166a8a6221aa2d037c66a6d821dcb8aedc96532eaa4beae0b6f47761",
+      "v4/sky_state.mjs": "ccda92ffead5acb042f4dbafd0efd78abf9070b71df5730575bd2110110afbb0",
+      "v4/solar_system.mjs": "bc6ecb40b595432b68597864e3b6ff5e7850b01b196d2c0aa826f64ee8de9511",
+      "tests/test_sky_motion.mjs": "aaf33560f675929304eae5d7bd13839c1b53e2bf8b963f5acfed364b16977456",
+      "tests/motion_render_checks.html": "9f47d3281085d6ad96bacda05df240c8950958a3e24ad2ee69253a82cb4bd5da",
+      "tests/body_render_audit.mjs": "2a9196d2a6caa05bcced0299869e5b0a321a625a9c9152ca26cada444f2dd8a1",
+      "v4/data/sky_motion_validation.md": "32783430cf1d0cb5fc9d6394841a6e23a2e146c04fd21c7353ea6083c4d89b03"
+    },
+    "scope": "Verified geometry and sampled rendering of a fixed Kepler and Lambert model. The glare and unresolved points remain visual aids. Disk colors and normalization do not preserve inter-object photometric flux ratios. This is not a complete naked-eye, atmosphere, exposure or precision eclipse simulation; lunar eclipses, planetary rings, surface texture and dynamical perturbations remain unmodeled. Subpixel true disks can be difficult to discern in a full-sky thumbnail."
+  },
+  "lunar_visibility_fix": {
+    "checked_at_utc": "2026-09-13T17:01:09.756114+00:00",
+    "changes": [
+      "Optional lunar glow in both main sky views responds to apparent magnitude, which already includes Lambert phase.",
+      "Solar and lunar glare share a compressed display response; real angular diameters and source radii/distances are unchanged.",
+      "Atlas body light symbols shrink with the map below fit scale and hold their baseline light extent above fit scale while physical disks keep growing; background star scaling is unchanged.",
+      "Atlas glare is clipped into both hemisphere maps at the equator, even when the true disk lies entirely on one side.",
+      "Occlusion attenuates lunar glare by the visible illuminated flux fraction, with overlapping occulting disks treated as a union."
+    ],
+    "checks": {
+      "orbital_and_shared_state": {
+        "passed": 35,
+        "failed": 0
+      },
+      "actual_browser_gpu_and_canvas": {
+        "passed": 22,
+        "failed": 0
+      },
+      "javascript_syntax": {
+        "passed": true
+      },
+      "git_diff_check": {
+        "passed": true
+      },
+      "existing_python_suite": {
+        "rerun": false,
+        "reason": "Star generation, catalog selection and output PNGs were not modified."
+      },
+      "camera_browser_regression": {
+        "rerun": false,
+        "reason": "Camera module was not modified; live body focus was observed on the production page."
+      }
+    },
+    "independent_geometry": {
+      "formula": "2 * atan2(R, sqrt(distance^2 - R^2)); equal to 2 * asin(R / distance)",
+      "length_unit": "km; distance is observer to body center",
+      "reference_distances": {
+        "Sol": {
+          "radius_km": 758313,
+          "center_distance_km": 200461146.738,
+          "angular_diameter_degrees": 0.43348288464527235,
+          "angular_diameter_arcminutes": 26.00897307871634,
+          "relative_to_earth_moon": 0.836953654139908
+        },
+        "Luna": {
+          "radius_km": 1771.36,
+          "center_distance_km": 384825.252,
+          "angular_diameter_degrees": 0.5274695975462336,
+          "angular_diameter_arcminutes": 31.648175852774013,
+          "relative_to_earth_moon": 1.0184199255647395
+        },
+        "Echo": {
+          "radius_km": 781.47,
+          "center_distance_km": 779659.047,
+          "angular_diameter_degrees": 0.11485774579433024,
+          "angular_diameter_arcminutes": 6.891464747659814,
+          "relative_to_earth_moon": 0.2217633347335107
+        },
+        "Earth Moon": {
+          "radius_km": 1737.4,
+          "center_distance_km": 384400,
+          "angular_diameter_degrees": 0.5179293769745701,
+          "angular_diameter_arcminutes": 31.075762618474204,
+          "relative_to_earth_moon": 1.0
+        }
+      },
+      "full_sky_160px_hemisphere_radial_diameter_css_px": {
+        "Luna": 0.468861864485541,
+        "Echo": 0.10209577403940465
+      }
+    },
+    "display_response": {
+      "bright_glow_radius": "For m < -4: 4.4 * sqrt(((1 + 10^(-0.3*(m+4)))^0.25 - 1) / (2^0.25 - 1)); otherwise pointRadius(m)",
+      "composite_radius": "hypot(projected radial disk radius, brightness radius * point scale)",
+      "atlas_point_scale": "(fit hemisphere radius / 200) / max(1, zoom), before the shared canvas zoom transform",
+      "physical_model": false,
+      "note": "The brightness response is an illustrative display choice, not a calibrated human eye PSF, physical disk edge or real exposure."
+    },
+    "browser_observations": {
+      "paused_earth_day_preserved": 3928.342761,
+      "body_focus_observed": [
+        "Luna",
+        "Echo"
+      ],
+      "instantaneous_angular_diameter_arcminutes": {
+        "Sol": 26.4055791525015,
+        "Luna": 31.46025680593715,
+        "Echo": 6.809767516351531
+      },
+      "lunar_glow_disabled_from_atlas_synced_to_sphere": true,
+      "lunar_glow_enabled_from_sphere_synced_to_atlas": true,
+      "visible_background_both_pages": 9327,
+      "final_lunar_glow_enabled": true,
+      "final_solar_glow_enabled": true,
+      "console_errors_observed": []
+    },
+    "preservation": {
+      "count": 31,
+      "changed": []
+    },
+    "source_sha256": {
+      "v4/sky_render.mjs": "3272d35b23fe123676f4851df467eecd322795c48523e2325e1f4cf9864dd995",
+      "v4/sky_atlas_bodies.mjs": "866d63abb3a2e78d9e9b189bea1fd2d7b3872ce534fc71acacb5976a2632b213",
+      "v4/sky_atlas.mjs": "7bda7e6c2528d4ba5ca304fcf184f6fc654bea8b3a82f8c92202cef6f463f379",
+      "v4/sky_motion_3d.js": "5b5e45cf3bf8a786e0f01ea56200428a28c3b5245124756ec24d244b559c9373",
+      "v4/sky_controls.mjs": "30e4222c45d6bdad7a810f68095fc0d91a963a1fa53ff8991097e94f91e587ee",
+      "v4/sky_state.mjs": "2978653d4be5c8cb2a410745e2399e68f604c911875e6660a23899f55f360548",
+      "v4/solar_system.mjs": "bc6ecb40b595432b68597864e3b6ff5e7850b01b196d2c0aa826f64ee8de9511",
+      "tests/test_sky_motion.mjs": "c55dfd06824629465b6c9545d7265757650879af800685052cfc706a5a5b6dc8",
+      "tests/motion_render_checks.html": "41179d25d34333837e43e1b6f28e9e8231c352bd084cbf02a15ab51223c7f660",
+      "tests/body_render_audit.mjs": "d300d7cf8aafc855680c366678aee07c933b1fe4707018f9ebc35f229a395912",
+      "v4/data/sky_motion_validation.md": "ad160bf0c1eb36bcb002a0eed52357e565d32c898bfce6266d9430906d0838d6"
+    },
+    "scope": "Verified the actual angular-diameter formula independently and sampled final Canvas/WebGL rendering. Subpixel disks in a full-sky thumbnail cannot show a resolved moon phase. Added glare improves brightness readability without changing the physical geometry. This remains an approximate Kepler/Lambert model, not a full naked-eye, atmospheric, lunar-eclipse or precision long-term ephemeris simulation."
+  },
+  "stellar_visibility_fix": {
+    "checked_at_utc": "2026-09-14T04:16:14.437922+00:00",
+    "completion_audit": {
+      "interruption_state": "Rendering implementation and added tests were saved and passing; Markdown and JSON verification records were incomplete.",
+      "resumed_work": "Reran numerical and real browser rendering checks, checked the production pages, completed documentation and verified preserved files.",
+      "implementation_changed_during_completion_audit": false,
+      "complete": true
+    },
+    "root_cause": {
+      "previous_minimum_symbol_radius_css_px": 1.25,
+      "previous_minimum_radius_from_magnitude": 1.744475,
+      "stars_at_previous_minimum_radius": 9300,
+      "catalog_visible_count": 9327,
+      "percent_at_previous_minimum_radius": 99.71051785139916,
+      "catalog_magnitude_range": [
+        -2.5995585422375536,
+        6.499983876906988
+      ]
+    },
+    "changes": [
+      "Shared continuous magnitude-to-radius and peak-opacity parameters are used by Canvas and WebGL; there is no radius plateau within the current background catalog.",
+      "Atlas background stars use soft radial sprites instead of solid disks. Colors do not select different radius curves.",
+      "Atlas small sprites integrate pixel coverage, with 1/128 device-pixel radius quantization and area compensation; GPU fragments use 4 by 4 coverage samples.",
+      "Atlas background star symbols keep proportional map scaling; the star catalog, magnitude threshold, coordinate projection and physical body angular diameters were not changed."
+    ],
+    "display_response": {
+      "radius_css_px": "min(4.4, 0.6 * 10^(0.09 * (6.5 - magnitude)))",
+      "peak_opacity": "min(1, 0.5 * 10^(0.14 * (6.5 - magnitude)))",
+      "normalized_radial_profile": "1 - smoothstep(0.2, 1, normalized_radius)",
+      "atlas_screen_radius_css_px": "base_radius * fit_hemisphere_radius / 200 * zoom",
+      "sphere_screen_radius_css_px": "base_radius",
+      "physical_disk_or_exposure_model": false
+    },
+    "subpixel_handling": {
+      "atlas_small_sprite_below_device_radius_px": 2,
+      "atlas_radius_quantization_device_px": 0.0078125,
+      "atlas_quantization_compensation": "(actual_device_radius / quantized_device_radius)^2",
+      "atlas_integration": "Analytic total profile integral for a centered radius at most 0.5 device px; otherwise 16 by 16 samples per pixel.",
+      "atlas_small_sprite_canvas_px": [
+        5,
+        5
+      ],
+      "atlas_small_sprite_note": "Transparent sampling support, not a uniform stellar diameter.",
+      "atlas_small_sprite_cache_limit": 512,
+      "atlas_large_sprite_canvas_px": [
+        64,
+        64
+      ],
+      "gpu_samples_per_pixel": [
+        4,
+        4
+      ]
+    },
+    "checks": {
+      "orbital_and_shared_state": {
+        "passed": 36,
+        "failed": 0,
+        "rerun_after_interruption": true,
+        "source": "tests/test_sky_motion.mjs"
+      },
+      "actual_browser_gpu_and_canvas": {
+        "passed": 26,
+        "failed": 0,
+        "rerun_after_interruption": true,
+        "source": "tests/motion_render_checks.html",
+        "new_star_audit": "tests/star_render_audit.mjs"
+      },
+      "javascript_syntax": {
+        "passed": true,
+        "files": [
+          "v4/sky_render.mjs",
+          "v4/sky_atlas_stars.mjs",
+          "v4/sky_atlas.mjs",
+          "v4/sky_points.js",
+          "v4/sky_atlas_bodies.mjs",
+          "v4/sky_motion_3d.js",
+          "tests/test_sky_motion.mjs",
+          "tests/star_render_audit.mjs"
+        ]
+      },
+      "git_diff_check": {
+        "passed": true
+      },
+      "existing_python_suite": {
+        "rerun": false,
+        "reason": "Star generation, catalog selection and output PNGs were not modified."
+      },
+      "camera_browser_regression": {
+        "rerun": false,
+        "reason": "The camera module was not modified."
+      }
+    },
+    "render_samples": {
+      "magnitudes": [
+        0,
+        2,
+        4,
+        5,
+        6,
+        6.5
+      ],
+      "atlas_scales": [
+        8,
+        16,
+        32
+      ],
+      "gpu_device_pixel_ratios": [
+        1,
+        2
+      ],
+      "subpixel_position_samples": 4,
+      "coverage": [
+        "size and integrated brightness ordering",
+        "bright core and fading edge",
+        "proportional atlas scaling",
+        "color-independent profile",
+        "6.5 magnitude subpixel coverage in Canvas and WebGL"
+      ]
+    },
+    "browser_observations": {
+      "confirmed_during_completion_audit": true,
+      "paused_earth_day_preserved": 3928.342761,
+      "selected_body": "Luna",
+      "visible_background": {
+        "atlas": 9327,
+        "sphere": 9327
+      },
+      "solar_glow_enabled": true,
+      "lunar_glow_enabled": true,
+      "console_errors_observed": {
+        "atlas": [],
+        "sphere": []
+      },
+      "exact_user_screenshot_region_and_zoom_manually_compared": false
+    },
+    "preservation": {
+      "count": 31,
+      "changed": [],
+      "baseline": "preservation.sha256"
+    },
+    "source_sha256": {
+      "v4/sky_render.mjs": "2e911531bec80fc31d542e62af3a7c8603c5223b0acae78c4f408559c640d24c",
+      "v4/sky_atlas_stars.mjs": "5b7116587a008f7a55fd01ef8b2849a90ec461e416b2aed2f5c7e20447d6d19f",
+      "v4/sky_atlas.mjs": "7bf672839a6b7ca13a3e1fda07bcd69ea3640d1e48a83c913d2a03be84f6f225",
+      "v4/sky_points.js": "77944ffbbf2b1b40611cdd96555bc71a2499050caac2f863228a9e139645aa86",
+      "v4/sky_atlas_bodies.mjs": "866d63abb3a2e78d9e9b189bea1fd2d7b3872ce534fc71acacb5976a2632b213",
+      "v4/sky_motion_3d.js": "5b5e45cf3bf8a786e0f01ea56200428a28c3b5245124756ec24d244b559c9373",
+      "tests/test_sky_motion.mjs": "877c8aaf5ae268c8ecc299a16f95d6d6219f379765e3a5925f831e2217500519",
+      "tests/star_render_audit.mjs": "8d32fd383eabaf60e17cf4110dc2f7eb4aeb934049fdf9554cb8e8d31984dda6",
+      "tests/motion_render_checks.html": "cb09ccca3fa1f77c5df73a1f8c72a9a315992d6fed179f2a938f6af3886b6cf1",
+      "v4/data/sky_motion_validation.md": "cd0b7afa0202bf1d99b1884025784636635323b4260437e0db7e30042cc90c2e"
+    },
+    "scope": "Magnitude-dependent symbols improve brightness readability and zoomed appearance. Pixel quantization, overlap and finite resolution still limit separation in thumbnails; 9327 catalog entries do not imply 9327 separately countable points at every scale. Display curves are not physical stellar disk sizes, a calibrated human-eye response or real exposure. Exact comparison against the user screenshot at the same region and zoom was not completed."
+  },
+  "lunar_phase_contour_fix": {
+    "checked_at_utc": "2026-09-14T04:56:43.891971+00:00",
+    "root_cause": "Both moons had a circular phase-independent glow outside a small phase disk. Closed auxiliary rings further suggested a circular full moon.",
+    "changes": [
+      "Both pages now render one complete enlarged lunar phase contour, oriented toward projected sunlight.",
+      "The physical disk keeps its actual angular size and occultation footprint; its light and the enhancement use complementary transition weights.",
+      "Enhancement fades as the physical disk becomes large enough. The enlarged dark region stays transparent.",
+      "Lunar auxiliary rings are replaced by short markers; the control explicitly says phase enhancement.",
+      "Versioned import maps, CSS and atlas entry URL prevent the observed stale module cache from retaining the old rendering."
+    ],
+    "display_model": {
+      "phase_cosine": "c = -dot(body.view, body.lightDirection)",
+      "illuminated_region": "x*sqrt(1-c*c) + sqrt(1-x*x-y*y)*c > 0 inside the unit disk",
+      "peak_normalization": "1 for c >= 0; sqrt(1-c*c) otherwise",
+      "edge_feather_normalized_radius": 0.12,
+      "light_radius": "L = 0.65 * brightLightRadius(magnitude) * pointScale",
+      "contour_radius": "hypot(projectedPhysicalDiskRadius, L)",
+      "enhancement_weight": "w = 1 - smoothstep(0.5, 1, projectedPhysicalDiskRadius / L)",
+      "physical_surface_light_scale": "1 - w when enabled; otherwise 1",
+      "physical_angular_diameter_unchanged": true,
+      "physical_disk_occlusion_retained": true,
+      "calibrated_exposure_or_optical_scattering": false
+    },
+    "checks": {
+      "orbital_and_shared_state": {
+        "passed": 36,
+        "failed": 0,
+        "source": "tests/test_sky_motion.mjs"
+      },
+      "actual_browser_gpu_and_canvas": {
+        "passed": 31,
+        "failed": 0,
+        "existing_checks": 26,
+        "new_phase_checks": 5,
+        "source": "tests/motion_render_checks.html"
+      },
+      "javascript_syntax": {
+        "passed": true,
+        "files": [
+          "v4/sky_render.mjs",
+          "v4/sky_atlas_bodies.mjs",
+          "v4/sky_motion_3d.js",
+          "v4/sky_atlas.mjs",
+          "v4/sky_controls.mjs",
+          "tests/lunar_phase_render_audit.mjs",
+          "tests/test_sky_motion.mjs",
+          "tests/body_render_audit.mjs"
+        ]
+      },
+      "import_maps": {
+        "passed": true,
+        "pages": 3
+      },
+      "git_diff_check": {
+        "passed": true
+      },
+      "added_line_whitespace": {
+        "passed": true
+      },
+      "python_catalog_and_png_suite": {
+        "rerun": false,
+        "reason": "Generation, catalogs and saved PNGs were not changed."
+      }
+    },
+    "new_rendering_samples": {
+      "source": "tests/lunar_phase_render_audit.mjs",
+      "bodies": [
+        "Luna",
+        "Echo"
+      ],
+      "phase_angles_degrees": [
+        0,
+        60,
+        90,
+        120,
+        150,
+        180
+      ],
+      "phase_direction_signs": [
+        -1,
+        1
+      ],
+      "device_pixel_ratios": [
+        1,
+        2
+      ],
+      "direction_declinations_degrees": [
+        90,
+        45,
+        -45,
+        -90
+      ],
+      "gpu_off_axis_degrees": 18,
+      "atlas_zoom_samples": [
+        0.55,
+        1,
+        2,
+        8,
+        32
+      ],
+      "gpu_resolved_disk_fov_degrees": 0.5,
+      "coverage": [
+        "phase footprint and outer dark side",
+        "no duplicate inner crescent",
+        "new moon has no bright circle",
+        "projected sunlight direction",
+        "correct bright hemisphere across equator",
+        "physical disk restored when enhancement fades or is disabled"
+      ],
+      "artificial_samples_use_fixed_magnitude_to_isolate_shape": true,
+      "production_canvas_gallery_manually_viewed": true
+    },
+    "browser_cache_observations": {
+      "old_draw_paths_after_plain_reload": true,
+      "new_checks_failed_with_old_draw_paths": 5,
+      "old_regressions_still_passed": 26,
+      "new_canvas_and_webgl_draw_paths_confirmed": true,
+      "resource_version": "20260914-lunar-phase-1"
+    },
+    "production_browser_observations": {
+      "phase_contour_day_viewed": 3937,
+      "luna_illuminated_fraction": 0.294593864674494,
+      "views_manually_observed": [
+        "zoomed atlas",
+        "immersive sphere"
+      ],
+      "restored_paused_earth_day": 3928.342761,
+      "selected_body": "Luna",
+      "atlas_returned_to_fit": true,
+      "visible_background": {
+        "atlas": 9327,
+        "sphere": 9327
+      },
+      "new_phase_control_present_in_both_pages": true,
+      "console_errors_observed": {
+        "atlas": [],
+        "sphere": []
+      }
+    },
+    "preservation": {
+      "count": 31,
+      "changed": [],
+      "baseline": "preservation.sha256"
+    },
+    "source_sha256": {
+      "v4/sky_render.mjs": "9c2ad914c8bd3ca37d33b3f690e9fc1e9f0914e718d40388222861b72425801b",
+      "v4/sky_atlas_bodies.mjs": "2429dba29dcf706803c45563933669968b741f64bff1acd2d75a2ffc05a8bc08",
+      "v4/sky_motion_3d.js": "313dea09f0385237d6cd9d8218d7587503e7916c6dfcd48c7cfb0a4637c475b1",
+      "v4/sky_atlas.mjs": "093bbd9f5d315e87459cf2515517903c42cc546fffe7cefc83755656e90e6f61",
+      "v4/sky_controls.mjs": "3bab0be92a181365165827bd8edbef7874d355498ddb6f212b13d6f487054942",
+      "v4/sky_motion.css": "99716d81f814dbdf38a6f4f12d462461735d2b62047a0162cc6c3a69826918bb",
+      "v4/sky_atlas.html": "21b4f25caaf074f1fe5229ecf884003c87a2d28b7d9463fb321fe3e70bf5b815",
+      "v4/star_map.html": "8b09ddc10c5b66cc096f8d57d57a4336d5d1501a1407c925dd8f1c46ff62c650",
+      "tests/motion_render_checks.html": "3a50466d85ff21c381b361c932d8a6b8dd3b2dd754354517b92e40bf2dffc24b",
+      "tests/lunar_phase_render_audit.mjs": "35a7990acc71bd47bd352e86a1943e581b5000af3630a01f3111d7fc3f4d1e74",
+      "tests/test_sky_motion.mjs": "877c8aaf5ae268c8ecc299a16f95d6d6219f379765e3a5925f831e2217500519",
+      "tests/body_render_audit.mjs": "d300d7cf8aafc855680c366678aee07c933b1fe4707018f9ebc35f229a395912",
+      "v4/data/sky_motion_validation.md": "bf76e65937a28ab46f1f242adcbaa398ee09aac3a779d4263d0eeaa9418d4d1d"
+    },
+    "scope": "The enlarged lunar contour is a labelled readability aid with the same geometric phase and projected sunlight direction as the physical body. Its outer edge is not the physical angular diameter; its brightness is not calibrated photometry. Finite pixels limit thin-crescent visibility. Existing illuminated-flux estimates attenuate occulted enhancement; detailed eclipse-shape reproduction is outside this change."
+  },
+  "atlas_resource_recovery_fix": {
+    "checked_at_utc": "2026-09-14T05:24:59.375121+00:00",
+    "root_cause": {
+      "confirmed_defect": "A 512-entry per-color/radius canvas cache repeatedly evicted needed sprites during identical full-catalog frames. Evictions did not explicitly release the removed canvas backing stores.",
+      "previous_cache_limit": 512,
+      "old_code_resource_regression": {
+        "expected_test_failure": true,
+        "sequence": [
+          0.8,
+          1
+        ],
+        "failed_factor": 1,
+        "canvas_allocations_after_warmup_in_3_frames": 699
+      },
+      "original_screenshot_hardware_loss_reproduced": false,
+      "original_failure_logs_available": false,
+      "proven_unique_cause_of_screenshot": false
+    },
+    "changes": [
+      "Pack 256 integrated 5x5 subpixel samples into one 112x119 texture per color, with duplicated one-pixel borders.",
+      "Reuse evicted color canvases at the 64-color limit per cache; release backing stores when clearing catalog or restored-context caches.",
+      "Only resize the main canvas when its actual device dimensions change.",
+      "Handle Canvas2D context loss and restoration, invalidating completed-frame state and rebuilding all painter textures, including while paused.",
+      "Version import maps and the atlas entry module to load the repaired implementation."
+    ],
+    "checks": {
+      "orbital_and_shared_state": {
+        "passed": 36,
+        "failed": 0,
+        "source": "tests/test_sky_motion.mjs"
+      },
+      "canvas_resources": {
+        "passed": 3,
+        "failed": 0,
+        "source": "tests/test_atlas_resources.mjs"
+      },
+      "actual_browser_gpu_and_canvas": {
+        "passed": 32,
+        "failed": 0,
+        "source": "tests/motion_render_checks.html"
+      },
+      "continuous_playback_and_synthetic_recovery": {
+        "passed": 5,
+        "failed": 0,
+        "source": "tests/atlas_playback_checks.html"
+      },
+      "javascript_syntax": {
+        "passed": true,
+        "module_count": 6
+      },
+      "import_maps": {
+        "passed": true,
+        "pages": 4
+      },
+      "python_catalog_and_png_suite": {
+        "rerun": false,
+        "reason": "Catalog generation and saved images were not changed."
+      },
+      "added_line_whitespace": {
+        "passed": true,
+        "baseline": "pre-change backup; pre-existing whitespace left in place"
+      }
+    },
+    "resource_samples": {
+      "catalog_count": 9327,
+      "sizes": [
+        {
+          "factor": 0.8,
+          "warm_canvas_count": 10,
+          "additional_after_3_frames": 0
+        },
+        {
+          "factor": 1,
+          "warm_canvas_count": 11,
+          "additional_after_3_frames": 0
+        },
+        {
+          "factor": 1.6,
+          "warm_canvas_count": 14,
+          "additional_after_3_frames": 0
+        },
+        {
+          "factor": 2,
+          "warm_canvas_count": 14,
+          "additional_after_3_frames": 0
+        },
+        {
+          "factor": 3,
+          "warm_canvas_count": 14,
+          "additional_after_3_frames": 0
+        }
+      ],
+      "texture_pixels": [
+        112,
+        119
+      ],
+      "individual_sample_pixels": [
+        5,
+        5
+      ],
+      "cache_limit_per_kind": 64,
+      "maximum_color_canvases_per_painter": 128
+    },
+    "pixel_comparison": {
+      "source": "tests/atlas_texture_audit.mjs",
+      "reference": "Previously validated isolated 5x5 sprites",
+      "sample_count": 432,
+      "max_channel_delta": 0,
+      "device_pixel_ratios": [
+        1,
+        2
+      ],
+      "coverage": [
+        "18 subpixel radii including row boundaries and the radius=2px transition",
+        "3 colors",
+        "4 fractional pixel positions",
+        "opacity and area compensation"
+      ]
+    },
+    "continuous_playback": {
+      "duration_seconds": 60.0423,
+      "frames": 3602,
+      "catalog_count": 9327,
+      "initial_earth_day": 1110.36,
+      "speed_earth_days_per_second": 1.0833333333333333,
+      "symbol_device_scale": 1.6,
+      "canvas_device_pixels": [
+        1400,
+        760
+      ],
+      "warm_canvas_count_including_bodies": 26,
+      "additional_canvases": 0,
+      "context_losses": 0,
+      "bright_pixels_above_channel_32": 51899,
+      "pixel_rgb_checksum": 37444189,
+      "synthetic_recovery": {
+        "production_page": "v4/sky_atlas.html",
+        "passed": true,
+        "hardware_failure_reproduced": false,
+        "paused_days_before": 3928.342761,
+        "paused_days_after": 3928.342761,
+        "catalog_count": 9327,
+        "final_status": "ready",
+        "background_pixel": [
+          3,
+          6,
+          13,
+          255
+        ]
+      }
+    },
+    "preservation": {
+      "count": 31,
+      "changed": [],
+      "baseline": "/tmp/sky-motion-20260913/preserved-files.json"
+    },
+    "resource_version": "20260914-atlas-resources-1",
+    "source_sha256": {
+      "v4/sky_atlas_stars.mjs": "b6abb57eeae34457cb17216c2f4602367ab761c4b78fe791dfb1446f3d0a973b",
+      "v4/sky_atlas_bodies.mjs": "ba5f53f55b87f68d5353759d9d60b7336664418595fe942adb417015c45af7cc",
+      "v4/sky_atlas.mjs": "f688fcd9da55ba0a9610d867908989b96f7bee6b8af95cf2cba39c85e5a1bccb",
+      "v4/sky_atlas.html": "e08f4c6f24847fd9a83742802ce4ce2b7887a5e92930b2ae0e1ac99038ae00a2",
+      "v4/star_map.html": "0f8a7b9ba3ef1167d97a28ce8ce3160aeb944fdf8ce9f5551c5192e3d5671bc9",
+      "tests/test_atlas_resources.mjs": "14615de6aa852e13c1732376c41de0853235db8211e2d82aae9f36d7046aa11c",
+      "tests/atlas_texture_audit.mjs": "ce4fbab877b9d974c8d537272f986a7d622d9831b5728f66ac311209947ff7c1",
+      "tests/motion_render_checks.html": "ab7077fdfdfeb77db5ed02677bf800e2fde3fa3e89c0813a68dcbb7d13602e9b",
+      "tests/atlas_playback_checks.html": "e1dc5a3ceecef94404e1573469a7d0d019de1aecd082d18c5633ac5dda7bf79f",
+      "tests/atlas_playback_checks.mjs": "64eabb3157c57e79175ad3db1e35a61edb8ca5563766b1e83ba75f67aaa7744f",
+      "v4/data/sky_motion_validation.md": "16541d101a239b09279628fbc9d536e69276861bc8f58711441f1177852e2da9"
+    },
+    "scope": "Confirmed and removed recurring canvas allocation churn. Real Canvas playback and synthetic production-page recovery passed. The original screenshot failure was not captured in hardware/process logs, and this does not establish the unique cause or guarantee all hardware and unbounded runtime.",
+    "production_page_observations": {
+      "url": "http://127.0.0.1:8765/v4/sky_atlas.html",
+      "playback_started_day": 1110.36,
+      "playback_speed_earth_days_per_second": 1.0833333333333333,
+      "observed_render_day": 1134.3883333333333,
+      "screen_inspected": true,
+      "two_hemispheres_visible": true,
+      "render_status": "ready",
+      "catalog_count": 9327,
+      "console_errors_observed": [],
+      "restored_paused_day": 3928.342761,
+      "restored_speed_earth_days_per_second": 0.05416666666666666,
+      "browser_control_connection_interrupted_and_recovered": true
+    }
+  },
+  "uniform_zoom_fix": {
+    "checked_at_utc": "2026-09-14T05:59:36.858516+00:00",
+    "request": "Keep wandering bodies and background stars in the same size proportion when zooming.",
+    "root_cause": [
+      "Atlas divided body enhancement sizes by max(1, zoom), while background stars retained the canvas zoom.",
+      "Planets and moons changed enhancement weights when their physical disks grew on screen.",
+      "Immersive background stars were fixed-size CSS points, while physical disks and mixed glare sizes responded to FOV."
+    ],
+    "changes": [
+      "Atlas body light, lunar phase contours and background glyphs share the map transform and window-fit scale.",
+      "Immersive background and planetary point radii and solar/lunar enhancement all share focal_length / reference_focal_length.",
+      "Enhancement weights use a fixed reference or the invariant physical-disk/light-radius ratio, rather than the current zoom.",
+      "A synchronized planetGlow toggle allows explicit inspection of planetary physical disks; solar and lunar toggles remain available.",
+      "Physical radii, distances, angular diameters, phases, magnitude filters and occultation geometry are unchanged."
+    ],
+    "scale_contract": {
+      "atlas_screen_factor": "hemisphere_radius / 200 * zoom",
+      "sphere_css_factor": "[height / (2 * tan(fov / 2))] / [128 / tan(30 degrees)]",
+      "sphere_reference": "256 CSS px height at 60 degrees FOV",
+      "planet_weight_reference": "unresolvedPointWeight at reference projected angular diameter",
+      "lunar_weight_reference": "D / L stays constant under shared scaling",
+      "invariants_hold_for": "Fixed time, orientation and layer settings; orbital motion still changes physical appearance.",
+      "ui_labels_and_markers_are_not_body_disks": true
+    },
+    "checks": {
+      "orbital_and_shared_state": {
+        "passed": 37,
+        "failed": 0,
+        "source": "tests/test_sky_motion.mjs"
+      },
+      "canvas_resource_regressions": {
+        "passed": 3,
+        "failed": 0,
+        "source": "tests/test_atlas_resources.mjs"
+      },
+      "actual_browser_canvas_and_webgl": {
+        "passed": 34,
+        "failed": 0,
+        "source": "tests/motion_render_checks.html"
+      },
+      "syntax": {
+        "passed": true,
+        "modules": 11,
+        "inline_pages": 2
+      },
+      "import_maps": {
+        "passed": true,
+        "pages": 4
+      },
+      "new_line_whitespace": {
+        "passed": true,
+        "preexisting_whitespace_preserved": true
+      },
+      "continuous_60_second_playback": {
+        "rerun": false,
+        "previous_record": "atlas_resource_recovery_fix",
+        "reason": "Texture allocation lifecycle is unchanged and its resource regression tests were rerun."
+      },
+      "python_catalog_and_png_suite": {
+        "rerun": false,
+        "reason": "Catalog generation and saved images were not modified."
+      },
+      "camera_module_checks": {
+        "rerun": false,
+        "reason": "Camera movement and picking code were not modified; production zoom was inspected."
+      }
+    },
+    "new_zoom_samples": {
+      "source": "tests/zoom_render_audit.mjs",
+      "raster_samples": 372,
+      "glyphs": [
+        "background star",
+        "Sol",
+        "Mercury-Sol",
+        "Venus-Sol",
+        "Mars-Sol",
+        "Jupiter-Sol",
+        "Saturn-Sol",
+        "Neptune-Sol",
+        "Luna",
+        "Echo"
+      ],
+      "atlas_zoom": [
+        0.55,
+        1,
+        2,
+        8,
+        16,
+        32
+      ],
+      "atlas_fit_factors": [
+        0.1,
+        0.2
+      ],
+      "atlas_bounded_sample_rule": "fit * zoom <= 3.2 to contain the full Sol contour in a 1024 px canvas",
+      "sphere_fov_degrees": [
+        100,
+        60,
+        30,
+        10
+      ],
+      "sphere_css_heights": [
+        256,
+        512
+      ],
+      "dpr": [
+        1,
+        2
+      ],
+      "max_extent_deviation_device_px": 1.5,
+      "extent_tolerance_device_px": 3,
+      "gpu_point_size_limit_device_px": 511,
+      "sol_at_narrow_fov": "Full contour projection geometry is checked; raster extent comparison only where the contour fits the viewport.",
+      "phase_and_visibility": "Fixed full-phase and forced-visible isolated samples, including Neptune, isolate scaling; real visibility filtering remains separately tested.",
+      "old_code_counterexample": {
+        "failed": 2,
+        "total": 2,
+        "atlas": {
+          "glyph": "Sol",
+          "measured_width_px": 7,
+          "expected_uniform_width_px": 0.38671875000000006
+        },
+        "sphere": {
+          "glyph": "background",
+          "measured_width_px": 4,
+          "expected_uniform_width_px": 0.18352926324198993
+        },
+        "production_files_reverted": false
+      }
+    },
+    "production_browser_observations": {
+      "paused_earth_day": 3928.342761,
+      "atlas_zoom": [
+        1,
+        4.636686524313411,
+        0.55,
+        1
+      ],
+      "sphere_fov_degrees": [
+        60,
+        27.864251589605495,
+        60
+      ],
+      "sphere_symbol_scale": [
+        1.73046875,
+        4.027436534700346,
+        1.73046875
+      ],
+      "viewed_body": "Luna",
+      "both_background_counts": 9327,
+      "planet_toggle_off_from_atlas_synced_to_sphere": true,
+      "planet_toggle_on_from_sphere_synced_to_atlas": true,
+      "final_planet_solar_lunar_enhancement_enabled": true,
+      "page_console_errors_observed": {
+        "atlas": [],
+        "sphere": []
+      }
+    },
+    "preservation": {
+      "count": 31,
+      "changed": [],
+      "baseline": "/tmp/sky-motion-20260913/preserved-files.json"
+    },
+    "resource_version": "20260914-uniform-zoom-2",
+    "source_sha256": {
+      "v4/sky_render.mjs": "e7368828604ba82c60bef9c0b815ede7bafb82976970047544b132e41779135f",
+      "v4/sky_atlas_bodies.mjs": "9381f3da3f6569ca9c3253a6a997b31b061cecdce11ea17e5515f12de8ba91e4",
+      "v4/sky_atlas.mjs": "ba4e6871af928ea31985b252dd5c698ab9fd55625e366df5a9108cf1e29a094e",
+      "v4/sky_points.js": "b355c3217de90a4ddc4d3bfcbd953fa72cc2d6d783fafdcfcb0d3a4932463ef2",
+      "v4/sky_motion_3d.js": "30bfefcbe32eb84858f8776ffb9711c0193cf7d249d5b229746e47872b24a609",
+      "v4/sky_state.mjs": "48522be680a5ec8591dcdad473d3a58747ff1b34812a394df5121c72235060ee",
+      "v4/sky_controls.mjs": "7a34e496cad9ea5c03bc1f83e5a2973ba8e137fbf11712f466f6d873e6184640",
+      "v4/sky_atlas.html": "d3116f03950dd61b184ad561ada8c20ff9c8bc9dbc1258e898e5ba33ec7fc43e",
+      "v4/star_map.html": "5ce8e54f999f1ae631ab7a6ab4cbbeec2728191d3e21ae70f83434ff5cc07e49",
+      "tests/test_sky_motion.mjs": "3304860c251322b485a44feda56f4280e8e6c5b5573e00691587bab0ccbc2379",
+      "tests/body_render_audit.mjs": "726a72bf8fd6e037a96e9eee5fd30c001d69ff692ba0a53a435c1d23231bc703",
+      "tests/lunar_phase_render_audit.mjs": "3bc5bb3ea7ce190e7a5f3427e58e8d3570dbaa276d3907f451889df156cf910d",
+      "tests/zoom_render_audit.mjs": "38905bf7e35f4d2092704a66aa9ea7899e359be62361cf9abcf911eefd4f8e41",
+      "tests/motion_render_checks.html": "f39d82748d955d95aae89e802055219cd7a3574d9170e4aeb5d903f4fc34419c",
+      "tests/atlas_playback_checks.html": "8fe00a1dd610f70f52e823580851c6801c4ead9754d90b872f83b0213dffba82",
+      "v4/data/sky_motion_validation.md": "dcb184db95fb96e6c3020f15e7d78bfc70d9f598cf8028865db175712aff9abb"
+    },
+    "scope": "Unified glyph scaling and explicit enhancement layers. Finite pixels, projection shape and viewport clipping remain. Display enhancement is not a physical angular boundary or calibrated eye/camera response; no arbitrary-hardware or unbounded-resolution guarantee is made."
+  },
+  "opaque_lunar_disk_fix": {
+    "checked_at_utc": "2026-09-14T06:33:35.944467+00:00",
+    "request": "Make the entire visible lunar disk opaque so both lit and unlit regions occult background bodies.",
+    "root_cause": [
+      "The enlarged phase texture encoded illumination in alpha and left its dark hemisphere transparent.",
+      "The enlarged texture opacity was multiplied by visible illuminated flux; only the smaller physical disk remained opaque.",
+      "Solar glare was drawn after all foreground bodies."
+    ],
+    "changes": [
+      "Encode lunar illumination in linear RGB with sRGB output; alpha is 255 throughout the display disk, including new moon and faint/daytime bodies.",
+      "Render one complete lunar phase disk; interpolate radius and illumination enhancement rather than cross-fading two disk sizes.",
+      "Draw bodies and solar glare in distance order; use the same AtlasBodyPainter.drawSky path in the production atlas, playback and occlusion tests.",
+      "Clip lunar display disks at the horizon pixel by pixel and keep both atlas hemisphere portions.",
+      "Document that an enabled enlarged display footprint also defines visual occlusion; disable enhancement for physical angular boundaries."
+    ],
+    "display_contract": {
+      "weight": "w = 1 - smoothstep(0.5, 1, D/L)",
+      "radius": "D + w * (sqrt(D^2 + L^2) - D)",
+      "interior_alpha": 255,
+      "dark_surface": "shared sky background color; no emitted light",
+      "new_moon": "opaque dark disk, not an empty texture",
+      "visible_light_fraction_does_not_control_lunar_alpha": true,
+      "depth_order": "far to near, including solar glare",
+      "uniform_zoom_preserved": true,
+      "physical_data_unchanged": true
+    },
+    "checks": {
+      "orbital_and_shared_state": {
+        "passed": 37,
+        "failed": 0,
+        "source": "tests/test_sky_motion.mjs"
+      },
+      "canvas_resource_regressions": {
+        "passed": 3,
+        "failed": 0,
+        "source": "tests/test_atlas_resources.mjs"
+      },
+      "actual_browser_canvas_and_webgl": {
+        "passed": 42,
+        "failed": 0,
+        "source": "tests/motion_render_checks.html"
+      },
+      "continuous_playback_and_synthetic_recovery": {
+        "passed": 5,
+        "failed": 0,
+        "source": "tests/atlas_playback_checks.html"
+      },
+      "syntax": {
+        "passed": true,
+        "modules": 8,
+        "inline_modules": 2
+      },
+      "import_maps": {
+        "passed": true,
+        "pages": 4
+      },
+      "new_line_whitespace": {
+        "passed": true
+      },
+      "python_catalog_and_png_suite": {
+        "rerun": false,
+        "reason": "Generation code, physical catalog data and saved PNGs were not modified."
+      }
+    },
+    "occlusion_samples": {
+      "source": "tests/lunar_occlusion_render_audit.mjs",
+      "new_checks": 8,
+      "raster_samples": 1296,
+      "backends": [
+        "Canvas2D",
+        "WebGL"
+      ],
+      "bodies": [
+        "Luna",
+        "Echo"
+      ],
+      "phase_angles_degrees": [
+        0,
+        60,
+        90,
+        120,
+        150,
+        180
+      ],
+      "common_zoom_factors": [
+        0.55,
+        1,
+        4,
+        8
+      ],
+      "physical_disk_inspection_zoom": 32,
+      "device_pixel_ratios": [
+        1,
+        2
+      ],
+      "max_interior_rgb_delta": 1,
+      "allowed_delta": 1,
+      "witness_star_minimum_difference_required": 25,
+      "coverage": [
+        "lit and unlit lunar surface",
+        "new moon",
+        "faint moon in daytime",
+        "physical disk with enhancement disabled",
+        "background planets and moons",
+        "foreground planet and input-order independence",
+        "partial eclipse with enabled solar glare",
+        "equator on both atlas hemispheres",
+        "horizon clipping"
+      ],
+      "synthetic_phase_samples_hold_magnitude_fixed": true,
+      "edge_antialiasing_excluded_from_interior_test": true
+    },
+    "old_texture_counterexample": {
+      "only_old_lunarGlareImage_function_restored_in_isolated_probe": true,
+      "checks_catching_old_defect": 2,
+      "total": 2,
+      "interior_leak": {
+        "Canvas": 7,
+        "WebGL": 10
+      },
+      "first_failing_case": {
+        "body": "Luna",
+        "phase_degrees": 0,
+        "zoom": 0.55,
+        "dpr": 1
+      },
+      "production_source_reverted": false
+    },
+    "zoom_regression": {
+      "raster_samples": 372,
+      "max_extent_error_device_px": 1.3749999999999996,
+      "tolerance_device_px": 3,
+      "source": "tests/zoom_render_audit.mjs"
+    },
+    "continuous_playback": {
+      "duration_seconds": 60.03680000001192,
+      "frames": 3602,
+      "catalog_count": 9327,
+      "warm_canvases": 24,
+      "additional_canvases": 0,
+      "context_losses": 0,
+      "bright_pixels": 51879,
+      "rgb_checksum": 37444939,
+      "synthetic_recovery": {
+        "passed": true,
+        "hardware_failure_reproduced": false,
+        "paused_days_before": 3928.342761,
+        "paused_days_after": 3928.342761,
+        "final_status": "ready"
+      }
+    },
+    "production_browser_observations": {
+      "viewed_earth_day": 3937,
+      "luna_illuminated_fraction": 0.294593864674494,
+      "echo_illuminated_fraction_displayed": 0.927,
+      "atlas_zoom": 4.636686524313411,
+      "sphere_fov_degrees": [
+        60,
+        27.864251589605495
+      ],
+      "viewed_bodies": [
+        "Luna",
+        "Echo"
+      ],
+      "restored_paused_earth_day": 3928.342761,
+      "restored_selected_body": "Luna",
+      "restored_atlas_zoom": 1,
+      "restored_sphere_fov": 60,
+      "enhancements_enabled": [
+        "solar",
+        "lunar",
+        "planetary"
+      ],
+      "both_catalog_counts": 9327,
+      "console_errors_observed": {
+        "atlas": [],
+        "sphere": []
+      }
+    },
+    "preservation": {
+      "count": 31,
+      "changed": [],
+      "baseline": "/tmp/sky-motion-20260913/preserved-files.json"
+    },
+    "resource_version": "20260914-opaque-moons-1",
+    "source_sha256": {
+      "v4/sky_render.mjs": "278f5c79eb89c390cf2ad24068180c9069b76db411ca6a55aea1227b2f349ae0",
+      "v4/sky_atlas_bodies.mjs": "14ef4c9f2a3a22b9cbef95d454b11b9884d1e2e023452c7a6f6ce0220fca2200",
+      "v4/sky_motion_3d.js": "b12ae8ac8f8448b467ef3369e7462cfe6b7f2c5e5ff0abe49416b1c180cdc0c7",
+      "v4/sky_atlas.mjs": "0cf490f793eb6b81309e3887036dac87c767e8ab7996662e032d583b0f9ac97e",
+      "v4/sky_controls.mjs": "27331a851293ffc4f5c88e6c56f85a618c5e220e9bbbdf51f617a3aca06f5374",
+      "v4/sky_atlas.html": "cf63efb82b4b571e92b3ba7ed58b46d275ccd9d2ff5c57e916f736f50a79dc4c",
+      "v4/star_map.html": "bd7ebc0c922820a648a16053d5b8001a10bcab021774aafcd38208f7e0c917a4",
+      "tests/motion_render_checks.html": "69a0edad91ff828216394c225793d7ce8969851c0e1d9b689af792d66fb0334e",
+      "tests/body_render_audit.mjs": "db23b1379f1152068de06e63e35cb4c9e99158af93d84003fc7e636f72828b43",
+      "tests/atlas_playback_checks.html": "60c0882ad0759c195882e9e65c5fbdfe5ec7ed6a1ca1d0ea5f4b584c92de61a9",
+      "tests/atlas_playback_checks.mjs": "e440c81be3c3d877ce1bf104ec934810044e0e11184792d4496ad3a7f13a9104",
+      "v4/data/sky_motion_validation.md": "17259653cbaaeb1fb10a9ae7f82bad0a8b948d6a285aba4ab27438e81f92c6ea",
+      "tests/lunar_occlusion_render_audit.mjs": "62d07e455afb99088f0a941d42fbcd45412830cd8554fe9b137736936fe73f90"
+    },
+    "scope": "Display disks are now opaque, including the enhanced footprint. Enhanced silhouettes are intentionally larger than physical angular diameters. Photometry, true angular-diameter calculations, catalogs and orbital data are unchanged. Physical-scale occultation requires disabling enhancement. These sampled pixel and playback tests do not constitute a precision eclipse or eye/camera scattering model."
+  },
+  "current_validation_stage": "angular_scale_and_projection_fix",
+  "angular_scale_and_projection_fix": {
+    "checked_at_utc": "2026-09-14T08:21:52.463246+00:00",
+    "asset_version": "20260914-angular-projection-6",
+    "findings_fixed": [
+      "Atlas used hemisphere radius 200 as its symbol reference, making points 1.741247 times larger at equal central angular scale.",
+      "Lunar brightness enlarged the opaque displayed disk; both pages now keep 2 asin(R / observer_distance) for the full occulting disk.",
+      "Background and planet point images were too large relative to the actual lunar disks; the shared display PSF is now narrower and small disks receive pixel coverage integration.",
+      "Perspective skybox geometry does not preserve off-axis celestial circles; selectable stereographic projection now reaches every drawing and interaction consumer.",
+      "Point sampling branches had different exposure and interpolation order; shared small kernels and resolved area integrals now cross the 2 device pixel boundary continuously."
+    ],
+    "rendering_contract": {
+      "disk_angular_diameter": "2 asin(R / observer_distance)",
+      "view_comparison": "Same central pixels per radian and DPR; projection distortion still applies away from the center.",
+      "symbol_reference_focal_css_px_per_rad": 221.7025033688163,
+      "old_atlas_excess_factor": 1.741247,
+      "point_style": {
+        "referenceMagnitude": 6.5,
+        "referenceRadius": 0.023,
+        "radiusExponent": 0.09,
+        "maximumRadius": 0.17,
+        "referenceOpacity": 0.5,
+        "opacityExponent": 0.14,
+        "coreFraction": 0.2,
+        "exposure": 64
+      },
+      "point_radius_quantization_device_px": 0.0078125,
+      "lunar_enhancement": "Lambert surface color enhancement only, maximum gain 4; unchanged opaque boundary.",
+      "solar_glare_radius_to_disk_radius": 2.2,
+      "default_immersive_projection": "stereographic",
+      "alternative_immersive_projection": "perspective",
+      "atlas_zoom_limits": [
+        0.55,
+        128
+      ],
+      "immersive_vertical_fov_limits_degrees": [
+        1,
+        100
+      ],
+      "opaque_disk_interior": true,
+      "fully_hidden_bodies": "Culled using angular separation, angular radii and foreground distance before raster blending.",
+      "photometric_display_calibration": false
+    },
+    "checks": {
+      "orbital_and_shared_state": {
+        "passed": 36,
+        "failed": 0
+      },
+      "projection_math": {
+        "passed": 3,
+        "failed": 0
+      },
+      "atlas_resources": {
+        "passed": 4,
+        "failed": 0
+      },
+      "actual_browser_canvas_and_gpu": {
+        "passed": 37,
+        "failed": 0
+      },
+      "camera_browser_regression": {
+        "passed": 9,
+        "failed": 0
+      },
+      "atlas_playback_and_recovery": {
+        "passed": 5,
+        "failed": 0
+      },
+      "unchanged_python_suite": "Previous 38 / 38 baseline; not rerun because generation and PNG modules were unchanged."
+    },
+    "raster_metrics": {
+      "atlas_texture_samples": 432,
+      "atlas_texture_max_channel_difference": 0,
+      "phase_samples": 156,
+      "zoom_and_cross_view_samples": 504,
+      "zoom_max_device_pixel_error": 2.75,
+      "zoom_tolerance_device_px": 3,
+      "cross_view_max_device_pixel_error": 2,
+      "cross_view_tolerance_device_px": 2,
+      "occlusion_samples": 856,
+      "occlusion_max_interior_channel_leak": 0,
+      "point_branch_boundary": {
+        "radii_device_px": [
+          1.999,
+          2.001
+        ],
+        "pixel_offsets": [
+          0,
+          0.25,
+          0.5,
+          0.75
+        ],
+        "renderers": [
+          "Canvas",
+          "WebGL"
+        ],
+        "relative_sum_error_less_than": 0.05,
+        "span_difference_at_most_px": 1
+      },
+      "circle_width_to_height": [
+        {
+          "mode": "perspective",
+          "off_axis_degrees": 0,
+          "ratio": 1
+        },
+        {
+          "mode": "perspective",
+          "off_axis_degrees": 30,
+          "ratio": 1.1704545454545454
+        },
+        {
+          "mode": "perspective",
+          "off_axis_degrees": 40,
+          "ratio": 1.32
+        },
+        {
+          "mode": "stereographic",
+          "off_axis_degrees": 0,
+          "ratio": 1
+        },
+        {
+          "mode": "stereographic",
+          "off_axis_degrees": 30,
+          "ratio": 1
+        },
+        {
+          "mode": "stereographic",
+          "off_axis_degrees": 40,
+          "ratio": 0.990909090909091
+        }
+      ],
+      "limits": "Zoom fixtures fix phase and visibility including Neptune to isolate scale. Solar glare extent uses a higher display threshold than body diameter tests. Sampled raster tolerances are not precision occultation accuracy."
+    },
+    "playback": {
+      "duration_seconds": 60.0425,
+      "frames": 3599,
+      "catalog_count": 9327,
+      "symbol_scale": 0.9188814923696534,
+      "warm_canvases": 23,
+      "new_canvases_after_warmup": 0,
+      "context_losses": 0,
+      "bright_pixels": 10855,
+      "checksum": 23616898
+    },
+    "recovery": {
+      "synthetic_events": true,
+      "hardware_loss_reproduced": false,
+      "isolated_in_memory_storage": true,
+      "earth_days_before": 3928.342761,
+      "earth_days_after": 3928.342761,
+      "status": "ready",
+      "background_pixel": [
+        3,
+        6,
+        13,
+        255
+      ]
+    },
+    "manual_browser_observations": {
+      "browser": "Native Google Chrome",
+      "production_html_and_modules": true,
+      "storage_isolated_from_user_pages": true,
+      "earth_day": 3928.342761,
+      "visible_background_both_pages": 9327,
+      "luna_angular_diameter_arcmin": 31.460257,
+      "echo_angular_diameter_arcmin": 6.809768,
+      "atlas_luna_inspection_seen": true,
+      "immersive_luna_and_echo_inspection_seen": true,
+      "projection_selector_operated": true,
+      "top_level_page_errors_captured": [],
+      "console_not_inspected": true,
+      "in_app_tabs_not_refreshed": true
+    },
+    "preservation": {
+      "count": 31,
+      "changed": []
+    },
+    "source_sha256": {
+      "README.md": "1de882d0a6d04248da809d4f21d3b277cb787d27f9ddf23068faf3604bef184b",
+      "v4/star_map.html": "90dd3281d60fc76152ad3fef43cb2f88bf8ecbaf9048cb9634fed8077fd44dce",
+      "v4/sky_atlas.html": "5ec6bbfaacbd3ad975ef6b3f5af7aacd6f6e8bd5c05300c95612413a144ea34b",
+      "v4/solar_system.mjs": "bc6ecb40b595432b68597864e3b6ff5e7850b01b196d2c0aa826f64ee8de9511",
+      "v4/sky_state.mjs": "b15ce41333d43095b7554dbedcca77685fbdad2743094ae6b14c426071b5f8c6",
+      "v4/sky_controls.mjs": "90280f74c3eb7b3bbdeb31758162a44874aa81baf06ff7dacdd4d256846feeed",
+      "v4/sky_render.mjs": "8554915e9152faba716798b40c1815c77fb6c65e7ed82060e68fcb373b2d8b78",
+      "v4/sky_point_kernel.mjs": "63a7eb09a27d42f4ecb70dbe95353523fde1de004a74dbbf62f6534525f62baa",
+      "v4/sky_atlas.mjs": "0cc8c00b490d46e3a748278a0b53bb5af8a898e41b46f4dfb5b615efe0ae108f",
+      "v4/sky_atlas_stars.mjs": "b3fc5ad40369b07c039f6c6abe32f4ad47f7588092a1f8a3e1cc6b9ca9168178",
+      "v4/sky_atlas_bodies.mjs": "822d119d4b97b0defd0856427e4d35d8c3684962b5f39286222c099aa1ebbd20",
+      "v4/sky_motion_3d.js": "95789f2335bac7b489a8fb3040c57eed33007540c5a2d0fe98067127721d3498",
+      "v4/sky_points.js": "18bca32c1b1b38bca2695671501c17c0b8aac88c20da664bd9509cabb9af2ee0",
+      "v4/sky_projection.mjs": "748ba3aaac0b7580ae08873d0018b10ebaf6e4933f6b7af50273d5c7546e3cc1",
+      "v4/sky_projection.js": "b474556db918fc3eef420e93ce05388dd8d8a21c560db4e47d549d333f44aecc",
+      "v4/sky_view.js": "793038cdc2c20b536bbe971fce540f7ef904e0da9f468fa0a7a3868189beaede",
+      "v4/sky_motion.css": "99716d81f814dbdf38a6f4f12d462461735d2b62047a0162cc6c3a69826918bb",
+      "v4/data/sky_motion_validation.md": "891eea33d2e374c5c200dcd68b160dda11683d02eb06145dd61d3e9cfbb0d53c",
+      "tests/atlas_playback_checks.mjs": "c806ba060e599ca29c75df722acb8099cb19f4caa7cbbfd4a13f80963e09b097",
+      "tests/atlas_texture_audit.mjs": "f9d84c8c92a8d54486556d31f4307ceb4d5db030df8d0fc3361987bd8b37df8c",
+      "tests/body_render_audit.mjs": "6687875ee1d6f2f6b65d731f8ad79e28ca2f18ca56edceec51c8c92dfe72534d",
+      "tests/lunar_occlusion_render_audit.mjs": "a7151faa2f0ebecf6516501b305e5e9658e0f28f67ef7a295678918cd00278e3",
+      "tests/lunar_phase_render_audit.mjs": "bbcea83097293c5cffe4cf2bb846eb9a69523075d0e54a3a45cd424c8ae95a58",
+      "tests/projection_render_audit.mjs": "164c3d8a558426a039a7be8d34c27d7d88aa62089a08d14693510e7c755fc200",
+      "tests/sky_render_fixture.mjs": "4bc18ea944f12e0202b032f04ef94c6bf0ee9789712a5b86d5d88f557a36bad3",
+      "tests/star_render_audit.mjs": "4062df084b99ecf7041caa326585ca70e90d5e811546e90c3938ea89c37e818c",
+      "tests/test_atlas_resources.mjs": "52c63400ec5b16b72800d7a86ca9e166274a33cfa4a059629b982668dba041c4",
+      "tests/test_sky_motion.mjs": "c7be4e7d814619f4a6a37e619a68ac6f81ae5896f2b71b171f0332d0abf47ee0",
+      "tests/test_sky_projection.mjs": "2fe13bd31c626b1d40317299b94e4cde87228242f6a1de4d0e11725b3dce4130",
+      "tests/zoom_render_audit.mjs": "9c2595dd330ea01f89f1ad4960973fcd8ade5e6013a7d7198d9c9a5d657e843d",
+      "tests/atlas_playback_checks.html": "090dfc6cbec23c3c17cb001d990981da1d43ab93fa1875973cce7dbd67a02440",
+      "tests/browser_checks.html": "dfff00a1bf4d32f1a0d3c174904485dcd242859ef449c26e13db02bb23856bdf",
+      "tests/motion_render_checks.html": "5fa442577bc4aab28d129012aaa8d3db3c9d47a398a58995e1d737342ca0a146"
+    },
+    "scope": "Validates the implemented fixed orbit model, geometric sizes, sampled occlusion, projection and interactions. Moon magnitude remains a total-flux quantity; apparent diameter is separate. Surface images use normalized Lambert shading and optional display enhancement, not calibrated eye or camera brightness. Partial overlaps remain finite raster approximations. No new physical ephemeris, atmospheric or stellar population model was introduced."
+  }
+}

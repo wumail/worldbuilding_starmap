@@ -1,0 +1,64 @@
+TAP version 13
+# Subtest: soft shell line of sight agrees with independent adaptive emissivity integrals
+ok 1 - soft shell line of sight agrees with independent adaptive emissivity integrals
+  ---
+  duration_ms: 2.13425
+  type: 'test'
+  ...
+# Subtest: CPU JavaScript matches the Python exporter noise through lattice boundaries and negative coordinates
+ok 2 - CPU JavaScript matches the Python exporter noise through lattice boundaries and negative coordinates
+  ---
+  duration_ms: 0.870458
+  type: 'test'
+  ...
+# Subtest: browser and exporter reject incompatible cloud types and non-integer noise seeds
+ok 3 - browser and exporter reject incompatible cloud types and non-integer noise seeds
+  ---
+  duration_ms: 0.171792
+  type: 'test'
+  ...
+# Subtest: non-radial luminosity normalization converges under independent Cartesian quadrature
+ok 4 - non-radial luminosity normalization converges under independent Cartesian quadrature
+  ---
+  duration_ms: 764.288125
+  type: 'test'
+  ...
+# Subtest: position angle is stored in a fixed Galactic tangent frame, including both poles
+ok 5 - position angle is stored in a fixed Galactic tangent frame, including both poles
+  ---
+  duration_ms: 79.276417
+  type: 'test'
+  ...
+# Subtest: structured cloud support stays within the parent envelope without opaque masks
+ok 6 - structured cloud support stays within the parent envelope without opaque masks
+  ---
+  duration_ms: 279.493375
+  type: 'test'
+  ...
+# Subtest: local smoke placement changes the interior without imprinting texture on the outer rim
+ok 7 - local smoke placement changes the interior without imprinting texture on the outer rim
+  ---
+  duration_ms: 1.650542
+  type: 'test'
+  ...
+# Subtest: filtered emission matches independent Python Gaussian convolution in fixed cloud coordinates
+ok 8 - filtered emission matches independent Python Gaussian convolution in fixed cloud coordinates
+  ---
+  duration_ms: 700.356125
+  type: 'test'
+  ...
+# Subtest: mixed legacy and filtered catalogues assign independent atlas tiles without changing cluster flux
+ok 9 - mixed legacy and filtered catalogues assign independent atlas tiles without changing cluster flux
+  ---
+  duration_ms: 135.5255
+  type: 'test'
+  ...
+1..9
+# tests 9
+# suites 0
+# pass 9
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2012.099458

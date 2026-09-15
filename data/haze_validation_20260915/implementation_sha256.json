@@ -1,0 +1,14 @@
+{
+  "web/v1/sky_motion_3d.js": "f3b1fa6868139ce42b6482eb69edfb06dc2e98546639be0a3a414ab4dfcd583f",
+  "web/v1/sky_points.js": "bae1a5e7e660e0454c760ec45a26efa459acdd2f91dc02b79ab003e964b5bafa",
+  "web/v1/star_map.html": "22d8a0cc940e253da17aa79d3b4bd168f95877d7f4095df4915d28dc14ffcc21",
+  "web/v1/sky_atlas.mjs": "7f93fec297ebaa3d174c6f359ca4a64ce1e96b59642f7c2f0c8599bbe0177ad8",
+  "web/shared/sky_overlays.mjs": "d3ba1c8d5a7c7318fb4cbf4af840efd2f7f18590261752f4d1d613bbc95daf86",
+  "web/shared/sky_guides.mjs": "0a0ded3cd0b5d7ea264a8193ee6d873b3ce0f2f28d2c556813e6966de0a3802f",
+  "web/shared/zodiac.mjs": "9d1470d676610224e1861fa59433b8d266de1b5c78403db98f399d06af51bfe3",
+  "web/v1/zodiac_3d.js": "22f8494363a8fe41f3b59a942d806b64db67c14ff7af8c8afbe79b116923d3c9",
+  "web/shared/deep_sky_view.js": "def8bde1a6cfd6404aabceea509a922544cb8f268c975e92a3cbd4ad10c7c12e",
+  "web/v2/eye_renderer.mjs": "ac09a92acab749f323d2d33ec4b0a49e4f3086002165a13b3d0dcfe0d20ddda5",
+  "web/v2/eye_app.mjs": "5a1a9a2b1ce176a7cc311382dc869ad49c674ba6fc84361087b5c07503a5dbc6",
+  "tests/sky_artifact_checks.mjs": "97a4070a6ad9206eecb0525383ba8cb3e34bdea89710498a79b95d53130cdbdc"
+}

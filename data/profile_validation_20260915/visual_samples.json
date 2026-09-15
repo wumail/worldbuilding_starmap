@@ -1,0 +1,19 @@
+{
+  "records": [
+    {
+      "id": "GC-10-000156",
+      "magnitude": 5.818687778076738,
+      "angularScaleArcmin": 1.4540640163903127,
+      "zoom": 64,
+      "pixelsPerDegree": 106.66666666666667
+    },
+    {
+      "id": "OC-7.5-001432",
+      "magnitude": 5.820922591321347,
+      "angularScaleArcmin": 1.7500610042378384,
+      "zoom": 64,
+      "pixelsPerDegree": 106.66666666666667
+    }
+  ],
+  "errors": []
+}

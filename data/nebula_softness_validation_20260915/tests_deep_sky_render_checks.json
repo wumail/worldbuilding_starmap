@@ -1,0 +1,1863 @@
+{
+  "path": "tests/deep_sky_render_checks.html",
+  "status": "13/13 通过；0 失败",
+  "failures": [],
+  "metrics": {
+    "total": 13,
+    "failures": 0,
+    "metrics": {
+      "peakRadiance": [
+        0.019975919276475906,
+        0.019975919276475906,
+        0.019975919276475906,
+        0.019975919276475906,
+        0.019975919276475906,
+        0.019975919276475906,
+        0.019975919276475906,
+        0.019975919276475906
+      ],
+      "continuousFlux": {
+        "worstRelativeError": 0.009271104475158554,
+        "witness": {
+          "profile": "plummer",
+          "a": 0.0001,
+          "focal": 750,
+          "dpr": 2,
+          "mode": "stereographic",
+          "offset": 0,
+          "ratio": 0.9907288955248414
+        },
+        "cases": [
+          {
+            "profile": "plummer",
+            "a": 0.0001,
+            "focal": 250,
+            "dpr": 1,
+            "mode": "perspective",
+            "offset": 0,
+            "ratio": 0.9999880148191365
+          },
+          {
+            "profile": "plummer",
+            "a": 0.0001,
+            "focal": 250,
+            "dpr": 1,
+            "mode": "perspective",
+            "offset": 0.37,
+            "ratio": 0.9999908831022728
+          },
+          {
+            "profile": "plummer",
+            "a": 0.0001,
+            "focal": 250,
+            "dpr": 1,
+            "mode": "stereographic",
+            "offset": 0,
+            "ratio": 1.0000038973922007
+          },
+          {
+            "profile": "plummer",
+            "a": 0.0001,
+            "focal": 250,
+            "dpr": 1,
+            "mode": "stereographic",
+            "offset": 0.37,
+            "ratio": 0.9999934568622694
+          },
+          {
+            "profile": "plummer",
+            "a": 0.0001,
+            "focal": 250,
+            "dpr": 2,
+            "mode": "perspective",
+            "offset": 0,
+            "ratio": 1.0000052695202424
+          },
+          {
+            "profile": "plummer",
+            "a": 0.0001,
+            "focal": 250,
+            "dpr": 2,
+            "mode": "perspective",
+            "offset": 0.37,
+            "ratio": 0.9999902782352703
+          },
+          {
+            "profile": "plummer",
+            "a": 0.0001,
+            "focal": 250,
+            "dpr": 2,
+            "mode": "stereographic",
+            "offset": 0,
+            "ratio": 0.9999979347977089
+          },
+          {
+            "profile": "plummer",
+            "a": 0.0001,
+            "focal": 250,
+            "dpr": 2,
+            "mode": "stereographic",
+            "offset": 0.37,
+            "ratio": 1.000002222285227
+          },
+          {
+            "profile": "plummer",
+            "a": 0.0001,
+            "focal": 750,
+            "dpr": 1,
+            "mode": "perspective",
+            "offset": 0,
+            "ratio": 0.9999955351272144
+          },
+          {
+            "profile": "plummer",
+            "a": 0.0001,
+            "focal": 750,
+            "dpr": 1,
+            "mode": "perspective",
+            "offset": 0.37,
+            "ratio": 0.9999777688731443
+          },
+          {
+            "profile": "plummer",
+            "a": 0.0001,
+            "focal": 750,
+            "dpr": 1,
+            "mode": "stereographic",
+            "offset": 0,
+            "ratio": 1.0000125943826887
+          },
+          {
+            "profile": "plummer",
+            "a": 0.0001,
+            "focal": 750,
+            "dpr": 1,
+            "mode": "stereographic",
+            "offset": 0.37,
+            "ratio": 0.9999979843196938
+          },
+          {
+            "profile": "plummer",
+            "a": 0.0001,
+            "focal": 750,
+            "dpr": 2,
+            "mode": "perspective",
+            "offset": 0,
+            "ratio": 0.9907366098182879
+          },
+          {
+            "profile": "plummer",
+            "a": 0.0001,
+            "focal": 750,
+            "dpr": 2,
+            "mode": "perspective",
+            "offset": 0.37,
+            "ratio": 0.9911972676617266
+          },
+          {
+            "profile": "plummer",
+            "a": 0.0001,
+            "focal": 750,
+            "dpr": 2,
+            "mode": "stereographic",
+            "offset": 0,
+            "ratio": 0.9907288955248414
+          },
+          {
+            "profile": "plummer",
+            "a": 0.0001,
+            "focal": 750,
+            "dpr": 2,
+            "mode": "stereographic",
+            "offset": 0.37,
+            "ratio": 0.9911867617364202
+          },
+          {
+            "profile": "plummer",
+            "a": 0.0005,
+            "focal": 250,
+            "dpr": 1,
+            "mode": "perspective",
+            "offset": 0,
+            "ratio": 0.9937572144003325
+          },
+          {
+            "profile": "plummer",
+            "a": 0.0005,
+            "focal": 250,
+            "dpr": 1,
+            "mode": "perspective",
+            "offset": 0.37,
+            "ratio": 0.9977920310049604
+          },
+          {
+            "profile": "plummer",
+            "a": 0.0005,
+            "focal": 250,
+            "dpr": 1,
+            "mode": "stereographic",
+            "offset": 0,
+            "ratio": 0.9937736326833807
+          },
+          {
+            "profile": "plummer",
+            "a": 0.0005,
+            "focal": 250,
+            "dpr": 1,
+            "mode": "stereographic",
+            "offset": 0.37,
+            "ratio": 0.9977942696337379
+          },
+          {
+            "profile": "plummer",
+            "a": 0.0005,
+            "focal": 250,
+            "dpr": 2,
+            "mode": "perspective",
+            "offset": 0,
+            "ratio": 0.9942552459865457
+          },
+          {
+            "profile": "plummer",
+            "a": 0.0005,
+            "focal": 250,
+            "dpr": 2,
+            "mode": "perspective",
+            "offset": 0.37,
+            "ratio": 0.9946055491593913
+          },
+          {
+            "profile": "plummer",
+            "a": 0.0005,
+            "focal": 250,
+            "dpr": 2,
+            "mode": "stereographic",
+            "offset": 0,
+            "ratio": 0.9942448269634281
+          },
+          {
+            "profile": "plummer",
+            "a": 0.0005,
+            "focal": 250,
+            "dpr": 2,
+            "mode": "stereographic",
+            "offset": 0.37,
+            "ratio": 0.9946160400800858
+          },
+          {
+            "profile": "plummer",
+            "a": 0.0005,
+            "focal": 750,
+            "dpr": 1,
+            "mode": "perspective",
+            "offset": 0,
+            "ratio": 0.99923576452858
+          },
+          {
+            "profile": "plummer",
+            "a": 0.0005,
+            "focal": 750,
+            "dpr": 1,
+            "mode": "perspective",
+            "offset": 0.37,
+            "ratio": 0.999967773799295
+          },
+          {
+            "profile": "plummer",
+            "a": 0.0005,
+            "focal": 750,
+            "dpr": 1,
+            "mode": "stereographic",
+            "offset": 0,
+            "ratio": 0.9992560996606445
+          },
+          {
+            "profile": "plummer",
+            "a": 0.0005,
+            "focal": 750,
+            "dpr": 1,
+            "mode": "stereographic",
+            "offset": 0.37,
+            "ratio": 0.9999812599349778
+          },
+          {
+            "profile": "plummer",
+            "a": 0.0005,
+            "focal": 750,
+            "dpr": 2,
+            "mode": "perspective",
+            "offset": 0,
+            "ratio": 0.9999982393442299
+          },
+          {
+            "profile": "plummer",
+            "a": 0.0005,
+            "focal": 750,
+            "dpr": 2,
+            "mode": "perspective",
+            "offset": 0.37,
+            "ratio": 1.0000044207580796
+          },
+          {
+            "profile": "plummer",
+            "a": 0.0005,
+            "focal": 750,
+            "dpr": 2,
+            "mode": "stereographic",
+            "offset": 0,
+            "ratio": 0.9999944528701826
+          },
+          {
+            "profile": "plummer",
+            "a": 0.0005,
+            "focal": 750,
+            "dpr": 2,
+            "mode": "stereographic",
+            "offset": 0.37,
+            "ratio": 1.000001555584529
+          },
+          {
+            "profile": "plummer",
+            "a": 0.002,
+            "focal": 250,
+            "dpr": 1,
+            "mode": "perspective",
+            "offset": 0,
+            "ratio": 0.9999410545701403
+          },
+          {
+            "profile": "plummer",
+            "a": 0.002,
+            "focal": 250,
+            "dpr": 1,
+            "mode": "perspective",
+            "offset": 0.37,
+            "ratio": 0.9999974815650226
+          },
+          {
+            "profile": "plummer",
+            "a": 0.002,
+            "focal": 250,
+            "dpr": 1,
+            "mode": "stereographic",
+            "offset": 0,
+            "ratio": 0.9999521973424008
+          },
+          {
+            "profile": "plummer",
+            "a": 0.002,
+            "focal": 250,
+            "dpr": 1,
+            "mode": "stereographic",
+            "offset": 0.37,
+            "ratio": 0.9999967611400131
+          },
+          {
+            "profile": "plummer",
+            "a": 0.002,
+            "focal": 250,
+            "dpr": 2,
+            "mode": "perspective",
+            "offset": 0,
+            "ratio": 1.000002895228763
+          },
+          {
+            "profile": "plummer",
+            "a": 0.002,
+            "focal": 250,
+            "dpr": 2,
+            "mode": "perspective",
+            "offset": 0.37,
+            "ratio": 0.9999967911133237
+          },
+          {
+            "profile": "plummer",
+            "a": 0.002,
+            "focal": 250,
+            "dpr": 2,
+            "mode": "stereographic",
+            "offset": 0,
+            "ratio": 1.000000347927197
+          },
+          {
+            "profile": "plummer",
+            "a": 0.002,
+            "focal": 250,
+            "dpr": 2,
+            "mode": "stereographic",
+            "offset": 0.37,
+            "ratio": 1.0000014590151654
+          },
+          {
+            "profile": "plummer",
+            "a": 0.002,
+            "focal": 750,
+            "dpr": 1,
+            "mode": "perspective",
+            "offset": 0,
+            "ratio": 1.0000011587543598
+          },
+          {
+            "profile": "plummer",
+            "a": 0.002,
+            "focal": 750,
+            "dpr": 1,
+            "mode": "perspective",
+            "offset": 0.37,
+            "ratio": 0.9999965739367259
+          },
+          {
+            "profile": "plummer",
+            "a": 0.002,
+            "focal": 750,
+            "dpr": 1,
+            "mode": "stereographic",
+            "offset": 0,
+            "ratio": 1.0000048203727263
+          },
+          {
+            "profile": "plummer",
+            "a": 0.002,
+            "focal": 750,
+            "dpr": 1,
+            "mode": "stereographic",
+            "offset": 0.37,
+            "ratio": 0.9999979382623603
+          },
+          {
+            "profile": "plummer",
+            "a": 0.002,
+            "focal": 750,
+            "dpr": 2,
+            "mode": "perspective",
+            "offset": 0,
+            "ratio": 1.000002181444866
+          },
+          {
+            "profile": "plummer",
+            "a": 0.002,
+            "focal": 750,
+            "dpr": 2,
+            "mode": "perspective",
+            "offset": 0.37,
+            "ratio": 0.9999998013199102
+          },
+          {
+            "profile": "plummer",
+            "a": 0.002,
+            "focal": 750,
+            "dpr": 2,
+            "mode": "stereographic",
+            "offset": 0,
+            "ratio": 1.000001981473809
+          },
+          {
+            "profile": "plummer",
+            "a": 0.002,
+            "focal": 750,
+            "dpr": 2,
+            "mode": "stereographic",
+            "offset": 0.37,
+            "ratio": 1.000000431845364
+          },
+          {
+            "profile": "plummer",
+            "a": 0.008,
+            "focal": 250,
+            "dpr": 1,
+            "mode": "perspective",
+            "offset": 0,
+            "ratio": 0.9999899799051769
+          },
+          {
+            "profile": "plummer",
+            "a": 0.008,
+            "focal": 250,
+            "dpr": 1,
+            "mode": "perspective",
+            "offset": 0.37,
+            "ratio": 0.9999900180294743
+          },
+          {
+            "profile": "plummer",
+            "a": 0.008,
+            "focal": 250,
+            "dpr": 1,
+            "mode": "stereographic",
+            "offset": 0,
+            "ratio": 0.9999996351780285
+          },
+          {
+            "profile": "plummer",
+            "a": 0.008,
+            "focal": 250,
+            "dpr": 1,
+            "mode": "stereographic",
+            "offset": 0.37,
+            "ratio": 0.9999985729933347
+          },
+          {
+            "profile": "plummer",
+            "a": 0.008,
+            "focal": 250,
+            "dpr": 2,
+            "mode": "perspective",
+            "offset": 0,
+            "ratio": 0.9999977764245015
+          },
+          {
+            "profile": "plummer",
+            "a": 0.008,
+            "focal": 250,
+            "dpr": 2,
+            "mode": "perspective",
+            "offset": 0.37,
+            "ratio": 0.9999975398260835
+          },
+          {
+            "profile": "plummer",
+            "a": 0.008,
+            "focal": 250,
+            "dpr": 2,
+            "mode": "stereographic",
+            "offset": 0,
+            "ratio": 0.9999997540925473
+          },
+          {
+            "profile": "plummer",
+            "a": 0.008,
+            "focal": 250,
+            "dpr": 2,
+            "mode": "stereographic",
+            "offset": 0.37,
+            "ratio": 0.9999998493819021
+          },
+          {
+            "profile": "plummer",
+            "a": 0.008,
+            "focal": 750,
+            "dpr": 1,
+            "mode": "perspective",
+            "offset": 0,
+            "ratio": 0.9999991567368037
+          },
+          {
+            "profile": "plummer",
+            "a": 0.008,
+            "focal": 750,
+            "dpr": 1,
+            "mode": "perspective",
+            "offset": 0.37,
+            "ratio": 0.9999993067769798
+          },
+          {
+            "profile": "plummer",
+            "a": 0.008,
+            "focal": 750,
+            "dpr": 1,
+            "mode": "stereographic",
+            "offset": 0,
+            "ratio": 1.0000003422439576
+          },
+          {
+            "profile": "plummer",
+            "a": 0.008,
+            "focal": 750,
+            "dpr": 1,
+            "mode": "stereographic",
+            "offset": 0.37,
+            "ratio": 0.9999999846389733
+          },
+          {
+            "profile": "plummer",
+            "a": 0.008,
+            "focal": 750,
+            "dpr": 2,
+            "mode": "perspective",
+            "offset": 0,
+            "ratio": 1.0000000551535964
+          },
+          {
+            "profile": "plummer",
+            "a": 0.008,
+            "focal": 750,
+            "dpr": 2,
+            "mode": "perspective",
+            "offset": 0.37,
+            "ratio": 1.0000000736926205
+          },
+          {
+            "profile": "plummer",
+            "a": 0.008,
+            "focal": 750,
+            "dpr": 2,
+            "mode": "stereographic",
+            "offset": 0,
+            "ratio": 1.0000004174618515
+          },
+          {
+            "profile": "plummer",
+            "a": 0.008,
+            "focal": 750,
+            "dpr": 2,
+            "mode": "stereographic",
+            "offset": 0.37,
+            "ratio": 1.000000291832717
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.0001,
+            "focal": 250,
+            "dpr": 1,
+            "mode": "perspective",
+            "offset": 0,
+            "ratio": 0.9999880148191365
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.0001,
+            "focal": 250,
+            "dpr": 1,
+            "mode": "perspective",
+            "offset": 0.37,
+            "ratio": 0.9999908831022728
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.0001,
+            "focal": 250,
+            "dpr": 1,
+            "mode": "stereographic",
+            "offset": 0,
+            "ratio": 1.0000038973922007
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.0001,
+            "focal": 250,
+            "dpr": 1,
+            "mode": "stereographic",
+            "offset": 0.37,
+            "ratio": 0.9999934568622694
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.0001,
+            "focal": 250,
+            "dpr": 2,
+            "mode": "perspective",
+            "offset": 0,
+            "ratio": 1.0000052695202424
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.0001,
+            "focal": 250,
+            "dpr": 2,
+            "mode": "perspective",
+            "offset": 0.37,
+            "ratio": 0.9999902782352703
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.0001,
+            "focal": 250,
+            "dpr": 2,
+            "mode": "stereographic",
+            "offset": 0,
+            "ratio": 0.9999979347977089
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.0001,
+            "focal": 250,
+            "dpr": 2,
+            "mode": "stereographic",
+            "offset": 0.37,
+            "ratio": 1.000002222285227
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.0001,
+            "focal": 750,
+            "dpr": 1,
+            "mode": "perspective",
+            "offset": 0,
+            "ratio": 0.9999955351272144
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.0001,
+            "focal": 750,
+            "dpr": 1,
+            "mode": "perspective",
+            "offset": 0.37,
+            "ratio": 0.9999777688731443
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.0001,
+            "focal": 750,
+            "dpr": 1,
+            "mode": "stereographic",
+            "offset": 0,
+            "ratio": 1.0000125943826887
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.0001,
+            "focal": 750,
+            "dpr": 1,
+            "mode": "stereographic",
+            "offset": 0.37,
+            "ratio": 0.9999979843196938
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.0001,
+            "focal": 750,
+            "dpr": 2,
+            "mode": "perspective",
+            "offset": 0,
+            "ratio": 0.9998115308515365
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.0001,
+            "focal": 750,
+            "dpr": 2,
+            "mode": "perspective",
+            "offset": 0.37,
+            "ratio": 0.9998464395742509
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.0001,
+            "focal": 750,
+            "dpr": 2,
+            "mode": "stereographic",
+            "offset": 0,
+            "ratio": 0.9998038973531735
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.0001,
+            "focal": 750,
+            "dpr": 2,
+            "mode": "stereographic",
+            "offset": 0.37,
+            "ratio": 0.9998355758186921
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.0005,
+            "focal": 250,
+            "dpr": 1,
+            "mode": "perspective",
+            "offset": 0,
+            "ratio": 0.9993826246166289
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.0005,
+            "focal": 250,
+            "dpr": 1,
+            "mode": "perspective",
+            "offset": 0.37,
+            "ratio": 0.9999881607877439
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.0005,
+            "focal": 250,
+            "dpr": 1,
+            "mode": "stereographic",
+            "offset": 0,
+            "ratio": 0.9993991130005757
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.0005,
+            "focal": 250,
+            "dpr": 1,
+            "mode": "stereographic",
+            "offset": 0.37,
+            "ratio": 0.9999907454628498
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.0005,
+            "focal": 250,
+            "dpr": 2,
+            "mode": "perspective",
+            "offset": 0,
+            "ratio": 1.0000429590669502
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.0005,
+            "focal": 250,
+            "dpr": 2,
+            "mode": "perspective",
+            "offset": 0.37,
+            "ratio": 1.0000253365973208
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.0005,
+            "focal": 250,
+            "dpr": 2,
+            "mode": "stereographic",
+            "offset": 0,
+            "ratio": 1.0000340479728775
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.0005,
+            "focal": 250,
+            "dpr": 2,
+            "mode": "stereographic",
+            "offset": 0.37,
+            "ratio": 1.000036376130778
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.0005,
+            "focal": 750,
+            "dpr": 1,
+            "mode": "perspective",
+            "offset": 0,
+            "ratio": 0.9999873203843107
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.0005,
+            "focal": 750,
+            "dpr": 1,
+            "mode": "perspective",
+            "offset": 0.37,
+            "ratio": 0.999931341160714
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.0005,
+            "focal": 750,
+            "dpr": 1,
+            "mode": "stereographic",
+            "offset": 0,
+            "ratio": 1.0000046600749795
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.0005,
+            "focal": 750,
+            "dpr": 1,
+            "mode": "stereographic",
+            "offset": 0.37,
+            "ratio": 0.9999466044171402
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.0005,
+            "focal": 750,
+            "dpr": 2,
+            "mode": "perspective",
+            "offset": 0,
+            "ratio": 0.9999772676141359
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.0005,
+            "focal": 750,
+            "dpr": 2,
+            "mode": "perspective",
+            "offset": 0.37,
+            "ratio": 1.0000048014626781
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.0005,
+            "focal": 750,
+            "dpr": 2,
+            "mode": "stereographic",
+            "offset": 0,
+            "ratio": 0.9999748650951675
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.0005,
+            "focal": 750,
+            "dpr": 2,
+            "mode": "stereographic",
+            "offset": 0.37,
+            "ratio": 1.000001438063728
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.002,
+            "focal": 250,
+            "dpr": 1,
+            "mode": "perspective",
+            "offset": 0,
+            "ratio": 1.0000790248195142
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.002,
+            "focal": 250,
+            "dpr": 1,
+            "mode": "perspective",
+            "offset": 0.37,
+            "ratio": 0.9999603767390958
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.002,
+            "focal": 250,
+            "dpr": 1,
+            "mode": "stereographic",
+            "offset": 0,
+            "ratio": 1.0000908322316668
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.002,
+            "focal": 250,
+            "dpr": 1,
+            "mode": "stereographic",
+            "offset": 0.37,
+            "ratio": 0.9999631463687387
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.002,
+            "focal": 250,
+            "dpr": 2,
+            "mode": "perspective",
+            "offset": 0,
+            "ratio": 1.000028723127358
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.002,
+            "focal": 250,
+            "dpr": 2,
+            "mode": "perspective",
+            "offset": 0.37,
+            "ratio": 1.0000182815985899
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.002,
+            "focal": 250,
+            "dpr": 2,
+            "mode": "stereographic",
+            "offset": 0,
+            "ratio": 1.0000276626825444
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.002,
+            "focal": 250,
+            "dpr": 2,
+            "mode": "stereographic",
+            "offset": 0.37,
+            "ratio": 1.000021437307022
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.002,
+            "focal": 750,
+            "dpr": 1,
+            "mode": "perspective",
+            "offset": 0,
+            "ratio": 0.9999927801940968
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.002,
+            "focal": 750,
+            "dpr": 1,
+            "mode": "perspective",
+            "offset": 0.37,
+            "ratio": 1.0000060474402435
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.002,
+            "focal": 750,
+            "dpr": 1,
+            "mode": "stereographic",
+            "offset": 0,
+            "ratio": 0.9999951397986968
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.002,
+            "focal": 750,
+            "dpr": 1,
+            "mode": "stereographic",
+            "offset": 0.37,
+            "ratio": 1.0000059075136436
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.002,
+            "focal": 750,
+            "dpr": 2,
+            "mode": "perspective",
+            "offset": 0,
+            "ratio": 0.9999998554779674
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.002,
+            "focal": 750,
+            "dpr": 2,
+            "mode": "perspective",
+            "offset": 0.37,
+            "ratio": 0.9999982209723289
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.002,
+            "focal": 750,
+            "dpr": 2,
+            "mode": "stereographic",
+            "offset": 0,
+            "ratio": 0.9999999786888523
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.002,
+            "focal": 750,
+            "dpr": 2,
+            "mode": "stereographic",
+            "offset": 0.37,
+            "ratio": 0.9999988037043117
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.008,
+            "focal": 250,
+            "dpr": 1,
+            "mode": "perspective",
+            "offset": 0,
+            "ratio": 0.9999998752070317
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.008,
+            "focal": 250,
+            "dpr": 1,
+            "mode": "perspective",
+            "offset": 0.37,
+            "ratio": 0.9999856138966322
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.008,
+            "focal": 250,
+            "dpr": 1,
+            "mode": "stereographic",
+            "offset": 0,
+            "ratio": 1.000010593561463
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.008,
+            "focal": 250,
+            "dpr": 1,
+            "mode": "stereographic",
+            "offset": 0.37,
+            "ratio": 0.9999949400816871
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.008,
+            "focal": 250,
+            "dpr": 2,
+            "mode": "perspective",
+            "offset": 0,
+            "ratio": 1.0000033375421338
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.008,
+            "focal": 250,
+            "dpr": 2,
+            "mode": "perspective",
+            "offset": 0.37,
+            "ratio": 1.0000002728989792
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.008,
+            "focal": 250,
+            "dpr": 2,
+            "mode": "stereographic",
+            "offset": 0,
+            "ratio": 1.0000067949181146
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.008,
+            "focal": 250,
+            "dpr": 2,
+            "mode": "stereographic",
+            "offset": 0.37,
+            "ratio": 1.0000027649320404
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.008,
+            "focal": 750,
+            "dpr": 1,
+            "mode": "perspective",
+            "offset": 0,
+            "ratio": 1.0000012308544122
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.008,
+            "focal": 750,
+            "dpr": 1,
+            "mode": "perspective",
+            "offset": 0.37,
+            "ratio": 1.0000003716714325
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.008,
+            "focal": 750,
+            "dpr": 1,
+            "mode": "stereographic",
+            "offset": 0,
+            "ratio": 1.0000036920591795
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.008,
+            "focal": 750,
+            "dpr": 1,
+            "mode": "stereographic",
+            "offset": 0.37,
+            "ratio": 1.0000006391940206
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.008,
+            "focal": 750,
+            "dpr": 2,
+            "mode": "perspective",
+            "offset": 0,
+            "ratio": 1.000001175072213
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.008,
+            "focal": 750,
+            "dpr": 2,
+            "mode": "perspective",
+            "offset": 0.37,
+            "ratio": 1.0000008565237057
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.008,
+            "focal": 750,
+            "dpr": 2,
+            "mode": "stereographic",
+            "offset": 0,
+            "ratio": 1.0000013611111724
+          },
+          {
+            "profile": "gaussian",
+            "a": 0.008,
+            "focal": 750,
+            "dpr": 2,
+            "mode": "stereographic",
+            "offset": 0.37,
+            "ratio": 1.0000013149387172
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.0001,
+            "focal": 250,
+            "dpr": 1,
+            "mode": "perspective",
+            "offset": 0,
+            "ratio": 0.9999880148191365
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.0001,
+            "focal": 250,
+            "dpr": 1,
+            "mode": "perspective",
+            "offset": 0.37,
+            "ratio": 0.9999908831022728
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.0001,
+            "focal": 250,
+            "dpr": 1,
+            "mode": "stereographic",
+            "offset": 0,
+            "ratio": 1.0000038973922007
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.0001,
+            "focal": 250,
+            "dpr": 1,
+            "mode": "stereographic",
+            "offset": 0.37,
+            "ratio": 0.9999934568622694
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.0001,
+            "focal": 250,
+            "dpr": 2,
+            "mode": "perspective",
+            "offset": 0,
+            "ratio": 1.0000052695202424
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.0001,
+            "focal": 250,
+            "dpr": 2,
+            "mode": "perspective",
+            "offset": 0.37,
+            "ratio": 0.9999902782352703
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.0001,
+            "focal": 250,
+            "dpr": 2,
+            "mode": "stereographic",
+            "offset": 0,
+            "ratio": 0.9999979347977089
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.0001,
+            "focal": 250,
+            "dpr": 2,
+            "mode": "stereographic",
+            "offset": 0.37,
+            "ratio": 1.000002222285227
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.0001,
+            "focal": 750,
+            "dpr": 1,
+            "mode": "perspective",
+            "offset": 0,
+            "ratio": 0.9999955351272144
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.0001,
+            "focal": 750,
+            "dpr": 1,
+            "mode": "perspective",
+            "offset": 0.37,
+            "ratio": 0.9999777688731443
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.0001,
+            "focal": 750,
+            "dpr": 1,
+            "mode": "stereographic",
+            "offset": 0,
+            "ratio": 1.0000125943826887
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.0001,
+            "focal": 750,
+            "dpr": 1,
+            "mode": "stereographic",
+            "offset": 0.37,
+            "ratio": 0.9999979843196938
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.0001,
+            "focal": 750,
+            "dpr": 2,
+            "mode": "perspective",
+            "offset": 0,
+            "ratio": 0.9944719031569776
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.0001,
+            "focal": 750,
+            "dpr": 2,
+            "mode": "perspective",
+            "offset": 0.37,
+            "ratio": 0.9948612436928584
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.0001,
+            "focal": 750,
+            "dpr": 2,
+            "mode": "stereographic",
+            "offset": 0,
+            "ratio": 0.9944636191190649
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.0001,
+            "focal": 750,
+            "dpr": 2,
+            "mode": "stereographic",
+            "offset": 0.37,
+            "ratio": 0.9948506886495107
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.0005,
+            "focal": 250,
+            "dpr": 1,
+            "mode": "perspective",
+            "offset": 0,
+            "ratio": 0.9934119830852369
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.0005,
+            "focal": 250,
+            "dpr": 1,
+            "mode": "perspective",
+            "offset": 0.37,
+            "ratio": 0.9994750373420006
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.0005,
+            "focal": 250,
+            "dpr": 1,
+            "mode": "stereographic",
+            "offset": 0,
+            "ratio": 0.9934288377331277
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.0005,
+            "focal": 250,
+            "dpr": 1,
+            "mode": "stereographic",
+            "offset": 0.37,
+            "ratio": 0.9994773677100635
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.0005,
+            "focal": 250,
+            "dpr": 2,
+            "mode": "perspective",
+            "offset": 0,
+            "ratio": 0.9999629673101887
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.0005,
+            "focal": 250,
+            "dpr": 2,
+            "mode": "perspective",
+            "offset": 0.37,
+            "ratio": 0.9999439451288594
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.0005,
+            "focal": 250,
+            "dpr": 2,
+            "mode": "stereographic",
+            "offset": 0,
+            "ratio": 0.9999524211032159
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.0005,
+            "focal": 250,
+            "dpr": 2,
+            "mode": "stereographic",
+            "offset": 0.37,
+            "ratio": 0.9999544073966595
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.0005,
+            "focal": 750,
+            "dpr": 1,
+            "mode": "perspective",
+            "offset": 0,
+            "ratio": 0.9999716867613349
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.0005,
+            "focal": 750,
+            "dpr": 1,
+            "mode": "perspective",
+            "offset": 0.37,
+            "ratio": 0.9999738333440963
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.0005,
+            "focal": 750,
+            "dpr": 1,
+            "mode": "stereographic",
+            "offset": 0,
+            "ratio": 0.9999939879614326
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.0005,
+            "focal": 750,
+            "dpr": 1,
+            "mode": "stereographic",
+            "offset": 0.37,
+            "ratio": 0.999990211548619
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.0005,
+            "focal": 750,
+            "dpr": 2,
+            "mode": "perspective",
+            "offset": 0,
+            "ratio": 1.0000056693898356
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.0005,
+            "focal": 750,
+            "dpr": 2,
+            "mode": "perspective",
+            "offset": 0.37,
+            "ratio": 1.0000107492932941
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.0005,
+            "focal": 750,
+            "dpr": 2,
+            "mode": "stereographic",
+            "offset": 0,
+            "ratio": 1.0000016531592442
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.0005,
+            "focal": 750,
+            "dpr": 2,
+            "mode": "stereographic",
+            "offset": 0.37,
+            "ratio": 1.0000047833138535
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.002,
+            "focal": 250,
+            "dpr": 1,
+            "mode": "perspective",
+            "offset": 0,
+            "ratio": 0.9999950897508391
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.002,
+            "focal": 250,
+            "dpr": 1,
+            "mode": "perspective",
+            "offset": 0.37,
+            "ratio": 0.9999755275349644
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.002,
+            "focal": 250,
+            "dpr": 1,
+            "mode": "stereographic",
+            "offset": 0,
+            "ratio": 1.000010336381486
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.002,
+            "focal": 250,
+            "dpr": 1,
+            "mode": "stereographic",
+            "offset": 0.37,
+            "ratio": 0.9999777559236336
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.002,
+            "focal": 250,
+            "dpr": 2,
+            "mode": "perspective",
+            "offset": 0,
+            "ratio": 1.0000013966166874
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.002,
+            "focal": 250,
+            "dpr": 2,
+            "mode": "perspective",
+            "offset": 0.37,
+            "ratio": 0.99999594490396
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.002,
+            "focal": 250,
+            "dpr": 2,
+            "mode": "stereographic",
+            "offset": 0,
+            "ratio": 0.9999971573038406
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.002,
+            "focal": 250,
+            "dpr": 2,
+            "mode": "stereographic",
+            "offset": 0.37,
+            "ratio": 1.0000009617234726
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.002,
+            "focal": 750,
+            "dpr": 1,
+            "mode": "perspective",
+            "offset": 0,
+            "ratio": 1.0000042013785224
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.002,
+            "focal": 750,
+            "dpr": 1,
+            "mode": "perspective",
+            "offset": 0.37,
+            "ratio": 0.999994865155771
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.002,
+            "focal": 750,
+            "dpr": 1,
+            "mode": "stereographic",
+            "offset": 0,
+            "ratio": 1.000007809141396
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.002,
+            "focal": 750,
+            "dpr": 1,
+            "mode": "stereographic",
+            "offset": 0.37,
+            "ratio": 0.9999956383349987
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.002,
+            "focal": 750,
+            "dpr": 2,
+            "mode": "perspective",
+            "offset": 0,
+            "ratio": 1.0000023204820436
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.002,
+            "focal": 750,
+            "dpr": 2,
+            "mode": "perspective",
+            "offset": 0.37,
+            "ratio": 0.999999399717659
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.002,
+            "focal": 750,
+            "dpr": 2,
+            "mode": "stereographic",
+            "offset": 0,
+            "ratio": 1.0000017820391336
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.002,
+            "focal": 750,
+            "dpr": 2,
+            "mode": "stereographic",
+            "offset": 0.37,
+            "ratio": 1.0000002777717971
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.008,
+            "focal": 250,
+            "dpr": 1,
+            "mode": "perspective",
+            "offset": 0,
+            "ratio": 0.999989527690314
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.008,
+            "focal": 250,
+            "dpr": 1,
+            "mode": "perspective",
+            "offset": 0.37,
+            "ratio": 0.999990304285128
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.008,
+            "focal": 250,
+            "dpr": 1,
+            "mode": "stereographic",
+            "offset": 0,
+            "ratio": 0.9999995868411637
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.008,
+            "focal": 250,
+            "dpr": 1,
+            "mode": "stereographic",
+            "offset": 0.37,
+            "ratio": 0.9999986492716433
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.008,
+            "focal": 250,
+            "dpr": 2,
+            "mode": "perspective",
+            "offset": 0,
+            "ratio": 0.9999977303787014
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.008,
+            "focal": 250,
+            "dpr": 2,
+            "mode": "perspective",
+            "offset": 0.37,
+            "ratio": 0.9999974038238842
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.008,
+            "focal": 250,
+            "dpr": 2,
+            "mode": "stereographic",
+            "offset": 0,
+            "ratio": 0.9999998645425372
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.008,
+            "focal": 250,
+            "dpr": 2,
+            "mode": "stereographic",
+            "offset": 0.37,
+            "ratio": 0.9999999540262656
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.008,
+            "focal": 750,
+            "dpr": 1,
+            "mode": "perspective",
+            "offset": 0,
+            "ratio": 0.9999991492137748
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.008,
+            "focal": 750,
+            "dpr": 1,
+            "mode": "perspective",
+            "offset": 0.37,
+            "ratio": 0.9999992993186577
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.008,
+            "focal": 750,
+            "dpr": 1,
+            "mode": "stereographic",
+            "offset": 0,
+            "ratio": 1.0000004470703558
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.008,
+            "focal": 750,
+            "dpr": 1,
+            "mode": "stereographic",
+            "offset": 0.37,
+            "ratio": 0.9999998620129303
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.008,
+            "focal": 750,
+            "dpr": 2,
+            "mode": "perspective",
+            "offset": 0,
+            "ratio": 1.0000000147090862
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.008,
+            "focal": 750,
+            "dpr": 2,
+            "mode": "perspective",
+            "offset": 0.37,
+            "ratio": 1.000000043478857
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.008,
+            "focal": 750,
+            "dpr": 2,
+            "mode": "stereographic",
+            "offset": 0,
+            "ratio": 1.0000003880030521
+          },
+          {
+            "profile": "ionized_gaussian",
+            "a": 0.008,
+            "focal": 750,
+            "dpr": 2,
+            "mode": "stereographic",
+            "offset": 0.37,
+            "ratio": 1.0000002364251663
+          }
+        ]
+      },
+      "continuousShape": {
+        "axisRatios": [
+          1.0000032008544357,
+          1.0000053016815873,
+          1.0000068392749861,
+          1.0000050902137392
+        ],
+        "equalRadiusDiagonalRatio": 0.9990780653759208
+      },
+      "continuousSeams": [
+        1.0000034951554158,
+        1.0000041254997218,
+        1.0000053140749332,
+        1.000008550290318
+      ],
+      "continuousAtlasFlux": [
+        {
+          "zoom": 1,
+          "dpr": 1,
+          "ratio": 1.0001385623226104
+        },
+        {
+          "zoom": 1,
+          "dpr": 2,
+          "ratio": 0.9951710609477324
+        },
+        {
+          "zoom": 8,
+          "dpr": 1,
+          "ratio": 0.9998264234031102
+        },
+        {
+          "zoom": 8,
+          "dpr": 2,
+          "ratio": 1.0000024713370421
+        },
+        {
+          "zoom": 33.84,
+          "dpr": 1,
+          "ratio": 1.0000088550135071
+        },
+        {
+          "zoom": 33.84,
+          "dpr": 2,
+          "ratio": 1.0000010203443954
+        }
+      ],
+      "continuousOffAxis": [
+        {
+          "mode": "perspective",
+          "angle": 30,
+          "dpr": 1,
+          "ratio": 0.9984687169105523
+        },
+        {
+          "mode": "perspective",
+          "angle": 30,
+          "dpr": 2,
+          "ratio": 0.9992909648988278
+        },
+        {
+          "mode": "perspective",
+          "angle": 55,
+          "dpr": 1,
+          "ratio": 1.0014394935512858
+        },
+        {
+          "mode": "perspective",
+          "angle": 55,
+          "dpr": 2,
+          "ratio": 1.0000085377456032
+        },
+        {
+          "mode": "stereographic",
+          "angle": 30,
+          "dpr": 1,
+          "ratio": 1.0004961745012775
+        },
+        {
+          "mode": "stereographic",
+          "angle": 30,
+          "dpr": 2,
+          "ratio": 1.0003525590846436
+        },
+        {
+          "mode": "stereographic",
+          "angle": 55,
+          "dpr": 1,
+          "ratio": 1.002111405685246
+        },
+        {
+          "mode": "stereographic",
+          "angle": 55,
+          "dpr": 2,
+          "ratio": 0.9997793099364883
+        }
+      ],
+      "continuousHorizonFraction": 0.4999987149197485
+    }
+  },
+  "errors": [],
+  "httpFailures": []
+}

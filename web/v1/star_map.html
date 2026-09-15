@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Terrax V1 · 沉浸天球</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #000;
+            font-family: Arial, sans-serif;
+        }
+
+        canvas {
+            display: block;
+        }
+
+        /* 搜索UI样式 */
+        #search-panel {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            border-radius: 8px;
+            color: white;
+            z-index: 100;
+        }
+
+        #search-input {
+            width: 250px;
+            padding: 8px;
+            border: 1px solid #444;
+            border-radius: 4px;
+            background: #222;
+            color: white;
+            font-size: 14px;
+        }
+
+        #search-results {
+            max-height: 300px;
+            overflow-y: auto;
+            margin-top: 10px;
+        }
+
+        .result-item {
+            padding: 8px;
+            cursor: pointer;
+            border-bottom: 1px solid #333;
+            transition: background 0.2s;
+        }
+
+        .result-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .result-item.selected {
+            background: rgba(100, 150, 255, 0.3);
+        }
+
+        .star-info {
+            font-size: 12px;
+            color: #aaa;
+            margin-top: 3px;
+        }
+
+        #info-panel {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            border-radius: 8px;
+            color: white;
+            max-width: 300px;
+            max-height: calc(100vh - 230px);
+            overflow-y: auto;
+            overflow-wrap: anywhere;
+            z-index: 100;
+            display: none;
+        }
+
+        #reset-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            border: 1px solid #444;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            z-index: 100;
+        }
+
+        #reset-button:hover {
+            background: rgba(50, 50, 50, 0.9);
+        }
+
+        #color-toggle-button {
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            border: 1px solid #444;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            z-index: 100;
+        }
+
+        #color-toggle-button:hover {
+            background: rgba(50, 50, 50, 0.9);
+        }
+
+        #folder-selector {
+            position: absolute;
+            top: 110px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            border: 1px solid #444;
+            padding: 10px;
+            border-radius: 4px;
+            z-index: 100;
+            min-width: 200px;
+        }
+
+        #folder-selector label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 12px;
+            color: #aaa;
+        }
+
+        #folder-select {
+            width: 100%;
+            padding: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid #666;
+            border-radius: 3px;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        #folder-select option {
+            background: #222;
+            color: white;
+        }
+    </style>
+    <link rel="stylesheet" href="../shared/sky_motion.css?v=20260915-atlas-restored-1">
+</head>
+
+<body>
+
+    <!-- 搜索面板 -->
+    <div id="search-panel">
+        <input type="text" id="search-input" placeholder="搜索恒星编号">
+
+        <!-- 视星等筛选 -->
+        <div style="margin-top: 10px; font-size: 12px;">
+            <label>视星等范围: <span id="mag-range-display">-2 到 7</span></label>
+            <div style="display: flex; gap: 10px; margin-top: 5px;">
+                <input type="range" id="mag-min" min="-2" max="7" value="-2" step="0.5" style="flex: 1;">
+                <input type="range" id="mag-max" min="-2" max="7" value="7" step="0.5" style="flex: 1;">
+            </div>
+        </div>
+
+        <!-- 排序按钮 -->
+        <div style="margin-top: 10px; display: flex; gap: 5px;">
+            <button id="sort-bright" style="flex: 1; padding: 5px; font-size: 11px; cursor: pointer;">⭐ 最亮优先</button>
+            <button id="sort-dim" style="flex: 1; padding: 5px; font-size: 11px; cursor: pointer;">🌑 最暗优先</button>
+            <button id="sort-near" style="flex: 1; padding: 5px; font-size: 11px; cursor: pointer;">📍 最近优先</button>
+        </div>
+
+        <div id="search-results"></div>
+    </div>
+
+    <!-- 信息面板 -->
+    <div id="info-panel">
+        <h3 id="star-name" style="margin-top: 0; font-size: 16px;"></h3>
+        <div id="star-details"></div>
+    </div>
+
+    <!-- 重置按钮 -->
+    <button id="reset-button">重置视角</button>
+
+    <!-- 颜色切换按钮 -->
+    <button id="color-toggle-button">切换白色模式</button>
+
+    <!-- 文件夹选择器 -->
+    <div id="folder-selector">
+        <label for="folder-select">选择数据集:</label>
+        <select id="folder-select">
+            <!-- 选项将从 folders.json 动态加载 -->
+        </select>
+    </div>
+
+    <script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/","../shared/sky_render.mjs":"../shared/sky_render.mjs?v=20260915-atlas-restored-1","./sky_atlas_bodies.mjs":"./sky_atlas_bodies.mjs?v=20260915-atlas-restored-1","./sky_motion_3d.js":"./sky_motion_3d.js?v=20260915-atlas-restored-1","./sky_controls.mjs":"./sky_controls.mjs?v=20260915-atlas-restored-1","./sky_atlas_stars.mjs":"./sky_atlas_stars.mjs?v=20260915-atlas-restored-1","./sky_points.js":"./sky_points.js?v=20260915-atlas-restored-1","./sky_state.mjs":"./sky_state.mjs?v=20260915-atlas-restored-1","./sky_view.js":"./sky_view.js?v=20260915-atlas-restored-1","../shared/sky_projection.js":"../shared/sky_projection.js?v=20260915-atlas-restored-1","../shared/sky_projection.mjs":"../shared/sky_projection.mjs?v=20260915-atlas-restored-1","../shared/sky_point_kernel.mjs":"../shared/sky_point_kernel.mjs?v=20260915-atlas-restored-1","./sky_atlas.mjs":"./sky_atlas.mjs?v=20260915-atlas-restored-1","../shared/deep_sky_view.js":"../shared/deep_sky_view.js?v=20260915-atlas-restored-1","../shared/deep_sky_profiles.mjs":"../shared/deep_sky_profiles.mjs?v=20260915-atlas-restored-1","../shared/sky_overlays.mjs":"../shared/sky_overlays.mjs?v=20260915-atlas-restored-1","../shared/zodiac.mjs":"../shared/zodiac.mjs?v=20260915-atlas-restored-1","./zodiac_3d.js":"./zodiac_3d.js?v=20260915-atlas-restored-1","../shared/sky_guides.mjs":"../shared/sky_guides.mjs?v=20260915-atlas-restored-1","../shared/nebula_morphology.mjs":"../shared/nebula_morphology.mjs?v=20260915-atlas-restored-1","../shared/catalog_data.mjs":"../shared/catalog_data.mjs?v=20260915-atlas-restored-1"}}</script>
+
+    <script type="module">
+        import * as THREE from 'three';
+        import {SKY_OVERLAYS} from '../shared/sky_overlays.mjs';
+        import {preferredCatalog} from '../shared/catalog_data.mjs';
+        import {Zodiac3D} from './zodiac_3d.js';
+        import {DiffuseLayer,loadDiffuseTexture} from '../shared/deep_sky_view.js';
+        import {projectionFocal} from '../shared/sky_projection.mjs';
+        import { SkyView, pickNearestStar } from './sky_view.js';
+        import { SkyControls } from './sky_controls.mjs';
+        import { SkyMotion3D } from './sky_motion_3d.js';
+        import { createStarMaterial } from './sky_points.js';
+        import { backgroundDirection } from '../shared/solar_system.mjs';
+        import { loadCatalog, backgroundVisible, pointRadius, pointOpacity } from '../shared/sky_render.mjs';
+
+        const motionControls = new SkyControls(2);
+        const clock = motionControls.clock;
+        const stage = document.createElement('main');
+        stage.className = 'sky-stage';
+        stage.id = 'sky3d-stage';
+        stage.setAttribute('aria-label', '从 Terrax 仰望的三维天球');
+        stage.innerHTML = '<div class="stage-caption"><h2>Terrax · 沉浸天球</h2><p>拖动转头 · 滚轮调整视场 · 点击天体</p></div><div class="stage-toolbar"></div>';
+        document.body.append(stage);
+        const toolbar = stage.querySelector('.stage-toolbar');
+        toolbar.append(document.getElementById('reset-button'), document.getElementById('color-toggle-button'));
+        const pageTools = document.getElementById('page-tools');
+        const backgroundTools = document.createElement('details');
+        backgroundTools.innerHTML = '<summary>背景恒星 · 搜索与数据集</summary>';
+        backgroundTools.append(document.getElementById('folder-selector'), document.getElementById('search-panel'), document.getElementById('info-panel'));
+        pageTools.append(backgroundTools);
+
+        // ==========================================
+        // 1. 基础场景设置
+        // ==========================================
+        const scene = new THREE.Scene();
+        const zodiacLayer=new Zodiac3D(scene),diffuseLayer=new DiffuseLayer(scene);
+        let diffuseTexture=null,deepSkyCount=0;
+        const referenceGroup = new THREE.Group();
+        scene.add(referenceGroup);
+        referenceGroup.matrixAutoUpdate = false;
+
+        const camera = new THREE.PerspectiveCamera(60, stage.clientWidth / stage.clientHeight, 0.1, 5000);
+
+        // 现在星星坐标已经在天球赤道坐标系中（与 star_shader.py 一致）
+        // 坐标系定义：
+        // x: 指向春分点（RA=0, Dec=0）
+        // y: 指向东方（RA=90, Dec=0）
+        // z: 指向天球北极（Dec=90）
+        
+        // 观测者固定在天球中心；+X 是初始观测方向。
+        camera.position.set(0, 0, 0);
+        camera.up.set(0, 0, 1);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
+        renderer.setSize(stage.clientWidth, stage.clientHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+        renderer.toneMapping = THREE.ACESFilmicToneMapping;
+        stage.prepend(renderer.domElement);
+        renderer.domElement.setAttribute("aria-label", "从 Terrax 仰望的天空");
+
+        const view = new SkyView(camera, renderer.domElement);
+        const motion = new SkyMotion3D(scene, camera, stage, renderer, motionControls);
+
+        // ==========================================
+        // 2. 数据存储
+        // ==========================================
+        let starsData = [];
+        let starMaterial = null;  // 保存星星材质的引用
+        let selectedStar = null;
+        let highlightMarker = null;
+
+        // ==========================================
+        // 3. 自定义 Shader
+        // ==========================================
+        // ==========================================
+        // 4. 高亮标记
+        // ==========================================
+        function createHighlightMarker() {
+            // 创建一个组来包含多个标记元素
+            highlightMarker = new THREE.Group();
+
+            // 1. 中圈光环
+            const ring2Geometry = new THREE.RingGeometry(18, 21, 32);
+            const ring2Material = new THREE.MeshBasicMaterial({
+                color: 0x666666,
+                side: THREE.DoubleSide,
+                transparent: true,
+                opacity: 0.7*SKY_OVERLAYS.marker
+            });
+            const ring2 = new THREE.Mesh(ring2Geometry, ring2Material);
+            highlightMarker.add(ring2);
+
+            // 2. 十字准星 - 分段显示，中心留空不遮挡星星
+            const crossMaterial = new THREE.LineBasicMaterial({
+                color: 0xff0000,
+                transparent: true,
+                opacity: SKY_OVERLAYS.marker,
+                linewidth: 3
+            });
+
+            // 水平线 - 分为左右两段
+            const crossGeometry1 = new THREE.BufferGeometry().setFromPoints([
+                new THREE.Vector3(-40, 0, 0),
+                new THREE.Vector3(-12, 0, 0)
+            ]);
+            const crossGeometry2 = new THREE.BufferGeometry().setFromPoints([
+                new THREE.Vector3(12, 0, 0),
+                new THREE.Vector3(40, 0, 0)
+            ]);
+            // 垂直线 - 分为上下两段
+            const crossGeometry3 = new THREE.BufferGeometry().setFromPoints([
+                new THREE.Vector3(0, -40, 0),
+                new THREE.Vector3(0, -12, 0)
+            ]);
+            const crossGeometry4 = new THREE.BufferGeometry().setFromPoints([
+                new THREE.Vector3(0, 12, 0),
+                new THREE.Vector3(0, 40, 0)
+            ]);
+
+            const crossLine1 = new THREE.Line(crossGeometry1, crossMaterial);
+            const crossLine2 = new THREE.Line(crossGeometry2, crossMaterial);
+            const crossLine3 = new THREE.Line(crossGeometry3, crossMaterial);
+            const crossLine4 = new THREE.Line(crossGeometry4, crossMaterial);
+            highlightMarker.add(crossLine1);
+            highlightMarker.add(crossLine2);
+            highlightMarker.add(crossLine3);
+            highlightMarker.add(crossLine4);
+
+            highlightMarker.visible = false;
+            scene.add(highlightMarker);
+        }
+
+        // ==========================================
+        // 5. 银道和天极标记
+        // ==========================================
+        function createGalacticPlane() {
+            // 创建银道平面圆形线条
+            // 使用真实的银道北极在天球赤道坐标系中的位置（与地球相同）
+            // 银道北极：RA = 192.85948°, Dec = 27.12825°
+            const segments = 128;
+            const radius = 1000;
+            const points = [];
+            
+            // 银道北极在天球赤道坐标系中的位置
+            const galacticPoleRA = 192.85948 * Math.PI / 180;
+            const galacticPoleDec = 27.12825 * Math.PI / 180;
+            
+            // 银道北极的笛卡尔坐标（单位向量）
+            const poleX = Math.cos(galacticPoleDec) * Math.cos(galacticPoleRA);
+            const poleY = Math.cos(galacticPoleDec) * Math.sin(galacticPoleRA);
+            const poleZ = Math.sin(galacticPoleDec);
+            const normal = new THREE.Vector3(poleX, poleY, poleZ).normalize();
+            
+            // 创建与法向量垂直的两个切线向量（银道平面的基底）
+            const up = new THREE.Vector3(0, 0, 1);
+            let tangent1 = new THREE.Vector3().crossVectors(normal, up);
+            if (tangent1.length() < 0.001) {
+                tangent1 = new THREE.Vector3().crossVectors(normal, new THREE.Vector3(1, 0, 0));
+            }
+            tangent1.normalize();
+            const tangent2 = new THREE.Vector3().crossVectors(normal, tangent1).normalize();
+            
+            // 在银道平面上创建圆（大圆）
+            for (let i = 0; i <= segments; i++) {
+                const theta = (i / segments) * Math.PI * 2;
+                const x = tangent1.x * Math.cos(theta) + tangent2.x * Math.sin(theta);
+                const y = tangent1.y * Math.cos(theta) + tangent2.y * Math.sin(theta);
+                const z = tangent1.z * Math.cos(theta) + tangent2.z * Math.sin(theta);
+                points.push(new THREE.Vector3(x * radius, y * radius, z * radius));
+            }
+
+            const galacticPlaneGeometry = new THREE.BufferGeometry().setFromPoints(points);
+            const galacticPlaneMaterial = new THREE.LineBasicMaterial({
+                color: 0x4488ff,
+                transparent: true,
+                opacity: 0.5,
+                linewidth: 2
+            });
+            const galacticPlane = new THREE.Line(galacticPlaneGeometry, galacticPlaneMaterial);
+            referenceGroup.add(galacticPlane);
+
+            // 创建银道文字标签（使用精灵）
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+            canvas.width = 256;
+            canvas.height = 64;
+            context.fillStyle = '#4488ff';
+            context.font = 'Bold 40px Arial';
+            context.fillText('银道面', 10, 45);
+
+            const texture = new THREE.CanvasTexture(canvas);
+            const spriteMaterial = new THREE.SpriteMaterial({
+                map: texture,
+                transparent: true,
+                opacity: 0.2
+            });
+            const sprite = new THREE.Sprite(spriteMaterial);
+            // 银道面标签放在银道中心方向（l=0, b=0）
+            // 银道中心在赤道坐标系中约为 RA=266.4°, Dec=-28.9°
+            const galacticCenterRA = 266.4 * Math.PI / 180;
+            const galacticCenterDec = -28.9 * Math.PI / 180;
+            const labelRadius = 1100;
+            sprite.position.set(
+                labelRadius * Math.cos(galacticCenterDec) * Math.cos(galacticCenterRA),
+                labelRadius * Math.cos(galacticCenterDec) * Math.sin(galacticCenterRA),
+                labelRadius * Math.sin(galacticCenterDec)
+            );
+            sprite.scale.set(200, 50, 1);
+            referenceGroup.add(sprite);
+        }
+
+        function createEclipticPlane() {
+            // 黄道面：与天球赤道面成 25 度（行星自转轴倾角）
+            // 黄道北极：RA = 270°, Dec = 65° (对应25度倾角)
+            const segments = 128;
+            const radius = 1000;
+            const points = [];
+            
+            // 黄道北极在天球赤道坐标系中的位置
+            const eclipticPoleRA = 270 * Math.PI / 180;  // 18h
+            const eclipticPoleDec = 65 * Math.PI / 180;  // 90° - 25° = 65°
+            
+            // 黄道北极的笛卡尔坐标（单位向量）
+            const poleX = Math.cos(eclipticPoleDec) * Math.cos(eclipticPoleRA);
+            const poleY = Math.cos(eclipticPoleDec) * Math.sin(eclipticPoleRA);
+            const poleZ = Math.sin(eclipticPoleDec);
+            const normal = new THREE.Vector3(poleX, poleY, poleZ).normalize();
+            
+            // 创建与法向量垂直的两个切线向量（黄道平面的基底）
+            const up = new THREE.Vector3(0, 0, 1);
+            let tangent1 = new THREE.Vector3().crossVectors(normal, up);
+            if (tangent1.length() < 0.001) {
+                tangent1 = new THREE.Vector3().crossVectors(normal, new THREE.Vector3(1, 0, 0));
+            }
+            tangent1.normalize();
+            const tangent2 = new THREE.Vector3().crossVectors(normal, tangent1).normalize();
+            
+            // 在黄道平面上创建圆（大圆）
+            for (let i = 0; i <= segments; i++) {
+                const theta = (i / segments) * Math.PI * 2;
+                const x = tangent1.x * Math.cos(theta) + tangent2.x * Math.sin(theta);
+                const y = tangent1.y * Math.cos(theta) + tangent2.y * Math.sin(theta);
+                const z = tangent1.z * Math.cos(theta) + tangent2.z * Math.sin(theta);
+                points.push(new THREE.Vector3(x * radius, y * radius, z * radius));
+            }
+
+            const eclipticGeometry = new THREE.BufferGeometry().setFromPoints(points);
+            const eclipticMaterial = new THREE.LineBasicMaterial({
+                color: 0xffaa00, // 橙黄色
+                transparent: true,
+                opacity: 0.5,
+                linewidth: 2
+            });
+            const eclipticPlane = new THREE.Line(eclipticGeometry, eclipticMaterial);
+            referenceGroup.add(eclipticPlane);
+
+            // 黄道标签
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+            canvas.width = 256;
+            canvas.height = 64;
+            context.fillStyle = '#ffaa00';
+            context.font = 'Bold 40px Arial';
+            context.fillText('黄道面', 10, 45);
+
+            const texture = new THREE.CanvasTexture(canvas);
+            const spriteMaterial = new THREE.SpriteMaterial({
+                map: texture,
+                transparent: true,
+                opacity: 0.2
+            });
+            const sprite = new THREE.Sprite(spriteMaterial);
+            // 黄道面标签放在 theta=120度 的位置
+            const labelTheta = (2 * Math.PI / 3); // 120度
+            const labelRadius = 1100;
+            sprite.position.set(
+                (tangent1.x * Math.cos(labelTheta) + tangent2.x * Math.sin(labelTheta)) * labelRadius,
+                (tangent1.y * Math.cos(labelTheta) + tangent2.y * Math.sin(labelTheta)) * labelRadius,
+                (tangent1.z * Math.cos(labelTheta) + tangent2.z * Math.sin(labelTheta)) * labelRadius
+            );
+            sprite.scale.set(200, 50, 1);
+            referenceGroup.add(sprite);
+        }
+
+        function createCelestialEquator() {
+            // 天球赤道面：现在是基准平面（z=0，在 XY 平面）
+            // 坐标系定义：z 轴指向天球北极
+            const segments = 128;
+            const radius = 1000;
+            const points = [];
+
+            // 天球赤道就是 XY 平面上的圆
+            for (let i = 0; i <= segments; i++) {
+                const theta = (i / segments) * Math.PI * 2;
+                points.push(new THREE.Vector3(
+                    Math.cos(theta) * radius,
+                    Math.sin(theta) * radius,
+                    0  // z = 0，在天球赤道平面
+                ));
+            }
+
+            const equatorGeometry = new THREE.BufferGeometry().setFromPoints(points);
+            const equatorMaterial = new THREE.LineBasicMaterial({
+                color: 0x00ff88, // 青绿色
+                transparent: true,
+                opacity: 0.5,
+                linewidth: 2
+            });
+            const equatorPlane = new THREE.Line(equatorGeometry, equatorMaterial);
+            referenceGroup.add(equatorPlane);
+
+            // 天球赤道标签
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+            canvas.width = 256;
+            canvas.height = 64;
+            context.fillStyle = '#00ff88';
+            context.font = 'Bold 40px Arial';
+            context.fillText('天球赤道', 10, 45);
+
+            const texture = new THREE.CanvasTexture(canvas);
+            const spriteMaterial = new THREE.SpriteMaterial({
+                map: texture,
+                transparent: true,
+                opacity: 0.2
+            });
+            const sprite = new THREE.Sprite(spriteMaterial);
+            // 天球赤道标签放在圆上的一点（180度位置，X轴负方向）
+            const labelTheta = Math.PI; // 180度
+            const labelRadius = 1100;
+            sprite.position.set(
+                Math.cos(labelTheta) * labelRadius,
+                Math.sin(labelTheta) * labelRadius,
+                0  // z = 0，在天球赤道平面
+            );
+            sprite.scale.set(200, 50, 1);
+            referenceGroup.add(sprite);
+        }
+
+        function createCelestialPoles() {
+            // // 北天极 (North Celestial Pole) - Z轴正方向
+            // const northPoleGeometry = new THREE.SphereGeometry(15, 16, 16);
+            // const northPoleMaterial = new THREE.MeshBasicMaterial({
+            //     color: 0xff6666,
+            //     transparent: true,
+            //     opacity: 0.1
+            // });
+            // const northPole = new THREE.Mesh(northPoleGeometry, northPoleMaterial);
+            // northPole.position.set(0, 0, 1000);
+            // referenceGroup.add(northPole);
+
+            // 北天极标签
+            const canvasNorth = document.createElement('canvas');
+            const contextNorth = canvasNorth.getContext('2d');
+            canvasNorth.width = 256;
+            canvasNorth.height = 64;
+            contextNorth.fillStyle = '#ff6666';
+            contextNorth.font = 'Bold 40px Arial';
+            contextNorth.fillText('北天极', 10, 45);
+
+            const textureNorth = new THREE.CanvasTexture(canvasNorth);
+            const spriteNorthMaterial = new THREE.SpriteMaterial({
+                map: textureNorth,
+                transparent: true,
+                opacity: 0.4
+            });
+            const spriteNorth = new THREE.Sprite(spriteNorthMaterial);
+            spriteNorth.position.set(0, 80, 1000);
+            spriteNorth.scale.set(200, 50, 1);
+            referenceGroup.add(spriteNorth);
+
+            // // 南天极 (South Celestial Pole) - Z轴负方向
+            // const southPoleGeometry = new THREE.SphereGeometry(15, 16, 16);
+            // const southPoleMaterial = new THREE.MeshBasicMaterial({
+            //     color: 0x66ff66,
+            //     transparent: true,
+            //     opacity: 0.1
+            // });
+            // const southPole = new THREE.Mesh(southPoleGeometry, southPoleMaterial);
+            // southPole.position.set(0, 0, -1000);
+            // referenceGroup.add(southPole);
+
+            // 南天极标签
+            const canvasSouth = document.createElement('canvas');
+            const contextSouth = canvasSouth.getContext('2d');
+            canvasSouth.width = 256;
+            canvasSouth.height = 64;
+            contextSouth.fillStyle = '#66ff66';
+            contextSouth.font = 'Bold 40px Arial';
+            contextSouth.fillText('南天极', 10, 45);
+
+            const textureSouth = new THREE.CanvasTexture(canvasSouth);
+            const spriteSouthMaterial = new THREE.SpriteMaterial({
+                map: textureSouth,
+                transparent: true,
+                opacity: 0.4
+            });
+            const spriteSouth = new THREE.Sprite(spriteSouthMaterial);
+            spriteSouth.position.set(0, -80, -1000);
+            spriteSouth.scale.set(200, 50, 1);
+            referenceGroup.add(spriteSouth);
+        }
+
+        function createCelestialMeridians() {
+            // 创建52条天经线（赤经线），从北天极到南天极
+            const numMeridians = 52;
+            const angleStep = (Math.PI * 2) / numMeridians;
+            const radius = 1000;
+            const segments = 64; // 每条经线的分段数
+
+            for (let i = 0; i < numMeridians; i++) {
+                const angle = i * angleStep;
+                const points = [];
+
+                // 经线连接至80度纬线（10度和170度）
+                const startPhi = (10 / 180) * Math.PI; // 10度纬线（北纬80度）
+                const endPhi = (170 / 180) * Math.PI;   // 170度纬线（南纬80度）
+
+                // 从南纬80度到北纬80度绘制半圆弧
+                for (let j = 0; j <= segments; j++) {
+                    const phi = startPhi + (j / segments) * (endPhi - startPhi);
+                    const z = radius * Math.cos(phi);
+                    const r = radius * Math.sin(phi); // 在XY平面上的半径
+
+                    const x = r * Math.cos(angle);
+                    const y = r * Math.sin(angle);
+
+                    points.push(new THREE.Vector3(x, y, z));
+                }
+
+                const meridianGeometry = new THREE.BufferGeometry().setFromPoints(points);
+                const meridianMaterial = new THREE.LineBasicMaterial({
+                    color: 0x666666,
+                    transparent: true,
+                    opacity: 0.2,
+                    linewidth: 1
+                });
+                const meridianLine = new THREE.Line(meridianGeometry, meridianMaterial);
+                referenceGroup.add(meridianLine);
+
+                // 添加度数标签（在赤道位置，每隔一条经线标记）
+                if (i % 2 === 0) { // 每隔一条经线标记，避免过于拥挤
+                    const degrees = Math.round((i / numMeridians) * 360);
+                    const equatorPhi = Math.PI / 2; // 赤道位置
+                    const labelR = radius * Math.sin(equatorPhi);
+                    const labelZ = radius * Math.cos(equatorPhi);
+                    const labelX = labelR * Math.cos(angle);
+                    const labelY = labelR * Math.sin(angle);
+
+                    // 创建文字标签
+                    const canvas = document.createElement('canvas');
+                    const context = canvas.getContext('2d');
+                    canvas.width = 128;
+                    canvas.height = 64;
+                    context.fillStyle = '#888888';
+                    context.font = 'Bold 32px Arial';
+                    context.textAlign = 'center';
+                    context.fillText(degrees + '°', 64, 45);
+
+                    const texture = new THREE.CanvasTexture(canvas);
+                    const spriteMaterial = new THREE.SpriteMaterial({
+                        map: texture,
+                        transparent: true,
+                        opacity: 0.1
+                    });
+                    const sprite = new THREE.Sprite(spriteMaterial);
+                    sprite.position.set(labelX * 1.05, labelY * 1.05, labelZ);
+                    sprite.scale.set(80, 40, 1);
+                    referenceGroup.add(sprite);
+                }
+            }
+        }
+
+        function createPolarCrosses() {
+            // 在两极创建十字，连接0、13、26、39经线
+            const crossMeridians = [0, 13, 26, 39];
+            const numMeridians = 52;
+            const angleStep = (Math.PI * 2) / numMeridians;
+            const radius = 1000;
+
+            // 北极十字（10度纬线位置）
+            const northPhi = (10 / 180) * Math.PI;
+            const northR = radius * Math.sin(northPhi);
+            const northZ = radius * Math.cos(northPhi);
+
+            // 南极十字（170度纬线位置）
+            const southPhi = (170 / 180) * Math.PI;
+            const southR = radius * Math.sin(southPhi);
+            const southZ = radius * Math.cos(southPhi);
+
+            // 绘制十字线（连接对角的经线）
+            for (let i = 0; i < 2; i++) {
+                const idx1 = crossMeridians[i];
+                const idx2 = crossMeridians[i + 2];
+
+                const angle1 = idx1 * angleStep;
+                const angle2 = idx2 * angleStep;
+
+                // 北极十字线
+                const northPoints = [
+                    new THREE.Vector3(
+                        northR * Math.cos(angle1),
+                        northR * Math.sin(angle1),
+                        northZ
+                    ),
+                    new THREE.Vector3(
+                        northR * Math.cos(angle2),
+                        northR * Math.sin(angle2),
+                        northZ
+                    )
+                ];
+
+                const northGeometry = new THREE.BufferGeometry().setFromPoints(northPoints);
+                const northMaterial = new THREE.LineBasicMaterial({
+                    color: 0x666666,
+                    transparent: true,
+                    opacity: 0.2,
+                    linewidth: 2
+                });
+                const northLine = new THREE.Line(northGeometry, northMaterial);
+                referenceGroup.add(northLine);
+
+                // 南极十字线
+                const southPoints = [
+                    new THREE.Vector3(
+                        southR * Math.cos(angle1),
+                        southR * Math.sin(angle1),
+                        southZ
+                    ),
+                    new THREE.Vector3(
+                        southR * Math.cos(angle2),
+                        southR * Math.sin(angle2),
+                        southZ
+                    )
+                ];
+
+                const southGeometry = new THREE.BufferGeometry().setFromPoints(southPoints);
+                const southMaterial = new THREE.LineBasicMaterial({
+                    color: 0x666666,
+                    transparent: true,
+                    opacity: 0.2,
+                    linewidth: 2
+                });
+                const southLine = new THREE.Line(southGeometry, southMaterial);
+                referenceGroup.add(southLine);
+            }
+        }
+
+        function createPolarCircles() {
+            // 创建极点圆环，连接经线端点（80度纬线）
+            const radius = 1000;
+            const segments = 128;
+
+            // 北极圆环（10度纬线，即北纬80度）
+            const northPhi = (10 / 180) * Math.PI;
+            const northR = radius * Math.sin(northPhi); // 圆环在XY平面上的半径
+            const northZ = radius * Math.cos(northPhi); // Z坐标
+
+            const northPoints = [];
+            for (let i = 0; i <= segments; i++) {
+                const theta = (i / segments) * Math.PI * 2;
+                northPoints.push(new THREE.Vector3(
+                    northR * Math.cos(theta),
+                    northR * Math.sin(theta),
+                    northZ
+                ));
+            }
+
+            const northGeometry = new THREE.BufferGeometry().setFromPoints(northPoints);
+            const northMaterial = new THREE.LineBasicMaterial({
+                color: 0x666666,
+                transparent: true,
+                opacity: 0.2,
+                linewidth: 1
+            });
+            const northCircle = new THREE.Line(northGeometry, northMaterial);
+            referenceGroup.add(northCircle);
+
+            // 南极圆环（170度纬线，即南纬80度）
+            const southPhi = (170 / 180) * Math.PI;
+            const southR = radius * Math.sin(southPhi); // 圆环在XY平面上的半径
+            const southZ = radius * Math.cos(southPhi); // Z坐标
+
+            const southPoints = [];
+            for (let i = 0; i <= segments; i++) {
+                const theta = (i / segments) * Math.PI * 2;
+                southPoints.push(new THREE.Vector3(
+                    southR * Math.cos(theta),
+                    southR * Math.sin(theta),
+                    southZ
+                ));
+            }
+
+            const southGeometry = new THREE.BufferGeometry().setFromPoints(southPoints);
+            const southMaterial = new THREE.LineBasicMaterial({
+                color: 0x666666,
+                transparent: true,
+                opacity: 0.2,
+                linewidth: 1
+            });
+            const southCircle = new THREE.Line(southGeometry, southMaterial);
+            referenceGroup.add(southCircle);
+        }
+
+        function createLatitudeLines() {
+            // 创建纬线（赤纬线），每10度一条，忽略两极
+            const radius = 1000;
+            const segments = 128;
+
+            // 从10度到170度，每10度一条纬线
+            for (let deg = 20; deg <= 160; deg += 10) {
+                const phi = (deg / 180) * Math.PI; // 转换为弧度
+                const z = radius * Math.cos(phi); // Z坐标
+                const r = radius * Math.sin(phi); // 在XY平面上的半径
+
+                const points = [];
+                for (let i = 0; i <= segments; i++) {
+                    const theta = (i / segments) * Math.PI * 2;
+                    points.push(new THREE.Vector3(
+                        r * Math.cos(theta),
+                        r * Math.sin(theta),
+                        z
+                    ));
+                }
+
+                const latGeometry = new THREE.BufferGeometry().setFromPoints(points);
+                const latMaterial = new THREE.LineBasicMaterial({
+                    color: 0x666666,
+                    transparent: true,
+                    opacity: 0.15,
+                    linewidth: 1
+                });
+                const latLine = new THREE.Line(latGeometry, latMaterial);
+                referenceGroup.add(latLine);
+            }
+        }
+
+        // ==========================================
+        // 6. 加载数据并生成几何体
+        // ==========================================
+
+        let currentFolder = '';
+        let pendingFolder = '';
+        let sharedFolder = clock.state.folder;
+
+        let loadRevision = 0;
+        async function discoverFolders() {
+            const select = document.getElementById('folder-select');
+            try {
+                const response = await fetch(new URL('../../output/folders.json', import.meta.url), { cache: 'no-store' });
+                if (!response.ok) throw new Error('无法加载数据集列表');
+                const folders = await response.json();
+                if (!Array.isArray(folders) || folders.length === 0
+                    || folders.some(folder => typeof folder !== 'string' || !/^output_[A-Za-z0-9_]+$/.test(folder))) {
+                    throw new Error('没有有效数据集');
+                }
+                select.replaceChildren(...folders.map(folder => {
+                    const option = document.createElement('option');
+                    option.value = folder;
+                    option.textContent = folder.replace('output_', '');
+                    return option;
+                }));
+                select.addEventListener('change', () => loadStarData(select.value));
+                await loadStarData(preferredCatalog(folders,clock.state.folder));
+            } catch (error) {
+                console.error(error);
+                motionControls.error(error.message);
+            }
+        }
+
+        async function loadStarData(folder) {
+            if (pendingFolder === folder) return;
+            const revision = ++loadRevision;
+            pendingFolder = folder;
+            const select = document.getElementById('folder-select');
+            select.disabled = true;
+            try {
+                const data = await loadCatalog(folder);
+                const texture=await loadDiffuseTexture(data.diffuse,data.deepSky);
+                const nextStars = data.stars;
+                const nextField = createStarField(nextStars);
+                if (revision !== loadRevision) {
+                    nextField.geometry.dispose();
+                    nextField.material.dispose();texture?.dispose();
+                    return;
+                }
+                if (window.starField) {
+                    scene.remove(window.starField);
+                    window.starField.geometry.dispose();
+                    window.starField.material.dispose();
+                }
+                diffuseTexture?.dispose();diffuseTexture=texture;diffuseLayer.setTexture(texture);deepSkyCount=data.deepSky.length;
+                window.starField = nextField;
+                starMaterial = nextField.material;
+                starsData = nextStars;
+                currentFolder = folder;
+                motionControls.clearError();
+                if (clock.state.folder !== folder) clock.set({ folder });
+                select.value = folder;
+                scene.add(nextField);
+                nextField.frustumCulled = false;
+                lastSkyKey = "";
+                selectedStar = null;
+                highlightMarker.visible = false;
+                infoPanel.style.display = 'none';
+                view.transition = null;
+                const minimum = Math.floor(nextStars.reduce((value, star) => Math.min(value, star.app_mag), -2));
+                const maximum = Math.ceil(nextStars.reduce((value, star) => Math.max(value, star.app_mag), 7));
+                magMinSlider.min = minimum;
+                magMaxSlider.min = minimum;
+                magMinSlider.max = maximum;
+                magMaxSlider.max = maximum;
+                magMinSlider.value = magMin = minimum;
+                magMaxSlider.value = magMax = maximum;
+                document.getElementById('mag-range-display').textContent = `${minimum} 到 ${maximum}`;
+                refreshFilteredList();
+                console.log(`已渲染 ${starsData.length} 颗恒星`);
+            } catch (error) {
+                if (revision === loadRevision) {
+                    select.value = currentFolder;
+                    console.error('加载数据集失败:', error);
+                    motionControls.error(`无法加载数据集：${error.message}${currentFolder ? '；已保留当前星图。重新选择该数据集可重试。' : ''}`);
+                }
+            } finally {
+                if (revision === loadRevision) { select.disabled = false; pendingFolder = ''; }
+            }
+        }
+
+        function createStarField(stars) {
+            const geometry = new THREE.BufferGeometry();
+            const positions = [], colors = [], mags = [];
+            for (const star of stars) {
+                star.normalizedPos = new THREE.Vector3(...star.baseDirection).multiplyScalar(1000);
+                positions.push(...star.normalizedPos.toArray());
+                const color = new THREE.Color(star.color_hex);
+                colors.push(color.r, color.g, color.b);
+                mags.push(star.app_mag);
+            }
+            geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+            geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+            geometry.setAttribute('mag', new THREE.Float32BufferAttribute(mags, 1));
+            const material = createStarMaterial({white:isWhiteMode,pixelRatio:renderer.getPixelRatio(),surface:clock.state.mode==='surface',viewportHeight:stage.clientHeight});
+            return new THREE.Points(geometry, material);
+        }
+
+        // ==========================================
+        // 7. 搜索功能
+        // ==========================================
+        const searchInput = document.getElementById('search-input');
+        const searchResults = document.getElementById('search-results');
+        const infoPanel = document.getElementById('info-panel');
+        const starName = document.getElementById('star-name');
+        const starDetails = document.getElementById('star-details');
+
+        // 筛选和排序状态
+        let magMin = -2;
+        let magMax = 7;
+        let currentSort = 'bright'; // 'bright', 'dim', 'near'
+
+        // 视星等滑块
+        const magMinSlider = document.getElementById('mag-min');
+        const magMaxSlider = document.getElementById('mag-max');
+        const magRangeDisplay = document.getElementById('mag-range-display');
+
+        function updateMagDisplay() {
+            magRangeDisplay.textContent = `${magMin} 到 ${magMax}`;
+        }
+
+        magMinSlider.addEventListener('input', (e) => {
+            magMin = parseFloat(e.target.value);
+            if (magMin > magMax) {
+                magMax = magMin;
+                magMaxSlider.value = magMax;
+            }
+            updateMagDisplay();
+            refreshFilteredList();
+        });
+
+        magMaxSlider.addEventListener('input', (e) => {
+            magMax = parseFloat(e.target.value);
+            if (magMax < magMin) {
+                magMin = magMax;
+                magMinSlider.value = magMin;
+            }
+            updateMagDisplay();
+            refreshFilteredList();
+        });
+
+        // 排序按钮
+        document.getElementById('sort-bright').addEventListener('click', () => {
+            currentSort = 'bright';
+            refreshFilteredList();
+        });
+
+        document.getElementById('sort-dim').addEventListener('click', () => {
+            currentSort = 'dim';
+            refreshFilteredList();
+        });
+
+        document.getElementById('sort-near').addEventListener('click', () => {
+            currentSort = 'near';
+            refreshFilteredList();
+        });
+
+        function getFilteredAndSortedStars(query = '') {
+            let filtered = starsData.filter(star => {
+                const magOk = star.app_mag >= magMin && star.app_mag <= magMax;
+                const queryOk = query.length === 0 || star.id.toLowerCase().includes(query);
+                return magOk && queryOk;
+            });
+
+            // 排序
+            if (currentSort === 'bright') {
+                filtered.sort((a, b) => a.app_mag - b.app_mag);
+            } else if (currentSort === 'dim') {
+                filtered.sort((a, b) => b.app_mag - a.app_mag);
+            } else if (currentSort === 'near') {
+                filtered.sort((a, b) => a.dist_ly - b.dist_ly);
+            }
+
+            return filtered.slice(0, 50); // 限制显示前50个结果
+        }
+
+        function refreshFilteredList() {
+            const query = searchInput.value.toLowerCase().trim();
+            const matches = getFilteredAndSortedStars(query);
+            displaySearchResults(matches);
+        }
+
+        searchInput.addEventListener('input', (e) => {
+            refreshFilteredList();
+        });
+
+        function displaySearchResults(matches) {
+            if (matches.length === 0) {
+                searchResults.innerHTML = '<div style="padding: 8px; color: #666;">未找到匹配的星星</div>';
+                return;
+            }
+
+            searchResults.innerHTML = matches.map(star => `
+            <div class="result-item" data-star-id="${star.id}">
+                <strong>${star.id}</strong>
+                <div class="star-info">
+                    类型: ${star.spectral_type} ${star.luminosity_class} | 视星等: ${formatNumber(star.app_mag)} | 距离: ${formatNumber(star.dist_ly, 1)} ly
+                </div>
+            </div>
+        `).join('');
+
+            // 绑定点击事件
+            document.querySelectorAll('.result-item').forEach(item => {
+                item.addEventListener('click', () => {
+                    const starId = item.getAttribute('data-star-id');
+                    selectStar(starId);
+                });
+            });
+        }
+
+        function selectStar(starId) {
+            clock.set({ playing: false });
+            updateSky(motionControls.frame());
+            selectedStar = starsData.find(s => s.id === starId);
+
+            if (!selectedStar) return;
+
+            // 更新选中状态
+            document.querySelectorAll('.result-item').forEach(item => {
+                item.classList.remove('selected');
+                if (item.getAttribute('data-star-id') === starId) {
+                    item.classList.add('selected');
+                }
+            });
+
+            // 显示星星信息
+            backgroundTools.open = true;
+            showStarInfo(selectedStar);
+            infoPanel.scrollIntoView({ block: 'nearest' });
+
+            // 移动相机朝向该星星
+            focusOnStar(selectedStar);
+
+            // 显示高亮标记
+            showHighlight(selectedStar);
+        }
+
+        function formatNumber(value, digits = 2) {
+            return Number.isFinite(value) ? value.toFixed(digits) : '—';
+        }
+
+        function showStarInfo(star) {
+            starName.textContent = star.id;
+            const galactic = Number.isFinite(star.gal_lon) && Number.isFinite(star.gal_lat);
+            starDetails.innerHTML = `
+            <p><strong>光谱类型:</strong> ${star.spectral_type}</p>
+            <p><strong>光度级:</strong> ${star.luminosity_class}</p>
+            <p><strong>完整分类:</strong> ${star.spectral_type} ${star.luminosity_class}</p>
+            <p><strong>视星等:</strong> ${formatNumber(star.app_mag)}</p>
+            <p><strong>当前状态:</strong> <span id="background-visibility">${star.visible ? "地平线与亮度达标" : "地平线下或亮度不足"}</span></p>
+            <p><strong>绝对星等:</strong> ${formatNumber(star.abs_mag)}</p>
+            <p><strong>距离:</strong> ${formatNumber(star.dist_ly, 1)} 光年</p>
+            <p><strong>${galactic ? '银经' : '赤经'}:</strong> ${formatNumber(galactic ? star.gal_lon : star.ra, 3)}°</p>
+            <p><strong>${galactic ? '银纬' : '赤纬'}:</strong> ${formatNumber(galactic ? star.gal_lat : star.dec, 3)}°</p>
+            <p><strong>角直径:</strong> ${formatNumber(star.angular_diameter_mas, 4)} mas</p>
+            <p><strong>颜色:</strong> <span style="display:inline-block;width:20px;height:20px;background:${star.color_hex};border:1px solid #fff;vertical-align:middle;"></span></p>
+        `;
+            infoPanel.style.display = 'block';
+        }
+
+        function focusOnStar(star) {
+            view.focus(star.normalizedPos);
+        }
+
+        function showHighlight(star) {
+            if (!highlightMarker) return;
+
+            const pos = star.normalizedPos.clone();
+            highlightMarker.position.copy(pos);
+            highlightMarker.visible = true;
+
+        }
+
+        // ==========================================
+        // 8. 渲染循环
+        // ==========================================
+        let lastSkyKey = '';
+        let lastMode = clock.state.mode;
+        function updateSky(sky) {
+            const key = JSON.stringify([sky.days, clock.state]);
+            if (key !== lastSkyKey) {
+                let visible = 0;
+                const positions = window.starField?.geometry.getAttribute('position');
+                starsData.forEach((star, index) => {
+                    const direction = backgroundDirection(star, sky.frame);
+                    star.normalizedPos.fromArray(direction).multiplyScalar(1000);
+                    positions?.setXYZ(index, ...star.normalizedPos.toArray());
+                    star.visible = backgroundVisible(star, direction, sky);
+                    if (star.visible) visible++;
+                });
+                if (positions) positions.needsUpdate = true;
+                if (starMaterial) {
+                    starMaterial.uniforms.limitingMagnitude.value = sky.limitingMagnitude;
+                    starMaterial.uniforms.surface.value = sky.frame.surface;
+                    starMaterial.uniforms.displayScale.value = clock.state.displayScale;
+                }
+                const m = sky.frame.matrix;
+                referenceGroup.matrix.set(...m[0], 0, ...m[1], 0, ...m[2], 0, 0, 0, 0, 1);
+                referenceGroup.matrixWorldNeedsUpdate = true;
+                referenceGroup.visible = clock.state.grid;
+                zodiacLayer.update(sky,clock.state.zodiac);
+                renderer.domElement.dataset.deepSkyCount=String(deepSkyCount);renderer.domElement.dataset.zodiac=String(clock.state.zodiac);
+                motionControls.catalogStatus(starsData.length, visible);
+                renderer.domElement.dataset.days = String(sky.days);
+                renderer.domElement.dataset.catalogCount = String(starsData.length);
+                renderer.domElement.dataset.visibleStars = String(visible);
+                renderer.domElement.dataset.selectedDirection = JSON.stringify(sky.bodies.find(b => b.id === clock.state.selected).view);
+                lastSkyKey = key;
+            }
+            if (lastMode !== clock.state.mode) { resetCamera(); lastMode = clock.state.mode; }
+            if (selectedStar) {
+                highlightMarker.position.copy(selectedStar.normalizedPos);
+                highlightMarker.visible = selectedStar.visible || clock.state.markers;
+                highlightMarker.lookAt(camera.position);
+                document.getElementById('background-visibility').textContent = selectedStar.visible ? '地平线与亮度达标' : '地平线下或亮度不足';
+            }
+            motion.update(sky, pointRadius, pointOpacity);
+            const pixelRatio=renderer.getPixelRatio();
+            diffuseLayer.update(sky,clock.state.deepSky,camera,stage.clientWidth*pixelRatio,stage.clientHeight*pixelRatio,projectionFocal(stage.clientHeight,camera.fov,clock.state.projection)*pixelRatio);
+        }
+        clock.subscribe(state => {
+            lastSkyKey = '';
+            if (state.folder === sharedFolder) return;
+            sharedFolder = state.folder;
+            const select = document.getElementById('folder-select');
+            if (state.folder && state.folder !== currentFolder && [...select.options].some(o => o.value === state.folder)) loadStarData(state.folder);
+            else if (state.folder === currentFolder && pendingFolder && pendingFolder !== currentFolder) { loadRevision++; pendingFolder = ''; select.disabled = false; select.value = currentFolder; }
+        });
+        window.addEventListener('sky-focus', event => {
+            selectedStar = null; highlightMarker.visible = false; infoPanel.style.display = 'none';
+            const sky = motionControls.frame(); updateSky(sky);
+            const body = sky.bodies.find(b => b.id === event.detail);
+            if (body) view.focus(new THREE.Vector3(...body.view));
+        });
+        window.addEventListener('sky-inspect',event=>{
+            const sky=motionControls.frame(),body=sky.bodies.find(b=>b.id===event.detail);if(!body)return;
+            selectedStar=null;highlightMarker.visible=false;infoPanel.style.display='none';
+            camera.fov=Math.max(1,Math.min(60,body.angularDiameter*8));camera.updateProjectionMatrix();
+            view.focus(new THREE.Vector3(...body.view));
+        });
+        function animate() {
+            requestAnimationFrame(animate);
+            view.update();
+            updateSky(motionControls.frame());
+            renderer.render(scene, camera);
+        }
+
+        // 窗口自适应
+        window.addEventListener('resize', onWindowResize, false);
+        function onWindowResize() {
+            camera.aspect = stage.clientWidth / stage.clientHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(stage.clientWidth, stage.clientHeight);
+            if (starMaterial) starMaterial.uniforms.viewportHeight.value = stage.clientHeight;
+        }
+
+        new ResizeObserver(onWindowResize).observe(stage);
+
+        // ==========================================
+        // 9. 点击星星交互
+        // ==========================================
+        // 跟踪鼠标按下和松开的位置，区分点击和拖动
+        let mouseDownPosition = { x: 0, y: 0 };
+        let mouseUpPosition = { x: 0, y: 0 };
+
+        function onMouseDown(event) {
+            mouseDownPosition.x = event.clientX;
+            mouseDownPosition.y = event.clientY;
+        }
+
+        function onStarClick(event) {
+            mouseUpPosition.x = event.clientX;
+            mouseUpPosition.y = event.clientY;
+
+            // 计算鼠标移动距离
+            const dx = mouseUpPosition.x - mouseDownPosition.x;
+            const dy = mouseUpPosition.y - mouseDownPosition.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            // 如果移动距离小于阈值，认为是点击而非拖动
+            const clickThreshold = 5; // 像素
+            if (distance > clickThreshold) {
+                return; // 是拖动操作，不选择星星
+            }
+
+            const bounds = renderer.domElement.getBoundingClientRect();
+            const clickedBody = pickNearestStar(motion.currentBodies.filter(b => b.visible || clock.state.markers), camera, event.clientX, event.clientY, bounds, 18);
+            if (clickedBody) { motionControls.choose(clickedBody.id); return; }
+            const clickedStar = pickNearestStar(starsData.filter(star => star.visible), camera, event.clientX, event.clientY, bounds);
+
+            if (clickedStar) {
+                selectStar(clickedStar.id);
+            }
+        }
+
+        // 添加鼠标事件监听器
+        renderer.domElement.addEventListener('mousedown', onMouseDown, false);
+        renderer.domElement.addEventListener('click', onStarClick, false);
+
+        // ==========================================
+        // 10. 视角重置（缩放由 SkyView 改变视场）
+        // ==========================================
+        function resetCamera() {
+            view.reset();
+            if (clock.state.mode === 'surface') view.focus(new THREE.Vector3(Math.cos(Math.PI/6), 0, Math.sin(Math.PI/6)), 0);
+        }
+
+        // 添加重置按钮事件监听器
+        document.getElementById('reset-button').addEventListener('click', resetCamera);
+
+        // 添加颜色切换按钮事件监听器
+        let isWhiteMode = false;
+        const colorToggleButton = document.getElementById('color-toggle-button');
+        colorToggleButton.addEventListener('click', () => {
+            isWhiteMode = !isWhiteMode;
+            if (starMaterial) {
+                starMaterial.uniforms.useWhiteColor.value = isWhiteMode;
+            }
+            colorToggleButton.textContent = isWhiteMode ? '切换为彩色' : '切换为白色';
+        });
+        // 启动
+        createHighlightMarker();
+        createGalacticPlane();
+        createEclipticPlane();
+        createCelestialEquator();
+        createCelestialPoles();
+        createCelestialMeridians();
+        createPolarCrosses();
+        createPolarCircles();
+        createLatitudeLines();
+        referenceGroup.traverse(object=>{
+            if(!object.material)return;
+            if(object.isSprite)object.material.opacity*=SKY_OVERLAYS.text;
+            else{
+                object.material.opacity=SKY_OVERLAYS.line;
+                if(object.material.color?.getHex()===0x666666)object.material.color.set('#8896a6');
+            }
+        });
+
+        resetCamera();
+
+        // 先发现可用文件夹，再加载数据
+        discoverFolders();
+
+        animate();
+
+    </script>
+</body>
+
+</html>

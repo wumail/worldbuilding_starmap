@@ -1,0 +1,408 @@
+{
+  "path": "tests/sky_artifact_checks.html",
+  "status": "5/5 通过；0 失败",
+  "failures": [],
+  "metrics": {
+    "total": 5,
+    "failures": 0,
+    "metrics": {
+      "userLunaAntipode": {
+        "changedPixels": 0,
+        "pixels": 147456,
+        "center": [
+          5,
+          9,
+          17,
+          255
+        ]
+      },
+      "bodyAntipodes": [
+        {
+          "id": "Sol",
+          "mode": "perspective",
+          "gain": 1,
+          "dpr": 1,
+          "changed": 0
+        },
+        {
+          "id": "Sol",
+          "mode": "perspective",
+          "gain": 1,
+          "dpr": 2,
+          "changed": 0
+        },
+        {
+          "id": "Sol",
+          "mode": "perspective",
+          "gain": 6,
+          "dpr": 1,
+          "changed": 0
+        },
+        {
+          "id": "Sol",
+          "mode": "perspective",
+          "gain": 6,
+          "dpr": 2,
+          "changed": 0
+        },
+        {
+          "id": "Sol",
+          "mode": "perspective",
+          "gain": 8,
+          "dpr": 1,
+          "changed": 0
+        },
+        {
+          "id": "Sol",
+          "mode": "perspective",
+          "gain": 8,
+          "dpr": 2,
+          "changed": 0
+        },
+        {
+          "id": "Luna",
+          "mode": "perspective",
+          "gain": 1,
+          "dpr": 1,
+          "changed": 0
+        },
+        {
+          "id": "Luna",
+          "mode": "perspective",
+          "gain": 1,
+          "dpr": 2,
+          "changed": 0
+        },
+        {
+          "id": "Luna",
+          "mode": "perspective",
+          "gain": 6,
+          "dpr": 1,
+          "changed": 0
+        },
+        {
+          "id": "Luna",
+          "mode": "perspective",
+          "gain": 6,
+          "dpr": 2,
+          "changed": 0
+        },
+        {
+          "id": "Luna",
+          "mode": "perspective",
+          "gain": 8,
+          "dpr": 1,
+          "changed": 0
+        },
+        {
+          "id": "Luna",
+          "mode": "perspective",
+          "gain": 8,
+          "dpr": 2,
+          "changed": 0
+        },
+        {
+          "id": "Echo",
+          "mode": "perspective",
+          "gain": 1,
+          "dpr": 1,
+          "changed": 0
+        },
+        {
+          "id": "Echo",
+          "mode": "perspective",
+          "gain": 1,
+          "dpr": 2,
+          "changed": 0
+        },
+        {
+          "id": "Echo",
+          "mode": "perspective",
+          "gain": 6,
+          "dpr": 1,
+          "changed": 0
+        },
+        {
+          "id": "Echo",
+          "mode": "perspective",
+          "gain": 6,
+          "dpr": 2,
+          "changed": 0
+        },
+        {
+          "id": "Echo",
+          "mode": "perspective",
+          "gain": 8,
+          "dpr": 1,
+          "changed": 0
+        },
+        {
+          "id": "Echo",
+          "mode": "perspective",
+          "gain": 8,
+          "dpr": 2,
+          "changed": 0
+        },
+        {
+          "id": "Venus-Sol",
+          "mode": "perspective",
+          "gain": 1,
+          "dpr": 1,
+          "changed": 0
+        },
+        {
+          "id": "Venus-Sol",
+          "mode": "perspective",
+          "gain": 1,
+          "dpr": 2,
+          "changed": 0
+        },
+        {
+          "id": "Venus-Sol",
+          "mode": "perspective",
+          "gain": 6,
+          "dpr": 1,
+          "changed": 0
+        },
+        {
+          "id": "Venus-Sol",
+          "mode": "perspective",
+          "gain": 6,
+          "dpr": 2,
+          "changed": 0
+        },
+        {
+          "id": "Venus-Sol",
+          "mode": "perspective",
+          "gain": 8,
+          "dpr": 1,
+          "changed": 0
+        },
+        {
+          "id": "Venus-Sol",
+          "mode": "perspective",
+          "gain": 8,
+          "dpr": 2,
+          "changed": 0
+        },
+        {
+          "id": "Sol",
+          "mode": "stereographic",
+          "gain": 1,
+          "dpr": 1,
+          "changed": 0
+        },
+        {
+          "id": "Sol",
+          "mode": "stereographic",
+          "gain": 1,
+          "dpr": 2,
+          "changed": 0
+        },
+        {
+          "id": "Sol",
+          "mode": "stereographic",
+          "gain": 6,
+          "dpr": 1,
+          "changed": 0
+        },
+        {
+          "id": "Sol",
+          "mode": "stereographic",
+          "gain": 6,
+          "dpr": 2,
+          "changed": 0
+        },
+        {
+          "id": "Sol",
+          "mode": "stereographic",
+          "gain": 8,
+          "dpr": 1,
+          "changed": 0
+        },
+        {
+          "id": "Sol",
+          "mode": "stereographic",
+          "gain": 8,
+          "dpr": 2,
+          "changed": 0
+        },
+        {
+          "id": "Luna",
+          "mode": "stereographic",
+          "gain": 1,
+          "dpr": 1,
+          "changed": 0
+        },
+        {
+          "id": "Luna",
+          "mode": "stereographic",
+          "gain": 1,
+          "dpr": 2,
+          "changed": 0
+        },
+        {
+          "id": "Luna",
+          "mode": "stereographic",
+          "gain": 6,
+          "dpr": 1,
+          "changed": 0
+        },
+        {
+          "id": "Luna",
+          "mode": "stereographic",
+          "gain": 6,
+          "dpr": 2,
+          "changed": 0
+        },
+        {
+          "id": "Luna",
+          "mode": "stereographic",
+          "gain": 8,
+          "dpr": 1,
+          "changed": 0
+        },
+        {
+          "id": "Luna",
+          "mode": "stereographic",
+          "gain": 8,
+          "dpr": 2,
+          "changed": 0
+        },
+        {
+          "id": "Echo",
+          "mode": "stereographic",
+          "gain": 1,
+          "dpr": 1,
+          "changed": 0
+        },
+        {
+          "id": "Echo",
+          "mode": "stereographic",
+          "gain": 1,
+          "dpr": 2,
+          "changed": 0
+        },
+        {
+          "id": "Echo",
+          "mode": "stereographic",
+          "gain": 6,
+          "dpr": 1,
+          "changed": 0
+        },
+        {
+          "id": "Echo",
+          "mode": "stereographic",
+          "gain": 6,
+          "dpr": 2,
+          "changed": 0
+        },
+        {
+          "id": "Echo",
+          "mode": "stereographic",
+          "gain": 8,
+          "dpr": 1,
+          "changed": 0
+        },
+        {
+          "id": "Echo",
+          "mode": "stereographic",
+          "gain": 8,
+          "dpr": 2,
+          "changed": 0
+        },
+        {
+          "id": "Venus-Sol",
+          "mode": "stereographic",
+          "gain": 1,
+          "dpr": 1,
+          "changed": 0
+        },
+        {
+          "id": "Venus-Sol",
+          "mode": "stereographic",
+          "gain": 1,
+          "dpr": 2,
+          "changed": 0
+        },
+        {
+          "id": "Venus-Sol",
+          "mode": "stereographic",
+          "gain": 6,
+          "dpr": 1,
+          "changed": 0
+        },
+        {
+          "id": "Venus-Sol",
+          "mode": "stereographic",
+          "gain": 6,
+          "dpr": 2,
+          "changed": 0
+        },
+        {
+          "id": "Venus-Sol",
+          "mode": "stereographic",
+          "gain": 8,
+          "dpr": 1,
+          "changed": 0
+        },
+        {
+          "id": "Venus-Sol",
+          "mode": "stereographic",
+          "gain": 8,
+          "dpr": 2,
+          "changed": 0
+        }
+      ],
+      "catalogueAntipode": {
+        "catalogue": 9356,
+        "brightPixels": 4111,
+        "fraction": 0.015682220458984375
+      },
+      "gasDisplay": [
+        {
+          "id": "H-D-OC-7-000786",
+          "kind": "emission_nebula",
+          "peakBefore": 57,
+          "peakAfter": 27,
+          "gradientBefore": 19,
+          "gradientAfter": 3,
+          "difference": 36
+        },
+        {
+          "id": "H-D-OC-6.5-001558",
+          "kind": "emission_nebula",
+          "peakBefore": 62,
+          "peakAfter": 31,
+          "gradientBefore": 17,
+          "gradientAfter": 2,
+          "difference": 36
+        },
+        {
+          "id": "OC-7.5-001432",
+          "kind": "open_cluster",
+          "peakBefore": 126,
+          "peakAfter": 126,
+          "gradientBefore": 7,
+          "gradientAfter": 7,
+          "difference": 0
+        },
+        {
+          "id": "R-D-OC-6.5-000555",
+          "kind": "reflection_nebula",
+          "peakBefore": 21,
+          "peakAfter": 6,
+          "gradientBefore": 1,
+          "gradientAfter": 1,
+          "difference": 15
+        }
+      ],
+      "gasPhysical": {
+        "maxDifference": 0,
+        "positiveRadianceSum": 6.022275482246187
+      }
+    }
+  },
+  "errors": [],
+  "httpFailures": []
+}

@@ -1,0 +1,43 @@
+{
+  "date": "2026-09-15",
+  "authorization": "用户要求采用30712光年银心距、科学生成星云星团，并在V1/V2实现15个黄道天区；地标与进动章动仅设计。",
+  "previous_revision": "v1_display_revision.json",
+  "changes": {
+    "v4/sky_atlas.html": {
+      "before": "d1eba5a9950c2c9ead94dc21a3168fed5c67191da4c27c5e8ef125f14e3e7ebc",
+      "after": "8808835677650b6fb4d4dfab10b88d19a713b32b4c87c71baef9e17883e2e550"
+    },
+    "v4/stellar_physics.py": {
+      "before": "565300ed840c36ee9cbfd02225004f13325ab60b7f7483ba49fcafdc02e9fdf1",
+      "after": "3d59e0fd928523194a94a00b0fec7aeae2a0c4d4b879932bce917ff6f1b0c84f"
+    },
+    "v4/star_map.html": {
+      "before": "41fa49d8353f6fc4da86ff48e46c68a872c2392d7b89162d28f1ee0faf9981c4",
+      "after": "323b3ffceea4605b4d99d5a57029eb041b808d4de5bc619e536beff911517e0d"
+    },
+    "v4/sky_controls.mjs": {
+      "before": "d879e074f7760defabc6edf0cdb88a26780979110340627809484880752ceaa2",
+      "after": "a3fd386ed509499e67a460509e268b165d926a45112f5847be1945f29a823bae"
+    },
+    "v4/sky_render.mjs": {
+      "before": "2d92ef2c9256d922de7fca8ea8c06b5cbd0182907ba1473724f46b55b2b3ec24",
+      "after": "577e035833459ab2d0dcbb2dd680cb2cabde31fde2a2e441fd8db43300c0f8f6"
+    },
+    "v4/folders.json": {
+      "before": "407ec042bebf98e3addf8b4254fb26c983221739c06e24c0eb3d973f68460612",
+      "after": "80258ae151413d7cffb87a89a385fe78cd13d9750337dc244f243e1f5975752d"
+    },
+    "v4/star_generator.py": {
+      "before": "666c9718170d690f3346c59ea8105ad40ade8e85b3b9db06bef64be68c4005fb",
+      "after": "fdd935c9a7b17db0e70b4995cafa39f744fa82b7a69c2915380b9af6ef2f4303"
+    },
+    "v4/sky_state.mjs": {
+      "before": "179996b6df5367ea3ff48f5f176d9e2c53507a1daaeacac2c57a51efd1571f92",
+      "after": "393bb49981db283e177d6d84f07c16e4bba4c4b924898f4b51b4c2c0bbd308e9"
+    },
+    "v4/sky_atlas.mjs": {
+      "before": "87154a8c51c4611379dbd50cc010325358f4931e241b1d88a09974f0f74e9cd8",
+      "after": "aa6a70a169b58205c391549380edcb5e7a79816ad92bda5bf51042040ad5fed3"
+    }
+  }
+}

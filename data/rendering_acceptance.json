@@ -1,0 +1,176 @@
+{
+  "all_passed": true,
+  "gpu": {
+    "GL_VENDOR": "Apple",
+    "GL_RENDERER": "Apple M4",
+    "GL_VERSION": "4.1 Metal - 90.5"
+  },
+  "subpixel_phases_checked": 121,
+  "minimum_phase_peak_code": 17,
+  "maximum_phase_pixel_error": 0,
+  "brightness_responses": [
+    {
+      "magnitude": -3,
+      "sum_codes": 710073,
+      "peak_code": 255,
+      "lit_pixels": 1127
+    },
+    {
+      "magnitude": 0,
+      "sum_codes": 101634,
+      "peak_code": 255,
+      "lit_pixels": 518
+    },
+    {
+      "magnitude": 3.99999,
+      "sum_codes": 6702,
+      "peak_code": 208,
+      "lit_pixels": 75
+    },
+    {
+      "magnitude": 4,
+      "sum_codes": 6702,
+      "peak_code": 208,
+      "lit_pixels": 75
+    },
+    {
+      "magnitude": 4.00001,
+      "sum_codes": 6702,
+      "peak_code": 208,
+      "lit_pixels": 75
+    },
+    {
+      "magnitude": 6.5,
+      "sum_codes": 408,
+      "peak_code": 98,
+      "lit_pixels": 6
+    },
+    {
+      "magnitude": 8,
+      "sum_codes": 378,
+      "peak_code": 93,
+      "lit_pixels": 4
+    },
+    {
+      "magnitude": 15,
+      "sum_codes": 378,
+      "peak_code": 93,
+      "lit_pixels": 4
+    }
+  ],
+  "full_exports": [
+    {
+      "renderer_version": "4.3",
+      "renderer_sha256": "fbba5eb64df88e8abc2e4e703c7016691b58dc22688cc65f218d10cf838a5d1a",
+      "input_file": "anchors.json",
+      "input_sha256": "42a7d7666ad3f2fbcd4b89ff4b3fb024a70533ba5914134194fbaa8e92695028",
+      "output_file": "anchors_2048.png",
+      "output_sha256": "a54e71b6af25bb524984d53456f65f0131fdabf266c5c55f59e52b458c9e3424",
+      "selection": {
+        "input_count": 43,
+        "limiting_magnitude": 6.5,
+        "selected_count": 42,
+        "excluded_ids": [
+          "threshold_excluded"
+        ],
+        "coordinate_convention": "fixed near-J2000 orientation; obliquity 25 degrees"
+      },
+      "projection": "polar azimuthal equidistant; south left, north right",
+      "pixel_coordinates": "top-left origin, pixel centers at (column+0.5, row+0.5)",
+      "equator_ownership": "north",
+      "resolution_per_hemisphere": 2048,
+      "sky_radius_px": 1020.0,
+      "symbol_guard_px": 4,
+      "orientation_offset_degrees": 13.564125,
+      "use_color": true,
+      "grid_lines": true,
+      "mapping": "monotone size and nondecreasing intensity with brightness; minimum diameter 2.5 px",
+      "limitations": "symbol chart, not photometry; overlapping stars may merge and RGB8 addition may saturate",
+      "gpu": {
+        "GL_VENDOR": "Apple",
+        "GL_RENDERER": "Apple M4",
+        "GL_VERSION": "4.1 Metal - 90.5"
+      },
+      "north_validation": {
+        "checked_stars": 24,
+        "all_passed": true,
+        "max_channel_error": 0,
+        "tolerance_codes": 2,
+        "pixels_outside_tolerance": 0,
+        "minimum_witness_peak_code": 19
+      },
+      "south_validation": {
+        "checked_stars": 18,
+        "all_passed": true,
+        "max_channel_error": 0,
+        "tolerance_codes": 2,
+        "pixels_outside_tolerance": 0,
+        "minimum_witness_peak_code": 19
+      },
+      "png_validation": {
+        "checked_stars": 42,
+        "all_passed": true,
+        "hemisphere_pixels_checked": 8388608,
+        "roundtrip_pixels_checked": 10384500,
+        "differing_pixels": 0
+      }
+    },
+    {
+      "renderer_version": "4.3",
+      "renderer_sha256": "fbba5eb64df88e8abc2e4e703c7016691b58dc22688cc65f218d10cf838a5d1a",
+      "input_file": "anchors.json",
+      "input_sha256": "42a7d7666ad3f2fbcd4b89ff4b3fb024a70533ba5914134194fbaa8e92695028",
+      "output_file": "anchors_4096.png",
+      "output_sha256": "f99193d52e34a6300d9e1034e6d883b4a39503e613ac2c197b96a6153c3d4b3b",
+      "selection": {
+        "input_count": 43,
+        "limiting_magnitude": 6.5,
+        "selected_count": 42,
+        "excluded_ids": [
+          "threshold_excluded"
+        ],
+        "coordinate_convention": "fixed near-J2000 orientation; obliquity 25 degrees"
+      },
+      "projection": "polar azimuthal equidistant; south left, north right",
+      "pixel_coordinates": "top-left origin, pixel centers at (column+0.5, row+0.5)",
+      "equator_ownership": "north",
+      "resolution_per_hemisphere": 4096,
+      "sky_radius_px": 2043.0,
+      "symbol_guard_px": 5,
+      "orientation_offset_degrees": 13.564125,
+      "use_color": true,
+      "grid_lines": true,
+      "mapping": "monotone size and nondecreasing intensity with brightness; minimum diameter 2.5 px",
+      "limitations": "symbol chart, not photometry; overlapping stars may merge and RGB8 addition may saturate",
+      "gpu": {
+        "GL_VENDOR": "Apple",
+        "GL_RENDERER": "Apple M4",
+        "GL_VERSION": "4.1 Metal - 90.5"
+      },
+      "north_validation": {
+        "checked_stars": 24,
+        "all_passed": true,
+        "max_channel_error": 0,
+        "tolerance_codes": 2,
+        "pixels_outside_tolerance": 0,
+        "minimum_witness_peak_code": 137
+      },
+      "south_validation": {
+        "checked_stars": 18,
+        "all_passed": true,
+        "max_channel_error": 0,
+        "tolerance_codes": 2,
+        "pixels_outside_tolerance": 0,
+        "minimum_witness_peak_code": 98
+      },
+      "png_validation": {
+        "checked_stars": 42,
+        "all_passed": true,
+        "hemisphere_pixels_checked": 33554432,
+        "roundtrip_pixels_checked": 41546600,
+        "differing_pixels": 0
+      }
+    }
+  ],
+  "renderer_sha256": "fbba5eb64df88e8abc2e4e703c7016691b58dc22688cc65f218d10cf838a5d1a"
+}

@@ -1,0 +1,1625 @@
+{
+  "method": "NumPy raw emissivity, SciPy separable Gaussian convolution, float32 bilinear reconstruction",
+  "samples": [
+    {
+      "x": 0.0,
+      "y": 0.0,
+      "profile": "ionized_gaussian",
+      "cut": 0.19,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "turbulent",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.1289118230342865
+    },
+    {
+      "x": 0.020900000000000002,
+      "y": 0.055099999999999996,
+      "profile": "ionized_gaussian",
+      "cut": 0.19,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "turbulent",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.13927813935279842
+    },
+    {
+      "x": -0.10070000000000001,
+      "y": 0.0437,
+      "profile": "ionized_gaussian",
+      "cut": 0.19,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "turbulent",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.08082934352159499
+    },
+    {
+      "x": 0.1691,
+      "y": 0.00019,
+      "profile": "ionized_gaussian",
+      "cut": 0.19,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "turbulent",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.00725194183990357
+    },
+    {
+      "x": 0.18981,
+      "y": 0.0,
+      "profile": "ionized_gaussian",
+      "cut": 0.19,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "turbulent",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 1.829499541781643e-08
+    },
+    {
+      "x": 0.19018999999999997,
+      "y": 0.0,
+      "profile": "ionized_gaussian",
+      "cut": 0.19,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "turbulent",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.0
+    },
+    {
+      "x": 0.0,
+      "y": 0.0,
+      "profile": "ionized_gaussian",
+      "cut": 0.9,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "turbulent",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.48326578736305237
+    },
+    {
+      "x": 0.099,
+      "y": 0.261,
+      "profile": "ionized_gaussian",
+      "cut": 0.9,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "turbulent",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.4655327191352844
+    },
+    {
+      "x": -0.47700000000000004,
+      "y": 0.20700000000000002,
+      "profile": "ionized_gaussian",
+      "cut": 0.9,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "turbulent",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.2587992208480835
+    },
+    {
+      "x": 0.801,
+      "y": 0.0009000000000000001,
+      "profile": "ionized_gaussian",
+      "cut": 0.9,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "turbulent",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.01903775585353368
+    },
+    {
+      "x": 0.8991,
+      "y": 0.0,
+      "profile": "ionized_gaussian",
+      "cut": 0.9,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "turbulent",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 4.60776528343508e-08
+    },
+    {
+      "x": 0.9008999999999999,
+      "y": 0.0,
+      "profile": "ionized_gaussian",
+      "cut": 0.9,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "turbulent",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.0
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "profile": "gaussian",
+      "cut": 4,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "turbulent",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.618027925491333
+    },
+    {
+      "x": 0.44,
+      "y": 1.16,
+      "profile": "gaussian",
+      "cut": 4,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "turbulent",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.14019970591068254
+    },
+    {
+      "x": -2.12,
+      "y": 0.92,
+      "profile": "gaussian",
+      "cut": 4,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "turbulent",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.003965766028687357
+    },
+    {
+      "x": 3.56,
+      "y": 0.004,
+      "profile": "gaussian",
+      "cut": 4,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "turbulent",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 4.749685263493998e-05
+    },
+    {
+      "x": 3.996,
+      "y": 0,
+      "profile": "gaussian",
+      "cut": 4,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "turbulent",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 7.578015447506086e-11
+    },
+    {
+      "x": 4.004,
+      "y": 0,
+      "profile": "gaussian",
+      "cut": 4,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "turbulent",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.0
+    },
+    {
+      "x": 0.0,
+      "y": 0.0,
+      "profile": "ionized_gaussian",
+      "cut": 0.19,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "filament",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.10195198655128479
+    },
+    {
+      "x": 0.020900000000000002,
+      "y": 0.055099999999999996,
+      "profile": "ionized_gaussian",
+      "cut": 0.19,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "filament",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.11877858468294139
+    },
+    {
+      "x": -0.10070000000000001,
+      "y": 0.0437,
+      "profile": "ionized_gaussian",
+      "cut": 0.19,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "filament",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.06940474112033844
+    },
+    {
+      "x": 0.1691,
+      "y": 0.00019,
+      "profile": "ionized_gaussian",
+      "cut": 0.19,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "filament",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.005327307426482424
+    },
+    {
+      "x": 0.18981,
+      "y": 0.0,
+      "profile": "ionized_gaussian",
+      "cut": 0.19,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "filament",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 1.160642330068968e-08
+    },
+    {
+      "x": 0.19018999999999997,
+      "y": 0.0,
+      "profile": "ionized_gaussian",
+      "cut": 0.19,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "filament",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.0
+    },
+    {
+      "x": 0.0,
+      "y": 0.0,
+      "profile": "ionized_gaussian",
+      "cut": 0.9,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "filament",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.3821754455566406
+    },
+    {
+      "x": 0.099,
+      "y": 0.261,
+      "profile": "ionized_gaussian",
+      "cut": 0.9,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "filament",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.39939572796821576
+    },
+    {
+      "x": -0.47700000000000004,
+      "y": 0.20700000000000002,
+      "profile": "ionized_gaussian",
+      "cut": 0.9,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "filament",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.22280945484638215
+    },
+    {
+      "x": 0.801,
+      "y": 0.0009000000000000001,
+      "profile": "ionized_gaussian",
+      "cut": 0.9,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "filament",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.014020496318042237
+    },
+    {
+      "x": 0.8991,
+      "y": 0.0,
+      "profile": "ionized_gaussian",
+      "cut": 0.9,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "filament",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 2.9280862770971435e-08
+    },
+    {
+      "x": 0.9008999999999999,
+      "y": 0.0,
+      "profile": "ionized_gaussian",
+      "cut": 0.9,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "filament",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.0
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "profile": "gaussian",
+      "cut": 4,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "filament",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.51514732837677
+    },
+    {
+      "x": 0.44,
+      "y": 1.16,
+      "profile": "gaussian",
+      "cut": 4,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "filament",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.0036823218654841116
+    },
+    {
+      "x": -2.12,
+      "y": 0.92,
+      "profile": "gaussian",
+      "cut": 4,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "filament",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.00024389619205612682
+    },
+    {
+      "x": 3.56,
+      "y": 0.004,
+      "profile": "gaussian",
+      "cut": 4,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "filament",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 4.9110954485367706e-05
+    },
+    {
+      "x": 3.996,
+      "y": 0,
+      "profile": "gaussian",
+      "cut": 4,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "filament",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 7.643307981196887e-11
+    },
+    {
+      "x": 4.004,
+      "y": 0,
+      "profile": "gaussian",
+      "cut": 4,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "filament",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.0
+    },
+    {
+      "x": 0.0,
+      "y": 0.0,
+      "profile": "ionized_gaussian",
+      "cut": 0.19,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "shell",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.44308409094810486
+    },
+    {
+      "x": 0.020900000000000002,
+      "y": 0.055099999999999996,
+      "profile": "ionized_gaussian",
+      "cut": 0.19,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "shell",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.8769786290168764
+    },
+    {
+      "x": -0.10070000000000001,
+      "y": 0.0437,
+      "profile": "ionized_gaussian",
+      "cut": 0.19,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "shell",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.8123532386779785
+    },
+    {
+      "x": 0.1691,
+      "y": 0.00019,
+      "profile": "ionized_gaussian",
+      "cut": 0.19,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "shell",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.02095023947119704
+    },
+    {
+      "x": 0.18981,
+      "y": 0.0,
+      "profile": "ionized_gaussian",
+      "cut": 0.19,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "shell",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 2.4177758721632104e-08
+    },
+    {
+      "x": 0.19018999999999997,
+      "y": 0.0,
+      "profile": "ionized_gaussian",
+      "cut": 0.19,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "shell",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.0
+    },
+    {
+      "x": 0.0,
+      "y": 0.0,
+      "profile": "ionized_gaussian",
+      "cut": 0.9,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "shell",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.44308409094810486
+    },
+    {
+      "x": 0.099,
+      "y": 0.261,
+      "profile": "ionized_gaussian",
+      "cut": 0.9,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "shell",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.8769786290168764
+    },
+    {
+      "x": -0.47700000000000004,
+      "y": 0.20700000000000002,
+      "profile": "ionized_gaussian",
+      "cut": 0.9,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "shell",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.8123532386779785
+    },
+    {
+      "x": 0.801,
+      "y": 0.0009000000000000001,
+      "profile": "ionized_gaussian",
+      "cut": 0.9,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "shell",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.02095023947119704
+    },
+    {
+      "x": 0.8991,
+      "y": 0.0,
+      "profile": "ionized_gaussian",
+      "cut": 0.9,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "shell",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 2.4177758721632104e-08
+    },
+    {
+      "x": 0.9008999999999999,
+      "y": 0.0,
+      "profile": "ionized_gaussian",
+      "cut": 0.9,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "shell",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.0
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "profile": "gaussian",
+      "cut": 4,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "shell",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.464720755815506
+    },
+    {
+      "x": 0.44,
+      "y": 1.16,
+      "profile": "gaussian",
+      "cut": 4,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "shell",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 1.054222396850586
+    },
+    {
+      "x": -2.12,
+      "y": 0.92,
+      "profile": "gaussian",
+      "cut": 4,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "shell",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.13455263667106626
+    },
+    {
+      "x": 3.56,
+      "y": 0.004,
+      "profile": "gaussian",
+      "cut": 4,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "shell",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.0032462949983775467
+    },
+    {
+      "x": 3.996,
+      "y": 0,
+      "profile": "gaussian",
+      "cut": 4,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "shell",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 6.267559656406999e-09
+    },
+    {
+      "x": 4.004,
+      "y": 0,
+      "profile": "gaussian",
+      "cut": 4,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "shell",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.0
+    },
+    {
+      "x": 0.0,
+      "y": 0.0,
+      "profile": "ionized_gaussian",
+      "cut": 0.19,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "blister",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.1300831139087677
+    },
+    {
+      "x": 0.020900000000000002,
+      "y": 0.055099999999999996,
+      "profile": "ionized_gaussian",
+      "cut": 0.19,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "blister",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.22908257088661205
+    },
+    {
+      "x": -0.10070000000000001,
+      "y": 0.0437,
+      "profile": "ionized_gaussian",
+      "cut": 0.19,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "blister",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.02921016566157341
+    },
+    {
+      "x": 0.1691,
+      "y": 0.00019,
+      "profile": "ionized_gaussian",
+      "cut": 0.19,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "blister",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.020871256546974092
+    },
+    {
+      "x": 0.18981,
+      "y": 0.0,
+      "profile": "ionized_gaussian",
+      "cut": 0.19,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "blister",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 2.4105189600956784e-08
+    },
+    {
+      "x": 0.19018999999999997,
+      "y": 0.0,
+      "profile": "ionized_gaussian",
+      "cut": 0.19,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "blister",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.0
+    },
+    {
+      "x": 0.0,
+      "y": 0.0,
+      "profile": "ionized_gaussian",
+      "cut": 0.9,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "blister",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.1300831139087677
+    },
+    {
+      "x": 0.099,
+      "y": 0.261,
+      "profile": "ionized_gaussian",
+      "cut": 0.9,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "blister",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.22908257088661205
+    },
+    {
+      "x": -0.47700000000000004,
+      "y": 0.20700000000000002,
+      "profile": "ionized_gaussian",
+      "cut": 0.9,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "blister",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.02921016566157341
+    },
+    {
+      "x": 0.801,
+      "y": 0.0009000000000000001,
+      "profile": "ionized_gaussian",
+      "cut": 0.9,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "blister",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.020871256546974092
+    },
+    {
+      "x": 0.8991,
+      "y": 0.0,
+      "profile": "ionized_gaussian",
+      "cut": 0.9,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "blister",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 2.4105189600956784e-08
+    },
+    {
+      "x": 0.9008999999999999,
+      "y": 0.0,
+      "profile": "ionized_gaussian",
+      "cut": 0.9,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "blister",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.0
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "profile": "gaussian",
+      "cut": 4,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "blister",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.1362985521554947
+    },
+    {
+      "x": 0.44,
+      "y": 1.16,
+      "profile": "gaussian",
+      "cut": 4,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "blister",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.2767528429985047
+    },
+    {
+      "x": -2.12,
+      "y": 0.92,
+      "profile": "gaussian",
+      "cut": 4,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "blister",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.0048275881707668285
+    },
+    {
+      "x": 3.56,
+      "y": 0.004,
+      "profile": "gaussian",
+      "cut": 4,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "blister",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.0032286667702346892
+    },
+    {
+      "x": 3.996,
+      "y": 0,
+      "profile": "gaussian",
+      "cut": 4,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "blister",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 6.243857264052394e-09
+    },
+    {
+      "x": 4.004,
+      "y": 0,
+      "profile": "gaussian",
+      "cut": 4,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "blister",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.0
+    },
+    {
+      "x": 0.0,
+      "y": 0.0,
+      "profile": "ionized_gaussian",
+      "cut": 0.19,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "fan",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.091049425303936
+    },
+    {
+      "x": 0.020900000000000002,
+      "y": 0.055099999999999996,
+      "profile": "ionized_gaussian",
+      "cut": 0.19,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "fan",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.08953971008062361
+    },
+    {
+      "x": -0.10070000000000001,
+      "y": 0.0437,
+      "profile": "ionized_gaussian",
+      "cut": 0.19,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "fan",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.012268548832833766
+    },
+    {
+      "x": 0.1691,
+      "y": 0.00019,
+      "profile": "ionized_gaussian",
+      "cut": 0.19,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "fan",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.007038529893606878
+    },
+    {
+      "x": 0.18981,
+      "y": 0.0,
+      "profile": "ionized_gaussian",
+      "cut": 0.19,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "fan",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 1.781505090184315e-08
+    },
+    {
+      "x": 0.19018999999999997,
+      "y": 0.0,
+      "profile": "ionized_gaussian",
+      "cut": 0.19,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "fan",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.0
+    },
+    {
+      "x": 0.0,
+      "y": 0.0,
+      "profile": "ionized_gaussian",
+      "cut": 0.9,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "fan",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.3413289189338684
+    },
+    {
+      "x": 0.099,
+      "y": 0.261,
+      "profile": "ionized_gaussian",
+      "cut": 0.9,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "fan",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.2996916789054871
+    },
+    {
+      "x": -0.47700000000000004,
+      "y": 0.20700000000000002,
+      "profile": "ionized_gaussian",
+      "cut": 0.9,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "fan",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.039428905367851264
+    },
+    {
+      "x": 0.801,
+      "y": 0.0009000000000000001,
+      "profile": "ionized_gaussian",
+      "cut": 0.9,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "fan",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.018476989375352797
+    },
+    {
+      "x": 0.8991,
+      "y": 0.0,
+      "profile": "ionized_gaussian",
+      "cut": 0.9,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "fan",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 4.486836958676086e-08
+    },
+    {
+      "x": 0.9008999999999999,
+      "y": 0.0,
+      "profile": "ionized_gaussian",
+      "cut": 0.9,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "fan",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.0
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "profile": "gaussian",
+      "cut": 4,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "fan",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.43007323145866394
+    },
+    {
+      "x": 0.44,
+      "y": 1.16,
+      "profile": "gaussian",
+      "cut": 4,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "fan",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.0374366942465305
+    },
+    {
+      "x": -2.12,
+      "y": 0.92,
+      "profile": "gaussian",
+      "cut": 4,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "fan",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 7.501018923940135e-05
+    },
+    {
+      "x": 3.56,
+      "y": 0.004,
+      "profile": "gaussian",
+      "cut": 4,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "fan",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 4.689033582224479e-05
+    },
+    {
+      "x": 3.996,
+      "y": 0,
+      "profile": "gaussian",
+      "cut": 4,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "fan",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 7.449961049132165e-11
+    },
+    {
+      "x": 4.004,
+      "y": 0,
+      "profile": "gaussian",
+      "cut": 4,
+      "morphology": {
+        "model": "projected_emissivity_v3",
+        "family": "fan",
+        "position_angle_rad": 1.32,
+        "axis_ratio": 0.61,
+        "phase_rad": 2.3,
+        "noise_seed": 143,
+        "turbulence": 0.82,
+        "shell_thickness": 0.26,
+        "filament_width": 0.14
+      },
+      "value": 0.0
+    }
+  ]
+}

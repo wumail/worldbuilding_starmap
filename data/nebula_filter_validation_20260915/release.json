@@ -1,0 +1,22 @@
+{
+  "revision": "20260915-nebula-filter-5",
+  "catalog": "output_20260915_nebula_03",
+  "source_sha256": {
+    "src/nebula_morphology.py": "aec5185a54cd10565a2ef5fbb5c7df9c2bd164152fdc6222cb5c156e7dbfc46c",
+    "src/export_deep_sky.py": "5352af8ed7722ca0d7e0459a0ed5651dbd22d16847d2bf175124a9b03f71a95f",
+    "src/enrich_nebulae.py": "f8592338481419364359c68770c8365e2f584f3f707332759277f2044eedc5bd",
+    "web/shared/nebula_morphology.mjs": "a21f0a7ea246d3c4e2929c6db4a16ee51b6182daee75f6cec4e6328b02ecd994",
+    "web/shared/deep_sky_profiles.mjs": "47879cadc21b013a93f345de26f92566683aca7122724e68633c84787e3ce576",
+    "web/shared/deep_sky_view.js": "66b3368fbdb52ee04e94a7bf3f9d40e528264a75a7e8c453b25c5206dbb96ede",
+    "web/shared/catalog_data.mjs": "b238bd8ce635b20c495360f16a5f01b08c65e54cb73a145f217af37add82e1e7",
+    "tests/test_nebula_profiles.mjs": "8428074baa8e1cd03dbbf3b2d403dda74a522975b4a32a917b7e03515e637512",
+    "tests/test_nebula_morphology.py": "522fec21e01c435b56a32e0505da9df151fb330f58a8926888c3cf86eec5393a",
+    "tests/nebula_morphology_checks.mjs": "e44e988f6da085d18983eb1dfe019192a49435bba6135e8684c5baf1779130a9",
+    "web/v1/sky_atlas.html": "4996001ac0a5ef9348ca22b5f4cfcdfe5abff5d1c6ee9fafacd4bf8c828db20b",
+    "web/v1/index.html": "9d29623abb2cde28d3fe2055d37534b8498269b8a0633361aba11df1e1441d27",
+    "web/v1/star_map.html": "009ba5fcaba63a46382c36c265f63752b397f04da7676889156142e51ac636e5",
+    "web/v2/sky_atlas.html": "e0fd2797ac967bef4ccc3dbaa6493726e4b22e2c2492e9d0eddbcefc00390fea",
+    "web/v2/index.html": "9d29623abb2cde28d3fe2055d37534b8498269b8a0633361aba11df1e1441d27",
+    "web/v2/star_map.html": "ca6c92b970d291945d1adee532bd886e50723d289eca4b62fc421175754b59d3"
+  }
+}

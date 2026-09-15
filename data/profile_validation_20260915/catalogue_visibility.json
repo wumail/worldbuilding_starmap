@@ -1,0 +1,16 @@
+{
+  "pointStars": 9356,
+  "deepSkyRecords": 8947,
+  "positiveFluxObjects": 3692,
+  "candidateCount": 160,
+  "candidateTypes": {
+    "open_cluster": 138,
+    "globular_cluster": 4,
+    "emission_nebula": 8,
+    "reflection_nebula": 10
+  },
+  "baseTexturePixelArcmin": 10.546875,
+  "profilesSmallerThanBaseTexel": 3606,
+  "dimmerThanPointFluxCeiling": 3532,
+  "candidateMeaning": "Necessary integrated-flux bound at mV <= 6.5, not confirmed naked-eye detections."
+}

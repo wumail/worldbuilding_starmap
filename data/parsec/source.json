@@ -1,0 +1,14 @@
+{
+  "source": "https://stev.oapd.inaf.it/tmp/output769712292895.dat",
+  "retrieved": "2026-09-15",
+  "sha256": "f19a0207ec2e57532736202aacb4a46d229539b78ce36bd5893c2add621d5832",
+  "service": "https://stev.oapd.inaf.it/cgi-bin/cmd_3.9",
+  "version": "PARSEC v1.2S + COLIBRI",
+  "photometry": "Johnson V, UBVRIJHK, Vega",
+  "references": [
+    "Bressan et al. 2012 MNRAS 427,127",
+    "Marigo et al. 2017 ApJ 835,77",
+    "Chen et al. 2019 MNRAS 490,5666"
+  ],
+  "access": "Public CMD output; retain scientific citation; no explicit redistribution license found on the service pages."
+}

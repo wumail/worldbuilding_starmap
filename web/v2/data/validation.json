@@ -1,0 +1,225 @@
+{
+  "date": "2026-09-14",
+  "revision": "render-repair-2",
+  "scope": "V2最终显示修复与V1默认统一1.6倍显示增强",
+  "environment": "独立配置的 Chrome 无头浏览器；本机正式页面与生产 WebGL/Canvas 代码",
+  "node": {
+    "passed": 55,
+    "failed": 0
+  },
+  "v2": {
+    "report": {
+      "total": 34,
+      "failures": 0,
+      "metrics": {
+        "samples": 228,
+        "pointFluxError": 2.2647166408873431e-07,
+        "diskDiameterPixelError": 1.0420928347177982,
+        "diskFluxError": 0.04869748471158819,
+        "systemFlux": [
+          {
+            "id": "Sol",
+            "visible": true,
+            "fluxRatio": 0.99862497592762
+          },
+          {
+            "id": "Mercury-Sol",
+            "visible": true,
+            "fluxRatio": 0.9999999842956954
+          },
+          {
+            "id": "Venus-Sol",
+            "visible": true,
+            "fluxRatio": 0.9999999856914265
+          },
+          {
+            "id": "Mars-Sol",
+            "visible": true,
+            "fluxRatio": 0.9999999597101754
+          },
+          {
+            "id": "Jupiter-Sol",
+            "visible": true,
+            "fluxRatio": 1.0000000170931493
+          },
+          {
+            "id": "Saturn-Sol",
+            "visible": true,
+            "fluxRatio": 0.9999999939963452
+          },
+          {
+            "id": "Neptune-Sol",
+            "visible": false,
+            "fluxRatio": 0
+          }
+        ],
+        "hiddenStarLeak": 0,
+        "blurChangedPixels": 84,
+        "wideBlurFluxError": 5.029195282446608e-09,
+        "oddSizeBlurFluxError": 4.4178056990418213e-07,
+        "partialPointVisibleFraction": 0.2356340980447556,
+        "catalogCounts": [
+          9327,
+          104,
+          0
+        ],
+        "finalLimbCoverageError": 0.028287994549541617,
+        "lunarSurfaceContrast": {
+          "center": 255,
+          "nearLimb": 174
+        },
+        "finalSolarRadialSpread": 0.4999999999999982,
+        "finalOccultationLeak": 0,
+        "finalNightRGB": [
+          [
+            9,
+            14,
+            23
+          ],
+          [
+            9,
+            14,
+            23
+          ],
+          [
+            9,
+            14,
+            23
+          ]
+        ],
+        "atlasBackground": {
+          "inside": [
+            5,
+            9,
+            17
+          ],
+          "outside": [
+            3,
+            6,
+            13
+          ],
+          "edge": [
+            89,
+            103,
+            119
+          ],
+          "leak": 0
+        },
+        "finalSmallDiskContinuity": 0.02211310654270693,
+        "finalOffAxisAreas": [
+          7.97323081194171,
+          3.973644900241298
+        ],
+        "offscreenStarPeak": 193,
+        "chartV1PixelDifference": 0,
+        "chartStarPixels": 1012,
+        "finalStarAreas": [
+          12,
+          12,
+          4,
+          4,
+          0
+        ],
+        "finalStarEffectiveAreas": [
+          3.2322822299883214,
+          1.308059889901868,
+          0.3159419655046806,
+          0.05719173388906479,
+          0.008635489625212994
+        ],
+        "playback": {
+          "seconds": 12.212599999994039,
+          "frames": 363,
+          "day": 0.6527624999999999
+        },
+        "simulatedContextRecovery": true
+      }
+    },
+    "errors": []
+  },
+  "v1_render": {
+    "status": "38/38 通过；0 失败",
+    "failures": [],
+    "metrics": "projectionCircles: [{\"mode\":\"perspective\",\"offset\":0,\"ratio\":1},{\"mode\":\"perspective\",\"offset\":30,\"ratio\":1.1704545454545454},{\"mode\":\"perspective\",\"offset\":40,\"ratio\":1.32},{\"mode\":\"stereographic\",\"offset\":0,\"ratio\":1},{\"mode\":\"stereographic\",\"offset\":30,\"ratio\":1},{\"mode\":\"stereographic\",\"offset\":40,\"ratio\":0.990909090909091}]atlasTextureSamples: 432atlasTextureMaxDelta: 0phaseSamples: 156zoomRasterSamples: 648zoomMaxPixelError: 2.75crossViewMaxPixelError: 2occlusionRasterSamples: 856occlusionMaxInteriorLeak: 0",
+    "errors": []
+  },
+  "camera": {
+    "status": "9/9 通过；0 失败",
+    "failures": [],
+    "errors": []
+  },
+  "v1_playback": {
+    "status": "5/5 通过；0 失败",
+    "failures": [],
+    "metrics": "{\n  \"durationSeconds\": 60.02709999999404,\n  \"frames\": 3602,\n  \"catalogCount\": 9327,\n  \"symbolScale\": 0.9188814923696534,\n  \"warmCanvases\": 23,\n  \"playbackNewCanvases\": 0,\n  \"contextLosses\": 0,\n  \"brightPixels\": 10855,\n  \"checksum\": 23616899,\n  \"recovery\": {\n    \"syntheticEvents\": true,\n    \"hardwareLossReproduced\": false,\n    \"daysBefore\": \"3928.342761\",\n    \"daysAfter\": \"3928.342761\",\n    \"status\": \"ready\",\n    \"pixel\": [\n      3,\n      6,\n      13,\n      255\n    ]\n  }\n}",
+    "errors": []
+  },
+  "counterexample": {
+    "修复前": {
+      "limbCoverageError": 0.9565469585902147,
+      "solarRadialSpread": 1.7999999999999936
+    },
+    "修复后": {
+      "limbCoverageError": 0.012489780254666627,
+      "solarRadialSpread": 0.4999999999999982
+    }
+  },
+  "protection": {
+    "original_records": 66,
+    "unchanged": 57,
+    "authorized_frontend_changes": 9,
+    "mismatches": 0
+  },
+  "limitations": [
+    "显示亮度与盘面光扩散为屏幕近似，未做人眼实验标定",
+    "局部视图使用真实角径；双半球地图含明确标注的1.6倍识读增强",
+    "短时播放与模拟GPU恢复不保证所有硬件与无限运行情况"
+  ],
+  "source_sha256": {
+    "v4/v2/eye_renderer.mjs": "e31e9397d01f4b1aa9742efb27c762b2a1198e03c06bea8fef4eba3e19543787",
+    "v4/v2/eye_app.mjs": "ba16931544d35ac9d63bac77006da6aa10a0b21a80430f0ecc8a26d0305186f0",
+    "v4/v2/eye_model.mjs": "12e3521a2d4a5de6e2e0d16c9cc790dbc199ae4a6f45a636c63483fecc57983b",
+    "v4/v2/tests/render_checks.mjs": "2df3b7c608b191f3f8576c10e8621059735e18e98167edcdef79cbf7102bc126",
+    "tests/zoom_render_audit.mjs": "03b774cd5c0c67df1f227b1503418b06818ee844f6d5d4d1bae5bc6f7bcc0f67"
+  },
+  "final_export_checks": [
+    {
+      "name": "atlas",
+      "errors": [],
+      "state": {
+        "state": "ready",
+        "frames": 6,
+        "stars": 9327,
+        "time": 0,
+        "focal": 8623.303856041728,
+        "magnification": 1,
+        "blur": true,
+        "overview": true,
+        "atlasZoom": 51.60172960726329,
+        "projection": "stereographic",
+        "resources": 1
+      },
+      "export": "terrax-v2-atlas-day-0.00000.png",
+      "exportBytes": 47015
+    },
+    {
+      "name": "sphere",
+      "errors": [],
+      "state": {
+        "state": "ready",
+        "frames": 20,
+        "stars": 9327,
+        "time": 0,
+        "focal": 9701.216838046943,
+        "magnification": 6.324828712121803,
+        "blur": true,
+        "overview": false,
+        "atlasZoom": 1,
+        "projection": "perspective",
+        "resources": 1
+      },
+      "export": "terrax-v2-sky-day-0.00000.png",
+      "exportBytes": 37399
+    }
+  ]
+}

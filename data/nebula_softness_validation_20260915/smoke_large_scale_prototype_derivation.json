@@ -1,0 +1,28 @@
+{
+  "path": "/Users/wumail/code/worldbuilding/output/output_20260915_nebula_02/star_map_20260915_nebula_02.json",
+  "stars": 9356,
+  "morphologies": {
+    "blister": 25,
+    "fan": 27,
+    "filament": 60,
+    "turbulent": 27,
+    "shell": 21
+  },
+  "raster": {
+    "input_flux_lux": 9.70124950990392e-06,
+    "output_flux_lux": 9.70124950037534e-06,
+    "relative_error": 9.822013380712336e-10,
+    "width": 2048,
+    "height": 1024,
+    "angular_pixel_arcmin": 10.546875,
+    "profile_cutoffs": {
+      "plummer_scale": 10,
+      "gaussian_sigma": 4,
+      "ionized_gaussian": "mass-consistent ionization front, at most 3 sigma",
+      "sphere_radius": 1
+    },
+    "file": "diffuse_20260915_nebula_02.f32",
+    "format": "little-endian float32 luminance cd/m2, Galactic longitude left-to-right; latitude -90 to +90 bottom-to-top",
+    "sha256": "df145e1fff0fb7bf3bd0263826e0dc544e2330a8f9f76f7738ae40e096bfab11"
+  }
+}

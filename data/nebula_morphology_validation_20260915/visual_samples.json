@@ -1,0 +1,40 @@
+{
+  "records": [
+    {
+      "id": "H-D-OC-6.5-001277",
+      "family": "turbulent",
+      "magnitude": 1.650923340402215,
+      "zoom": 29.09612519088146,
+      "pixelsPerDegree": 193.97416793920974
+    },
+    {
+      "id": "R-D-OC-6.5-001142",
+      "family": "filament",
+      "magnitude": 6.254154072057504,
+      "zoom": 20.085174226145345,
+      "pixelsPerDegree": 133.90116150763563
+    },
+    {
+      "id": "H-D-OC-7-000786",
+      "family": "shell",
+      "magnitude": 5.567846761592707,
+      "zoom": 64,
+      "pixelsPerDegree": 426.6666666666667
+    },
+    {
+      "id": "H-D-OC-6.5-001558",
+      "family": "blister",
+      "magnitude": 4.603121777682407,
+      "zoom": 64,
+      "pixelsPerDegree": 426.6666666666667
+    },
+    {
+      "id": "R-D-OC-6.5-001138",
+      "family": "fan",
+      "magnitude": 4.415654171409953,
+      "zoom": 33.41267555289147,
+      "pixelsPerDegree": 222.7511703526098
+    }
+  ],
+  "errors": []
+}

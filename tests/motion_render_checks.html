@@ -1,0 +1,56 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><title>动态星图 · 实际 GPU 验收</title><style>body{background:#0b111c;color:#dce5ef;font:14px/1.7 monospace;padding:24px}#stage{position:relative;width:256px;height:256px}.pass{color:#99d6b0}.fail{color:#ff9d91}#stage span,#stage .compass{display:none}</style><script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","../web/shared/sky_render.mjs":"../web/shared/sky_render.mjs?v=20260915-atlas-disks-1","../web/v1/sky_atlas_bodies.mjs":"../web/v1/sky_atlas_bodies.mjs?v=20260915-atlas-disks-1","../web/v1/sky_motion_3d.js":"../web/v1/sky_motion_3d.js?v=20260915-atlas-disks-1","../web/v1/sky_controls.mjs":"../web/v1/sky_controls.mjs?v=20260915-atlas-disks-1","../web/v1/sky_atlas_stars.mjs":"../web/v1/sky_atlas_stars.mjs?v=20260915-atlas-disks-1","../web/v1/sky_points.js":"../web/v1/sky_points.js?v=20260915-atlas-disks-1","../web/v1/sky_state.mjs":"../web/v1/sky_state.mjs?v=20260915-atlas-disks-1","../web/v1/sky_view.js":"../web/v1/sky_view.js?v=20260915-atlas-disks-1","../web/shared/sky_projection.js":"../web/shared/sky_projection.js?v=20260915-atlas-disks-1","../web/shared/sky_projection.mjs":"../web/shared/sky_projection.mjs?v=20260915-atlas-disks-1","../web/shared/sky_point_kernel.mjs":"../web/shared/sky_point_kernel.mjs?v=20260915-atlas-disks-1","../web/v1/sky_atlas.mjs":"../web/v1/sky_atlas.mjs?v=20260915-atlas-disks-1","./lunar_occlusion_render_audit.mjs":"./lunar_occlusion_render_audit.mjs?v=20260915-atlas-disks-1","./body_render_audit.mjs":"./body_render_audit.mjs?v=20260915-atlas-disks-1","./projection_render_audit.mjs":"./projection_render_audit.mjs?v=20260915-atlas-disks-1","./atlas_playback_checks.mjs":"./atlas_playback_checks.mjs?v=20260915-atlas-disks-1","./test_sky_motion.mjs":"./test_sky_motion.mjs?v=20260915-atlas-disks-1","./test_atlas_resources.mjs":"./test_atlas_resources.mjs?v=20260915-atlas-disks-1","./lunar_phase_render_audit.mjs":"./lunar_phase_render_audit.mjs?v=20260915-atlas-disks-1","./test_sky_projection.mjs":"./test_sky_projection.mjs?v=20260915-atlas-disks-1","./sky_render_fixture.mjs":"./sky_render_fixture.mjs?v=20260915-atlas-disks-1","./atlas_texture_audit.mjs":"./atlas_texture_audit.mjs?v=20260915-atlas-disks-1","./zoom_render_audit.mjs":"./zoom_render_audit.mjs?v=20260915-atlas-disks-1","./star_render_audit.mjs":"./star_render_audit.mjs?v=20260915-atlas-disks-1","../web/shared/deep_sky_view.js":"../web/shared/deep_sky_view.js?v=20260915-atlas-disks-1","../web/shared/deep_sky_profiles.mjs":"../web/shared/deep_sky_profiles.mjs?v=20260915-atlas-disks-1","../web/shared/sky_overlays.mjs":"../web/shared/sky_overlays.mjs?v=20260915-atlas-disks-1","../web/shared/zodiac.mjs":"../web/shared/zodiac.mjs?v=20260915-atlas-disks-1","../web/v1/zodiac_3d.js":"../web/v1/zodiac_3d.js?v=20260915-atlas-disks-1","../web/shared/sky_guides.mjs":"../web/shared/sky_guides.mjs?v=20260915-atlas-disks-1","../web/shared/nebula_morphology.mjs":"../web/shared/nebula_morphology.mjs?v=20260915-atlas-disks-1","../web/shared/catalog_data.mjs":"../web/shared/catalog_data.mjs?v=20260915-atlas-disks-1"}}</script></head><body><h1>动态星图 · 实际 GPU 验收</h1><p id="status">运行中…</p><ol id="results"></ol><div id="stage"></div>
+<script type="module">
+import * as THREE from 'three';
+import {createStarMaterial} from '../web/v1/sky_points.js';
+import {SkyMotion3D} from '../web/v1/sky_motion_3d.js';
+import {pointRadius,pointOpacity,phaseImage,solarGlareVisibility,skyBackground} from '../web/shared/sky_render.mjs';
+import {AtlasBodyPainter} from '../web/v1/sky_atlas_bodies.mjs';
+import {DEG,equatorialDirection,projectHemisphere} from '../web/shared/solar_system.mjs';
+import {sanitizeState} from '../web/v1/sky_state.mjs';
+import {runBodyRenderAudit} from './body_render_audit.mjs?v=20260915-atlas-disks-1';
+import {runStarRenderAudit} from './star_render_audit.mjs';
+import {runAtlasTextureAudit} from './atlas_texture_audit.mjs?v=20260915-atlas-disks-1';
+import {runZoomRenderAudit} from './zoom_render_audit.mjs?v=20260915-atlas-disks-1';
+import {runLunarPhaseRenderAudit} from './lunar_phase_render_audit.mjs?v=20260915-atlas-disks-1';
+import {runLunarOcclusionRenderAudit} from './lunar_occlusion_render_audit.mjs?v=20260915-atlas-disks-1';
+import {runProjectionRenderAudit} from './projection_render_audit.mjs';
+let total=0,failures=0;
+const assert=(ok,message)=>{if(!ok)throw Error(message);};
+const test=(name,fn)=>{total++;const li=document.createElement('li');try{fn();li.className='pass';li.textContent=`通过：${name}`;}catch(e){failures++;li.className='fail';li.textContent=`失败：${name} — ${e.message}`;}document.querySelector('#results').append(li);};
+const stage=document.querySelector('#stage'),renderer=new THREE.WebGLRenderer({antialias:false,preserveDrawingBuffer:true});renderer.debug.onShaderError=(gl,program,vs,fs)=>{throw Error(gl.getShaderInfoLog(vs)+' / '+gl.getShaderInfoLog(fs));};renderer.setSize(256,256);renderer.setPixelRatio(1);renderer.setClearColor(0);stage.append(renderer.domElement);
+const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(60,1,.1,5000);camera.up.set(0,0,1);camera.lookAt(1,0,0);camera.updateMatrixWorld();
+const directions=[new THREE.Vector3(1,0,0),new THREE.Vector3(Math.cos(25*Math.PI/180),Math.sin(25*Math.PI/180),0)];
+const geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.Float32BufferAttribute(directions.flatMap(v=>v.clone().multiplyScalar(1000).toArray()),3));geometry.setAttribute('color',new THREE.Float32BufferAttribute([1,1,1,1,1,1],3));geometry.setAttribute('mag',new THREE.Float32BufferAttribute([6.5,6.5],1));
+const stars=new THREE.Points(geometry,createStarMaterial());stars.frustumCulled=false;scene.add(stars);
+const pixels=()=>{const gl=renderer.getContext(),data=new Uint8Array(256*256*4);gl.readPixels(0,0,256,256,gl.RGBA,gl.UNSIGNED_BYTE,data);return data;};
+const patch=(v,data)=>{const p=v.clone().project(camera),x=Math.floor((p.x+1)*128),y=Math.floor((p.y+1)*128);let count=0,peak=0,minX=Infinity,maxX=-1,minY=Infinity,maxY=-1;for(let dy=-5;dy<=5;dy++)for(let dx=-5;dx<=5;dx++){const k=4*((y+dy)*256+x+dx),c=Math.max(data[k],data[k+1],data[k+2]);peak=Math.max(peak,c);if(c>0){count++;minX=Math.min(minX,dx);maxX=Math.max(maxX,dx);minY=Math.min(minY,dy);maxY=Math.max(maxY,dy);}}return {count,peak,width:maxX-minX+1,height:maxY-minY+1};};
+renderer.render(scene,camera);let data=pixels();
+test('6.5 等星在中心与边缘都有实际像素，边缘符号不膨胀',()=>{const a=patch(directions[0].clone().multiplyScalar(1000),data),b=patch(directions[1].clone().multiplyScalar(1000),data);assert(a.count>0 && b.count>0,JSON.stringify({a,b}));assert(Math.abs(a.width-b.width)<=1 && Math.abs(a.height-b.height)<=1,JSON.stringify({a,b}));});
+test('真实背景 shader 排除阈值以外的星',()=>{stars.material.uniforms.limitingMagnitude.value=6.49;renderer.render(scene,camera);const a=patch(directions[0].clone().multiplyScalar(1000),pixels());assert(a.count===0,JSON.stringify(a));stars.material.uniforms.limitingMagnitude.value=6.5;});
+test('默认全天绘制下半球星点，仅地表模式遮挡',()=>{geometry.attributes.position.setXYZ(0,1000,0,-100);geometry.attributes.position.needsUpdate=true;camera.lookAt(1,0,-.1);camera.updateMatrixWorld();stars.material.uniforms.surface.value=true;renderer.render(scene,camera);assert(patch(new THREE.Vector3(1000,0,-100),pixels()).count===0,'地平线下仍有星点');stars.material.uniforms.surface.value=sanitizeState().mode==='surface';renderer.render(scene,camera);assert(patch(new THREE.Vector3(1000,0,-100),pixels()).count>0,'默认全天丢失下半球星点');geometry.attributes.position.setXYZ(0,1000,0,0);geometry.attributes.position.needsUpdate=true;camera.lookAt(1,0,0);camera.updateMatrixWorld();});
+const controls={clock:{state:sanitizeState({displayScale:1,projection:'perspective',mode:'center',markers:false,lunarGlow:false})}},motion=new SkyMotion3D(scene,camera,stage,renderer,controls);
+const moon={id:'Luna',kind:'moon',color:'#ffffff',view:[1,0,0],distance:1,angularDiameter:4,altitude:0,brightEnough:false,visible:false,lightDirection:[1,0,0],magnitude:20};
+const sky={days:0,night:1,frame:{surface:false,matrix:[[1,0,0],[0,1,0],[0,0,1]]},bodies:[moon]};
+test('月球暗面遮住背景星点，保留前景天空底色',()=>{motion.update(sky,pointRadius,pointOpacity);renderer.render(scene,camera);data=pixels();const center=4*(128*256+128),background=skyBackground(sky);assert(background.every((c,i)=>Math.abs(data[center+i]-c)<=1),`月面像素 ${data.slice(center,center+4)}`);});
+test('实际盘面角直径映射到透视图像的直径',()=>{moon.brightEnough=moon.visible=true;moon.lightDirection=[-1,0,0];motion.update(sky,pointRadius,pointOpacity);renderer.render(scene,camera);data=pixels();let width=0;for(let x=90;x<166;x++)if(data[4*(128*256+x)]>30)width++;const expected=256*Math.tan(2*Math.PI/180)/Math.tan(30*Math.PI/180);assert(Math.abs(width-expected)<2,`${width}px vs ${expected}px`);});
+test('相位预览的满相、新相与半月亮面方向正确',()=>{const full=phaseImage(moon,[0,0,1]),dark=phaseImage(moon,[0,0,-1]),half=phaseImage(moon,[1,0,0]);let left=0,right=0,totalDark=0,totalFull=0;for(let y=0;y<96;y++)for(let x=0;x<96;x++){const k=4*(y*96+x);totalDark+=dark.data[k];totalFull+=full.data[k];if(x<48)left+=half.data[k];else right+=half.data[k];}assert(totalDark===0 && totalFull>0 && left===0 && right>0,'亮面方向或相位错误');});
+const sol={id:'Sol',kind:'star',color:'#fff3d6',view:[1,0,0],distance:1.34,angularDiameter:.44,altitude:0,brightEnough:true,visible:true,magnitude:-26.5};
+const venus={id:'Venus-Sol',kind:'planet',color:'#f5dda6',view:equatorialDirection(20,0),distance:.42,angularDiameter:.012,altitude:0,brightEnough:true,visible:true,lightDirection:[-1,0,0],magnitude:-4.8};
+const sunSky={...sky,bodies:[sol,venus]},sunScene=new THREE.Scene(),sunMotion=new SkyMotion3D(sunScene,camera,stage,renderer,controls);
+const samplePixels=(data,width,height,cx,cy,span)=>{let count=0,sum=0;for(let y=Math.max(0,Math.floor(cy-span));y<Math.min(height,Math.ceil(cy+span));y++)for(let x=Math.max(0,Math.floor(cx-span));x<Math.min(width,Math.ceil(cx+span));x++){const k=4*(y*width+x),value=Math.max(data[k],data[k+1],data[k+2]);if(value>40){count++;sum+=value;}}return {count,sum};};
+test('日全食时隐藏太阳光晕，前景月面仍按真实盘面遮挡',()=>{
+    const covering={...moon,distance:.01,angularDiameter:.5,lightDirection:[1,0,0],brightEnough:false,visible:false};
+    const eclipse={...sunSky,bodies:[sol,venus,covering]};sunMotion.update(eclipse,pointRadius,pointOpacity);renderer.render(sunScene,camera);
+    assert(!sunMotion.disks.get('Sol').glare.visible,'全食仍显示太阳光晕');
+    const p=pixels(),k=4*(128*256+128);assert(Math.max(p[k],p[k+1],p[k+2])<20,'月面中心未遮挡太阳');
+});
+runProjectionRenderAudit({test,assert,renderer});
+runBodyRenderAudit({test,assert,renderer});
+runStarRenderAudit({test,assert,renderer});
+runAtlasTextureAudit({test,assert});
+runLunarPhaseRenderAudit({test,assert,renderer});
+runZoomRenderAudit({test,assert,renderer});
+runLunarOcclusionRenderAudit({test,assert,renderer});
+document.querySelector('#status').textContent=`${total-failures}/${total} 通过；${failures} 失败`;
+const details=document.createElement('ul');details.id='metrics';for(const [key,value] of Object.entries(document.querySelector('#status').dataset)){const li=document.createElement('li');li.textContent=key+': '+value;details.append(li);}document.body.append(details);
+</script></body></html>

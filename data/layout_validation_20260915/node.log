@@ -1,0 +1,395 @@
+TAP version 13
+# 真实星表资源计数 [{"factor":0.8,"warm":7,"additional":0},{"factor":1,"warm":7,"additional":0},{"factor":1.6,"warm":7,"additional":0},{"factor":2,"warm":7,"additional":0},{"factor":3,"warm":7,"additional":0}]
+# Subtest: 真实 9356 星表预热后，播放与尺寸切换不再逐帧创建画布
+ok 1 - 真实 9356 星表预热后，播放与尺寸切换不再逐帧创建画布
+  ---
+  duration_ms: 60.00875
+  type: 'test'
+  ...
+# Subtest: 超过缓存容量的颜色循环复用画布，不无限创建绘图资源
+ok 2 - 超过缓存容量的颜色循环复用画布，不无限创建绘图资源
+  ---
+  duration_ms: 158.438125
+  type: 'test'
+  ...
+# Subtest: 高倍缩放超过 64 种大点像半径后，缓存复用画布并保持容量上限
+ok 3 - 高倍缩放超过 64 种大点像半径后，缓存复用画布并保持容量上限
+  ---
+  duration_ms: 117.141458
+  type: 'test'
+  ...
+# Subtest: 清理缓存释放画布像素缓冲区，并可重新绘制
+ok 4 - 清理缓存释放画布像素缓冲区，并可重新绘制
+  ---
+  duration_ms: 0.994542
+  type: 'test'
+  ...
+# Subtest: old automatic display presets upgrade without resetting time or observer preferences
+ok 5 - old automatic display presets upgrade without resetting time or observer preferences
+  ---
+  duration_ms: 4.444708
+  type: 'test'
+  ...
+# Subtest: explicit size preferences persist, including the old 1.6 setting and natural 1x
+ok 6 - explicit size preferences persist, including the old 1.6 setting and natural 1x
+  ---
+  duration_ms: 1.595125
+  type: 'test'
+  ...
+# Subtest: V2 display size changes neither visibility and atmosphere nor physical body data
+ok 7 - V2 display size changes neither visibility and atmosphere nor physical body data
+  ---
+  duration_ms: 1.634042
+  type: 'test'
+  ...
+# Subtest: working tree no longer has a v4 directory
+ok 8 - working tree no longer has a v4 directory
+  ---
+  duration_ms: 1.279541
+  type: 'test'
+  ...
+# Subtest: root 404 page remaps historical /v4/ bookmarks
+ok 9 - root 404 page remaps historical /v4/ bookmarks
+  ---
+  duration_ms: 5.048708
+  type: 'test'
+  ...
+# Subtest: 两页在相同角尺度下使用一致符号比例；月面增强不决定几何大小
+ok 10 - 两页在相同角尺度下使用一致符号比例；月面增强不决定几何大小
+  ---
+  duration_ms: 2.959541
+  type: 'test'
+  ...
+# Subtest: 最大时长取最慢行星的周期，使用地球日
+ok 11 - 最大时长取最慢行星的周期，使用地球日
+  ---
+  duration_ms: 0.067834
+  type: 'test'
+  ...
+# Subtest: Kepler 方程在零、负角、高偏心率和多圈后收敛
+ok 12 - Kepler 方程在零、负角、高偏心率和多圈后收敛
+  ---
+  duration_ms: 0.245125
+  type: 'test'
+  ...
+# Subtest: 近远星点距离与椭圆几何一致，各自一圈闭合
+ok 13 - 近远星点距离与椭圆几何一致，各自一圈闭合
+  ---
+  duration_ms: 0.22175
+  type: 'test'
+  ...
+# Subtest: 轨道满足面积定律，近星点处移动更快
+ok 14 - 轨道满足面积定律，近星点处移动更快
+  ---
+  duration_ms: 0.217583
+  type: 'test'
+  ...
+# Subtest: 文档周期与独立引力计算相符；卫星计入自身质量
+ok 15 - 文档周期与独立引力计算相符；卫星计入自身质量
+  ---
+  duration_ms: 0.191333
+  type: 'test'
+  ...
+# Subtest: 行星黄道面旋转25度，卫星轨道倾角使用赤道面
+ok 16 - 行星黄道面旋转25度，卫星轨道倾角使用赤道面
+  ---
+  duration_ms: 0.223833
+  type: 'test'
+  ...
+# Subtest: 观察矩阵正交、右手、极地有效；所有天体保持单位方向
+ok 17 - 观察矩阵正交、右手、极地有效；所有天体保持单位方向
+  ---
+  duration_ms: 2.550125
+  type: 'test'
+  ...
+# Subtest: 午夜约定、向东经度、自转26小时及地平四向
+ok 18 - 午夜约定、向东经度、自转26小时及地平四向
+  ---
+  duration_ms: 0.523625
+  type: 'test'
+  ...
+# Subtest: 恒星从东升起向西移动，26小时重复自转方位
+ok 19 - 恒星从东升起向西移动，26小时重复自转方位
+  ---
+  duration_ms: 0.372625
+  type: 'test'
+  ...
+# Subtest: 地表视差包含母星半径，月球的视差显著大于远行星
+ok 20 - 地表视差包含母星半径，月球的视差显著大于远行星
+  ---
+  duration_ms: 0.271084
+  type: 'test'
+  ...
+# Subtest: 背景恒星保留方向和距离，公转视差量级为 AU / pc
+ok 21 - 背景恒星保留方向和距离，公转视差量级为 AU / pc
+  ---
+  duration_ms: 0.372875
+  type: 'test'
+  ...
+# Subtest: 两颗卫星的标准满相星等和角直径匹配参考
+ok 22 - 两颗卫星的标准满相星等和角直径匹配参考
+  ---
+  duration_ms: 0.07225
+  type: 'test'
+  ...
+# Subtest: 所有天体的角径与参考半径和独立切线几何一致，Luna 大于 Sol 大于 Echo
+ok 23 - 所有天体的角径与参考半径和独立切线几何一致，Luna 大于 Sol 大于 Echo
+  ---
+  duration_ms: 1.293416
+  type: 'test'
+  ...
+# Subtest: Neptune 冲日仍超6.5等，辅助标记不能改变光度
+ok 24 - Neptune 冲日仍超6.5等，辅助标记不能改变光度
+  ---
+  duration_ms: 4.874875
+  type: 'test'
+  ...
+# Subtest: Lambert光通量与照明面积不同，距离平方衰减正确
+ok 25 - Lambert光通量与照明面积不同，距离平方衰减正确
+  ---
+  duration_ms: 0.083709
+  type: 'test'
+  ...
+# Subtest: Sol 的实际角直径始终远大于 Venus，光晕计算不修改天体物理量
+ok 26 - Sol 的实际角直径始终远大于 Venus，光晕计算不修改天体物理量
+  ---
+  duration_ms: 21.122541
+  type: 'test'
+  ...
+# Subtest: 太阳光晕随地平和前景遮挡衰减，重叠遮挡按并集计算
+ok 27 - 太阳光晕随地平和前景遮挡衰减，重叠遮挡按并集计算
+  ---
+  duration_ms: 2.874792
+  type: 'test'
+  ...
+# Subtest: 双月柔光的遮挡按亮面加权，挡住暗半球不等于挡住亮半球
+ok 28 - 双月柔光的遮挡按亮面加权，挡住暗半球不等于挡住亮半球
+  ---
+  duration_ms: 1.496125
+  type: 'test'
+  ...
+# Subtest: 月亮相位亮面方向与太阳方向一致
+ok 29 - 月亮相位亮面方向与太阳方向一致
+  ---
+  duration_ms: 0.332167
+  type: 'test'
+  ...
+# Subtest: 白昼和地平筛选生效；质心全天不受它们影响
+ok 30 - 白昼和地平筛选生效；质心全天不受它们影响
+  ---
+  duration_ms: 0.119291
+  type: 'test'
+  ...
+# Subtest: 双半球投影的极点、圆周和赤道唯一归属
+ok 31 - 双半球投影的极点、圆周和赤道唯一归属
+  ---
+  duration_ms: 0.470792
+  type: 'test'
+  ...
+# Subtest: 地平仰视图北上、东左，星点符号随星等单调变化
+ok 32 - 地平仰视图北上、东左，星点符号随星等单调变化
+  ---
+  duration_ms: 0.086208
+  type: 'test'
+  ...
+# Subtest: 背景星等在实际星表范围内连续区分大小，暗星没有相同半径平台
+ok 33 - 背景星等在实际星表范围内连续区分大小，暗星没有相同半径平台
+  ---
+  duration_ms: 0.100125
+  type: 'test'
+  ...
+# Subtest: 跨赤道盘面可投影到两侧，不能把圆盘另一半丢失
+ok 34 - 跨赤道盘面可投影到两侧，不能把圆盘另一半丢失
+  ---
+  duration_ms: 0.03375
+  type: 'test'
+  ...
+# Subtest: 一个最慢周期后仅该行星日心轨道闭合，地心视向不伪闭合
+ok 35 - 一个最慢周期后仅该行星日心轨道闭合，地心视向不伪闭合
+  ---
+  duration_ms: 0.086875
+  type: 'test'
+  ...
+# Subtest: 外行星由母星相对运动自然产生逆行
+ok 36 - 外行星由母星相对运动自然产生逆行
+  ---
+  duration_ms: 24.196625
+  type: 'test'
+  ...
+# Subtest: 轨迹只采样模拟时域，年轨迹扣除自转而日轨迹保留
+ok 37 - 轨迹只采样模拟时域，年轨迹扣除自转而日轨迹保留
+  ---
+  duration_ms: 24.182833
+  type: 'test'
+  ...
+# Subtest: 两个页面读取相同时间锚点，不重复累加
+ok 38 - 两个页面读取相同时间锚点，不重复累加
+  ---
+  duration_ms: 0.368834
+  type: 'test'
+  ...
+# Subtest: 终点暂停、数值输入边界、非法状态与参考角保护
+ok 39 - 终点暂停、数值输入边界、非法状态与参考角保护
+  ---
+  duration_ms: 0.1235
+  type: 'test'
+  ...
+# Subtest: 可编辑轨道角改变起始几何，不改变轨道形状或周期
+ok 40 - 可编辑轨道角改变起始几何，不改变轨道形状或周期
+  ---
+  duration_ms: 0.104958
+  type: 'test'
+  ...
+# Subtest: 默认全天在起点、中点、终点均显示9356颗，两半球完整且投影落在各自圆内
+ok 41 - 默认全天在起点、中点、终点均显示9356颗，两半球完整且投影落在各自圆内
+  ---
+  duration_ms: 90.607416
+  type: 'test'
+  ...
+# Subtest: 缓存的年轨迹在半日后仍与当前恒星背景一致
+ok 42 - 缓存的年轨迹在半日后仍与当前恒星背景一致
+  ---
+  duration_ms: 2.781167
+  type: 'test'
+  ...
+# Subtest: 新用户与无效模式均默认全天，地表遮挡必须显式选择
+ok 43 - 新用户与无效模式均默认全天，地表遮挡必须显式选择
+  ---
+  duration_ms: 0.589292
+  type: 'test'
+  ...
+# Subtest: 旧地表记录只迁移观察方式；保留时间、初值与星表，后续地表选择跨刷新保留
+ok 44 - 旧地表记录只迁移观察方式；保留时间、初值与星表，后续地表选择跨刷新保留
+  ---
+  duration_ms: 0.5025
+  type: 'test'
+  ...
+# Subtest: 真实 SkyClock 同时改不同字段、旧事件乱序交付后两页收敛
+ok 45 - 真实 SkyClock 同时改不同字段、旧事件乱序交付后两页收敛
+  ---
+  duration_ms: 0.652625
+  type: 'test'
+  ...
+# Subtest: V1 默认统一增益 6 倍，保持物理数据并缩放同一切平面尺寸
+ok 46 - V1 默认统一增益 6 倍，保持物理数据并缩放同一切平面尺寸
+  ---
+  duration_ms: 0.287417
+  type: 'test'
+  ...
+# Subtest: 正反投影保持同一单位方向，覆盖极宽屏、离轴和背向半球
+ok 47 - 正反投影保持同一单位方向，覆盖极宽屏、离轴和背向半球
+  ---
+  duration_ms: 2.617417
+  type: 'test'
+  ...
+# Subtest: 垂直视场、中心角尺度与定义一致，不把两种投影的焦距混用
+ok 48 - 垂直视场、中心角尺度与定义一致，不把两种投影的焦距混用
+  ---
+  duration_ms: 0.176958
+  type: 'test'
+  ...
+# Subtest: 立体投影的球面小圆映成圆，透视天空盒和球壳的结果相同
+ok 49 - 立体投影的球面小圆映成圆，透视天空盒和球壳的结果相同
+  ---
+  duration_ms: 2.56875
+  type: 'test'
+  ...
+# Subtest: 15 fixed sectors cover the ecliptic once, including the 360-degree seam
+ok 50 - 15 fixed sectors cover the ecliptic once, including the 360-degree seam
+  ---
+  duration_ms: 1.303083
+  type: 'test'
+  ...
+# Subtest: coordinates are invertible and independent of surface latitude and time
+ok 51 - coordinates are invertible and independent of surface latitude and time
+  ---
+  duration_ms: 0.935625
+  type: 'test'
+  ...
+# Subtest: Terrax Sun stays in the reference ecliptic, while actual moon phases are not 15 per year
+ok 52 - Terrax Sun stays in the reference ecliptic, while actual moon phases are not 15 per year
+  ---
+  duration_ms: 4.699084
+  type: 'test'
+  ...
+# Subtest: both versions independently persist visibility of the same two new layers
+ok 53 - both versions independently persist visibility of the same two new layers
+  ---
+  duration_ms: 0.620167
+  type: 'test'
+  ...
+# Subtest: 27 inch 16:9 screen at 60 cm agrees with independent viewing geometry
+ok 54 - 27 inch 16:9 screen at 60 cm agrees with independent viewing geometry
+  ---
+  duration_ms: 1.011625
+  type: 'test'
+  ...
+# Subtest: ruler calibration overrides diagonal estimate; all objects share zoom
+ok 55 - ruler calibration overrides diagonal estimate; all objects share zoom
+  ---
+  duration_ms: 0.152833
+  type: 'test'
+  ...
+# Subtest: magnitude uses integrated flux and correct five-magnitude ratio
+ok 56 - magnitude uses integrated flux and correct five-magnitude ratio
+  ---
+  duration_ms: 0.082542
+  type: 'test'
+  ...
+# Subtest: independent projected-disk integration recovers Lambert total flux and phase
+ok 57 - independent projected-disk integration recovers Lambert total flux and phase
+  ---
+  duration_ms: 107.712875
+  type: 'test'
+  ...
+# Subtest: airmass and brightness threshold respond to altitude, moonlight and daylight
+ok 58 - airmass and brightness threshold respond to altitude, moonlight and daylight
+  ---
+  duration_ms: 2.359792
+  type: 'test'
+  ...
+# Subtest: V2 preserves orbital outputs, true angular diameters and original time span
+ok 59 - V2 preserves orbital outputs, true angular diameters and original time span
+  ---
+  duration_ms: 1.050542
+  type: 'test'
+  ...
+# Subtest: opaque new moon blocks stars even at sub-arcminute diameters
+ok 60 - opaque new moon blocks stars even at sub-arcminute diameters
+  ---
+  duration_ms: 0.127917
+  type: 'test'
+  ...
+# Subtest: PSF conserves energy, rejects sparse sampling; tone preserves monotonicity
+ok 61 - PSF conserves energy, rejects sparse sampling; tone preserves monotonicity
+  ---
+  duration_ms: 0.191875
+  type: 'test'
+  ...
+# Subtest: V2 state is independent, blur can be disabled, clock stops at endpoint
+ok 62 - V2 state is independent, blur can be disabled, clock stops at endpoint
+  ---
+  duration_ms: 0.380875
+  type: 'test'
+  ...
+# Subtest: historical revision records stay consistent; versioned sources still exist
+ok 63 - historical revision records stay consistent; versioned sources still exist
+  ---
+  duration_ms: 1.902084
+  type: 'test'
+  ...
+# Subtest: blocked storage getter falls back to a working in-memory clock
+ok 64 - blocked storage getter falls back to a working in-memory clock
+  ---
+  duration_ms: 0.70175
+  type: 'test'
+  ...
+1..64
+# tests 64
+# suites 0
+# pass 64
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 452.37875

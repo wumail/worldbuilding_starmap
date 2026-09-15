@@ -1,0 +1,12 @@
+{
+  "src/nebula_morphology.py": "c9978c58bb5e5902698a6e81c6aeb6d810120134cef9790341b8f4cb760bdcc0",
+  "src/enrich_nebulae.py": "d1caca1402bda02b905de92c9d4c8d553acf8957a306a1f6d7d6e6fdc5c04c7f",
+  "src/deep_sky.py": "139e603147dead1cb92f67a6830ce75ed5564ba24b54644fb5b7b9b36dea7fed",
+  "src/generate_galactic_sky.py": "50eba7afe32bf19237f7a24956d757d757c39e9ace8a288f70b9d526db5f1e01",
+  "src/export_deep_sky.py": "5352af8ed7722ca0d7e0459a0ed5651dbd22d16847d2bf175124a9b03f71a95f",
+  "web/shared/nebula_morphology.mjs": "7033175e0e03ab12ddf109425fed59f9694c22ef252cc411b7a55f514d526893",
+  "web/shared/deep_sky_profiles.mjs": "e778024283465d2ab38c1bad3fae56a65b7f2454f2e736cbca41b2a16c994525",
+  "web/shared/deep_sky_view.js": "cbbd8ffb3fa18ac7dcc1ca0c1a5cea47a4118cd2d56a42a9ecbf1a56f17d7420",
+  "web/shared/catalog_data.mjs": "6676210b14ec1de58aa055ef2f87e2eaaa3051c8141d220269e37b475c48b9f3",
+  "tests/nebula_morphology_checks.mjs": "47f9b134534fcd2f38254763946b56bd190ea9fb7c133a53319ab7f040f04270"
+}

@@ -1,0 +1,217 @@
+[
+  {
+    "before": "web/eye/data/renderer_repair_atlas_detail.png",
+    "after": "web/v2/data/renderer_repair_atlas_detail.png",
+    "sha256": "fc9d8751bcedc2745512adf6afa24177ac413b31d8a9562ea7b574b434dcbf72"
+  },
+  {
+    "before": "web/eye/data/validation_initial_20260914.json",
+    "after": "web/v2/data/validation_initial_20260914.json",
+    "sha256": "2c0397d15307b5c56780b8859540428d011c24e75a9d6b4a579b83e6e29437c3"
+  },
+  {
+    "before": "web/eye/data/v1_preservation.json",
+    "after": "web/v2/data/v1_preservation.json",
+    "sha256": "f543e71220a2ce91177cf121cd9adc8048d23fa094a1930015204389d2d71efd"
+  },
+  {
+    "before": "web/eye/data/validation.md",
+    "after": "web/v2/data/validation.md",
+    "sha256": "5adbbaca252ecffa3367d62a999acc90c9d08d1e2ec90f35502d6d9f8d387688"
+  },
+  {
+    "before": "web/eye/data/renderer_repair_samples.png",
+    "after": "web/v2/data/renderer_repair_samples.png",
+    "sha256": "e1224bd75aaab7a14fd55b1bf1b1c9cbbe33c7fea6e67df754480928783f3bdc"
+  },
+  {
+    "before": "web/eye/data/v1_galactic_revision.json",
+    "after": "web/v2/data/v1_galactic_revision.json",
+    "sha256": "22cfe4efd53d578e889daa8dcca5699284995ba1fa7808f9e7d3ea6d8d6e5407"
+  },
+  {
+    "before": "web/eye/data/validation.json",
+    "after": "web/v2/data/validation.json",
+    "sha256": "f82e8d9b486da64a2a23597de2cb64d9c95b812efb300e29a71b11297bc90663"
+  },
+  {
+    "before": "web/eye/data/v1_display_revision.json",
+    "after": "web/v2/data/v1_display_revision.json",
+    "sha256": "4bc3ad5bc4ec24fb371477c9af22b42c4b0308fd4283862f9e0919bde4f21297"
+  },
+  {
+    "before": "web/eye/data/renderer_repair_luna.png",
+    "after": "web/v2/data/renderer_repair_luna.png",
+    "sha256": "d86ec266988342634f96235b2353f8fff8bbc81aba85fc234a74280348e553b6"
+  },
+  {
+    "before": "web/eye/data/renderer_repair_comparison.png",
+    "after": "web/v2/data/renderer_repair_comparison.png",
+    "sha256": "81aa2747886e404b59960d9fc5051e945a5fd1ddc16ae115fd3cb9341428dc8a"
+  },
+  {
+    "before": "web/eye/data/round_sharp_20260914/v1_atlas-final.png",
+    "after": "web/v2/data/round_sharp_20260914/v1_atlas-final.png",
+    "sha256": "fbf6ac147374d6eb83109124bc4c75909483d931d4631b8921bc687a891e4691"
+  },
+  {
+    "before": "web/eye/data/round_sharp_20260914/v1_atlas.png",
+    "after": "web/v2/data/round_sharp_20260914/v1_atlas.png",
+    "sha256": "4e4c8de2731e104a787ff8db426c07fb20e864a3d15493060db0b62023e04d12"
+  },
+  {
+    "before": "web/eye/data/round_sharp_20260914/comparison.png",
+    "after": "web/v2/data/round_sharp_20260914/comparison.png",
+    "sha256": "b261f4588dd3c2f1ed582b7d082690571466d51a39573b6abd42529b76d6474b"
+  },
+  {
+    "before": "web/eye/data/round_sharp_20260914/v1_atlas-solar-export.png",
+    "after": "web/v2/data/round_sharp_20260914/v1_atlas-solar-export.png",
+    "sha256": "b49f60d1cc1b5a1526e3e1d26f345552eab68053c3e82a078de3449e3eba5d0f"
+  },
+  {
+    "before": "web/eye/data/round_sharp_20260914/v2-atlas-portrait.png",
+    "after": "web/v2/data/round_sharp_20260914/v2-atlas-portrait.png",
+    "sha256": "50a6f97758d58f68e41a6f5d4091d82943408d8525ceae04a484f7e93d6c0f05"
+  },
+  {
+    "before": "web/eye/data/round_sharp_20260914/v2_sphere.png",
+    "after": "web/v2/data/round_sharp_20260914/v2_sphere.png",
+    "sha256": "8c35c604518f6e16c53adb9deff5af4d33ac9ee07dc4292292ad465f2ec6b7c2"
+  },
+  {
+    "before": "web/eye/data/round_sharp_20260914/v2-sphere-retina.png",
+    "after": "web/v2/data/round_sharp_20260914/v2-sphere-retina.png",
+    "sha256": "89d01f8c6cc96f7578a20085f6b018436038eb13ab2c907c008841589d4faccd"
+  },
+  {
+    "before": "web/eye/data/round_sharp_20260914/v2_atlas-final.png",
+    "after": "web/v2/data/round_sharp_20260914/v2_atlas-final.png",
+    "sha256": "28eaf8263f191453fbc90962a08b453c48f5499ee932487db4c5019e0d2f9bd8"
+  },
+  {
+    "before": "web/eye/data/round_sharp_20260914/validation.json",
+    "after": "web/v2/data/round_sharp_20260914/validation.json",
+    "sha256": "c815fed2ef12d0e79969a0a4a98a4c618d67fada31a954927eecc849ea71008b"
+  },
+  {
+    "before": "web/eye/data/round_sharp_20260914/v2_atlas-solar-export.png",
+    "after": "web/v2/data/round_sharp_20260914/v2_atlas-solar-export.png",
+    "sha256": "d67343cadf13522ddcc6d6ab5107065e939a08739ac744de2861ece45a7c35a2"
+  },
+  {
+    "before": "web/eye/data/round_sharp_20260914/v2_sphere-final.png",
+    "after": "web/v2/data/round_sharp_20260914/v2_sphere-final.png",
+    "sha256": "8c35c604518f6e16c53adb9deff5af4d33ac9ee07dc4292292ad465f2ec6b7c2"
+  },
+  {
+    "before": "web/eye/data/round_sharp_20260914/v2_atlas.png",
+    "after": "web/v2/data/round_sharp_20260914/v2_atlas.png",
+    "sha256": "27c28c4292141a23e3f24ece1a789eda224d47220048583048e0a7703f37014f"
+  },
+  {
+    "before": "web/eye/data/round_sharp_20260914/v2-night-horizon.png",
+    "after": "web/v2/data/round_sharp_20260914/v2-night-horizon.png",
+    "sha256": "424b476d050107c43204ec1e8f19d8a5367c04c5558ec9e3414db50db221db7f"
+  },
+  {
+    "before": "web/eye/data/round_sharp_20260914/v2-sphere-blur-off.png",
+    "after": "web/v2/data/round_sharp_20260914/v2-sphere-blur-off.png",
+    "sha256": "3618cadabbce8cc3250d78ad8eed39e0d02bd788303a54cfb41bd6ce947ce154"
+  },
+  {
+    "before": "web/eye/data/display_size_20260914/v1_atlas.png",
+    "after": "web/v2/data/display_size_20260914/v1_atlas.png",
+    "sha256": "945179cd13c93a72ef4d2cddb33bd4b33edf6dc8e98eb4c758becdcc31f0453b"
+  },
+  {
+    "before": "web/eye/data/display_size_20260914/export-final-atlas.png",
+    "after": "web/v2/data/display_size_20260914/export-final-atlas.png",
+    "sha256": "1ace89ed9a3b05d32dffb95032683403de20a2a57a021440c7c5588eb0cb0b1f"
+  },
+  {
+    "before": "web/eye/data/display_size_20260914/export-final-sphere.png",
+    "after": "web/v2/data/display_size_20260914/export-final-sphere.png",
+    "sha256": "31c9379d4fd76521e688bf981e2b9ec888f80eda92ec035933549b033131fa43"
+  },
+  {
+    "before": "web/eye/data/display_size_20260914/comparison.png",
+    "after": "web/v2/data/display_size_20260914/comparison.png",
+    "sha256": "58a4614650c269e7b1bfd341e2d56efdf58e33435a26f49389d7149abff1ebcb"
+  },
+  {
+    "before": "web/eye/data/display_size_20260914/v1_sphere.png",
+    "after": "web/v2/data/display_size_20260914/v1_sphere.png",
+    "sha256": "39de2fe158ca25a3c6953bca820914e7eca02045a08808b18da3be1a63cd33f1"
+  },
+  {
+    "before": "web/eye/data/display_size_20260914/v2_sphere.png",
+    "after": "web/v2/data/display_size_20260914/v2_sphere.png",
+    "sha256": "8882eaa47166e2a14d8c61359c149ee7cd89674c32e014bb847a7e37a4af6a2a"
+  },
+  {
+    "before": "web/eye/data/display_size_20260914/validation.json",
+    "after": "web/v2/data/display_size_20260914/validation.json",
+    "sha256": "167cf99df482aab842cbfc48242f454274edee30e94e1e514692d7bf9e954ddf"
+  },
+  {
+    "before": "web/eye/data/display_size_20260914/v2-reset-final.png",
+    "after": "web/v2/data/display_size_20260914/v2-reset-final.png",
+    "sha256": "4f27bae64c4971f5d2fbfee90cd778a7b3469516dd9de911aa914ce789c4c17a"
+  },
+  {
+    "before": "web/eye/data/native_stars_20260914/before-wide.png",
+    "after": "web/v2/data/native_stars_20260914/before-wide.png",
+    "sha256": "bea8f2a5d181cd14eebc7b51b37ea3ecb9de932517d1236fdad286b374c23d6b"
+  },
+  {
+    "before": "web/eye/data/native_stars_20260914/before-regular.png",
+    "after": "web/v2/data/native_stars_20260914/before-regular.png",
+    "sha256": "5b9354235800a037a801481fc63ef81d8d953402890515de3ccfbc5d624c3a3a"
+  },
+  {
+    "before": "web/eye/data/native_stars_20260914/comparison.png",
+    "after": "web/v2/data/native_stars_20260914/comparison.png",
+    "sha256": "197886274e8de5bc44038b9323530c0adc422417d91712f9768b3bc9b8d16322"
+  },
+  {
+    "before": "web/eye/data/native_stars_20260914/final-export-star_map.png",
+    "after": "web/v2/data/native_stars_20260914/final-export-star_map.png",
+    "sha256": "2bc788010989a73d24afa8d8203e12f589fbebc5e9374b57e214493be525b03f"
+  },
+  {
+    "before": "web/eye/data/native_stars_20260914/after-regular.png",
+    "after": "web/v2/data/native_stars_20260914/after-regular.png",
+    "sha256": "6326918ba148acee7411efacef6ff743f44a034a3ae0984f8552be8226b1b4fb"
+  },
+  {
+    "before": "web/eye/data/native_stars_20260914/v2_sphere.png",
+    "after": "web/v2/data/native_stars_20260914/v2_sphere.png",
+    "sha256": "4359d97eb8acec0230ac43bee4d21445760976077a8419d92a341866bf145576"
+  },
+  {
+    "before": "web/eye/data/native_stars_20260914/final-export-sky_atlas.png",
+    "after": "web/v2/data/native_stars_20260914/final-export-sky_atlas.png",
+    "sha256": "fe47c14193ac1dd5a4532f8f73da6a1a72231e233cb99a078cdc1e4515059b80"
+  },
+  {
+    "before": "web/eye/data/native_stars_20260914/validation.json",
+    "after": "web/v2/data/native_stars_20260914/validation.json",
+    "sha256": "1fedbda909faac5efaf68d2f5f84667284e45594288eedb227018078a871a32f"
+  },
+  {
+    "before": "web/eye/data/native_stars_20260914/after-wide.png",
+    "after": "web/v2/data/native_stars_20260914/after-wide.png",
+    "sha256": "9c9ee32ec067b9af7e3ffa7f285079f787e9f7c9c4f0ec4dc3a8fd098fbc6bc3"
+  },
+  {
+    "before": "web/eye/data/native_stars_20260914/v2_atlas.png",
+    "after": "web/v2/data/native_stars_20260914/v2_atlas.png",
+    "sha256": "af89b2424ddeef073b5ddad6b336e86a9ce11c5d3e334aaebaa77fdacc1efcc5"
+  },
+  {
+    "before": "web/eye/data/native_stars_20260914/v2-night-horizon.png",
+    "after": "web/v2/data/native_stars_20260914/v2-night-horizon.png",
+    "sha256": "079a3c098880227f26ab7cb7a5562cd9599da86bc6a90fab642a6e1d45089b97"
+  }
+]

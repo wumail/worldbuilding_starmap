@@ -1,0 +1,40 @@
+{
+  "date": "2026-09-14",
+  "stage": "naked_eye_v2_with_optional_optical_spreading",
+  "version": "20260914-eye-v2-1",
+  "math_and_preservation": {"passed": 11, "total": 11},
+  "browser": {
+    "environment": "Google Chrome, actual WebGL 2 floating-point render targets",
+    "passed": 21,
+    "total": 21,
+    "isolated_render_samples": 150,
+    "point_flux_max_relative_error": 2.2647166408873431e-7,
+    "moon_diameter_max_device_pixel_error": 1.0420928347177982,
+    "moon_flux_max_relative_error": 0.038057405459793414,
+    "moon_flux_relative_tolerance": 0.055,
+    "sol_flux_measured_over_expected": 0.9994876605123937,
+    "occluded_witness_star_leak": 0,
+    "odd_resolution_and_float_filtering_checks": "passed",
+    "stereographic_back_hemisphere_check": "passed",
+    "unresolved_partial_occultation_check": "passed",
+    "optical_toggle_preserves_linear_scene": true,
+    "optical_toggle_changes_display_pixels": true,
+    "two_page_state_and_scale_sync": true,
+    "playback_seconds_tested": 12,
+    "simulated_context_loss_recovery": "WEBGL_lose_context extension; passed",
+    "catalog_failure_retry": "passed",
+    "catalog_counts_center_night_day": [9327, 104, 0],
+    "test_storage": "isolated in-memory storage; original storage unchanged"
+  },
+  "preservation": {"manifest": "v1_preservation.json", "files": 66, "unchanged": 66},
+  "sources_and_limits": "validation.md",
+  "limits": [
+    "Screen dimensions and viewing distance require user calibration.",
+    "Optical PSF and display tone response are editable approximations, not measured eye calibration.",
+    "Atmospheric and visibility estimates use Earth-inspired empirical models; not validated Terrax weather.",
+    "Partial disk and subpixel rendering have finite sampling error.",
+    "Screen-space optical blur is approximate at wide field angles and clipped at viewport edges.",
+    "Original orbital approximations remain; no precision multi-body ephemeris or lunar eclipse model.",
+    "Original generation and PNG tests were not rerun because those modules were not changed."
+  ]
+}

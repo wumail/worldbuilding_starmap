@@ -1,0 +1,32 @@
+{
+  "checks": {
+    "stars": true,
+    "galaxy": true,
+    "cluster_and_population_ledger": true,
+    "physical_objects": true,
+    "shape_parameters": true,
+    "original_generation_id": true,
+    "morphology_source_fingerprint": true
+  },
+  "preserved": {
+    "output/output_20260915_galactic_01/validation_report_20260915_galactic_01.txt": true,
+    "output/output_20260915_galactic_01/diffuse_validation.json": true,
+    "output/output_20260915_galactic_01/sky_view_20260915_galactic_01.json": true,
+    "output/output_20260915_galactic_01/diffuse_20260915_galactic_01.f32": true,
+    "output/output_20260915_galactic_01/star_map_20260915_galactic_01.json": true,
+    "output/output_20260915_nebula_01/diffuse_20260915_nebula_01.f32": true,
+    "output/output_20260915_nebula_01/diffuse_validation.json": true,
+    "output/output_20260915_nebula_01/morphology_validation.json": true,
+    "output/output_20260915_nebula_01/star_map_20260915_nebula_01.json": true,
+    "output/output_20260915_nebula_01/sky_view_20260915_nebula_01.json": true,
+    "output/output_20260915_nebula_02/sky_view_20260915_nebula_02.json": true,
+    "output/output_20260915_nebula_02/diffuse_validation.json": true,
+    "output/output_20260915_nebula_02/diffuse_20260915_nebula_02.f32": true,
+    "output/output_20260915_nebula_02/morphology_validation.json": true,
+    "output/output_20260915_nebula_02/star_map_20260915_nebula_02.json": true,
+    "reference/恒星系最终设定.md": true,
+    "reference/母星最终设定.md": true
+  },
+  "stars": 9356,
+  "deep_sky_objects": 8947
+}

@@ -1,0 +1,18 @@
+{
+  "web/shared/deep_sky_view.js": "036db500f029ddbd9b0cc59cf09170d7071cb25c9c0cee97c6ef42f94c551338",
+  "web/shared/deep_sky_profiles.mjs": "354f413a62dd69edb6f9e997975a9deedde46364904ca4126db96291cc432659",
+  "web/shared/sky_overlays.mjs": "b3c0735d3d284208fceffadad355db48266ae857946c80fd2177d5c2234618e5",
+  "web/shared/sky_motion.css": "d7dc115614db327380e657493a5a7984b67fc6fa5986d92383040600670fa4ab",
+  "web/shared/zodiac.mjs": "d8ec9c1182712f733949c1169278ec09d763c02707a93f2af8be21b2ac86d13d",
+  "web/v1/sky_atlas.mjs": "935483a50d07846e5755d629d66cddb58e722fb5790406f95610e3350ee0c29f",
+  "web/v1/sky_atlas.html": "f230b07d3a8b08ce0d3b22d03baf610fc1e0d97c27cc603310e19478e5f85675",
+  "web/v1/star_map.html": "fae7ba738bf052a93819f071983a4760a98c31d3dd0efc6faa00772b43dbfc14",
+  "web/v1/sky_motion_3d.js": "78d45e91eac3ea13772c556832e0ed60a1910d415b103728bfb27e5bf16b8266",
+  "web/v1/zodiac_3d.js": "1b480f79243de27fb51a89354db65477a97e3aa9771521c415f94d0f179195a5",
+  "web/v2/eye_app.mjs": "d2424ed2ffcbf7eb5dfad4b742ea1c9f9c6f2637c1e1ca1b482c1ceb13a50069",
+  "web/v2/eye_renderer.mjs": "5ff0105f7f222a5b552def0cda7d31c1cf6af26180892f51215a40ee8eee35a2",
+  "tests/test_deep_profiles.mjs": "75d25b0b2fcaf0369c36012ed5df3eb80a90912c6c92a82b7f1a617e32a8c0d5",
+  "tests/deep_sky_render_checks.mjs": "b135dbec32beb2950ff44488c9e53f2a6513fdfc6f27a41909d60907358e7458",
+  "web/v2/tests/native_star_checks.mjs": "4f85c3efa2e96f30fa8226281cb236b1755e2eda24ba188aa8216930214f0a6f",
+  "tests/atlas_playback_checks.mjs": "1ea4040c7a7a0505d2d8c5e5fd1a0d6f74f5082068554bf7193527eabb360f66"
+}

@@ -1,0 +1,285 @@
+{
+  "model": "Newtonian 10-body plus conservative Terrax J2 and spin reaction torque",
+  "status": "candidate design; not a production ephemeris",
+  "script_sha256": "5de9a8b5aaa55a484e897bb2f8473a86386b9d48711bddbf46ae666dadde23c2",
+  "runs": {
+    "coarse": {
+      "duration_years": 140.49,
+      "interior_assumptions": {
+        "Cbar": 0.3308,
+        "fluid_Love_kf": 0.94,
+        "J2": 0.0009614529831485937,
+        "dynamical_ellipticity": 0.0029064479538953862,
+        "q": 0.0030684669674955123
+      },
+      "coefficients_not_precession_rates": {
+        "Sol": {
+          "alpha_arcsec_per_year": 7.246496235408597
+        },
+        "Luna": {
+          "alpha_arcsec_per_year": 37.442857375159,
+          "orbital_L_over_spin": 4.0006636626824585
+        },
+        "Echo": {
+          "alpha_arcsec_per_year": 0.3628747356898667,
+          "orbital_L_over_spin": 0.46094129648777016
+        }
+      },
+      "fitted_axis_longitude_rate_arcsec_per_year": -31.825318400848076,
+      "extrapolated_period_years_not_integrated_cycle": 40722.29486209505,
+      "longitude_residual_arcsec": [
+        -208.43817656921902,
+        200.71226351060082
+      ],
+      "obliquity_deg": [
+        24.986569916892904,
+        25.069945175656954
+      ],
+      "moons": {
+        "Luna": {
+          "inclination_to_instantaneous_equator_deg": [
+            0.1158010814665918,
+            51.13559735476138
+          ],
+          "distance_km": [
+            378751.7662685407,
+            389805.3466502218
+          ]
+        },
+        "Echo": {
+          "inclination_to_instantaneous_equator_deg": [
+            1.1000000000000794,
+            53.57306577662701
+          ],
+          "distance_km": [
+            649797.8188290203,
+            805965.1798130275
+          ]
+        }
+      },
+      "mutual_moon_inclination_deg": [
+        1.4601703464151432,
+        37.957169845153025
+      ],
+      "max_energy_relative_drift": 4.573618476512721e-12,
+      "max_angular_momentum_drift_in_spin_units": 3.679349730029952e-05,
+      "max_spin_norm_error": 5.773159728050814e-15,
+      "nfev": 343370,
+      "rtol": 2e-10,
+      "max_step_days": 2.0,
+      "max_angular_momentum_relative_drift": 9.11174355028471e-15
+    },
+    "fine": {
+      "duration_years": 140.49,
+      "interior_assumptions": {
+        "Cbar": 0.3308,
+        "fluid_Love_kf": 0.94,
+        "J2": 0.0009614529831485937,
+        "dynamical_ellipticity": 0.0029064479538953862,
+        "q": 0.0030684669674955123
+      },
+      "coefficients_not_precession_rates": {
+        "Sol": {
+          "alpha_arcsec_per_year": 7.246496235408597
+        },
+        "Luna": {
+          "alpha_arcsec_per_year": 37.442857375159,
+          "orbital_L_over_spin": 4.0006636626824585
+        },
+        "Echo": {
+          "alpha_arcsec_per_year": 0.3628747356898667,
+          "orbital_L_over_spin": 0.46094129648777016
+        }
+      },
+      "fitted_axis_longitude_rate_arcsec_per_year": -31.823892949014372,
+      "extrapolated_period_years_not_integrated_cycle": 40724.11889003458,
+      "longitude_residual_arcsec": [
+        -208.43921613554713,
+        200.71151831347842
+      ],
+      "obliquity_deg": [
+        24.986509293279497,
+        25.069946242124253
+      ],
+      "moons": {
+        "Luna": {
+          "inclination_to_instantaneous_equator_deg": [
+            0.10749224510306321,
+            51.15827190957764
+          ],
+          "distance_km": [
+            378752.6325450674,
+            389757.6025967883
+          ]
+        },
+        "Echo": {
+          "inclination_to_instantaneous_equator_deg": [
+            1.1000000000000794,
+            53.573158824474895
+          ],
+          "distance_km": [
+            649798.222871645,
+            806151.9791147149
+          ]
+        }
+      },
+      "mutual_moon_inclination_deg": [
+        1.4601703464151432,
+        37.9575767687862
+      ],
+      "max_energy_relative_drift": 3.129852359303392e-14,
+      "max_angular_momentum_drift_in_spin_units": 5.4553299770997926e-05,
+      "max_spin_norm_error": 6.5503158452884236e-15,
+      "nfev": 648146,
+      "rtol": 2e-12,
+      "max_step_days": 1.0,
+      "convergence": {
+        "max_axis_difference_arcsec": 0.30347154096303636,
+        "final_moon_relative_position_difference_km": {
+          "Luna": 43872.78516114998,
+          "Echo": 1376415.389509148
+        }
+      },
+      "max_angular_momentum_relative_drift": 1.350987847874663e-14
+    },
+    "reference": {
+      "duration_years": 140.49,
+      "interior_assumptions": {
+        "Cbar": 0.3308,
+        "fluid_Love_kf": 0.94,
+        "J2": 0.0009614529831485937,
+        "dynamical_ellipticity": 0.0029064479538953862,
+        "q": 0.0030684669674955123
+      },
+      "coefficients_not_precession_rates": {
+        "Sol": {
+          "alpha_arcsec_per_year": 7.246496235408597
+        },
+        "Luna": {
+          "alpha_arcsec_per_year": 37.442857375159,
+          "orbital_L_over_spin": 4.0006636626824585
+        },
+        "Echo": {
+          "alpha_arcsec_per_year": 0.3628747356898667,
+          "orbital_L_over_spin": 0.46094129648777016
+        }
+      },
+      "fitted_axis_longitude_rate_arcsec_per_year": -31.823918494529604,
+      "extrapolated_period_years_not_integrated_cycle": 40724.086200201,
+      "longitude_residual_arcsec": [
+        -208.43942578182933,
+        200.71325544439242
+      ],
+      "obliquity_deg": [
+        24.986509440385714,
+        25.069946244238118
+      ],
+      "moons": {
+        "Luna": {
+          "inclination_to_instantaneous_equator_deg": [
+            0.10749182581527202,
+            51.158445065095464
+          ],
+          "distance_km": [
+            378752.63382169796,
+            389757.6053559679
+          ]
+        },
+        "Echo": {
+          "inclination_to_instantaneous_equator_deg": [
+            1.1000000000000794,
+            53.57315897912071
+          ],
+          "distance_km": [
+            649797.9205470711,
+            806152.458816351
+          ]
+        }
+      },
+      "mutual_moon_inclination_deg": [
+        1.4601703464151432,
+        37.95757665419481
+      ],
+      "max_energy_relative_drift": 2.3508668832101034e-14,
+      "max_angular_momentum_drift_in_spin_units": 2.7141364345914766e-05,
+      "max_spin_norm_error": 2.4980018054066022e-14,
+      "nfev": 1262354,
+      "rtol": 2e-13,
+      "max_step_days": 0.5,
+      "convergence": {
+        "max_axis_difference_arcsec": 0.07009221859518885,
+        "final_moon_relative_position_difference_km": {
+          "Luna": 43781.8584035145,
+          "Echo": 779820.7910687131
+        }
+      },
+      "max_angular_momentum_relative_drift": 6.721436386064965e-15
+    }
+  },
+  "fine_reference_comparison": [
+    {
+      "through_year": 1,
+      "axis_max_difference_arcsec": 4.5754355923644854e-10,
+      "moon_endpoint_difference_km": {
+        "Luna": 0.0025906388100083283,
+        "Echo": 0.00013949684204921277
+      }
+    },
+    {
+      "through_year": 5,
+      "axis_max_difference_arcsec": 5.750725569069657e-08,
+      "moon_endpoint_difference_km": {
+        "Luna": 0.11528188286764293,
+        "Echo": 0.004828297169448066
+      }
+    },
+    {
+      "through_year": 10,
+      "axis_max_difference_arcsec": 4.632680778181792e-07,
+      "moon_endpoint_difference_km": {
+        "Luna": 0.4657821758937957,
+        "Echo": 0.28778508595288754
+      }
+    },
+    {
+      "through_year": 20,
+      "axis_max_difference_arcsec": 2.830800690863848e-06,
+      "moon_endpoint_difference_km": {
+        "Luna": 1.8851845218913617,
+        "Echo": 1.2329629352587086
+      }
+    },
+    {
+      "through_year": 30,
+      "axis_max_difference_arcsec": 7.090457088665754e-06,
+      "moon_endpoint_difference_km": {
+        "Luna": 4.268161111582387,
+        "Echo": 2.8884790837533942
+      }
+    },
+    {
+      "through_year": 50,
+      "axis_max_difference_arcsec": 1.209930452904598e-05,
+      "moon_endpoint_difference_km": {
+        "Luna": 11.909389069035907,
+        "Echo": 7.9937028243927
+      }
+    },
+    {
+      "through_year": 100,
+      "axis_max_difference_arcsec": 5.405267377953767e-05,
+      "moon_endpoint_difference_km": {
+        "Luna": 51.14174456043903,
+        "Echo": 33.70637524842301
+      }
+    },
+    {
+      "through_year": 140.49,
+      "axis_max_difference_arcsec": 0.07009221859518885,
+      "moon_endpoint_difference_km": {
+        "Luna": 43781.8584035145,
+        "Echo": 779820.791068713
+      }
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "count": 9356,
+  "all_physical_content_identical": true,
+  "checks": {
+    "stars": {
+      "before": "ea8e42a28eed7fda8cda3063c79b294f22597a8c0a100f49ebed2c3ceb5eb644",
+      "after": "ea8e42a28eed7fda8cda3063c79b294f22597a8c0a100f49ebed2c3ceb5eb644",
+      "equal": true
+    },
+    "galaxy": {
+      "before": "5d29dfd238326b9c2d362bb5804b3b8bff1870c33bb596c4b45cabf540af2283",
+      "after": "5d29dfd238326b9c2d362bb5804b3b8bff1870c33bb596c4b45cabf540af2283",
+      "equal": true
+    },
+    "deep_sky.model": {
+      "before": "448eeca917c056172d22b25492fd05ce91a63aa8888e7b05d4026c72bcb98cb7",
+      "after": "448eeca917c056172d22b25492fd05ce91a63aa8888e7b05d4026c72bcb98cb7",
+      "equal": true
+    },
+    "deep_sky.population_scale": {
+      "before": "d0ff5974b6aa52cf562bea5921840c032a860a91a3512f7fe8f768f6bbe005f6",
+      "after": "d0ff5974b6aa52cf562bea5921840c032a860a91a3512f7fe8f768f6bbe005f6",
+      "equal": true
+    },
+    "deep_sky.population_stats": {
+      "before": "106be2cd4c20a711fa370a7975e88cd09124dee10d3985c5ef96d06af24ffce2",
+      "after": "106be2cd4c20a711fa370a7975e88cd09124dee10d3985c5ef96d06af24ffce2",
+      "equal": true
+    },
+    "deep_sky.export_unextinguished_mag_limit": {
+      "before": "77c52f3feed5acdd119b1f8449d5ccc2d39be94bd0314d5b7302f36e20b6cea9",
+      "after": "77c52f3feed5acdd119b1f8449d5ccc2d39be94bd0314d5b7302f36e20b6cea9",
+      "equal": true
+    },
+    "deep_sky.clusters": {
+      "before": "74022c21d045d3b46fca567cd3a743ae59722f201c69b65a2852502e35a5bc37",
+      "after": "74022c21d045d3b46fca567cd3a743ae59722f201c69b65a2852502e35a5bc37",
+      "equal": true
+    },
+    "deep_sky.objects": {
+      "before": "7f6dae5d5e2c8d141dd28edfb5a051289d9943b475b3c80cc0c988e16d1cfd13",
+      "after": "7f6dae5d5e2c8d141dd28edfb5a051289d9943b475b3c80cc0c988e16d1cfd13",
+      "equal": true
+    }
+  },
+  "current_source_sha256": {
+    "star_generator.py": "4d78e46d581c722fea11bbf2793c047999cd97a355d4350dd0c568082e64d00b",
+    "stellar_physics.py": "81f9d6a2a9c841d442d68eb671f86b2e3f43608359aa1d1ec0ca0bc2aead17b9",
+    "galaxy_environment.py": "442d0bb34f2e8cabb82d6d373c4d851d8076110831e807cb0a9ba5f4cdfce0b5",
+    "cluster_population.py": "ee97e83c07b512c30d57493381d03cb65c8c6e49bc166e8c2b676d147e105fe6",
+    "deep_sky.py": "6451f31d7d24e4f88b8105a4b4034f658f0b8652e36f2a8511749afcaf6796a1",
+    "generate_galactic_sky.py": "d9eb09a33fc6b789376dc289176984912ab966fa56f86b2a8c973d092b7d4f39",
+    "export_deep_sky.py": "75495355667ce3881bca530fad1b1fdae4f8c410ca903d4bb3985998ee33c8b9",
+    "fetch_parsec.py": "16fe59ef709305972452dcc5f98bc8ce0498a91b2a34a8218fa710847344fb33"
+  },
+  "original_source_sha256": {
+    "star_generator.py": "fdd935c9a7b17db0e70b4995cafa39f744fa82b7a69c2915380b9af6ef2f4303",
+    "stellar_physics.py": "3d59e0fd928523194a94a00b0fec7aeae2a0c4d4b879932bce917ff6f1b0c84f",
+    "galaxy_environment.py": "442d0bb34f2e8cabb82d6d373c4d851d8076110831e807cb0a9ba5f4cdfce0b5",
+    "cluster_population.py": "0d3c3e9428b7a0f43243f582e78d74e01cf0bbbecded65a7a07d92823d29ce39",
+    "deep_sky.py": "6451f31d7d24e4f88b8105a4b4034f658f0b8652e36f2a8511749afcaf6796a1",
+    "generate_galactic_sky.py": "bd281fcba5ab6e4eb90f9f8c04b650a01fb541f1d39ad95a3a90e6c879c90575",
+    "export_deep_sky.py": "75495355667ce3881bca530fad1b1fdae4f8c410ca903d4bb3985998ee33c8b9",
+    "fetch_parsec.py": "95e7a370924089fe5657298322f73a05f6e27e30f4047becc809c49dc6ff770f"
+  },
+  "validation": {
+    "checked": 9356,
+    "passed": 9356,
+    "failed": 0,
+    "all_passed": true
+  },
+  "scientific_catalogue_sha256": "623869fdda53a9bafad399d8d413efe9c11a45789118c9b319f6f79b843688d1",
+  "note": "Full in-memory regeneration with the relocated source. No catalogue or index was overwritten. Source byte hashes changed during the prior layout move; physical content compared independently."
+}

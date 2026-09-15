@@ -1,0 +1,364 @@
+{
+  "path": "tests/sky_artifact_checks.html",
+  "status": "0/2 通过；2 失败",
+  "failures": [
+    "失败：用户截图视向 RA 133.9° / Dec 0.6° 不被反方向 Luna 铺满 — {\"changedPixels\":147456,\"pixels\":147456,\"center\":[130,124,116,255]}",
+    "失败：太阳、双月和行星的反方向不产生盘面或光晕，保留前景星点 — [{\"id\":\"Sol\",\"mode\":\"stereographic\",\"gain\":1,\"dpr\":1,\"changed\":110592},{\"id\":\"Sol\",\"mode\":\"stereographic\",\"gain\":1,\"dpr\":2,\"changed\":442368},{\"id\":\"Sol\",\"mode\":\"stereographic\",\"gain\":6,\"dpr\":1,\"changed\":110592},{\"id\":\"Sol\",\"mode\":\"stereographic\",\"gain\":6,\"dpr\":2,\"changed\":442368},{\"id\":\"Sol\",\"mode\":\"stereographic\",\"gain\":8,\"dpr\":1,\"changed\":110592},{\"id\":\"Sol\",\"mode\":\"stereographic\",\"gain\":8,\"dpr\":2,\"changed\":442368},{\"id\":\"Luna\",\"mode\":\"stereographic\",\"gain\":1,\"dpr\":1,\"changed\":110592},{\"id\":\"Luna\",\"mode\":\"stereographic\",\"gain\":1,\"dpr\":2,\"changed\":442368},{\"id\":\"Luna\",\"mode\":\"stereographic\",\"gain\":6,\"dpr\":1,\"changed\":110592},{\"id\":\"Luna\",\"mode\":\"stereographic\",\"gain\":6,\"dpr\":2,\"changed\":442368},{\"id\":\"Luna\",\"mode\":\"stereographic\",\"gain\":8,\"dpr\":1,\"changed\":110592},{\"id\":\"Luna\",\"mode\":\"stereographic\",\"gain\":8,\"dpr\":2,\"changed\":442368},{\"id\":\"Echo\",\"mode\":\"stereographic\",\"gain\":1,\"dpr\":1,\"changed\":110592},{\"id\":\"Echo\",\"mode\":\"stereographic\",\"gain\":1,\"dpr\":2,\"changed\":442368},{\"id\":\"Echo\",\"mode\":\"stereographic\",\"gain\":6,\"dpr\":1,\"changed\":110592},{\"id\":\"Echo\",\"mode\":\"stereographic\",\"gain\":6,\"dpr\":2,\"changed\":442368},{\"id\":\"Echo\",\"mode\":\"stereographic\",\"gain\":8,\"dpr\":1,\"changed\":110592},{\"id\":\"Echo\",\"mode\":\"stereographic\",\"gain\":8,\"dpr\":2,\"changed\":442368},{\"id\":\"Venus-Sol\",\"mode\":\"stereographic\",\"gain\":1,\"dpr\":1,\"changed\":12},{\"id\":\"Venus-Sol\",\"mode\":\"stereographic\",\"gain\":1,\"dpr\":2,\"changed\":12},{\"id\":\"Venus-Sol\",\"mode\":\"stereographic\",\"gain\":6,\"dpr\":1,\"changed\":12},{\"id\":\"Venus-Sol\",\"mode\":\"stereographic\",\"gain\":6,\"dpr\":2,\"changed\":36},{\"id\":\"Venus-Sol\",\"mode\":\"stereographic\",\"gain\":8,\"dpr\":1,\"changed\":12},{\"id\":\"Venus-Sol\",\"mode\":\"stereographic\",\"gain\":8,\"dpr\":2,\"changed\":48}]"
+  ],
+  "metrics": {
+    "total": 2,
+    "failures": 2,
+    "metrics": {
+      "userLunaAntipode": {
+        "changedPixels": 147456,
+        "pixels": 147456,
+        "center": [
+          130,
+          124,
+          116,
+          255
+        ]
+      },
+      "bodyAntipodes": [
+        {
+          "id": "Sol",
+          "mode": "perspective",
+          "gain": 1,
+          "dpr": 1,
+          "changed": 0
+        },
+        {
+          "id": "Sol",
+          "mode": "perspective",
+          "gain": 1,
+          "dpr": 2,
+          "changed": 0
+        },
+        {
+          "id": "Sol",
+          "mode": "perspective",
+          "gain": 6,
+          "dpr": 1,
+          "changed": 0
+        },
+        {
+          "id": "Sol",
+          "mode": "perspective",
+          "gain": 6,
+          "dpr": 2,
+          "changed": 0
+        },
+        {
+          "id": "Sol",
+          "mode": "perspective",
+          "gain": 8,
+          "dpr": 1,
+          "changed": 0
+        },
+        {
+          "id": "Sol",
+          "mode": "perspective",
+          "gain": 8,
+          "dpr": 2,
+          "changed": 0
+        },
+        {
+          "id": "Luna",
+          "mode": "perspective",
+          "gain": 1,
+          "dpr": 1,
+          "changed": 0
+        },
+        {
+          "id": "Luna",
+          "mode": "perspective",
+          "gain": 1,
+          "dpr": 2,
+          "changed": 0
+        },
+        {
+          "id": "Luna",
+          "mode": "perspective",
+          "gain": 6,
+          "dpr": 1,
+          "changed": 0
+        },
+        {
+          "id": "Luna",
+          "mode": "perspective",
+          "gain": 6,
+          "dpr": 2,
+          "changed": 0
+        },
+        {
+          "id": "Luna",
+          "mode": "perspective",
+          "gain": 8,
+          "dpr": 1,
+          "changed": 0
+        },
+        {
+          "id": "Luna",
+          "mode": "perspective",
+          "gain": 8,
+          "dpr": 2,
+          "changed": 0
+        },
+        {
+          "id": "Echo",
+          "mode": "perspective",
+          "gain": 1,
+          "dpr": 1,
+          "changed": 0
+        },
+        {
+          "id": "Echo",
+          "mode": "perspective",
+          "gain": 1,
+          "dpr": 2,
+          "changed": 0
+        },
+        {
+          "id": "Echo",
+          "mode": "perspective",
+          "gain": 6,
+          "dpr": 1,
+          "changed": 0
+        },
+        {
+          "id": "Echo",
+          "mode": "perspective",
+          "gain": 6,
+          "dpr": 2,
+          "changed": 0
+        },
+        {
+          "id": "Echo",
+          "mode": "perspective",
+          "gain": 8,
+          "dpr": 1,
+          "changed": 0
+        },
+        {
+          "id": "Echo",
+          "mode": "perspective",
+          "gain": 8,
+          "dpr": 2,
+          "changed": 0
+        },
+        {
+          "id": "Venus-Sol",
+          "mode": "perspective",
+          "gain": 1,
+          "dpr": 1,
+          "changed": 0
+        },
+        {
+          "id": "Venus-Sol",
+          "mode": "perspective",
+          "gain": 1,
+          "dpr": 2,
+          "changed": 0
+        },
+        {
+          "id": "Venus-Sol",
+          "mode": "perspective",
+          "gain": 6,
+          "dpr": 1,
+          "changed": 0
+        },
+        {
+          "id": "Venus-Sol",
+          "mode": "perspective",
+          "gain": 6,
+          "dpr": 2,
+          "changed": 0
+        },
+        {
+          "id": "Venus-Sol",
+          "mode": "perspective",
+          "gain": 8,
+          "dpr": 1,
+          "changed": 0
+        },
+        {
+          "id": "Venus-Sol",
+          "mode": "perspective",
+          "gain": 8,
+          "dpr": 2,
+          "changed": 0
+        },
+        {
+          "id": "Sol",
+          "mode": "stereographic",
+          "gain": 1,
+          "dpr": 1,
+          "changed": 110592
+        },
+        {
+          "id": "Sol",
+          "mode": "stereographic",
+          "gain": 1,
+          "dpr": 2,
+          "changed": 442368
+        },
+        {
+          "id": "Sol",
+          "mode": "stereographic",
+          "gain": 6,
+          "dpr": 1,
+          "changed": 110592
+        },
+        {
+          "id": "Sol",
+          "mode": "stereographic",
+          "gain": 6,
+          "dpr": 2,
+          "changed": 442368
+        },
+        {
+          "id": "Sol",
+          "mode": "stereographic",
+          "gain": 8,
+          "dpr": 1,
+          "changed": 110592
+        },
+        {
+          "id": "Sol",
+          "mode": "stereographic",
+          "gain": 8,
+          "dpr": 2,
+          "changed": 442368
+        },
+        {
+          "id": "Luna",
+          "mode": "stereographic",
+          "gain": 1,
+          "dpr": 1,
+          "changed": 110592
+        },
+        {
+          "id": "Luna",
+          "mode": "stereographic",
+          "gain": 1,
+          "dpr": 2,
+          "changed": 442368
+        },
+        {
+          "id": "Luna",
+          "mode": "stereographic",
+          "gain": 6,
+          "dpr": 1,
+          "changed": 110592
+        },
+        {
+          "id": "Luna",
+          "mode": "stereographic",
+          "gain": 6,
+          "dpr": 2,
+          "changed": 442368
+        },
+        {
+          "id": "Luna",
+          "mode": "stereographic",
+          "gain": 8,
+          "dpr": 1,
+          "changed": 110592
+        },
+        {
+          "id": "Luna",
+          "mode": "stereographic",
+          "gain": 8,
+          "dpr": 2,
+          "changed": 442368
+        },
+        {
+          "id": "Echo",
+          "mode": "stereographic",
+          "gain": 1,
+          "dpr": 1,
+          "changed": 110592
+        },
+        {
+          "id": "Echo",
+          "mode": "stereographic",
+          "gain": 1,
+          "dpr": 2,
+          "changed": 442368
+        },
+        {
+          "id": "Echo",
+          "mode": "stereographic",
+          "gain": 6,
+          "dpr": 1,
+          "changed": 110592
+        },
+        {
+          "id": "Echo",
+          "mode": "stereographic",
+          "gain": 6,
+          "dpr": 2,
+          "changed": 442368
+        },
+        {
+          "id": "Echo",
+          "mode": "stereographic",
+          "gain": 8,
+          "dpr": 1,
+          "changed": 110592
+        },
+        {
+          "id": "Echo",
+          "mode": "stereographic",
+          "gain": 8,
+          "dpr": 2,
+          "changed": 442368
+        },
+        {
+          "id": "Venus-Sol",
+          "mode": "stereographic",
+          "gain": 1,
+          "dpr": 1,
+          "changed": 12
+        },
+        {
+          "id": "Venus-Sol",
+          "mode": "stereographic",
+          "gain": 1,
+          "dpr": 2,
+          "changed": 12
+        },
+        {
+          "id": "Venus-Sol",
+          "mode": "stereographic",
+          "gain": 6,
+          "dpr": 1,
+          "changed": 12
+        },
+        {
+          "id": "Venus-Sol",
+          "mode": "stereographic",
+          "gain": 6,
+          "dpr": 2,
+          "changed": 36
+        },
+        {
+          "id": "Venus-Sol",
+          "mode": "stereographic",
+          "gain": 8,
+          "dpr": 1,
+          "changed": 12
+        },
+        {
+          "id": "Venus-Sol",
+          "mode": "stereographic",
+          "gain": 8,
+          "dpr": 2,
+          "changed": 48
+        }
+      ]
+    }
+  },
+  "errors": [],
+  "httpFailures": []
+}

@@ -1,0 +1,9 @@
+{
+  "output/output_20260915_nebula_03/sky_view_20260915_nebula_03.json": true,
+  "output/output_20260915_nebula_03/star_map_20260915_nebula_03.json": true,
+  "output/output_20260915_nebula_03/diffuse_validation.json": true,
+  "output/output_20260915_nebula_03/diffuse_20260915_nebula_03.f32": true,
+  "output/output_20260915_nebula_03/morphology_validation.json": true,
+  "reference/\u6052\u661f\u7cfb\u6700\u7ec8\u8bbe\u5b9a.md": true,
+  "reference/\u6bcd\u661f\u6700\u7ec8\u8bbe\u5b9a.md": true
+}
