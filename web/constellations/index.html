@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark">
+  <title>Terrax · 星座抽卡工作台</title>
+  <link rel="stylesheet" href="review.css?revision=favourites-regional-1">
+</head>
+<body>
+<main>
+  <header>
+    <div><p class="eyebrow">TERRAX / 星座设计工作台</p><h1>同一片星空，不同的十五座星形</h1>
+      <p class="intro">抽一轮，看轮廓，记下联想。留下喜欢的，继续尝试。</p></div>
+    <nav><a href="../v1/sky_atlas.html">回到星图</a><a href="#method">选星依据</a></nav>
+  </header>
+  <p id="loading" role="status">正在读取同一份星空…</p>
+  <div id="review" hidden>
+    <section class="draw-panel panel" aria-label="星座抽卡工作流">
+      <div class="workflow-steps"><span>01 围绕亮星生成星形</span><span>02 各区简化、整体协调</span><span>03 看图与编辑星座</span><span>04 锁定、记录与留存</span></div>
+      <div class="draw-controls">
+        <label>下一轮星形<select id="complexity"><option value="rich">丰富 · 更多轮廓</option><option value="balanced">适中 · 优先简洁</option></select></label>
+        <button id="new-round" class="primary">抽下一轮</button>
+        <label class="seed-label">可复现的种子<input id="seed" type="text" value="terrax-001" maxlength="80" spellcheck="false"></label>
+        <button id="reproduce">按种子生成</button>
+        <button id="reroll">只重抽未锁定星形</button>
+        <button id="refine-round" hidden>整理本轮边界</button>
+      </div>
+      <div class="sampling-controls">
+        <label for="sampling-width">初始采样带 · 边界距黄道 <output id="sampling-value" for="sampling-width">40°</output></label>
+        <input id="sampling-width" type="range" min="15" max="60" step="1" value="40" aria-label="采样带边界到黄道的角距离">
+        <p id="sampling-note" class="caption"></p>
+      </div>
+      <p class="caption">“抽下一轮”重新尝试整套星形与分区；新版局部重抽保留边界、轮廓锚星与已锁定图形，尝试其余成员和连线。收藏方案留在下方；未收藏结果仅在本页临时保留。</p>
+      <div class="saved-controls"><label>收藏轮次<select id="rounds"></select></label><button id="favourite">☆ 收藏本轮</button><button id="export-round">导出整轮</button><button id="import-round">导入留存</button><input id="import-file" type="file" accept=".json,application/json" hidden><button id="original">查看初稿</button></div>
+      <p id="round-description" class="round-description"></p><p id="layout-note" class="caption" hidden>本轮按旧规则保留。点击“按种子生成”可创建修正后的分区；旧轮次、锁定和笔记仍可回看。区域改变后，锁定与笔记不会自动套到新星座。</p><p id="draw-status" role="status" aria-live="polite"></p><p id="persistence-status" class="caption"></p>
+    </section>
+    <section class="toolbar" aria-label="候选图显示设置">
+      <label class="range">天体显示大小 <output id="scale-value" for="scale">2.5×</output><input id="scale" type="range" min="1" max="6" step=".5" value="2.5"></label>
+      <label>连线方案<select id="variant"><option value="core">简洁主干</option><option value="extended">补充轮廓</option></select></label>
+      <label>背景星<select id="limit"><option value="6.5">全部 · ≤ 6.5 等</option><option value="4.5">较亮 · ≤ 4.5 等</option><option value="4">亮星 · ≤ 4 等</option></select></label>
+      <div class="checks"><label><input type="checkbox" id="lines" checked>连线</label><label><input type="checkbox" id="boundaries" checked>区域边界</label><label><input type="checkbox" id="numbers">成员编号</label><label><input type="checkbox" id="sectors">旧 24° 刻度</label></div>
+      <button id="compare" type="button">按住看无线星空</button>
+    </section>
+    <p class="caption">默认 2.5×；选中成员保持原有亮度与大小。总览用于定位，请在局部图里判断辨识度。</p>
+    <section class="overview panel" aria-labelledby="overview-title">
+      <div class="section-title"><h2 id="overview-title">黄道全周与采样带</h2><span>参考赤道坐标 · 东在左</span></div>
+      <div class="overview-scroll"><canvas id="overview" aria-label="黄道全周候选区域与背景恒星"></canvas></div>
+      <div class="overview-footer"><span id="summary"></span><span>金线：黄道 · 蓝色带：本轮采样 · 虚线：下轮预览</span></div>
+      <p id="coverage-note" class="caption" hidden></p>
+    </section>
+    <div id="region-tabs" class="region-tabs" role="group" aria-label="选择候选星座"></div>
+    <section class="detail-layout">
+      <div class="panel detail-panel">
+        <div class="section-title"><h2 id="detail-title"></h2><div><button id="previous" aria-label="上一个候选">←</button><button id="next" aria-label="下一个候选">→</button><button id="export">保存局部图片</button></div></div>
+        <div class="candidate-actions"><button id="edit-boundary">编辑边界</button><button id="edit-lines">编辑星座与连线</button><button id="regenerate-candidate">本区重新生成</button><span id="candidate-count"></span></div>
+        <div id="candidate-editor" hidden aria-label="当前候选编辑工具">
+          <div id="boundary-controls" class="boundary-controls">
+            <label><span id="boundary-axis">边界位置</span><input id="boundary-coordinate" type="number" step="1" aria-label="选中边界的参考坐标"></label>
+            <button id="boundary-minus">−1°</button><button id="boundary-plus">+1°</button><button id="boundary-apply">应用坐标</button>
+          </div>
+          <div id="figure-controls" class="candidate-actions" hidden>
+            <label>操作 <select id="candidate-tool"><option value="select">选星</option><option value="connect">连接两颗星</option><option value="erase">删除连线</option></select></label>
+            <button id="candidate-add-member">加入星座</button><button id="candidate-remove-member">移除成员及连线</button><button id="candidate-clear-star">清除选星</button>
+            <p id="candidate-selected" role="status"></p>
+          </div>
+          <div class="candidate-view-controls"><label>视野缩放 <input id="candidate-view-zoom" type="range" min=".2" max="6" step=".01" value="1"></label><button id="candidate-view-reset">复位视野</button><span>拖动空白处移动视野</span></div>
+          <div class="candidate-actions"><button id="candidate-undo">撤销</button><button id="candidate-redo">重做</button><button id="candidate-confirm">确认</button><button id="candidate-cancel">取消</button></div>
+          <p id="candidate-validation" role="status"></p>
+          <p id="candidate-message" role="status" aria-live="polite"></p>
+        </div>
+        <canvas id="detail" aria-label="当前候选的局部星图"></canvas>
+        <div class="detail-footer"><span id="scale-note"></span><span id="view-scale-note">十五张局部图共用角尺度 · 立体投影</span></div>
+        <p id="inspection" class="inspection" role="status">点击星点可查看原始编号和视星等。</p>
+      </div>
+      <aside class="panel information">
+        <p class="eyebrow" id="region-id"></p><h2 id="region-name"></h2><p id="region-description"></p>
+        <p id="structure-note"></p>
+        <p id="bright-note" class="audit-note"></p>
+        <p id="corner-note" class="audit-note"></p>
+        <label class="lock"><input id="lock-region" type="checkbox">锁定这座星形</label>
+        <label id="imagery-label" for="imagery" class="imagery-label">意象与修改笔记</label><textarea id="imagery" rows="3" maxlength="2000" placeholder="它让你想到什么？记录轮廓、方向、故事或想修改的部分。"></textarea>
+        <dl id="metrics"></dl>
+        <table><caption>当前方案的成员</caption><thead><tr><th>编号</th><th>视星等</th><th>黄经</th><th>黄纬</th></tr></thead><tbody id="members"></tbody></table>
+        <p class="caption">星等数值越小，恒星越亮。表格编号仅用于核对；点击编号可标出对应恒星。</p>
+        <p id="filtered-note" class="caption"></p>
+      </aside>
+    </section>
+    <section id="method" class="method panel">
+      <h2>抽卡改变什么</h2>
+      <p id="method-counts"></p>
+      <p>先从二维星空中寻找十五组明显星群和连线，再围绕这些星形共同划定区域。星形可以横向伸展、倾斜、向南或向北展开；黄道占据的宽度不限制其成员黄经。优先连接邻近亮星，尝试闭合轮廓与分叉，限制过长连线、交叉和拥挤。</p>
+      <p>新版让边界贴合星形：以完整成员的球面凸包为包络，向外最多留 8° 余量。黄道跨度不足时换选星组合，再重新划界；外围留给其他星座。8° 是本轮文化设计的留白上限，凸包会填平星形内凹，仍需看图判断是否合适。区域里自然可以有未连线的背景星。</p>
+      <p>区域可有凹角、伸出和南北错列，沿固定参考赤经、赤纬线明确边界；外围留给其他星座。真正检查的是区域唯一归属、成员与连线不侵入邻区、十五座都被黄道穿过。允许黄经范围交叠，不要求区域等高，也不按旧 24° 刻度限制选星。这是文化设计候选，物理规律不决定唯一的星座形状。</p>
+      <p>滑块控制初始采样带的半宽：默认黄道两侧各 40°，可在 15°–60° 调整；曲线来自固定黄纬边界投影到参考赤道坐标。初始采样范围参与本轮配方，生成后保存。最终仍会从完整星表检查各区重要亮星，必要时补入采样带外但已落入星区的亮星。</p>
+      <p>新区必须包含本区前三亮和所有不暗于 3 等的恒星，并在最终边界内按完整星表复查。重要亮星也保留在骨架中；连接这些亮星有时需要超过七个节点。近邻亮星允许相隔 0.05°，连线留空 0.04°，这些都是画图规则，不修改星体位置或星等。这些选星限制仅用于自动抽卡。</p>
+      <p>先求各区在既定包围、亮星归属和 8° 余量下的独立最少拐点，再协调公共边界，依次减少最严重、次严重的额外折角，最后减少总数并向内收紧外缘。仅使用 1° 参考赤经／赤纬方向，区域连通、无洞、不重叠。</p>
+      <p>页面分别显示每区局部下界和实际拐点。下界可能无法同时达到；联合结果按局部负担优先，不再让总数掩盖某区的折角。证明限于当前网格与固定归属条件。外缘收紧采用确定顺序的局部整理，不宣称面积全局最小。手动编辑采用独立的包围检查，不沿用自动最优标记。</p>
+      <p>新轮次同时检查黄道交段的宽度：至少十四座占据 16°–44°，最多一座可窄至 6°，不要求出现窄区。角度来自黄道实际穿过天区的长度，不按成员的东西跨度计算。这是参考地球黄道星座相对宽度的设计范围，平均 24° 不代表每区等分；满足宽度也必须同时满足边界余量限制。</p>
+      <p>本地列表仅保留收藏。生成或编辑确认后的新结果先临时显示，满意后点击“收藏本轮”；未收藏结果刷新后不保留。旧未收藏记录会在打开新版时清理，收藏、笔记与锁定状态保留。</p>
+      <p>候选窗口的“本区重新生成”只在当前实际边界内重新采样和连线，保留区内重要亮星，不移动边界或其他星座。结果进入编辑草稿，可连续尝试、撤销、确认或取消；确认后仍需收藏才能长期保留。</p>
+      <p>手动编辑：直接在候选窗口选择背景星、加入或移除成员、连接两颗星、删除连线。移除成员会同步删除两套方案里的关联连线，背景恒星本身不变。可在同一草稿里切换边界和连线工具；新增星在边界外时，先保留草稿，再调整边界包住它，确认后另存新轮，取消则恢复。</p>
+      <p>手动不限制星等、成员数量、间距、连线长度、交叉、连通、黄道跨度或边界余量，也不自动补回你删去的亮星。边界仍沿 1° 参考赤经／赤纬网格；所有区域共用唯一归属，确认时须包住各自全部成员与保留的短大圆连线。亮星信息只作参考，不阻止保存。可删除全部成员后重新设计。</p>
+      <p>先看图，再提出意象。这里不自动为星形套上动物、器物或神话名称；可以记录自己的联想，再逐座讨论。锁定只用于本轮分区下的重抽；不同轮的局部方案若要拼成最终一套，仍需重新检查边界和成员冲突。</p>
+      <p>当前图只比较恒星：保留原始位置、视星等与颜色，使用 V1 的同一套星点绘制。没有对成员单独放大或增亮。显示增强不等于肉眼标定；此处尚未叠加星云、双月光与大气，最终图形仍需放回地表天空复核。</p>
+      <p>现代黄道十三星座提供的是区域划分逻辑：边界不等宽，黄道可从区域偏侧穿过。这里的十五座沿用 Terrax 的文化数量，名称与意象待选形后再定。</p>
+      <div class="method-links"><a href="../../design/zodiac_regional_sampling.md">收藏留存与本区重新生成</a><a href="../../design/zodiac_manual_editing.md">自由星座编辑与验证</a><a href="../../design/zodiac_candidate_editing.md">采样滑块与候选窗口编辑</a><a href="../../design/zodiac_local_first.md">亮星与局部优先方法</a><a href="../../design/zodiac_workflow.md">工作流与历史方法</a><a href="https://iauarchive.eso.org/public/themes/constellations/">IAU 星座区域说明</a></div>
+    </section>
+  </div>
+</main>
+<script type="module" src="review.mjs?revision=favourites-regional-1"></script>
+</body></html>

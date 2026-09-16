@@ -1,0 +1,292 @@
+{
+  "date": "2026-09-16",
+  "algorithm": "terrax-zodiac-draw-5",
+  "catalogue": "output/output_20260915_nebula_03/sky_view_20260915_nebula_03.json",
+  "source_sha256": "42508bc926cf9cffd2928341224d63cf53234099b44ed8ba6eeebcc77bdf73f8",
+  "policy": {
+    "minimum_degrees": 6,
+    "ordinary_minimum_degrees": 16,
+    "maximum_degrees": 44,
+    "maximum_regions_below_ordinary_minimum": 1,
+    "scope": "Cultural design limits on actual ecliptic intersections after figures are formed; not a physical law or preassigned longitude strips."
+  },
+  "earth_reference": {
+    "source": "https://cdsarc.cds.unistra.fr/ftp/VI/49/constbnd.dat",
+    "source_sha256": "865cdf4218f676eb304587c75c63231948d29cd0abe6892a8a8130c1c4fe3592",
+    "coordinate_epoch": "B1875, equator/equinox and mean ecliptic",
+    "spans_deg_approx": {
+      "Ari": 24.7,
+      "Tau": 36.7,
+      "Gem": 27.8,
+      "Cnc": 20.1,
+      "Leo": 35.8,
+      "Vir": 44.0,
+      "Lib": 23.2,
+      "Sco": 6.7,
+      "Oph": 18.6,
+      "Sgr": 33.4,
+      "Cap": 27.8,
+      "Aqr": 24.2,
+      "Psc": 37.0
+    },
+    "relative_scale_factor_for_15_regions": 0.8666666666666667,
+    "scope": "The relative scale comparison does not turn thirteen values into fifteen intervals."
+  },
+  "old_sample": {
+    "seeds": [
+      "verify-0",
+      "verify-1",
+      "verify-2",
+      "verify-3",
+      "verify-4",
+      "verify-5",
+      "verify-6",
+      "verify-7",
+      "verify-8",
+      "verify-9",
+      "verify-10",
+      "verify-11",
+      "verify-12",
+      "verify-13",
+      "verify-14",
+      "verify-15",
+      "verify-16",
+      "verify-17",
+      "verify-18",
+      "verify-19",
+      "verify-20",
+      "verify-21",
+      "verify-22",
+      "verify-23",
+      "verify-24",
+      "verify-25",
+      "verify-26",
+      "verify-27",
+      "verify-28",
+      "verify-29",
+      "verify-30",
+      "verify-31",
+      "verify-32",
+      "verify-33",
+      "verify-34",
+      "verify-35",
+      "verify-36",
+      "verify-37",
+      "verify-38",
+      "verify-39"
+    ],
+    "algorithm": "terrax-zodiac-draw-4",
+    "style": "rich",
+    "regions": 600,
+    "counts_below_8_12_14_16_degrees": [
+      91,
+      139,
+      158,
+      177
+    ],
+    "mean_counts_per_draw": [
+      2.275,
+      3.475,
+      3.95,
+      4.425
+    ],
+    "note": "Fixed descriptive sample, not an estimate guaranteed for all seeds."
+  },
+  "automated_tests": {
+    "passed": 33,
+    "failed": 0
+  },
+  "new_candidate_draws": 120,
+  "seeds": 60,
+  "metrics": {
+    "minimum_ecliptic_span": 6.223704405998433,
+    "maximum_ecliptic_span": 43.99900823114098,
+    "narrow_region_counts_per_draw": [
+      1
+    ],
+    "horizontal": {
+      "minimum": 2,
+      "maximum": 10,
+      "mean": 6.241666666666666
+    },
+    "crossOld": {
+      "minimum": 9,
+      "maximum": 15,
+      "mean": 12.858333333333333
+    },
+    "crossOldEdges": {
+      "minimum": 14,
+      "maximum": 41,
+      "mean": 26.208333333333332
+    },
+    "overlappingPairs": {
+      "minimum": 4,
+      "maximum": 12,
+      "mean": 7.1
+    },
+    "latitudeChanges": {
+      "minimum": 253,
+      "maximum": 360,
+      "mean": 315.2
+    }
+  },
+  "browser": {
+    "passed": 9,
+    "checks": [
+      "new browser draws match the offline draw and display the measured ecliptic widths",
+      "reproducing an old seed creates the new width layout alongside the unchanged old round",
+      "the enlarged Z03, Z07 and Z11 crossings select their actual regions on the ecliptic",
+      "old locks, notes, favourites and geometry survive review and refresh",
+      "new local rerolls, locks and exports retain exactly the same ecliptic boundaries",
+      "all 15 figures fit both desktop and narrow screens at their common angular scale",
+      "the old boundary cleanup button still targets draw-4 and never silently regenerates figures",
+      "the old refine link retains its boundary-only meaning after the default version changes",
+      "no browser runtime errors"
+    ],
+    "errors": [],
+    "before": [
+      {
+        "id": "Z01",
+        "degrees": 9.130920805614892
+      },
+      {
+        "id": "Z02",
+        "degrees": 29.453696741792044
+      },
+      {
+        "id": "Z03",
+        "degrees": 5.522966524576304
+      },
+      {
+        "id": "Z04",
+        "degrees": 27.970287620455906
+      },
+      {
+        "id": "Z05",
+        "degrees": 36.580304145108414
+      },
+      {
+        "id": "Z06",
+        "degrees": 27.43541204959962
+      },
+      {
+        "id": "Z07",
+        "degrees": 5.174004853145789
+      },
+      {
+        "id": "Z08",
+        "degrees": 43.04403320841732
+      },
+      {
+        "id": "Z09",
+        "degrees": 36.31593971992294
+      },
+      {
+        "id": "Z10",
+        "degrees": 8.209947795822643
+      },
+      {
+        "id": "Z11",
+        "degrees": 12.126369055522844
+      },
+      {
+        "id": "Z12",
+        "degrees": 31.106009083248296
+      },
+      {
+        "id": "Z13",
+        "degrees": 34.9273987565814
+      },
+      {
+        "id": "Z14",
+        "degrees": 22.717408053727013
+      },
+      {
+        "id": "Z15",
+        "degrees": 30.285301586464584
+      }
+    ],
+    "after": [
+      {
+        "id": "Z01",
+        "degrees": 19.41490935059994
+      },
+      {
+        "id": "Z02",
+        "degrees": 21.20939587055568
+      },
+      {
+        "id": "Z03",
+        "degrees": 19.414929428894197
+      },
+      {
+        "id": "Z04",
+        "degrees": 19.55261977799813
+      },
+      {
+        "id": "Z05",
+        "degrees": 30.168669549607557
+      },
+      {
+        "id": "Z06",
+        "degrees": 18.282972744421556
+      },
+      {
+        "id": "Z07",
+        "degrees": 20.520154220899826
+      },
+      {
+        "id": "Z08",
+        "degrees": 37.78766267948208
+      },
+      {
+        "id": "Z09",
+        "degrees": 35.31218004788116
+      },
+      {
+        "id": "Z10",
+        "degrees": 6.954721873636203
+      },
+      {
+        "id": "Z11",
+        "degrees": 17.190525925328757
+      },
+      {
+        "id": "Z12",
+        "degrees": 28.300837807670604
+      },
+      {
+        "id": "Z13",
+        "degrees": 34.9273987565814
+      },
+      {
+        "id": "Z14",
+        "degrees": 22.717408053727013
+      },
+      {
+        "id": "Z15",
+        "degrees": 28.245613912715896
+      }
+    ]
+  },
+  "independent_reported_seed_ecliptic_samples": {
+    "styles": 2,
+    "samples_per_style": 36000,
+    "maximum_allowed_difference_degrees": 0.03
+  },
+  "example": {
+    "seed": "terrax-1ptws5s",
+    "file": "design/zodiac_draw_ecliptic_example.json",
+    "members": 185,
+    "core_members": 105
+  },
+  "preserved_files_sha256": {
+    "output/output_20260915_nebula_03/sky_view_20260915_nebula_03.json": "42508bc926cf9cffd2928341224d63cf53234099b44ed8ba6eeebcc77bdf73f8",
+    "design/zodiac_candidates_v1.json": "07e79a209f40517171995ce7cecc0e4a4d0b73d2d862eaf651245b9fbfbb5ad7",
+    "design/zodiac_draw_example.json": "c664d8b27cf142d141ec73c459639d0ef0459bbf63d18d039c94bf59f88411c3",
+    "design/zodiac_draw_ordered_example.json": "7527d4618c550bcab3a394a2ebaf392757b62db00747fa291d4b552b7e97d858",
+    "design/zodiac_draw_free_example.json": "2b565c6e1e2241b614879a03900ef4a715036181002a6caa67cd23e6f1ba3b89",
+    "design/zodiac_draw_clean_example.json": "b46171264a4cc4d00f633348387bb2efe52c46c2fc2c3712d1842aef3644d2c2"
+  },
+  "scope": "Independent workbench only. Existing draw-1..4 recipes, imports, locks and notes retain their original algorithm. The old boundary-only refine action still targets draw-4. The source catalogue and formal V1/V2 pages are unchanged."
+}

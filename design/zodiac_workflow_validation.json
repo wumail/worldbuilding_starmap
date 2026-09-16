@@ -1,0 +1,78 @@
+{
+  "date": "2026-09-15T12:55:02.457Z",
+  "url": "http://127.0.0.1:8765/web/constellations/",
+  "algorithm": "terrax-zodiac-draw-1",
+  "checks": [
+    "default rich draw matches the offline recipe and fixed source catalogue",
+    "15 regions in both line variants fit one shared desktop angular scale",
+    "display gain keeps star positions and count; hold-to-compare restores on pointer and keyboard release",
+    "filtered-out members cannot leave stale selection rings; PNG includes round identity",
+    "locked stars, boundaries and notes survive partial reroll; previous round remains available",
+    "refresh restores current draw, locks and imagery; lock-all disables a no-op reroll",
+    "a full new round changes the partition and preserves earlier rounds; exact seed restores its first draw",
+    "whole-round export and import restore geometry, locks and editable imagery",
+    "tampered import is rejected without modifying current record or saved state",
+    "original draft stays accessible and exact; V1/V2 preferences are untouched",
+    "wide overview and 320/390px mobile screens retain members without document overflow",
+    "portable imported recipe reproduces in a separate browser storage context",
+    "unavailable storage is reported and still permits draw and export"
+  ],
+  "errors": [],
+  "screenshots": [
+    "reports/zodiac_workflow/workbench.png",
+    "reports/zodiac_workflow/detail.png",
+    "reports/zodiac_workflow/mobile.png"
+  ],
+  "status": {
+    "region": 0,
+    "variant": "extended",
+    "scale": 2.5,
+    "limit": 6.5,
+    "lines": true,
+    "boundaries": true,
+    "numbers": false,
+    "sectors": false,
+    "compare": false,
+    "inspected": null,
+    "frames": 74,
+    "sourceCount": 9356,
+    "sourceHash": "42508bc926cf9cffd2928341224d63cf53234099b44ed8ba6eeebcc77bdf73f8",
+    "regions": 15,
+    "ppd": 10.884615384615385,
+    "visibleStars": 1093,
+    "workflow": {
+      "busy": false,
+      "roundCount": 6,
+      "currentId": "286540468-560044522",
+      "recipe": {
+        "algorithm": "terrax-zodiac-draw-1",
+        "seed": "terrax-001",
+        "style": "rich",
+        "shapeSeeds": [
+          "terrax-001/shape/0",
+          "terrax-001/shape/1",
+          "terrax-001/shape/2",
+          "terrax-001/shape/3",
+          "terrax-001/shape/4",
+          "terrax-001/shape/5",
+          "terrax-001/shape/6",
+          "terrax-001/shape/7",
+          "terrax-001/shape/8",
+          "terrax-001/shape/9",
+          "terrax-001/shape/10",
+          "terrax-001/shape/11",
+          "terrax-001/shape/12",
+          "terrax-001/shape/13",
+          "terrax-001/shape/14"
+        ]
+      },
+      "locks": [
+        0,
+        6,
+        14
+      ],
+      "favourite": true
+    }
+  },
+  "passed": true
+}

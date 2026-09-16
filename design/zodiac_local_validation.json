@@ -1,0 +1,2179 @@
+{
+  "date": "2026-09-16",
+  "algorithm": "terrax-zodiac-draw-8",
+  "source": "output/output_20260915_nebula_03/sky_view_20260915_nebula_03.json",
+  "source_sha256": "42508bc926cf9cffd2928341224d63cf53234099b44ed8ba6eeebcc77bdf73f8",
+  "policies": {
+    "brightness": {
+      "method": "regional-bright-anchors-1",
+      "topCount": 3,
+      "maximumMagnitude": 3,
+      "finalRegionAudit": "full-catalogue",
+      "maximumMembers": 15,
+      "minimumCoreMembers": 7
+    },
+    "boundaries": {
+      "method": "local-excess-lexicographic-1",
+      "coordinateStepDegrees": 1,
+      "edgeDirections": "reference-ra-dec",
+      "protectedGeometry": "actual-reference-figures-bright-pool-and-ecliptic",
+      "priorities": [
+        "individual-lower-bounds",
+        "descending-excess-corners",
+        "total-corners",
+        "owned-cells"
+      ]
+    },
+    "geometry": {
+      "count": 15,
+      "candidateMagnitude": 4.5,
+      "preferredMagnitude": 4,
+      "searchLatitude": 90,
+      "displayScale": 2.5,
+      "maxEdge": 13,
+      "minSeparation": 0.05,
+      "maxDiameter": 56,
+      "maxDegree": 4,
+      "lineClearance": 0.04
+    },
+    "envelope": {
+      "method": "spherical-hull-margin-1",
+      "maximumMarginDegrees": 8,
+      "selectionLatitudeScaleDegrees": 12
+    },
+    "ecliptic": {
+      "method": "one-narrow-region-1",
+      "minimumDegrees": 6,
+      "ordinaryMinimumDegrees": 16,
+      "maximumDegrees": 44,
+      "maximumNarrowRegions": 1
+    }
+  },
+  "comparison": {
+    "before": {
+      "algorithm": "terrax-zodiac-draw-7",
+      "members": 175,
+      "core": 105,
+      "corners": 186,
+      "areaSquareDegrees": 8966.435563825033,
+      "brightestOmissions": 2,
+      "topThreeOmissions": 10,
+      "magnitudeThreeOmissions": 11,
+      "regionAudits": [
+        {
+          "id": "Z01",
+          "brightest": {
+            "id": "20260915_galactic_01_010475",
+            "app_mag": 0.7094317507484145
+          },
+          "required": [
+            "20260915_galactic_01_010475",
+            "20260915_galactic_01_001233",
+            "20260915_galactic_01_008749"
+          ],
+          "missing": [
+            "20260915_galactic_01_001233"
+          ],
+          "missingFromCore": [
+            "20260915_galactic_01_001233"
+          ],
+          "regionStarCount": 131
+        },
+        {
+          "id": "Z02",
+          "brightest": {
+            "id": "20260915_galactic_01_009894",
+            "app_mag": 2.3524746634054994
+          },
+          "required": [
+            "20260915_galactic_01_009894",
+            "20260915_galactic_01_003761",
+            "20260915_galactic_01_000580",
+            "20260915_galactic_01_008951"
+          ],
+          "missing": [
+            "20260915_galactic_01_008951"
+          ],
+          "missingFromCore": [
+            "20260915_galactic_01_008951"
+          ],
+          "regionStarCount": 151
+        },
+        {
+          "id": "Z03",
+          "brightest": {
+            "id": "20260915_galactic_01_006905",
+            "app_mag": 0.34670384219228606
+          },
+          "required": [
+            "20260915_galactic_01_006905",
+            "20260915_galactic_01_004004",
+            "20260915_galactic_01_010730",
+            "20260915_galactic_01_010608"
+          ],
+          "missing": [],
+          "missingFromCore": [
+            "20260915_galactic_01_004004",
+            "20260915_galactic_01_010730"
+          ],
+          "regionStarCount": 166
+        },
+        {
+          "id": "Z04",
+          "brightest": {
+            "id": "20260915_galactic_01_010905",
+            "app_mag": 1.0197717253972625
+          },
+          "required": [
+            "20260915_galactic_01_010905",
+            "20260915_galactic_01_000263",
+            "20260915_galactic_01_002261",
+            "20260915_galactic_01_009797",
+            "20260915_galactic_01_001107"
+          ],
+          "missing": [],
+          "missingFromCore": [
+            "20260915_galactic_01_009797"
+          ],
+          "regionStarCount": 168
+        },
+        {
+          "id": "Z05",
+          "brightest": {
+            "id": "20260915_galactic_01_005113",
+            "app_mag": 2.9865882446611582
+          },
+          "required": [
+            "20260915_galactic_01_005113",
+            "20260915_galactic_01_004372",
+            "20260915_galactic_01_007519"
+          ],
+          "missing": [],
+          "missingFromCore": [],
+          "regionStarCount": 114
+        },
+        {
+          "id": "Z06",
+          "brightest": {
+            "id": "20260915_galactic_01_006326",
+            "app_mag": 2.964921035805738
+          },
+          "required": [
+            "20260915_galactic_01_006326",
+            "20260915_galactic_01_010911",
+            "20260915_galactic_01_003421"
+          ],
+          "missing": [],
+          "missingFromCore": [],
+          "regionStarCount": 91
+        },
+        {
+          "id": "Z07",
+          "brightest": {
+            "id": "20260915_galactic_01_006915",
+            "app_mag": 1.8336033067096493
+          },
+          "required": [
+            "20260915_galactic_01_006915",
+            "20260915_galactic_01_001558",
+            "20260915_galactic_01_007846"
+          ],
+          "missing": [],
+          "missingFromCore": [],
+          "regionStarCount": 128
+        },
+        {
+          "id": "Z08",
+          "brightest": {
+            "id": "20260915_galactic_01_004179",
+            "app_mag": 0.8545395828082172
+          },
+          "required": [
+            "20260915_galactic_01_004179",
+            "20260915_galactic_01_008793",
+            "20260915_galactic_01_006550",
+            "20260915_galactic_01_000771"
+          ],
+          "missing": [],
+          "missingFromCore": [],
+          "regionStarCount": 109
+        },
+        {
+          "id": "Z09",
+          "brightest": {
+            "id": "20260915_galactic_01_009327",
+            "app_mag": 2.771857185866813
+          },
+          "required": [
+            "20260915_galactic_01_009327",
+            "20260915_galactic_01_005821",
+            "20260915_galactic_01_001036"
+          ],
+          "missing": [
+            "20260915_galactic_01_001036"
+          ],
+          "missingFromCore": [
+            "20260915_galactic_01_001036"
+          ],
+          "regionStarCount": 137
+        },
+        {
+          "id": "Z10",
+          "brightest": {
+            "id": "20260915_galactic_01_010502",
+            "app_mag": 1.1620119754065554
+          },
+          "required": [
+            "20260915_galactic_01_010502",
+            "20260915_galactic_01_010573",
+            "20260915_galactic_01_010749"
+          ],
+          "missing": [
+            "20260915_galactic_01_010749"
+          ],
+          "missingFromCore": [
+            "20260915_galactic_01_010749"
+          ],
+          "regionStarCount": 101
+        },
+        {
+          "id": "Z11",
+          "brightest": {
+            "id": "20260915_galactic_01_011050",
+            "app_mag": 2.1946924720647387
+          },
+          "required": [
+            "20260915_galactic_01_011050",
+            "20260915_galactic_01_005119",
+            "20260915_galactic_01_C000048"
+          ],
+          "missing": [
+            "20260915_galactic_01_C000048"
+          ],
+          "missingFromCore": [
+            "20260915_galactic_01_005119",
+            "20260915_galactic_01_C000048"
+          ],
+          "regionStarCount": 238
+        },
+        {
+          "id": "Z12",
+          "brightest": {
+            "id": "20260915_galactic_01_005091",
+            "app_mag": 0.83334990110243
+          },
+          "required": [
+            "20260915_galactic_01_005091",
+            "20260915_galactic_01_005254",
+            "20260915_galactic_01_010599"
+          ],
+          "missing": [
+            "20260915_galactic_01_005091",
+            "20260915_galactic_01_005254"
+          ],
+          "missingFromCore": [
+            "20260915_galactic_01_005091",
+            "20260915_galactic_01_005254"
+          ],
+          "regionStarCount": 184
+        },
+        {
+          "id": "Z13",
+          "brightest": {
+            "id": "20260915_galactic_01_002511",
+            "app_mag": 2.329248272518295
+          },
+          "required": [
+            "20260915_galactic_01_002511",
+            "20260915_galactic_01_002482",
+            "20260915_galactic_01_002813",
+            "20260915_galactic_01_007189"
+          ],
+          "missing": [
+            "20260915_galactic_01_002482",
+            "20260915_galactic_01_002813"
+          ],
+          "missingFromCore": [
+            "20260915_galactic_01_002482",
+            "20260915_galactic_01_002813"
+          ],
+          "regionStarCount": 110
+        },
+        {
+          "id": "Z14",
+          "brightest": {
+            "id": "20260915_galactic_01_009861",
+            "app_mag": 2.4568116821063795
+          },
+          "required": [
+            "20260915_galactic_01_009861",
+            "20260915_galactic_01_006976",
+            "20260915_galactic_01_006512",
+            "20260915_galactic_01_000634"
+          ],
+          "missing": [
+            "20260915_galactic_01_009861",
+            "20260915_galactic_01_000634"
+          ],
+          "missingFromCore": [
+            "20260915_galactic_01_009861",
+            "20260915_galactic_01_000634"
+          ],
+          "regionStarCount": 81
+        },
+        {
+          "id": "Z15",
+          "brightest": {
+            "id": "20260915_galactic_01_002589",
+            "app_mag": 1.0411244874845291
+          },
+          "required": [
+            "20260915_galactic_01_002589",
+            "20260915_galactic_01_005300",
+            "20260915_galactic_01_003320",
+            "20260915_galactic_01_005336"
+          ],
+          "missing": [
+            "20260915_galactic_01_003320"
+          ],
+          "missingFromCore": [
+            "20260915_galactic_01_003320"
+          ],
+          "regionStarCount": 90
+        }
+      ]
+    },
+    "after": {
+      "algorithm": "terrax-zodiac-draw-8",
+      "members": 181,
+      "core": 118,
+      "corners": 140,
+      "areaSquareDegrees": 8719.93438973068,
+      "brightestOmissions": 0,
+      "topThreeOmissions": 0,
+      "magnitudeThreeOmissions": 0,
+      "regionAudits": [
+        {
+          "id": "Z01",
+          "brightest": {
+            "id": "20260915_galactic_01_010475",
+            "app_mag": 0.7094317507484145
+          },
+          "required": [
+            "20260915_galactic_01_010475",
+            "20260915_galactic_01_001233",
+            "20260915_galactic_01_008749"
+          ],
+          "missing": [],
+          "missingFromCore": [],
+          "regionStarCount": 152
+        },
+        {
+          "id": "Z02",
+          "brightest": {
+            "id": "20260915_galactic_01_009894",
+            "app_mag": 2.3524746634054994
+          },
+          "required": [
+            "20260915_galactic_01_009894",
+            "20260915_galactic_01_003761",
+            "20260915_galactic_01_000580",
+            "20260915_galactic_01_008951"
+          ],
+          "missing": [],
+          "missingFromCore": [],
+          "regionStarCount": 137
+        },
+        {
+          "id": "Z03",
+          "brightest": {
+            "id": "20260915_galactic_01_006905",
+            "app_mag": 0.34670384219228606
+          },
+          "required": [
+            "20260915_galactic_01_006905",
+            "20260915_galactic_01_004004",
+            "20260915_galactic_01_010730",
+            "20260915_galactic_01_010608"
+          ],
+          "missing": [],
+          "missingFromCore": [],
+          "regionStarCount": 161
+        },
+        {
+          "id": "Z04",
+          "brightest": {
+            "id": "20260915_galactic_01_010905",
+            "app_mag": 1.0197717253972625
+          },
+          "required": [
+            "20260915_galactic_01_010905",
+            "20260915_galactic_01_000263",
+            "20260915_galactic_01_002261",
+            "20260915_galactic_01_009797",
+            "20260915_galactic_01_001107"
+          ],
+          "missing": [],
+          "missingFromCore": [],
+          "regionStarCount": 161
+        },
+        {
+          "id": "Z05",
+          "brightest": {
+            "id": "20260915_galactic_01_005113",
+            "app_mag": 2.9865882446611582
+          },
+          "required": [
+            "20260915_galactic_01_005113",
+            "20260915_galactic_01_004372",
+            "20260915_galactic_01_007519"
+          ],
+          "missing": [],
+          "missingFromCore": [],
+          "regionStarCount": 115
+        },
+        {
+          "id": "Z06",
+          "brightest": {
+            "id": "20260915_galactic_01_006326",
+            "app_mag": 2.964921035805738
+          },
+          "required": [
+            "20260915_galactic_01_006326",
+            "20260915_galactic_01_010911",
+            "20260915_galactic_01_003421"
+          ],
+          "missing": [],
+          "missingFromCore": [],
+          "regionStarCount": 86
+        },
+        {
+          "id": "Z07",
+          "brightest": {
+            "id": "20260915_galactic_01_006915",
+            "app_mag": 1.8336033067096493
+          },
+          "required": [
+            "20260915_galactic_01_006915",
+            "20260915_galactic_01_001558",
+            "20260915_galactic_01_007846"
+          ],
+          "missing": [],
+          "missingFromCore": [],
+          "regionStarCount": 128
+        },
+        {
+          "id": "Z08",
+          "brightest": {
+            "id": "20260915_galactic_01_004179",
+            "app_mag": 0.8545395828082172
+          },
+          "required": [
+            "20260915_galactic_01_004179",
+            "20260915_galactic_01_008793",
+            "20260915_galactic_01_006550",
+            "20260915_galactic_01_000771"
+          ],
+          "missing": [],
+          "missingFromCore": [],
+          "regionStarCount": 102
+        },
+        {
+          "id": "Z09",
+          "brightest": {
+            "id": "20260915_galactic_01_009327",
+            "app_mag": 2.771857185866813
+          },
+          "required": [
+            "20260915_galactic_01_009327",
+            "20260915_galactic_01_005821",
+            "20260915_galactic_01_001036"
+          ],
+          "missing": [],
+          "missingFromCore": [],
+          "regionStarCount": 127
+        },
+        {
+          "id": "Z10",
+          "brightest": {
+            "id": "20260915_galactic_01_010502",
+            "app_mag": 1.1620119754065554
+          },
+          "required": [
+            "20260915_galactic_01_010502",
+            "20260915_galactic_01_010573",
+            "20260915_galactic_01_010749"
+          ],
+          "missing": [],
+          "missingFromCore": [],
+          "regionStarCount": 85
+        },
+        {
+          "id": "Z11",
+          "brightest": {
+            "id": "20260915_galactic_01_011050",
+            "app_mag": 2.1946924720647387
+          },
+          "required": [
+            "20260915_galactic_01_011050",
+            "20260915_galactic_01_005119",
+            "20260915_galactic_01_C000048"
+          ],
+          "missing": [],
+          "missingFromCore": [],
+          "regionStarCount": 211
+        },
+        {
+          "id": "Z12",
+          "brightest": {
+            "id": "20260915_galactic_01_005091",
+            "app_mag": 0.83334990110243
+          },
+          "required": [
+            "20260915_galactic_01_005091",
+            "20260915_galactic_01_005254",
+            "20260915_galactic_01_010599"
+          ],
+          "missing": [],
+          "missingFromCore": [],
+          "regionStarCount": 191
+        },
+        {
+          "id": "Z13",
+          "brightest": {
+            "id": "20260915_galactic_01_002511",
+            "app_mag": 2.329248272518295
+          },
+          "required": [
+            "20260915_galactic_01_002511",
+            "20260915_galactic_01_002482",
+            "20260915_galactic_01_002813",
+            "20260915_galactic_01_007189"
+          ],
+          "missing": [],
+          "missingFromCore": [],
+          "regionStarCount": 110
+        },
+        {
+          "id": "Z14",
+          "brightest": {
+            "id": "20260915_galactic_01_009861",
+            "app_mag": 2.4568116821063795
+          },
+          "required": [
+            "20260915_galactic_01_009861",
+            "20260915_galactic_01_006976",
+            "20260915_galactic_01_006512",
+            "20260915_galactic_01_000634"
+          ],
+          "missing": [],
+          "missingFromCore": [],
+          "regionStarCount": 76
+        },
+        {
+          "id": "Z15",
+          "brightest": {
+            "id": "20260915_galactic_01_002589",
+            "app_mag": 1.0411244874845291
+          },
+          "required": [
+            "20260915_galactic_01_002589",
+            "20260915_galactic_01_005300",
+            "20260915_galactic_01_003320",
+            "20260915_galactic_01_005336"
+          ],
+          "missing": [],
+          "missingFromCore": [],
+          "regionStarCount": 102
+        }
+      ]
+    },
+    "note": "The figures have been reselected to include important bright stars. Old and new corner counts compare complete proposals, not the same fixed figures."
+  },
+  "exampleProof": {
+    "status": "optimal",
+    "method": "local-excess-lexicographic-1",
+    "localMinima": [
+      6,
+      8,
+      6,
+      10,
+      10,
+      10,
+      6,
+      14,
+      8,
+      12,
+      18,
+      8,
+      10,
+      8,
+      6
+    ],
+    "regionCorners": [
+      6,
+      8,
+      6,
+      10,
+      10,
+      10,
+      6,
+      14,
+      8,
+      12,
+      18,
+      8,
+      10,
+      8,
+      6
+    ],
+    "excessCorners": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "sortedExcessCorners": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "topExcessIntegerLowerBounds": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "minimumTotalAtLocalPriority": 140,
+    "compactness": {
+      "status": "locally-trimmed",
+      "method": "fixed-order-inward-edge-trim-1",
+      "ownedCells": 9253,
+      "passes": 1
+    },
+    "domain": {
+      "width": 360,
+      "height": 180,
+      "regions": 15,
+      "edges": "orthogonal",
+      "constraints": "mask-protected-cells-connected-hole-free"
+    },
+    "solver": "HiGHS 1.15.1",
+    "wrapper": "highs-js 1.15.3"
+  },
+  "independentConflictFixture": {
+    "width": 4,
+    "height": 5,
+    "regions": 2,
+    "exhaustivelyEnumeratedFeasibleJointAssignments": 8,
+    "localMinima": [
+      10,
+      4
+    ],
+    "regionCorners": [
+      10,
+      6
+    ],
+    "sortedExcess": [
+      2,
+      0
+    ],
+    "topExcessBounds": [
+      2,
+      2
+    ]
+  },
+  "sample": {
+    "seeds": 6,
+    "styles": [
+      "rich",
+      "balanced"
+    ],
+    "draws": 12,
+    "allRequiredStarsIncluded": true,
+    "allRequiredStarsInCore": true,
+    "totalCorners": [
+      140,
+      170
+    ],
+    "localExcessMaximum": 0,
+    "timingScope": "Rich timing starts with uncached generation and includes audit measurements. Balanced timing is cumulative from that seed start, and its root boundary is cached. These are offline tests, not browser or mobile timing guarantees.",
+    "results": [
+      {
+        "seed": "terrax-1ptws5s",
+        "style": "rich",
+        "milliseconds": 20090.938792,
+        "layoutSeed": "terrax-1ptws5s",
+        "members": 181,
+        "core": 118,
+        "proof": {
+          "status": "optimal",
+          "method": "local-excess-lexicographic-1",
+          "localMinima": [
+            6,
+            8,
+            6,
+            10,
+            10,
+            10,
+            6,
+            14,
+            8,
+            12,
+            18,
+            8,
+            10,
+            8,
+            6
+          ],
+          "regionCorners": [
+            6,
+            8,
+            6,
+            10,
+            10,
+            10,
+            6,
+            14,
+            8,
+            12,
+            18,
+            8,
+            10,
+            8,
+            6
+          ],
+          "excessCorners": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "sortedExcessCorners": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "topExcessIntegerLowerBounds": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "minimumTotalAtLocalPriority": 140,
+          "compactness": {
+            "status": "locally-trimmed",
+            "method": "fixed-order-inward-edge-trim-1",
+            "ownedCells": 9253,
+            "passes": 1
+          },
+          "domain": {
+            "width": 360,
+            "height": 180,
+            "regions": 15,
+            "edges": "orthogonal",
+            "constraints": "mask-protected-cells-connected-hole-free"
+          },
+          "solver": "HiGHS 1.15.1",
+          "wrapper": "highs-js 1.15.3"
+        },
+        "areaSquareDegrees": 8719.93438973068,
+        "missing": []
+      },
+      {
+        "seed": "terrax-1ptws5s",
+        "style": "balanced",
+        "milliseconds": 20606.243791999997,
+        "layoutSeed": "terrax-1ptws5s",
+        "members": 155,
+        "core": 112,
+        "proof": {
+          "status": "optimal",
+          "method": "local-excess-lexicographic-1",
+          "localMinima": [
+            6,
+            8,
+            6,
+            10,
+            10,
+            10,
+            6,
+            14,
+            8,
+            12,
+            18,
+            8,
+            10,
+            8,
+            6
+          ],
+          "regionCorners": [
+            6,
+            8,
+            6,
+            10,
+            10,
+            10,
+            6,
+            14,
+            8,
+            12,
+            18,
+            8,
+            10,
+            8,
+            6
+          ],
+          "excessCorners": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "sortedExcessCorners": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "topExcessIntegerLowerBounds": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "minimumTotalAtLocalPriority": 140,
+          "compactness": {
+            "status": "locally-trimmed",
+            "method": "fixed-order-inward-edge-trim-1",
+            "ownedCells": 9253,
+            "passes": 1
+          },
+          "domain": {
+            "width": 360,
+            "height": 180,
+            "regions": 15,
+            "edges": "orthogonal",
+            "constraints": "mask-protected-cells-connected-hole-free"
+          },
+          "solver": "HiGHS 1.15.1",
+          "wrapper": "highs-js 1.15.3"
+        },
+        "areaSquareDegrees": 8719.93438973068,
+        "missing": []
+      },
+      {
+        "seed": "terrax-001",
+        "style": "rich",
+        "milliseconds": 3969.5562500000015,
+        "layoutSeed": "terrax-001/bright-layout/4",
+        "members": 185,
+        "core": 118,
+        "proof": {
+          "status": "optimal",
+          "method": "local-excess-lexicographic-1",
+          "localMinima": [
+            14,
+            10,
+            14,
+            10,
+            12,
+            10,
+            8,
+            8,
+            14,
+            10,
+            10,
+            10,
+            12,
+            12,
+            8
+          ],
+          "regionCorners": [
+            14,
+            10,
+            14,
+            10,
+            12,
+            10,
+            8,
+            8,
+            14,
+            10,
+            10,
+            10,
+            12,
+            12,
+            8
+          ],
+          "excessCorners": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "sortedExcessCorners": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "topExcessIntegerLowerBounds": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "minimumTotalAtLocalPriority": 162,
+          "compactness": {
+            "status": "locally-trimmed",
+            "method": "fixed-order-inward-edge-trim-1",
+            "ownedCells": 9269,
+            "passes": 1
+          },
+          "domain": {
+            "width": 360,
+            "height": 180,
+            "regions": 15,
+            "edges": "orthogonal",
+            "constraints": "mask-protected-cells-connected-hole-free"
+          },
+          "solver": "HiGHS 1.15.1",
+          "wrapper": "highs-js 1.15.3"
+        },
+        "areaSquareDegrees": 8748.726128937786,
+        "missing": []
+      },
+      {
+        "seed": "terrax-001",
+        "style": "balanced",
+        "milliseconds": 4809.325000000001,
+        "layoutSeed": "terrax-001/bright-layout/4",
+        "members": 164,
+        "core": 114,
+        "proof": {
+          "status": "optimal",
+          "method": "local-excess-lexicographic-1",
+          "localMinima": [
+            14,
+            10,
+            14,
+            10,
+            12,
+            10,
+            8,
+            8,
+            14,
+            10,
+            10,
+            10,
+            12,
+            12,
+            8
+          ],
+          "regionCorners": [
+            14,
+            10,
+            14,
+            10,
+            12,
+            10,
+            8,
+            8,
+            14,
+            10,
+            10,
+            10,
+            12,
+            12,
+            8
+          ],
+          "excessCorners": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "sortedExcessCorners": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "topExcessIntegerLowerBounds": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "minimumTotalAtLocalPriority": 162,
+          "compactness": {
+            "status": "locally-trimmed",
+            "method": "fixed-order-inward-edge-trim-1",
+            "ownedCells": 9269,
+            "passes": 1
+          },
+          "domain": {
+            "width": 360,
+            "height": 180,
+            "regions": 15,
+            "edges": "orthogonal",
+            "constraints": "mask-protected-cells-connected-hole-free"
+          },
+          "solver": "HiGHS 1.15.1",
+          "wrapper": "highs-js 1.15.3"
+        },
+        "areaSquareDegrees": 8748.726128937786,
+        "missing": []
+      },
+      {
+        "seed": "terrax-b1bxb1",
+        "style": "rich",
+        "milliseconds": 3843.0459580000024,
+        "layoutSeed": "terrax-b1bxb1/bright-layout/2",
+        "members": 181,
+        "core": 124,
+        "proof": {
+          "status": "optimal",
+          "method": "local-excess-lexicographic-1",
+          "localMinima": [
+            12,
+            12,
+            14,
+            8,
+            10,
+            12,
+            10,
+            12,
+            10,
+            14,
+            10,
+            6,
+            18,
+            8,
+            10
+          ],
+          "regionCorners": [
+            12,
+            12,
+            14,
+            8,
+            10,
+            12,
+            10,
+            12,
+            10,
+            14,
+            10,
+            6,
+            18,
+            8,
+            10
+          ],
+          "excessCorners": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "sortedExcessCorners": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "topExcessIntegerLowerBounds": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "minimumTotalAtLocalPriority": 166,
+          "compactness": {
+            "status": "locally-trimmed",
+            "method": "fixed-order-inward-edge-trim-1",
+            "ownedCells": 10175,
+            "passes": 0
+          },
+          "domain": {
+            "width": 360,
+            "height": 180,
+            "regions": 15,
+            "edges": "orthogonal",
+            "constraints": "mask-protected-cells-connected-hole-free"
+          },
+          "solver": "HiGHS 1.15.1",
+          "wrapper": "highs-js 1.15.3"
+        },
+        "areaSquareDegrees": 9290.481977957892,
+        "missing": []
+      },
+      {
+        "seed": "terrax-b1bxb1",
+        "style": "balanced",
+        "milliseconds": 4864.2956250000025,
+        "layoutSeed": "terrax-b1bxb1/bright-layout/2",
+        "members": 158,
+        "core": 120,
+        "proof": {
+          "status": "optimal",
+          "method": "local-excess-lexicographic-1",
+          "localMinima": [
+            12,
+            12,
+            14,
+            8,
+            10,
+            12,
+            10,
+            12,
+            10,
+            14,
+            10,
+            6,
+            18,
+            8,
+            10
+          ],
+          "regionCorners": [
+            12,
+            12,
+            14,
+            8,
+            10,
+            12,
+            10,
+            12,
+            10,
+            14,
+            10,
+            6,
+            18,
+            8,
+            10
+          ],
+          "excessCorners": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "sortedExcessCorners": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "topExcessIntegerLowerBounds": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "minimumTotalAtLocalPriority": 166,
+          "compactness": {
+            "status": "locally-trimmed",
+            "method": "fixed-order-inward-edge-trim-1",
+            "ownedCells": 10175,
+            "passes": 0
+          },
+          "domain": {
+            "width": 360,
+            "height": 180,
+            "regions": 15,
+            "edges": "orthogonal",
+            "constraints": "mask-protected-cells-connected-hole-free"
+          },
+          "solver": "HiGHS 1.15.1",
+          "wrapper": "highs-js 1.15.3"
+        },
+        "areaSquareDegrees": 9290.481977957892,
+        "missing": []
+      },
+      {
+        "seed": "local-first-1",
+        "style": "rich",
+        "milliseconds": 2366.696708000003,
+        "layoutSeed": "local-first-1",
+        "members": 181,
+        "core": 120,
+        "proof": {
+          "status": "optimal",
+          "method": "local-excess-lexicographic-1",
+          "localMinima": [
+            10,
+            6,
+            18,
+            12,
+            18,
+            10,
+            10,
+            8,
+            10,
+            8,
+            10,
+            6,
+            8,
+            12,
+            10
+          ],
+          "regionCorners": [
+            10,
+            6,
+            18,
+            12,
+            18,
+            10,
+            10,
+            8,
+            10,
+            8,
+            10,
+            6,
+            8,
+            12,
+            10
+          ],
+          "excessCorners": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "sortedExcessCorners": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "topExcessIntegerLowerBounds": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "minimumTotalAtLocalPriority": 156,
+          "compactness": {
+            "status": "locally-trimmed",
+            "method": "fixed-order-inward-edge-trim-1",
+            "ownedCells": 9444,
+            "passes": 0
+          },
+          "domain": {
+            "width": 360,
+            "height": 180,
+            "regions": 15,
+            "edges": "orthogonal",
+            "constraints": "mask-protected-cells-connected-hole-free"
+          },
+          "solver": "HiGHS 1.15.1",
+          "wrapper": "highs-js 1.15.3"
+        },
+        "areaSquareDegrees": 8856.826375080978,
+        "missing": []
+      },
+      {
+        "seed": "local-first-1",
+        "style": "balanced",
+        "milliseconds": 3200.427125000002,
+        "layoutSeed": "local-first-1",
+        "members": 158,
+        "core": 116,
+        "proof": {
+          "status": "optimal",
+          "method": "local-excess-lexicographic-1",
+          "localMinima": [
+            10,
+            6,
+            18,
+            12,
+            18,
+            10,
+            10,
+            8,
+            10,
+            8,
+            10,
+            6,
+            8,
+            12,
+            10
+          ],
+          "regionCorners": [
+            10,
+            6,
+            18,
+            12,
+            18,
+            10,
+            10,
+            8,
+            10,
+            8,
+            10,
+            6,
+            8,
+            12,
+            10
+          ],
+          "excessCorners": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "sortedExcessCorners": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "topExcessIntegerLowerBounds": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "minimumTotalAtLocalPriority": 156,
+          "compactness": {
+            "status": "locally-trimmed",
+            "method": "fixed-order-inward-edge-trim-1",
+            "ownedCells": 9444,
+            "passes": 0
+          },
+          "domain": {
+            "width": 360,
+            "height": 180,
+            "regions": 15,
+            "edges": "orthogonal",
+            "constraints": "mask-protected-cells-connected-hole-free"
+          },
+          "solver": "HiGHS 1.15.1",
+          "wrapper": "highs-js 1.15.3"
+        },
+        "areaSquareDegrees": 8856.826375080978,
+        "missing": []
+      },
+      {
+        "seed": "local-first-2",
+        "style": "rich",
+        "milliseconds": 3297.281707999995,
+        "layoutSeed": "local-first-2/bright-layout/3",
+        "members": 180,
+        "core": 113,
+        "proof": {
+          "status": "optimal",
+          "method": "local-excess-lexicographic-1",
+          "localMinima": [
+            12,
+            10,
+            10,
+            12,
+            12,
+            12,
+            10,
+            8,
+            12,
+            12,
+            6,
+            14,
+            14,
+            18,
+            8
+          ],
+          "regionCorners": [
+            12,
+            10,
+            10,
+            12,
+            12,
+            12,
+            10,
+            8,
+            12,
+            12,
+            6,
+            14,
+            14,
+            18,
+            8
+          ],
+          "excessCorners": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "sortedExcessCorners": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "topExcessIntegerLowerBounds": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "minimumTotalAtLocalPriority": 170,
+          "compactness": {
+            "status": "locally-trimmed",
+            "method": "fixed-order-inward-edge-trim-1",
+            "ownedCells": 9549,
+            "passes": 1
+          },
+          "domain": {
+            "width": 360,
+            "height": 180,
+            "regions": 15,
+            "edges": "orthogonal",
+            "constraints": "mask-protected-cells-connected-hole-free"
+          },
+          "solver": "HiGHS 1.15.1",
+          "wrapper": "highs-js 1.15.3"
+        },
+        "areaSquareDegrees": 8957.49337947802,
+        "missing": []
+      },
+      {
+        "seed": "local-first-2",
+        "style": "balanced",
+        "milliseconds": 4074.9376669999983,
+        "layoutSeed": "local-first-2/bright-layout/3",
+        "members": 158,
+        "core": 109,
+        "proof": {
+          "status": "optimal",
+          "method": "local-excess-lexicographic-1",
+          "localMinima": [
+            12,
+            10,
+            10,
+            12,
+            12,
+            12,
+            10,
+            8,
+            12,
+            12,
+            6,
+            14,
+            14,
+            18,
+            8
+          ],
+          "regionCorners": [
+            12,
+            10,
+            10,
+            12,
+            12,
+            12,
+            10,
+            8,
+            12,
+            12,
+            6,
+            14,
+            14,
+            18,
+            8
+          ],
+          "excessCorners": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "sortedExcessCorners": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "topExcessIntegerLowerBounds": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "minimumTotalAtLocalPriority": 170,
+          "compactness": {
+            "status": "locally-trimmed",
+            "method": "fixed-order-inward-edge-trim-1",
+            "ownedCells": 9549,
+            "passes": 1
+          },
+          "domain": {
+            "width": 360,
+            "height": 180,
+            "regions": 15,
+            "edges": "orthogonal",
+            "constraints": "mask-protected-cells-connected-hole-free"
+          },
+          "solver": "HiGHS 1.15.1",
+          "wrapper": "highs-js 1.15.3"
+        },
+        "areaSquareDegrees": 8957.49337947802,
+        "missing": []
+      },
+      {
+        "seed": "local-first-3",
+        "style": "rich",
+        "milliseconds": 3631.574542000002,
+        "layoutSeed": "local-first-3/bright-layout/2",
+        "members": 180,
+        "core": 117,
+        "proof": {
+          "status": "optimal",
+          "method": "local-excess-lexicographic-1",
+          "localMinima": [
+            12,
+            8,
+            8,
+            10,
+            6,
+            10,
+            10,
+            10,
+            12,
+            12,
+            10,
+            14,
+            8,
+            12,
+            8
+          ],
+          "regionCorners": [
+            12,
+            8,
+            8,
+            10,
+            6,
+            10,
+            10,
+            10,
+            12,
+            12,
+            10,
+            14,
+            8,
+            12,
+            8
+          ],
+          "excessCorners": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "sortedExcessCorners": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "topExcessIntegerLowerBounds": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "minimumTotalAtLocalPriority": 150,
+          "compactness": {
+            "status": "locally-trimmed",
+            "method": "fixed-order-inward-edge-trim-1",
+            "ownedCells": 9420,
+            "passes": 1
+          },
+          "domain": {
+            "width": 360,
+            "height": 180,
+            "regions": 15,
+            "edges": "orthogonal",
+            "constraints": "mask-protected-cells-connected-hole-free"
+          },
+          "solver": "HiGHS 1.15.1",
+          "wrapper": "highs-js 1.15.3"
+        },
+        "areaSquareDegrees": 8776.45158030278,
+        "missing": []
+      },
+      {
+        "seed": "local-first-3",
+        "style": "balanced",
+        "milliseconds": 4219.916666999998,
+        "layoutSeed": "local-first-3/bright-layout/2",
+        "members": 156,
+        "core": 114,
+        "proof": {
+          "status": "optimal",
+          "method": "local-excess-lexicographic-1",
+          "localMinima": [
+            12,
+            8,
+            8,
+            10,
+            6,
+            10,
+            10,
+            10,
+            12,
+            12,
+            10,
+            14,
+            8,
+            12,
+            8
+          ],
+          "regionCorners": [
+            12,
+            8,
+            8,
+            10,
+            6,
+            10,
+            10,
+            10,
+            12,
+            12,
+            10,
+            14,
+            8,
+            12,
+            8
+          ],
+          "excessCorners": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "sortedExcessCorners": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "topExcessIntegerLowerBounds": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "minimumTotalAtLocalPriority": 150,
+          "compactness": {
+            "status": "locally-trimmed",
+            "method": "fixed-order-inward-edge-trim-1",
+            "ownedCells": 9420,
+            "passes": 1
+          },
+          "domain": {
+            "width": 360,
+            "height": 180,
+            "regions": 15,
+            "edges": "orthogonal",
+            "constraints": "mask-protected-cells-connected-hole-free"
+          },
+          "solver": "HiGHS 1.15.1",
+          "wrapper": "highs-js 1.15.3"
+        },
+        "areaSquareDegrees": 8776.45158030278,
+        "missing": []
+      }
+    ]
+  },
+  "automated_tests": {
+    "passed": 47,
+    "failed": 0,
+    "newTests": 6,
+    "legacyTests": 41,
+    "postcheckPassed": 1,
+    "postcheckFailed": 0,
+    "logs": [
+      "reports/zodiac_local_first/tests.tap",
+      "reports/zodiac_local_first/legacy-tests.tap",
+      "reports/zodiac_local_first/postcheck.tap"
+    ],
+    "scope": "Local fairness oracle, major-star ranking, RA seam editing, 12 complete draws, real boundary edits, invalid edits, manual replay, source metadata cache isolation, locked rerolls and seven historical versions."
+  },
+  "browser": {
+    "passed": 11,
+    "checks": [
+      "browser draw matches offline data, major stars and per-region local minima are visible",
+      "coordinate editing and actual pointer dragging update the shared grid; undo restores the original",
+      "redo restores the edit and an illegal movement keeps the last valid draft intact",
+      "save creates a separate manual round, retaining locks, notes and favourite while removing automatic optimum badges",
+      "manual data survives reload and export/import with exact integer boundaries",
+      "editing an existing manual round back to the automatic original can be saved",
+      "cancel restores the initial record and data without saving draft changes",
+      "390px editing controls stay within the page and all fifteen figures fit the common display scale",
+      "old draw-7 remains intact and visibly reports its omitted bright stars",
+      "the old boundary-cleanup action still means draw-3 to draw-4",
+      "no browser runtime errors"
+    ],
+    "errors": [],
+    "editedEdge": {
+      "index": 0,
+      "edge": 0,
+      "target": 6,
+      "coordinate": 5
+    }
+  },
+  "preserved_files_sha256": {
+    "output/output_20260915_nebula_03/sky_view_20260915_nebula_03.json": "42508bc926cf9cffd2928341224d63cf53234099b44ed8ba6eeebcc77bdf73f8",
+    "design/zodiac_candidates_v1.json": "07e79a209f40517171995ce7cecc0e4a4d0b73d2d862eaf651245b9fbfbb5ad7",
+    "design/zodiac_draw_example.json": "c664d8b27cf142d141ec73c459639d0ef0459bbf63d18d039c94bf59f88411c3",
+    "design/zodiac_draw_ordered_example.json": "7527d4618c550bcab3a394a2ebaf392757b62db00747fa291d4b552b7e97d858",
+    "design/zodiac_draw_free_example.json": "2b565c6e1e2241b614879a03900ef4a715036181002a6caa67cd23e6f1ba3b89",
+    "design/zodiac_draw_clean_example.json": "b46171264a4cc4d00f633348387bb2efe52c46c2fc2c3712d1842aef3644d2c2",
+    "design/zodiac_draw_ecliptic_example.json": "88a04325668b2575e6d297d3c81e515d2c136ff97cb5c138bda472eb3ee82872",
+    "design/zodiac_draw_fitted_example.json": "4c12b7fbc44778195b948428aeb6531199fe22a6fb2e5357276ab06066ba07a0",
+    "design/zodiac_draw_minimum_example.json": "0d88b82d035bab3518671932552cf6b7d3695a918209931de5650ec8098ae4ec"
+  },
+  "guarantees": {
+    "brightness": "All three brightest stars and all stars with apparent magnitude <=3 in each actual final region are in both the complete figure and its connected core. This is a cultural selection policy, not an IAU rule.",
+    "corners": "Independent local lower bounds retain all fixed ownership. Descending excess corner counts are minimized lexicographically, followed by total corners. Exact scope is the fixed 1-degree RA/Dec grid, chosen reference figures, masks and protected ownership.",
+    "compactness": "Deterministic inward edge trimming preserves each regional corner count; no global minimum-area or minimum-cell guarantee.",
+    "manual": "Moves change the single ownership grid and rebuild every region. Stars, arcs, topology, widths, margin and no-new-bright-omissions are checked. An edited round never inherits an automatic optimum certificate.",
+    "historicalManual": "A manually edited old round can retain existing bright omissions. The UI reports them, and edits cannot introduce new missing important stars."
+  },
+  "limitations": [
+    "Only six independent full-sky boundary seeds were sampled; some other seeds may exhaust layout attempts or solver time and are rejected without replacing the current round.",
+    "Numerical MILP bounds with integer and geometry postchecks are used; no exact-arithmetic proof file is produced.",
+    "Manual editing preserves existing members and lines. A boundary change requiring different star membership is rejected; generate another figure to change members."
+  ],
+  "scope": "Independent constellation workbench only; source stellar values and formal V1/V2 maps remain unchanged."
+}

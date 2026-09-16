@@ -1,0 +1,127 @@
+{
+  "date": "2026-09-16",
+  "revision": "favourites-regional-1",
+  "algorithm": "terrax-zodiac-draw-9",
+  "manualAlgorithm": "terrax-zodiac-manual-3",
+  "regionalMethod": "regional-figure-sampling-1",
+  "storageSchema": 2,
+  "automatedTests": {
+    "passed": 35,
+    "failed": 0,
+    "suites": [
+      {
+        "file": "reports/zodiac_regional_sampling/unit-tests.tap",
+        "passed": 5,
+        "failed": 0,
+        "skipped": 0
+      },
+      {
+        "file": "reports/zodiac_regional_sampling/regression-tests.tap",
+        "passed": 30,
+        "failed": 0,
+        "skipped": 0
+      }
+    ]
+  },
+  "regionalSamples": {
+    "count": 45,
+    "regions": 15,
+    "seedsPerRegion": 3,
+    "file": "reports/zodiac_regional_sampling/samples.json",
+    "checks": [
+      "real source members",
+      "all important regional stars retained",
+      "complete minor arcs and members inside current territory",
+      "same seed reproduces independently of source order",
+      "different seeds change selected members",
+      "expanded manual territory and untouched neighbours",
+      "sparse, disconnected and empty territories",
+      "no alternative and neighbour member conflict"
+    ]
+  },
+  "browser": {
+    "passed": 16,
+    "checks": [
+      "schema-1 migration removes unstarred and malformed discarded records from storage itself; favourites and metadata stay intact",
+      "candidate button enters editing and creates an in-region draft without changing any boundary, neighbour, saved record or favourite",
+      "successive regional draws vary; undo, redo and cancel restore complete candidate states",
+      "confirmation is temporary until explicitly starred; starred regenerated figures and notes survive reload",
+      "editing a favourite creates a new unstarred result without altering or duplicating the saved original",
+      "unstarred results do not return after reload; their exports remain importable without automatically adding a favourite",
+      "unfavouriting removes local retention immediately while keeping the currently displayed result usable",
+      "manual regions with previously enlarged borders resample against their actual current territory",
+      "reproducing the same seed as a favourite yields a temporary result and leaves the favourite intact",
+      "regional regeneration and confirmation controls fit a 390px candidate window",
+      "an empty region reports failure and leaves its current draft and all neighbours unchanged",
+      "zero favourites, cancelling the last favourite, built-in initial view and reload all remain usable",
+      "no browser runtime errors",
+      "a truthy nonboolean favourite value does not create a saved favourite",
+      "a validated import with boolean true preserves its explicit favourite state",
+      "a malformed favourite blocks migration without overwriting the original storage"
+    ],
+    "errors": [],
+    "isolatedTestStorage": true,
+    "reports": [
+      "reports/zodiac_regional_sampling/browser-validation.json",
+      "reports/zodiac_regional_sampling/retention-edge-validation.json"
+    ],
+    "logs": [
+      "reports/zodiac_regional_sampling/browser-checks-final.log",
+      "reports/zodiac_regional_sampling/retention-edge-checks.log"
+    ],
+    "screenshots": [
+      "reports/zodiac_regional_sampling/regional-draft.png",
+      "reports/zodiac_regional_sampling/mobile-regional.png"
+    ]
+  },
+  "source": "output/output_20260915_nebula_03/sky_view_20260915_nebula_03.json",
+  "sourceSha256": "42508bc926cf9cffd2928341224d63cf53234099b44ed8ba6eeebcc77bdf73f8",
+  "preservedFilesSha256": {
+    "output/output_20260915_nebula_03/sky_view_20260915_nebula_03.json": "42508bc926cf9cffd2928341224d63cf53234099b44ed8ba6eeebcc77bdf73f8",
+    "design/zodiac_candidates_v1.json": "07e79a209f40517171995ce7cecc0e4a4d0b73d2d862eaf651245b9fbfbb5ad7",
+    "design/zodiac_draw_example.json": "c664d8b27cf142d141ec73c459639d0ef0459bbf63d18d039c94bf59f88411c3",
+    "design/zodiac_draw_ordered_example.json": "7527d4618c550bcab3a394a2ebaf392757b62db00747fa291d4b552b7e97d858",
+    "design/zodiac_draw_free_example.json": "2b565c6e1e2241b614879a03900ef4a715036181002a6caa67cd23e6f1ba3b89",
+    "design/zodiac_draw_clean_example.json": "b46171264a4cc4d00f633348387bb2efe52c46c2fc2c3712d1842aef3644d2c2",
+    "design/zodiac_draw_ecliptic_example.json": "88a04325668b2575e6d297d3c81e515d2c136ff97cb5c138bda472eb3ee82872",
+    "design/zodiac_draw_fitted_example.json": "4c12b7fbc44778195b948428aeb6531199fe22a6fb2e5357276ab06066ba07a0",
+    "design/zodiac_draw_minimum_example.json": "0d88b82d035bab3518671932552cf6b7d3695a918209931de5650ec8098ae4ec",
+    "design/zodiac_draw_local_example.json": "50628276b41187253ec78dea32438e6c30c660fce07c947db33fc11c9273eee5"
+  },
+  "staticChecks": {
+    "modulesSyntaxChecked": 30,
+    "uniqueDomIds": 82,
+    "localDocumentLinksChecked": 84,
+    "trackedDiffOutsideWorkbench": [],
+    "gitDiffCheck": "passed"
+  },
+  "independentAudit": {
+    "scope": "Read-only review of favourite retention, migration, regional generation and editor state isolation",
+    "finding": "Truthy nonboolean imported favourite values could be retained",
+    "resolution": "Only boolean true counts as a favourite; three targeted browser checks passed after repair"
+  },
+  "initialBrowserAttempt": {
+    "status": "test-helper timeout",
+    "cause": "History position from the preceding editing session was reused after starting a fresh editor",
+    "resolution": "Corrected the test helper and reran the complete 13-check browser flow successfully",
+    "log": "reports/zodiac_regional_sampling/browser-checks.log"
+  },
+  "guarantees": [
+    "Only explicit favourites are persisted, including after migration and import",
+    "New confirmed or generated results remain temporary until explicitly favourited",
+    "Saved originals and their metadata survive edits as separate records",
+    "Regional generation samples against the current actual territory, including draft boundary edits",
+    "All boundaries and other constellations are preserved",
+    "Regional drafts support repeated regeneration, undo, redo, confirm and cancel",
+    "Manual-3 stores final members and edges for deterministic replay"
+  ],
+  "limitations": [
+    "Constellation selection is a cultural design heuristic, not a unique physical prediction",
+    "Small candidate pools may not offer a different combination; the current draft is retained and the user is informed",
+    "Regional generation keeps the current territory and does not repartition the sky",
+    "The ownership grid remains one degree and manual-3 containment rules remain in effect",
+    "Persistence was tested in isolated browser storage; existing user storage migrates when the new page loads",
+    "No automatic draw algorithm was changed; the previously known slow draw-9 seed was not retested"
+  ],
+  "scope": "Independent constellation workbench, regional sampler, documentation and checks; source stars, historical samples and formal V1/V2 renderers preserved"
+}

@@ -1,0 +1,97 @@
+{
+  "date": "2026-09-16",
+  "algorithm": "terrax-zodiac-draw-9",
+  "manualAlgorithm": "terrax-zodiac-manual-3",
+  "automatedTests": {
+    "passed": 35,
+    "failed": 0,
+    "suites": [
+      {
+        "file": "reports/zodiac_manual_figures/unit-tests.tap",
+        "passed": 10,
+        "failed": 0
+      },
+      {
+        "file": "reports/zodiac_manual_figures/legacy-candidate-tests.tap",
+        "passed": 5,
+        "failed": 0
+      },
+      {
+        "file": "reports/zodiac_manual_figures/regression-tests.tap",
+        "passed": 20,
+        "failed": 0
+      }
+    ]
+  },
+  "browser": {
+    "passed": 17,
+    "checks": [
+      "automatic draw-9 remains unchanged and editing is inside the candidate",
+      "sampling slider still previews the real band without modifying the saved round",
+      "a real dim background star can be selected and added, with undo/redo",
+      "two actual pointer clicks connect a new star in both variants",
+      "removing a member deletes all incident edges and keeps its background star",
+      "cancel restores the complete original data and saved metadata",
+      "out-of-bound additions stay in draft; switching tools retains edits and a 45-degree boundary move resolves containment",
+      "candidate view zoom and real drag pan change the view without changing the stars or boundary draft",
+      "connecting a background star adds the member and its new edge together before saving",
+      "confirmation creates manual-3, preserving the original round, notes, locks and favourite",
+      "members, broad boundary and full manual recipe survive reload and export/import",
+      "continued editing deletes an existing line while preserving previously added stars and enlarged boundaries",
+      "all members can be removed, confirmed and reloaded with empty-state statistics and no invalid numbers",
+      "390px candidate editor fits the screen; confirmed manual figures retain a common angular scale without clipping",
+      "historical manual-2 imports without changing its old geometry or rules",
+      "a polar boundary winding through the RA seam has no false full-width closing line in the actual Canvas path",
+      "no browser runtime errors"
+    ],
+    "errors": [],
+    "addedStar": "20260915_galactic_01_000259",
+    "outsideStar": "20260915_galactic_01_000841",
+    "boundaryMove": {
+      "region": 0,
+      "coordinate": -16,
+      "target": -61
+    }
+  },
+  "source": "output/output_20260915_nebula_03/sky_view_20260915_nebula_03.json",
+  "sourceSha256": "42508bc926cf9cffd2928341224d63cf53234099b44ed8ba6eeebcc77bdf73f8",
+  "preservedFilesSha256": {
+    "output/output_20260915_nebula_03/sky_view_20260915_nebula_03.json": "42508bc926cf9cffd2928341224d63cf53234099b44ed8ba6eeebcc77bdf73f8",
+    "design/zodiac_candidates_v1.json": "07e79a209f40517171995ce7cecc0e4a4d0b73d2d862eaf651245b9fbfbb5ad7",
+    "design/zodiac_draw_example.json": "c664d8b27cf142d141ec73c459639d0ef0459bbf63d18d039c94bf59f88411c3",
+    "design/zodiac_draw_ordered_example.json": "7527d4618c550bcab3a394a2ebaf392757b62db00747fa291d4b552b7e97d858",
+    "design/zodiac_draw_free_example.json": "2b565c6e1e2241b614879a03900ef4a715036181002a6caa67cd23e6f1ba3b89",
+    "design/zodiac_draw_clean_example.json": "b46171264a4cc4d00f633348387bb2efe52c46c2fc2c3712d1842aef3644d2c2",
+    "design/zodiac_draw_ecliptic_example.json": "88a04325668b2575e6d297d3c81e515d2c136ff97cb5c138bda472eb3ee82872",
+    "design/zodiac_draw_fitted_example.json": "4c12b7fbc44778195b948428aeb6531199fe22a6fb2e5357276ab06066ba07a0",
+    "design/zodiac_draw_minimum_example.json": "0d88b82d035bab3518671932552cf6b7d3695a918209931de5650ec8098ae4ec",
+    "design/zodiac_draw_local_example.json": "50628276b41187253ec78dea32438e6c30c660fce07c947db33fc11c9273eee5"
+  },
+  "independentAudits": {
+    "geometry": "24 synthetic boundary grids and 160 sampled spherical arcs checked by a read-only scout; found and fixed a polar map closure artefact",
+    "ui": "Read-only candidate, review and workflow audit found no confirmed state-loss or persistence bug",
+    "primaryVerification": "10 manual-data tests, 25 selected regression tests, 17 browser checks, manual inspection of desktop/mobile and polar screenshots"
+  },
+  "staticChecks": {
+    "modulesSyntaxChecked": 29,
+    "uniqueDomIds": 81,
+    "trackedDiffOutsideWorkbench": [],
+    "localDocumentLinksChecked": 73
+  },
+  "guarantees": [
+    "manual selection changes IDs and edges without changing source physical data",
+    "all regions share one orthogonal ownership grid",
+    "confirmation requires members and both variants full minor arcs inside their territories",
+    "temporary out-of-bound drafts remain editable and cannot be saved",
+    "new members and edges persist together; undo, redo, cancel, reload and import/export checked",
+    "historical manual-1/manual-2/draw-8/draw-9 retain replay results"
+  ],
+  "limitations": [
+    "the coordinate grid remains one degree",
+    "a true antipodal pair does not define a unique minor great circle",
+    "stereographic maps retain their ordinary projection distortion and antipodal singularity",
+    "cultural constellation choices are not a unique physical prediction",
+    "the previously known slow draw-9 +/-55 degree seed was not rerun; no automatic generation logic was changed"
+  ],
+  "scope": "Only independent constellation workbench, tests, current documentation and a new manual example/report; no changes applied to the four V1/V2 sky pages"
+}

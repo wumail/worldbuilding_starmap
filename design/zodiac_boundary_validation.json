@@ -1,0 +1,76 @@
+{
+  "date": "2026-09-15",
+  "algorithm": "terrax-zodiac-draw-4",
+  "catalogue": "output/output_20260915_nebula_03/sky_view_20260915_nebula_03.json",
+  "source_sha256": "42508bc926cf9cffd2928341224d63cf53234099b44ed8ba6eeebcc77bdf73f8",
+  "automated_tests": {
+    "passed": 30,
+    "failed": 0,
+    "files": [
+      "tests/test_constellation_boundary_cleanup.mjs",
+      "tests/test_constellation_free_regions.mjs",
+      "tests/test_constellation_workflow.mjs",
+      "tests/test_constellation_candidates.mjs",
+      "tests/test_zodiac.mjs",
+      "tests/test_display_scale.mjs"
+    ]
+  },
+  "comparison_draws": 120,
+  "seeds": 60,
+  "styles": [
+    "rich",
+    "balanced"
+  ],
+  "boundary_corner_reduction": {
+    "minimum": 0.6315228966986155,
+    "maximum": 0.7045226130653266,
+    "mean": 0.6833959590055704,
+    "counting": "Sum of all region boundary vertices; a shared boundary is counted in both adjacent regions in both versions."
+  },
+  "unchanged_fields": [
+    "all figures and member properties",
+    "all figure edges",
+    "candidate membership",
+    "region centers and sites",
+    "ecliptic intersections and spans"
+  ],
+  "browser": {
+    "passed": 10,
+    "checks": [
+      "new draws use the clean boundary algorithm",
+      "refine preserves every figure, note, lock and favourite while keeping the old record",
+      "clicks in a reassigned border cell follow the new shared boundary",
+      "refresh restores the refined round and metadata",
+      "the unmodified fine-grid round remains available",
+      "the update link refines the active custom recipe without reverting its rerolls",
+      "subsequent local rerolls preserve cleaned boundaries and locks",
+      "new exports import and verify successfully",
+      "all 15 figures still fit the narrow layout",
+      "no browser runtime errors"
+    ],
+    "errors": [],
+    "beforeCorners": 2046,
+    "afterCorners": 616
+  },
+  "visual_review": {
+    "before": "reports/zodiac_boundary_clean/before-detail.png",
+    "after": "reports/zodiac_boundary_clean/after-detail.png",
+    "findings": "Fine one-degree stair steps are replaced by larger turns. The figure is unchanged; protected small turns remain where needed."
+  },
+  "example": {
+    "file": "design/zodiac_draw_clean_example.json",
+    "seed": "terrax-b1bxb1",
+    "members": 186,
+    "core_members": 105,
+    "before_corners": 2046,
+    "after_corners": 616
+  },
+  "preserved_files_sha256": {
+    "output/output_20260915_nebula_03/sky_view_20260915_nebula_03.json": "42508bc926cf9cffd2928341224d63cf53234099b44ed8ba6eeebcc77bdf73f8",
+    "design/zodiac_candidates_v1.json": "07e79a209f40517171995ce7cecc0e4a4d0b73d2d862eaf651245b9fbfbb5ad7",
+    "design/zodiac_draw_example.json": "c664d8b27cf142d141ec73c459639d0ef0459bbf63d18d039c94bf59f88411c3",
+    "design/zodiac_draw_ordered_example.json": "7527d4618c550bcab3a394a2ebaf392757b62db00747fa291d4b552b7e97d858",
+    "design/zodiac_draw_free_example.json": "2b565c6e1e2241b614879a03900ef4a715036181002a6caa67cd23e6f1ba3b89"
+  },
+  "scope": "Independent constellation workbench only; source catalogue and formal V1/V2 sky pages are unchanged."
+}

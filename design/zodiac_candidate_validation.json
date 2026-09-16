@@ -1,0 +1,174 @@
+{
+  "date": "2026-09-16",
+  "algorithm": "terrax-zodiac-draw-9",
+  "manualAlgorithm": "terrax-zodiac-manual-2",
+  "source": "output/output_20260915_nebula_03/sky_view_20260915_nebula_03.json",
+  "sourceSha256": "42508bc926cf9cffd2928341224d63cf53234099b44ed8ba6eeebcc77bdf73f8",
+  "sampling": {
+    "defaultHalfWidthDegrees": 40,
+    "minimum": 15,
+    "maximum": 60,
+    "step": 1,
+    "coordinate": "constant-ecliptic-latitude",
+    "display": "reference-equatorial",
+    "phase": "initial-partition",
+    "finalBrightAudit": "full-catalogue",
+    "pointsChecked": 33212,
+    "maximumLatitudeErrorDegrees": 4.263256414560601e-14
+  },
+  "defaultExample": {
+    "seed": "terrax-1ptws5s",
+    "halfWidthDegrees": 40,
+    "candidates": 566,
+    "members": 183,
+    "core": 113,
+    "corners": 150,
+    "missingBrightStars": []
+  },
+  "samples": [
+    {
+      "seed": "terrax-1ptws5s",
+      "width": 30,
+      "status": "validated",
+      "candidates": 452,
+      "layoutSeed": "terrax-1ptws5s",
+      "corners": 140,
+      "seconds": 35.911209708
+    },
+    {
+      "seed": "terrax-1ptws5s",
+      "width": 40,
+      "status": "validated",
+      "candidates": 566,
+      "layoutSeed": "terrax-1ptws5s",
+      "corners": 150,
+      "seconds": 5.766777417000005
+    },
+    {
+      "seed": "terrax-1ptws5s",
+      "width": 55,
+      "status": "validated",
+      "candidates": 735,
+      "layoutSeed": "terrax-1ptws5s",
+      "corners": 168,
+      "seconds": 4.713421999999999
+    },
+    {
+      "seed": "terrax-b1bxb1",
+      "width": 30,
+      "status": "validated",
+      "candidates": 452,
+      "layoutSeed": "terrax-b1bxb1/bright-layout/2",
+      "corners": 166,
+      "seconds": 6.026284291999997
+    },
+    {
+      "seed": "terrax-b1bxb1",
+      "width": 40,
+      "status": "validated",
+      "candidates": 566,
+      "layoutSeed": "terrax-b1bxb1/bright-layout/2",
+      "corners": 146,
+      "seconds": 6.525025833
+    },
+    {
+      "seed": "terrax-b1bxb1",
+      "width": 55,
+      "status": "rejected-unproven",
+      "reason": "局部与整体边界协调尚未证明最优，当前轮次已保留",
+      "seconds": 94.01756312499998
+    }
+  ],
+  "automatedTests": {
+    "passed": 54,
+    "failed": 0,
+    "newPassed": 7,
+    "legacyPassed": 47,
+    "logs": [
+      "reports/zodiac_candidate_editor/tests.tap",
+      "reports/zodiac_candidate_editor/legacy-tests.tap"
+    ]
+  },
+  "browser": {
+    "passed": 13,
+    "checks": [
+      "new draw matches offline data; both editing entries are inside the candidate and no separate editor canvas remains",
+      "slider updates both projected band edges and candidate count without mutating the current round",
+      "real pointer dragging in the stereographic candidate matches the orthogonal grid edit; undo restores it",
+      "cancel discards the boundary draft and keeps the current record and metadata intact",
+      "confirm applies the boundary as a separate round with locks, notes and favourite retained",
+      "clicking a line removes it from both variants without deleting stars; undo, redo and cancel preserve the boundary",
+      "combined line and boundary edits survive confirmation, reload and exact JSON export/import",
+      "continuing boundary editing preserves prior line deletions",
+      "candidate editing fits 390px screens and every normal candidate retains its common display scale",
+      "deleting every line keeps all stars, reports isolated points and no longest edge, and persists after confirmation",
+      "generating with the slider records the chosen range and restores it after refresh",
+      "the preserved draw-8 round still imports without changing its stars, boundaries or sampling history",
+      "no browser runtime errors"
+    ],
+    "errors": [],
+    "action": {
+      "index": 0,
+      "edge": 1,
+      "target": 21
+    },
+    "clickedLine": {
+      "from": "20260915_galactic_01_011020",
+      "to": "20260915_galactic_01_007124",
+      "points": [
+        {
+          "x": 591.4498990819953,
+          "y": 416.3748252871219
+        },
+        {
+          "x": 589.7127614768258,
+          "y": 415.3846681622259
+        },
+        {
+          "x": 587.9764145012142,
+          "y": 414.39433977617176
+        },
+        {
+          "x": 586.240845943034,
+          "y": 413.4038337191512
+        },
+        {
+          "x": 584.506043611503,
+          "y": 412.4131435760934
+        },
+        {
+          "x": 582.7719953368384,
+          "y": 411.4222629265049
+        }
+      ]
+    }
+  },
+  "independentAudits": {
+    "sampling": "All integer widths 15..60, canonical recipes, cache isolation, final full-catalogue audit call sites and RA seam reviewed; no confirmed issue.",
+    "editing": "Combined grid and line diffs, draft isolation, confirmation/cancel, replay, legacy manual-1 and pointer coordinate paths reviewed; no confirmed issue."
+  },
+  "preservedFilesSha256": {
+    "output/output_20260915_nebula_03/sky_view_20260915_nebula_03.json": "42508bc926cf9cffd2928341224d63cf53234099b44ed8ba6eeebcc77bdf73f8",
+    "design/zodiac_candidates_v1.json": "07e79a209f40517171995ce7cecc0e4a4d0b73d2d862eaf651245b9fbfbb5ad7",
+    "design/zodiac_draw_example.json": "c664d8b27cf142d141ec73c459639d0ef0459bbf63d18d039c94bf59f88411c3",
+    "design/zodiac_draw_ordered_example.json": "7527d4618c550bcab3a394a2ebaf392757b62db00747fa291d4b552b7e97d858",
+    "design/zodiac_draw_free_example.json": "2b565c6e1e2241b614879a03900ef4a715036181002a6caa67cd23e6f1ba3b89",
+    "design/zodiac_draw_clean_example.json": "b46171264a4cc4d00f633348387bb2efe52c46c2fc2c3712d1842aef3644d2c2",
+    "design/zodiac_draw_ecliptic_example.json": "88a04325668b2575e6d297d3c81e515d2c136ff97cb5c138bda472eb3ee82872",
+    "design/zodiac_draw_fitted_example.json": "4c12b7fbc44778195b948428aeb6531199fe22a6fb2e5357276ab06066ba07a0",
+    "design/zodiac_draw_minimum_example.json": "0d88b82d035bab3518671932552cf6b7d3695a918209931de5650ec8098ae4ec",
+    "design/zodiac_draw_local_example.json": "50628276b41187253ec78dea32438e6c30c660fce07c947db33fc11c9273eee5"
+  },
+  "guarantees": {
+    "sampling": "The slider previews the angular half-width and initial candidate count. Generation uses and persists that width; final required bright stars may supplement the initial band.",
+    "edit": "Both editing modes use the candidate canvas. Confirm validates and saves a separate round; cancel restores the pre-session round.",
+    "lines": "Deletion affects both variants, retains all stellar members, can disconnect manual figures, and reports components/isolated points. Automatic figures remain connected.",
+    "proof": "Edited rounds remove automatic optimum certificates; unchanged local-first numerical proof scope remains fixed grid and protected ownership."
+  },
+  "limitations": [
+    "A known 55-degree sample, terrax-b1bxb1, did not prove the local-first optimum within the solver budget and was rejected. Slider limits do not guarantee success for every seed.",
+    "This is an initial sampling band, not a hard crop of final regional bright-star membership.",
+    "Multitouch, resizing during an active drag, and storage quota exhaustion were not exercised in the browser run."
+  ],
+  "scope": "Independent constellation workbench; original stars and formal V1/V2 renderers remain unchanged."
+}

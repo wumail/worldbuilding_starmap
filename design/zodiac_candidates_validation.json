@@ -1,0 +1,40 @@
+{
+  "date": "2026-09-15T12:23:40.314Z",
+  "url": "http://127.0.0.1:8765/web/constellations/",
+  "checks": [
+    "source catalogue and default 2.5x",
+    "all 15 regions, both variants, all projected members inside chart",
+    "display gain does not move stars or change star count",
+    "press-and-hold comparison restores pointer and keyboard state",
+    "filtered members cannot leave an empty selection ring or stale inspection",
+    "export completes as a labelled PNG",
+    "wide overview retains every chosen star within the chart latitude bounds",
+    "mobile viewport has no document overflow and retains all members",
+    "V1 and V2 preferences are untouched"
+  ],
+  "screenshots": [
+    "reports/zodiac_candidates/review.png",
+    "reports/zodiac_candidates/overview.png",
+    "reports/zodiac_candidates/mobile.png"
+  ],
+  "errors": [],
+  "status": {
+    "region": 0,
+    "variant": "core",
+    "scale": 2.5,
+    "limit": 6.5,
+    "lines": true,
+    "boundaries": true,
+    "numbers": false,
+    "sectors": false,
+    "compare": false,
+    "inspected": null,
+    "frames": 73,
+    "sourceCount": 9356,
+    "sourceHash": "42508bc926cf9cffd2928341224d63cf53234099b44ed8ba6eeebcc77bdf73f8",
+    "regions": 15,
+    "ppd": 10.884615384615385,
+    "visibleStars": 1112
+  },
+  "passed": true
+}

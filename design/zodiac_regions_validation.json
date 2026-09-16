@@ -1,0 +1,144 @@
+{
+  "date": "2026-09-15T14:23:43.358Z",
+  "url": "http://127.0.0.1:8765/web/constellations/?revision=20260915-regions-2",
+  "seed": "terrax-b1bxb1",
+  "beforeAlgorithm": "terrax-zodiac-draw-1",
+  "afterAlgorithm": "terrax-zodiac-draw-2",
+  "checks": [
+    "existing draw-1 storage restores the exact old figure, locks and notes and labels the old partition",
+    "same seed creates an ordered draw-2 round and retains the complete old round without copying obsolete locks",
+    "all region longitude spans reject containment and all star-figure spans are disjoint across the seam",
+    "partial reroll retains every ordered boundary and the selected locked figure and note",
+    "refresh restores mixed-version history and existing V1/V2 viewing settings",
+    "both old and new exported files import with their own algorithm; current ordered round exports correctly",
+    "explicit seed link opens the fixed seed and is consumed so later refresh keeps the next round",
+    "all fifteen figures retain one angular scale and fit the desktop and 320px mobile view"
+  ],
+  "errors": [],
+  "screenshots": [
+    "reports/zodiac_regions/before-overview.png",
+    "reports/zodiac_regions/after-overview.png",
+    "reports/zodiac_regions/review.png",
+    "reports/zodiac_regions/mobile.png"
+  ],
+  "afterRegionRanges": [
+    {
+      "id": "Z01",
+      "start": 9.392774181957236,
+      "end": 37.99658245463189,
+      "eclipticStart": 10.504297181859101,
+      "eclipticEnd": 36.67292843571761
+    },
+    {
+      "id": "Z02",
+      "start": 35.32139625648051,
+      "end": 57.277736119209976,
+      "eclipticStart": 36.672928435717665,
+      "eclipticEnd": 57.27773611921003
+    },
+    {
+      "id": "Z03",
+      "start": 57.27773611921003,
+      "end": 77.91258418120748,
+      "eclipticStart": 57.277736119209976,
+      "eclipticEnd": 76.41607382079872
+    },
+    {
+      "id": "Z04",
+      "start": 74.93241852223343,
+      "end": 100.81596619770085,
+      "eclipticStart": 76.41607382079874,
+      "eclipticEnd": 99.65970715931357
+    },
+    {
+      "id": "Z05",
+      "start": 98.46870415812145,
+      "end": 125.35203278800998,
+      "eclipticStart": 99.65970715931357,
+      "eclipticEnd": 125.35203278801
+    },
+    {
+      "id": "Z06",
+      "start": 125.35203278801004,
+      "end": 153.75744411916065,
+      "eclipticStart": 125.35203278800992,
+      "eclipticEnd": 153.75744411916054
+    },
+    {
+      "id": "Z07",
+      "start": 153.7574441191606,
+      "end": 189.153923125623,
+      "eclipticStart": 153.75744411916054,
+      "eclipticEnd": 188.28849952746185
+    },
+    {
+      "id": "Z08",
+      "start": 187.52071844260186,
+      "end": 219.17643150796917,
+      "eclipticStart": 188.28849952746194,
+      "eclipticEnd": 217.6463611455197
+    },
+    {
+      "id": "Z09",
+      "start": 215.9709898307875,
+      "end": 236.65441413832215,
+      "eclipticStart": 217.6463611455197,
+      "eclipticEnd": 236.6544141383221
+    },
+    {
+      "id": "Z10",
+      "start": 236.65441413832218,
+      "end": 258.34524824704795,
+      "eclipticStart": 236.65441413832212,
+      "eclipticEnd": 256.9131126856717
+    },
+    {
+      "id": "Z11",
+      "start": 255.54629740423388,
+      "end": 279.2168469885381,
+      "eclipticStart": 256.9131126856716,
+      "eclipticEnd": 279.21684698853807
+    },
+    {
+      "id": "Z12",
+      "start": 279.2168469885381,
+      "end": 302.01220172207536,
+      "eclipticStart": 279.21684698853807,
+      "eclipticEnd": 300.306761619068
+    },
+    {
+      "id": "Z13",
+      "start": 298.8028718984465,
+      "end": 322.6676187126552,
+      "eclipticStart": 300.3067616190681,
+      "eclipticEnd": 321.0744287103671
+    },
+    {
+      "id": "Z14",
+      "start": 319.50981690377785,
+      "end": 345.3777562765131,
+      "eclipticStart": 321.0744287103671,
+      "eclipticEnd": 343.98151729812577
+    },
+    {
+      "id": "Z15",
+      "start": 342.63805202392894,
+      "end": 371.56594992659456,
+      "eclipticStart": 343.98151729812577,
+      "eclipticEnd": 370.5042971818591
+    }
+  ],
+  "passed": true,
+  "automatedChecks": {
+    "passed": 20,
+    "total": 20,
+    "candidateSets": 120,
+    "independentSkySamplesPerReportedVersion": 100000,
+    "command": "node --test tests/test_constellation_workflow.mjs tests/test_constellation_candidates.mjs tests/test_zodiac.mjs tests/test_display_scale.mjs"
+  },
+  "preserved": {
+    "catalogueSha256": "42508bc926cf9cffd2928341224d63cf53234099b44ed8ba6eeebcc77bdf73f8",
+    "initialCandidatesSha256": "07e79a209f40517171995ce7cecc0e4a4d0b73d2d862eaf651245b9fbfbb5ad7",
+    "legacyExampleReproducesExactly": true
+  }
+}

@@ -1,0 +1,642 @@
+{
+  "date": "2026-09-16",
+  "algorithm": "terrax-zodiac-draw-6",
+  "source": "output/output_20260915_nebula_03/sky_view_20260915_nebula_03.json",
+  "source_sha256": "42508bc926cf9cffd2928341224d63cf53234099b44ed8ba6eeebcc77bdf73f8",
+  "design_policy": {
+    "envelope": {
+      "method": "spherical-hull-margin-1",
+      "maximumMarginDegrees": 8,
+      "selectionLatitudeScaleDegrees": 12
+    },
+    "ecliptic": {
+      "method": "one-narrow-region-1",
+      "minimumDegrees": 6,
+      "ordinaryMinimumDegrees": 16,
+      "maximumDegrees": 44,
+      "maximumNarrowRegions": 1
+    },
+    "cleanup": {
+      "method": "protected-adaptive-blocks-1",
+      "blockDegrees": 4
+    },
+    "scope": "Cultural selection and boundary-design limits. This is not an IAU algorithm, physical law, or stellar population model."
+  },
+  "geometry": {
+    "hull": "Convex hull in a gnomonic chart mapped back to short great-circle edges in the common open hemisphere.",
+    "margin": "Every owned 1-degree RA/Dec cell is accepted only if its center is at most 8 - sqrt(0.5^2 + 0.5^2) degrees from the filled spherical hull. The spherical metric bound and the 1-Lipschitz distance-to-set property extend the guarantee to the entire cell.",
+    "area": "Exact sum of spherical RA/Dec grid-cell areas, in square degrees; sampled boundary maxima are reported separately from the whole-cell bound.",
+    "limitations": [
+      "Convex hulls fill inward concavities; this is not an exact concave outline or minimum-area fitted rectangle.",
+      "The region need not include the entire hull, so subtracting hull area from region area is not a measurement of exterior area.",
+      "Unconnected field stars naturally remain within constellation territories."
+    ]
+  },
+  "comparison": {
+    "before": {
+      "algorithm": "terrax-zodiac-draw-5",
+      "seed": "terrax-1ptws5s",
+      "members": 185,
+      "coreMembers": 105,
+      "areaSquareDegrees": 24127.157304114862,
+      "hullAreaSquareDegrees": 5862.99971397992,
+      "maxSampledBoundaryDistanceDegrees": 34.053096709874225,
+      "wholeCellMarginUpperBoundDegrees": 34.196842477181164,
+      "boundaryCorners": 672,
+      "regions": [
+        {
+          "id": "Z01",
+          "memberCount": 11,
+          "eclipticSpan": 19.41490935059994,
+          "areaSquareDegrees": 1366.2037419849394,
+          "hullAreaSquareDegrees": 204.17131176675431,
+          "maxSampledBoundaryDistanceDegrees": 21.538222406879278,
+          "wholeCellMarginUpperBoundDegrees": 21.643074292408045,
+          "boundaryCorners": 46
+        },
+        {
+          "id": "Z02",
+          "memberCount": 14,
+          "eclipticSpan": 21.20939587055568,
+          "areaSquareDegrees": 1409.711019885402,
+          "hullAreaSquareDegrees": 511.1402975911622,
+          "maxSampledBoundaryDistanceDegrees": 13.474926465091286,
+          "wholeCellMarginUpperBoundDegrees": 13.600723327674565,
+          "boundaryCorners": 50
+        },
+        {
+          "id": "Z03",
+          "memberCount": 10,
+          "eclipticSpan": 19.414929428894197,
+          "areaSquareDegrees": 2331.5616213431513,
+          "hullAreaSquareDegrees": 333.48325287801936,
+          "maxSampledBoundaryDistanceDegrees": 29.65193780017732,
+          "wholeCellMarginUpperBoundDegrees": 29.82257423700551,
+          "boundaryCorners": 52
+        },
+        {
+          "id": "Z04",
+          "memberCount": 11,
+          "eclipticSpan": 19.55261977799813,
+          "areaSquareDegrees": 1243.7095473437162,
+          "hullAreaSquareDegrees": 329.14770195720496,
+          "maxSampledBoundaryDistanceDegrees": 21.84634897948432,
+          "wholeCellMarginUpperBoundDegrees": 22.167701076675325,
+          "boundaryCorners": 50
+        },
+        {
+          "id": "Z05",
+          "memberCount": 14,
+          "eclipticSpan": 30.168669549607557,
+          "areaSquareDegrees": 1461.0206654576766,
+          "hullAreaSquareDegrees": 644.6206853444944,
+          "maxSampledBoundaryDistanceDegrees": 22.07917561855199,
+          "wholeCellMarginUpperBoundDegrees": 22.234163055443783,
+          "boundaryCorners": 42
+        },
+        {
+          "id": "Z06",
+          "memberCount": 14,
+          "eclipticSpan": 18.282972744421556,
+          "areaSquareDegrees": 1492.1305358044422,
+          "hullAreaSquareDegrees": 522.0459685201378,
+          "maxSampledBoundaryDistanceDegrees": 20.079131784696987,
+          "wholeCellMarginUpperBoundDegrees": 20.324392068777357,
+          "boundaryCorners": 38
+        },
+        {
+          "id": "Z07",
+          "memberCount": 14,
+          "eclipticSpan": 20.520154220899826,
+          "areaSquareDegrees": 1771.896116435221,
+          "hullAreaSquareDegrees": 271.16208565580365,
+          "maxSampledBoundaryDistanceDegrees": 34.053096709874225,
+          "wholeCellMarginUpperBoundDegrees": 34.196842477181164,
+          "boundaryCorners": 48
+        },
+        {
+          "id": "Z08",
+          "memberCount": 12,
+          "eclipticSpan": 37.78766267948208,
+          "areaSquareDegrees": 1772.1406839819788,
+          "hullAreaSquareDegrees": 617.0449556637518,
+          "maxSampledBoundaryDistanceDegrees": 18.472331865445792,
+          "wholeCellMarginUpperBoundDegrees": 18.49935499851972,
+          "boundaryCorners": 44
+        },
+        {
+          "id": "Z09",
+          "memberCount": 11,
+          "eclipticSpan": 35.31218004788116,
+          "areaSquareDegrees": 1388.2490901667413,
+          "hullAreaSquareDegrees": 251.11046578278334,
+          "maxSampledBoundaryDistanceDegrees": 21.4402444831988,
+          "wholeCellMarginUpperBoundDegrees": 21.478755760989333,
+          "boundaryCorners": 36
+        },
+        {
+          "id": "Z10",
+          "memberCount": 12,
+          "eclipticSpan": 6.954721873636203,
+          "areaSquareDegrees": 1683.7883286943988,
+          "hullAreaSquareDegrees": 190.3085500289275,
+          "maxSampledBoundaryDistanceDegrees": 22.027629244148272,
+          "wholeCellMarginUpperBoundDegrees": 22.16219893422401,
+          "boundaryCorners": 32
+        },
+        {
+          "id": "Z11",
+          "memberCount": 12,
+          "eclipticSpan": 17.190525925328757,
+          "areaSquareDegrees": 2018.4790421570233,
+          "hullAreaSquareDegrees": 388.52081212286095,
+          "maxSampledBoundaryDistanceDegrees": 18.80574679445083,
+          "wholeCellMarginUpperBoundDegrees": 18.86665154863141,
+          "boundaryCorners": 44
+        },
+        {
+          "id": "Z12",
+          "memberCount": 10,
+          "eclipticSpan": 28.300837807670604,
+          "areaSquareDegrees": 1507.0997231610766,
+          "hullAreaSquareDegrees": 240.87988576221346,
+          "maxSampledBoundaryDistanceDegrees": 22.255394380530277,
+          "wholeCellMarginUpperBoundDegrees": 22.372805842683597,
+          "boundaryCorners": 44
+        },
+        {
+          "id": "Z13",
+          "memberCount": 14,
+          "eclipticSpan": 34.9273987565814,
+          "areaSquareDegrees": 1589.7996893695301,
+          "hullAreaSquareDegrees": 349.07710116801115,
+          "maxSampledBoundaryDistanceDegrees": 23.038057070364843,
+          "wholeCellMarginUpperBoundDegrees": 23.14659345009631,
+          "boundaryCorners": 44
+        },
+        {
+          "id": "Z14",
+          "memberCount": 13,
+          "eclipticSpan": 22.717408053727013,
+          "areaSquareDegrees": 1388.0466456878437,
+          "hullAreaSquareDegrees": 483.84614047174773,
+          "maxSampledBoundaryDistanceDegrees": 16.979803329653414,
+          "wholeCellMarginUpperBoundDegrees": 17.003274240336378,
+          "boundaryCorners": 50
+        },
+        {
+          "id": "Z15",
+          "memberCount": 13,
+          "eclipticSpan": 28.245613912715896,
+          "areaSquareDegrees": 1703.3208526417218,
+          "hullAreaSquareDegrees": 526.4404992660477,
+          "maxSampledBoundaryDistanceDegrees": 19.507772389981177,
+          "wholeCellMarginUpperBoundDegrees": 19.544709092126027,
+          "boundaryCorners": 52
+        }
+      ]
+    },
+    "after": {
+      "algorithm": "terrax-zodiac-draw-6",
+      "seed": "terrax-1ptws5s",
+      "members": 175,
+      "coreMembers": 105,
+      "areaSquareDegrees": 11438.89073098238,
+      "hullAreaSquareDegrees": 4858.2840693864855,
+      "maxSampledBoundaryDistanceDegrees": 7.9587930989626114,
+      "wholeCellMarginUpperBoundDegrees": 7.997887416731571,
+      "boundaryCorners": 486,
+      "regions": [
+        {
+          "id": "Z01",
+          "memberCount": 12,
+          "eclipticSpan": 23.56787614057879,
+          "areaSquareDegrees": 679.873369788656,
+          "hullAreaSquareDegrees": 285.9984629789748,
+          "maxSampledBoundaryDistanceDegrees": 7.933569861266954,
+          "wholeCellMarginUpperBoundDegrees": 7.9961379111409085,
+          "boundaryCorners": 38
+        },
+        {
+          "id": "Z02",
+          "memberCount": 14,
+          "eclipticSpan": 29.873715988780816,
+          "areaSquareDegrees": 863.4007299652077,
+          "hullAreaSquareDegrees": 365.20932597488866,
+          "maxSampledBoundaryDistanceDegrees": 7.846003107055472,
+          "wholeCellMarginUpperBoundDegrees": 7.996920397644388,
+          "boundaryCorners": 26
+        },
+        {
+          "id": "Z03",
+          "memberCount": 14,
+          "eclipticSpan": 24.59027182808319,
+          "areaSquareDegrees": 706.3792970876964,
+          "hullAreaSquareDegrees": 268.33489528626603,
+          "maxSampledBoundaryDistanceDegrees": 7.9587930989626114,
+          "wholeCellMarginUpperBoundDegrees": 7.974835830323106,
+          "boundaryCorners": 32
+        },
+        {
+          "id": "Z04",
+          "memberCount": 12,
+          "eclipticSpan": 18.47020123966564,
+          "areaSquareDegrees": 818.9417071613301,
+          "hullAreaSquareDegrees": 342.29446975395825,
+          "maxSampledBoundaryDistanceDegrees": 7.699991068837843,
+          "wholeCellMarginUpperBoundDegrees": 7.820796141449845,
+          "boundaryCorners": 26
+        },
+        {
+          "id": "Z05",
+          "memberCount": 10,
+          "eclipticSpan": 25.553495044254532,
+          "areaSquareDegrees": 797.118270121364,
+          "hullAreaSquareDegrees": 342.36090984265684,
+          "maxSampledBoundaryDistanceDegrees": 7.790463027120831,
+          "wholeCellMarginUpperBoundDegrees": 7.863134154520417,
+          "boundaryCorners": 30
+        },
+        {
+          "id": "Z06",
+          "memberCount": 12,
+          "eclipticSpan": 25.518400693109243,
+          "areaSquareDegrees": 779.0483046100499,
+          "hullAreaSquareDegrees": 360.12495658890947,
+          "maxSampledBoundaryDistanceDegrees": 7.786941598407273,
+          "wholeCellMarginUpperBoundDegrees": 7.802623311390671,
+          "boundaryCorners": 22
+        },
+        {
+          "id": "Z07",
+          "memberCount": 12,
+          "eclipticSpan": 26.398081197013454,
+          "areaSquareDegrees": 1105.7870730046084,
+          "hullAreaSquareDegrees": 551.3099284352284,
+          "maxSampledBoundaryDistanceDegrees": 7.91338036775401,
+          "wholeCellMarginUpperBoundDegrees": 7.978424009259821,
+          "boundaryCorners": 36
+        },
+        {
+          "id": "Z08",
+          "memberCount": 11,
+          "eclipticSpan": 22.42414727219395,
+          "areaSquareDegrees": 883.223279544827,
+          "hullAreaSquareDegrees": 328.56711495729155,
+          "maxSampledBoundaryDistanceDegrees": 7.862805111945859,
+          "wholeCellMarginUpperBoundDegrees": 7.866019760004419,
+          "boundaryCorners": 46
+        },
+        {
+          "id": "Z09",
+          "memberCount": 10,
+          "eclipticSpan": 25.805662720815718,
+          "areaSquareDegrees": 725.2873727116447,
+          "hullAreaSquareDegrees": 275.43473554710704,
+          "maxSampledBoundaryDistanceDegrees": 7.67981325930165,
+          "wholeCellMarginUpperBoundDegrees": 7.755790784913945,
+          "boundaryCorners": 40
+        },
+        {
+          "id": "Z10",
+          "memberCount": 11,
+          "eclipticSpan": 24.944866809563194,
+          "areaSquareDegrees": 608.0384474856469,
+          "hullAreaSquareDegrees": 256.54171564318415,
+          "maxSampledBoundaryDistanceDegrees": 7.633088261907479,
+          "wholeCellMarginUpperBoundDegrees": 7.669130021975689,
+          "boundaryCorners": 28
+        },
+        {
+          "id": "Z11",
+          "memberCount": 15,
+          "eclipticSpan": 12.705750072202477,
+          "areaSquareDegrees": 831.5157987387797,
+          "hullAreaSquareDegrees": 481.4909755818314,
+          "maxSampledBoundaryDistanceDegrees": 7.747191226609214,
+          "wholeCellMarginUpperBoundDegrees": 7.8677616735566565,
+          "boundaryCorners": 48
+        },
+        {
+          "id": "Z12",
+          "memberCount": 11,
+          "eclipticSpan": 24.28428339376103,
+          "areaSquareDegrees": 677.4621139596338,
+          "hullAreaSquareDegrees": 280.9019611358103,
+          "maxSampledBoundaryDistanceDegrees": 7.927369615033459,
+          "wholeCellMarginUpperBoundDegrees": 7.997887416731571,
+          "boundaryCorners": 26
+        },
+        {
+          "id": "Z13",
+          "memberCount": 11,
+          "eclipticSpan": 24.137664261992597,
+          "areaSquareDegrees": 695.16222545937,
+          "hullAreaSquareDegrees": 265.30070340361806,
+          "maxSampledBoundaryDistanceDegrees": 7.864972558362769,
+          "wholeCellMarginUpperBoundDegrees": 7.915521425288215,
+          "boundaryCorners": 36
+        },
+        {
+          "id": "Z14",
+          "memberCount": 10,
+          "eclipticSpan": 18.178693244112537,
+          "areaSquareDegrees": 545.7919262553048,
+          "hullAreaSquareDegrees": 189.09895853654726,
+          "maxSampledBoundaryDistanceDegrees": 7.863493435486393,
+          "wholeCellMarginUpperBoundDegrees": 7.873437080522532,
+          "boundaryCorners": 24
+        },
+        {
+          "id": "Z15",
+          "memberCount": 10,
+          "eclipticSpan": 33.54689009387283,
+          "areaSquareDegrees": 721.8608150882623,
+          "hullAreaSquareDegrees": 265.31495572021356,
+          "maxSampledBoundaryDistanceDegrees": 7.862399707597251,
+          "wholeCellMarginUpperBoundDegrees": 7.872239906155173,
+          "boundaryCorners": 28
+        }
+      ]
+    },
+    "areaReductionFraction": 0.5258914845707294,
+    "note": "These are complete rounds with the same root seed but different member selection. Matching region numbers do not identify the same old and new figure.",
+    "envelopeCleanupDevelopmentCheck": {
+      "beforeAwareBlockTargetsCorners": 820,
+      "afterAwareBlockTargetsCorners": 486,
+      "membersAndEclipticIntervalsUnchanged": true
+    }
+  },
+  "sample": {
+    "seeds": 60,
+    "styles": [
+      "rich",
+      "balanced"
+    ],
+    "draws": 120,
+    "areaSquareDegrees": {
+      "minimum": 10677.21108159793,
+      "maximum": 13176.151683290867,
+      "mean": 11929.243435795359
+    },
+    "sampledBoundaryDistanceDegrees": {
+      "minimum": 7.929414417058852,
+      "maximum": 7.994968150839403,
+      "mean": 7.973524138373793
+    },
+    "eclipticSpanDegrees": {
+      "minimum": 8.162531396616657,
+      "maximum": 37.86005022313819,
+      "mean": 24.000000000000004
+    },
+    "horizontalFigures": {
+      "minimum": 2,
+      "maximum": 9,
+      "mean": 4.316666666666666
+    },
+    "narrowRegionCounts": [
+      1,
+      0
+    ],
+    "millisecondsRich": {
+      "minimum": 283.13820799999667,
+      "maximum": 3016.250709,
+      "mean": 974.3362430333333
+    },
+    "timingScope": "Offline measured sample. Local rerolls and balanced variants can reuse the root-seed cache; these are not mobile performance guarantees."
+  },
+  "automated_tests": {
+    "passed": 37,
+    "failed": 0,
+    "log": "reports/zodiac_fitted_regions/tests.tap"
+  },
+  "browser": {
+    "passed": 11,
+    "checks": [
+      "new browser draws match the offline draw and identify their 8-degree envelope limit",
+      "old seeds create a separate fitted round while the exported draw-5 geometry remains intact",
+      "all 15 actual ecliptic crossings select their displayed regions",
+      "removed outer areas no longer select their former oversized regions",
+      "old locks, notes, favourites and geometry survive review and refresh",
+      "fitted local rerolls change figures while preserving boundaries, locks and exported notes",
+      "all 15 figures fit desktop and 390px screens at their common angular scale",
+      "old boundary cleanup still targets draw-4 and preserves members, notes, locks and favourite",
+      "the old refine link retains its boundary-only meaning",
+      "changed generator helpers load using fresh module URLs",
+      "no browser runtime errors"
+    ],
+    "errors": [],
+    "removedOuterClickSamples": [
+      {
+        "l": 0.31,
+        "b": -36.27,
+        "old": 0
+      },
+      {
+        "l": 0.31,
+        "b": 24.27,
+        "old": 1
+      },
+      {
+        "l": 28.31,
+        "b": -36.27,
+        "old": 2
+      },
+      {
+        "l": 44.31,
+        "b": 36.27,
+        "old": 3
+      },
+      {
+        "l": 88.31,
+        "b": -24.27,
+        "old": 4
+      },
+      {
+        "l": 100.31,
+        "b": 24.27,
+        "old": 5
+      },
+      {
+        "l": 120.31,
+        "b": -24.27,
+        "old": 6
+      },
+      {
+        "l": 148.31,
+        "b": 36.27,
+        "old": 7
+      },
+      {
+        "l": 192.31,
+        "b": -36.27,
+        "old": 8
+      },
+      {
+        "l": 192.31,
+        "b": 24.27,
+        "old": 9
+      },
+      {
+        "l": 212.31,
+        "b": -24.27,
+        "old": 10
+      },
+      {
+        "l": 256.31,
+        "b": 24.27,
+        "old": 11
+      },
+      {
+        "l": 280.31,
+        "b": -24.27,
+        "old": 12
+      },
+      {
+        "l": 308.31,
+        "b": -36.27,
+        "old": 13
+      },
+      {
+        "l": 308.31,
+        "b": 24.27,
+        "old": 14
+      }
+    ],
+    "before": [
+      {
+        "id": "Z01",
+        "degrees": 19.41490935059994
+      },
+      {
+        "id": "Z02",
+        "degrees": 21.20939587055568
+      },
+      {
+        "id": "Z03",
+        "degrees": 19.414929428894197
+      },
+      {
+        "id": "Z04",
+        "degrees": 19.55261977799813
+      },
+      {
+        "id": "Z05",
+        "degrees": 30.168669549607557
+      },
+      {
+        "id": "Z06",
+        "degrees": 18.282972744421556
+      },
+      {
+        "id": "Z07",
+        "degrees": 20.520154220899826
+      },
+      {
+        "id": "Z08",
+        "degrees": 37.78766267948208
+      },
+      {
+        "id": "Z09",
+        "degrees": 35.31218004788116
+      },
+      {
+        "id": "Z10",
+        "degrees": 6.954721873636203
+      },
+      {
+        "id": "Z11",
+        "degrees": 17.190525925328757
+      },
+      {
+        "id": "Z12",
+        "degrees": 28.300837807670604
+      },
+      {
+        "id": "Z13",
+        "degrees": 34.9273987565814
+      },
+      {
+        "id": "Z14",
+        "degrees": 22.717408053727013
+      },
+      {
+        "id": "Z15",
+        "degrees": 28.245613912715896
+      }
+    ],
+    "after": [
+      {
+        "id": "Z01",
+        "degrees": 23.56787614057879
+      },
+      {
+        "id": "Z02",
+        "degrees": 29.873715988780816
+      },
+      {
+        "id": "Z03",
+        "degrees": 24.59027182808319
+      },
+      {
+        "id": "Z04",
+        "degrees": 18.47020123966564
+      },
+      {
+        "id": "Z05",
+        "degrees": 25.553495044254532
+      },
+      {
+        "id": "Z06",
+        "degrees": 25.518400693109243
+      },
+      {
+        "id": "Z07",
+        "degrees": 26.398081197013454
+      },
+      {
+        "id": "Z08",
+        "degrees": 22.42414727219395
+      },
+      {
+        "id": "Z09",
+        "degrees": 25.805662720815718
+      },
+      {
+        "id": "Z10",
+        "degrees": 24.944866809563194
+      },
+      {
+        "id": "Z11",
+        "degrees": 12.705750072202477
+      },
+      {
+        "id": "Z12",
+        "degrees": 24.28428339376103
+      },
+      {
+        "id": "Z13",
+        "degrees": 24.137664261992597
+      },
+      {
+        "id": "Z14",
+        "degrees": 18.178693244112537
+      },
+      {
+        "id": "Z15",
+        "degrees": 33.54689009387283
+      }
+    ]
+  },
+  "preserved_files_sha256": {
+    "output/output_20260915_nebula_03/sky_view_20260915_nebula_03.json": "42508bc926cf9cffd2928341224d63cf53234099b44ed8ba6eeebcc77bdf73f8",
+    "design/zodiac_candidates_v1.json": "07e79a209f40517171995ce7cecc0e4a4d0b73d2d862eaf651245b9fbfbb5ad7",
+    "design/zodiac_draw_example.json": "c664d8b27cf142d141ec73c459639d0ef0459bbf63d18d039c94bf59f88411c3",
+    "design/zodiac_draw_ordered_example.json": "7527d4618c550bcab3a394a2ebaf392757b62db00747fa291d4b552b7e97d858",
+    "design/zodiac_draw_free_example.json": "2b565c6e1e2241b614879a03900ef4a715036181002a6caa67cd23e6f1ba3b89",
+    "design/zodiac_draw_clean_example.json": "b46171264a4cc4d00f633348387bb2efe52c46c2fc2c3712d1842aef3644d2c2",
+    "design/zodiac_draw_ecliptic_example.json": "88a04325668b2575e6d297d3c81e515d2c136ff97cb5c138bda472eb3ee82872"
+  },
+  "historical_export_reproduction": "All five saved draw-1..5 results reproduce byte-for-byte through the current facade.",
+  "scope": "Independent workbench only. Existing source catalogue and formal V1/V2 pages remain unchanged. Prior recipes, locks, notes and favourites are retained. Boundary-only refine still means draw-3 to draw-4."
+}
