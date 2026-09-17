@@ -1,0 +1,1276 @@
+{
+  "date": "2026-09-17",
+  "status": "passed",
+  "method": "regional-figure-sampling-2",
+  "scope": "仅候选窗口本区重新生成的选星、连线与骨架；整轮 draw-9、种子阶段、区域边界、其他星座、旧收藏及正式 V1/V2 保持现状。",
+  "implementation": [
+    "web/constellations/regional_figures.mjs",
+    "web/constellations/regional_graph.mjs"
+  ],
+  "documentation": "design/zodiac_figure_morphology.md",
+  "fixedComparison": {
+    "fixture": "design/zodiac_draw_sampling_example.json",
+    "baselineCommit": "498b052cb3de66ce9f13b9439b5bf0067553378b",
+    "seedPattern": "morphology-0 ... morphology-31",
+    "regions": 15,
+    "styles": [
+      "balanced",
+      "rich"
+    ],
+    "samplesPerRegionAndStyle": 32,
+    "samplesPerMethod": 960,
+    "baselineMethod": "regional-figure-sampling-1",
+    "currentMethod": "regional-figure-sampling-2",
+    "baselineHashes": {
+      "design/zodiac_draw_sampling_example.json": "44de8a87804a1df6faf4ffa26676c3ddfe011e131b5dae2af8f4d835a28d2147",
+      "output/output_20260915_nebula_03/sky_view_20260915_nebula_03.json": "42508bc926cf9cffd2928341224d63cf53234099b44ed8ba6eeebcc77bdf73f8",
+      "web/constellations/regional_figures.mjs": "6873f204a9e234197a08695254f6c0ec6155b8099edfc662808da766872e4b9b"
+    },
+    "currentHashes": {
+      "design/zodiac_draw_sampling_example.json": "44de8a87804a1df6faf4ffa26676c3ddfe011e131b5dae2af8f4d835a28d2147",
+      "output/output_20260915_nebula_03/sky_view_20260915_nebula_03.json": "42508bc926cf9cffd2928341224d63cf53234099b44ed8ba6eeebcc77bdf73f8",
+      "web/constellations/regional_figures.mjs": "4bc808b60226914634302c4854967a21b05b1ad1a9f076d1192474f7f2cfd47c",
+      "web/constellations/regional_graph.mjs": "28a10b4d26f04b6e382e06f9cf806fe5c8c6b97ac900ab41807ef58924aed223"
+    },
+    "baselineSourceCaveat": "旧局部采样器从指定提交读取；公共几何使用本次工作区版本，没有因本次任务而改动。",
+    "checks": {
+      "importantStarsPreserved": true,
+      "membersAndArcsContained": true,
+      "inputsUnchanged": true
+    },
+    "metrics": {
+      "topology": "[连通分量数, E-V+C, 度一端点数, 排序后的度数至少为三的节点度数]；忽略星 ID、度二节点数、曲率和朝向，非精确图同构。",
+      "diversityAggregation": "每个区域和复杂度组合独立统计32次；30组等权平均。",
+      "jaccard": "可选成员排除必选亮星；无向边按规范化 ID 对比较；每组所有样本对取平均，值越高集合差异越大。",
+      "meanEdgeDegrees": "先计算每幅完整图的平均边长，再对960幅图取平均。",
+      "timing": "单次本机运行，毫秒；未在隔离环境中做重复性能基准。"
+    },
+    "before": {
+      "samples": 960,
+      "groups": [
+        {
+          "index": 0,
+          "style": "balanced",
+          "samples": 32,
+          "candidateCount": 18,
+          "requiredCount": 5,
+          "uniqueMembers": 32,
+          "uniqueTopologies": 11,
+          "uniqueCoreTopologies": 3,
+          "optionalMemberDistance": 0.7884384600614445,
+          "edgeDistance": 0.7869721028098734
+        },
+        {
+          "index": 1,
+          "style": "balanced",
+          "samples": 32,
+          "candidateCount": 17,
+          "requiredCount": 3,
+          "uniqueMembers": 32,
+          "uniqueTopologies": 12,
+          "uniqueCoreTopologies": 4,
+          "optionalMemberDistance": 0.6993474547405993,
+          "edgeDistance": 0.8629559165804238
+        },
+        {
+          "index": 2,
+          "style": "balanced",
+          "samples": 32,
+          "candidateCount": 18,
+          "requiredCount": 3,
+          "uniqueMembers": 32,
+          "uniqueTopologies": 13,
+          "uniqueCoreTopologies": 5,
+          "optionalMemberDistance": 0.7028903276383109,
+          "edgeDistance": 0.8424734475825092
+        },
+        {
+          "index": 3,
+          "style": "balanced",
+          "samples": 32,
+          "candidateCount": 20,
+          "requiredCount": 4,
+          "uniqueMembers": 32,
+          "uniqueTopologies": 11,
+          "uniqueCoreTopologies": 4,
+          "optionalMemberDistance": 0.792289447783399,
+          "edgeDistance": 0.8861643816792757
+        },
+        {
+          "index": 4,
+          "style": "balanced",
+          "samples": 32,
+          "candidateCount": 15,
+          "requiredCount": 3,
+          "uniqueMembers": 32,
+          "uniqueTopologies": 11,
+          "uniqueCoreTopologies": 3,
+          "optionalMemberDistance": 0.6303954725829715,
+          "edgeDistance": 0.7955847511420574
+        },
+        {
+          "index": 5,
+          "style": "balanced",
+          "samples": 32,
+          "candidateCount": 15,
+          "requiredCount": 3,
+          "uniqueMembers": 32,
+          "uniqueTopologies": 11,
+          "uniqueCoreTopologies": 4,
+          "optionalMemberDistance": 0.6433903406181618,
+          "edgeDistance": 0.7937628912534977
+        },
+        {
+          "index": 6,
+          "style": "balanced",
+          "samples": 32,
+          "candidateCount": 15,
+          "requiredCount": 3,
+          "uniqueMembers": 32,
+          "uniqueTopologies": 17,
+          "uniqueCoreTopologies": 7,
+          "optionalMemberDistance": 0.6520988252339043,
+          "edgeDistance": 0.7701323751030232
+        },
+        {
+          "index": 7,
+          "style": "balanced",
+          "samples": 32,
+          "candidateCount": 13,
+          "requiredCount": 3,
+          "uniqueMembers": 32,
+          "uniqueTopologies": 15,
+          "uniqueCoreTopologies": 6,
+          "optionalMemberDistance": 0.5415898617511509,
+          "edgeDistance": 0.7478977239487796
+        },
+        {
+          "index": 8,
+          "style": "balanced",
+          "samples": 32,
+          "candidateCount": 15,
+          "requiredCount": 3,
+          "uniqueMembers": 32,
+          "uniqueTopologies": 9,
+          "uniqueCoreTopologies": 3,
+          "optionalMemberDistance": 0.6441783910533897,
+          "edgeDistance": 0.8018087598793626
+        },
+        {
+          "index": 9,
+          "style": "balanced",
+          "samples": 32,
+          "candidateCount": 20,
+          "requiredCount": 4,
+          "uniqueMembers": 31,
+          "uniqueTopologies": 11,
+          "uniqueCoreTopologies": 4,
+          "optionalMemberDistance": 0.7902621404133495,
+          "edgeDistance": 0.8517329999375219
+        },
+        {
+          "index": 10,
+          "style": "balanced",
+          "samples": 32,
+          "candidateCount": 19,
+          "requiredCount": 3,
+          "uniqueMembers": 32,
+          "uniqueTopologies": 11,
+          "uniqueCoreTopologies": 3,
+          "optionalMemberDistance": 0.7553599961866089,
+          "edgeDistance": 0.8737190056692673
+        },
+        {
+          "index": 11,
+          "style": "balanced",
+          "samples": 32,
+          "candidateCount": 28,
+          "requiredCount": 3,
+          "uniqueMembers": 32,
+          "uniqueTopologies": 10,
+          "uniqueCoreTopologies": 3,
+          "optionalMemberDistance": 0.8540249457084144,
+          "edgeDistance": 0.947686880456312
+        },
+        {
+          "index": 12,
+          "style": "balanced",
+          "samples": 32,
+          "candidateCount": 18,
+          "requiredCount": 3,
+          "uniqueMembers": 32,
+          "uniqueTopologies": 10,
+          "uniqueCoreTopologies": 5,
+          "optionalMemberDistance": 0.7361499723394888,
+          "edgeDistance": 0.9001567053115669
+        },
+        {
+          "index": 13,
+          "style": "balanced",
+          "samples": 32,
+          "candidateCount": 20,
+          "requiredCount": 4,
+          "uniqueMembers": 32,
+          "uniqueTopologies": 14,
+          "uniqueCoreTopologies": 5,
+          "optionalMemberDistance": 0.804241289624354,
+          "edgeDistance": 0.835972797719012
+        },
+        {
+          "index": 14,
+          "style": "balanced",
+          "samples": 32,
+          "candidateCount": 14,
+          "requiredCount": 4,
+          "uniqueMembers": 32,
+          "uniqueTopologies": 11,
+          "uniqueCoreTopologies": 3,
+          "optionalMemberDistance": 0.6363335253456218,
+          "edgeDistance": 0.8179325081516299
+        },
+        {
+          "index": 0,
+          "style": "rich",
+          "samples": 32,
+          "candidateCount": 18,
+          "requiredCount": 5,
+          "uniqueMembers": 32,
+          "uniqueTopologies": 20,
+          "uniqueCoreTopologies": 4,
+          "optionalMemberDistance": 0.6201350117176724,
+          "edgeDistance": 0.785633028783802
+        },
+        {
+          "index": 1,
+          "style": "rich",
+          "samples": 32,
+          "candidateCount": 17,
+          "requiredCount": 3,
+          "uniqueMembers": 32,
+          "uniqueTopologies": 21,
+          "uniqueCoreTopologies": 3,
+          "optionalMemberDistance": 0.5172742356210102,
+          "edgeDistance": 0.7978566927014855
+        },
+        {
+          "index": 2,
+          "style": "rich",
+          "samples": 32,
+          "candidateCount": 18,
+          "requiredCount": 3,
+          "uniqueMembers": 32,
+          "uniqueTopologies": 20,
+          "uniqueCoreTopologies": 4,
+          "optionalMemberDistance": 0.5483062412497894,
+          "edgeDistance": 0.8134138056496879
+        },
+        {
+          "index": 3,
+          "style": "rich",
+          "samples": 32,
+          "candidateCount": 20,
+          "requiredCount": 4,
+          "uniqueMembers": 32,
+          "uniqueTopologies": 19,
+          "uniqueCoreTopologies": 3,
+          "optionalMemberDistance": 0.6486512843115657,
+          "edgeDistance": 0.8558253987286255
+        },
+        {
+          "index": 4,
+          "style": "rich",
+          "samples": 32,
+          "candidateCount": 15,
+          "requiredCount": 3,
+          "uniqueMembers": 29,
+          "uniqueTopologies": 18,
+          "uniqueCoreTopologies": 4,
+          "optionalMemberDistance": 0.3909314923427831,
+          "edgeDistance": 0.7243416935264325
+        },
+        {
+          "index": 5,
+          "style": "rich",
+          "samples": 32,
+          "candidateCount": 15,
+          "requiredCount": 3,
+          "uniqueMembers": 28,
+          "uniqueTopologies": 16,
+          "uniqueCoreTopologies": 3,
+          "optionalMemberDistance": 0.38731671554252267,
+          "edgeDistance": 0.6886028042422011
+        },
+        {
+          "index": 6,
+          "style": "rich",
+          "samples": 32,
+          "candidateCount": 15,
+          "requiredCount": 3,
+          "uniqueMembers": 30,
+          "uniqueTopologies": 22,
+          "uniqueCoreTopologies": 4,
+          "optionalMemberDistance": 0.39518878299120314,
+          "edgeDistance": 0.666649421760354
+        },
+        {
+          "index": 7,
+          "style": "rich",
+          "samples": 32,
+          "candidateCount": 13,
+          "requiredCount": 3,
+          "uniqueMembers": 18,
+          "uniqueTopologies": 20,
+          "uniqueCoreTopologies": 2,
+          "optionalMemberDistance": 0.22208781362007143,
+          "edgeDistance": 0.5926989914810428
+        },
+        {
+          "index": 8,
+          "style": "rich",
+          "samples": 32,
+          "candidateCount": 15,
+          "requiredCount": 3,
+          "uniqueMembers": 27,
+          "uniqueTopologies": 21,
+          "uniqueCoreTopologies": 4,
+          "optionalMemberDistance": 0.38259714076246415,
+          "edgeDistance": 0.6806043822121327
+        },
+        {
+          "index": 9,
+          "style": "rich",
+          "samples": 32,
+          "candidateCount": 20,
+          "requiredCount": 4,
+          "uniqueMembers": 32,
+          "uniqueTopologies": 18,
+          "uniqueCoreTopologies": 2,
+          "optionalMemberDistance": 0.6466804113225479,
+          "edgeDistance": 0.8317776700176407
+        },
+        {
+          "index": 10,
+          "style": "rich",
+          "samples": 32,
+          "candidateCount": 19,
+          "requiredCount": 3,
+          "uniqueMembers": 32,
+          "uniqueTopologies": 18,
+          "uniqueCoreTopologies": 2,
+          "optionalMemberDistance": 0.5992285772023673,
+          "edgeDistance": 0.8143240853556605
+        },
+        {
+          "index": 11,
+          "style": "rich",
+          "samples": 32,
+          "candidateCount": 28,
+          "requiredCount": 3,
+          "uniqueMembers": 32,
+          "uniqueTopologies": 19,
+          "uniqueCoreTopologies": 2,
+          "optionalMemberDistance": 0.7763052703480153,
+          "edgeDistance": 0.9336414740654673
+        },
+        {
+          "index": 12,
+          "style": "rich",
+          "samples": 32,
+          "candidateCount": 18,
+          "requiredCount": 3,
+          "uniqueMembers": 32,
+          "uniqueTopologies": 16,
+          "uniqueCoreTopologies": 2,
+          "optionalMemberDistance": 0.5594331407839469,
+          "edgeDistance": 0.8228928195958001
+        },
+        {
+          "index": 13,
+          "style": "rich",
+          "samples": 32,
+          "candidateCount": 20,
+          "requiredCount": 4,
+          "uniqueMembers": 32,
+          "uniqueTopologies": 21,
+          "uniqueCoreTopologies": 4,
+          "optionalMemberDistance": 0.6626953383757814,
+          "edgeDistance": 0.8118071262261723
+        },
+        {
+          "index": 14,
+          "style": "rich",
+          "samples": 32,
+          "candidateCount": 14,
+          "requiredCount": 4,
+          "uniqueMembers": 24,
+          "uniqueTopologies": 21,
+          "uniqueCoreTopologies": 2,
+          "optionalMemberDistance": 0.3377344150025607,
+          "edgeDistance": 0.7142935430470124
+        }
+      ],
+      "meanUniqueTopologies": 15.566666666666666,
+      "meanUniqueCoreTopologies": 3.566666666666667,
+      "meanOptionalMemberDistance": 0.6121852107425156,
+      "meanEdgeDistance": 0.8016438728205877,
+      "meanLoops": 1.2197916666666666,
+      "meanCoreLoops": 0,
+      "meanDiameterFraction": 0.6422969969844973,
+      "meanMembers": 10.611458333333333,
+      "disconnected": 36,
+      "isolates": 21,
+      "meanEdgeDegrees": 7.490477836726719,
+      "maxEdgeDegrees": 38.95918162162552,
+      "milliseconds": {
+        "median": 3.8262500000000728,
+        "p95": 6.702666999999565,
+        "max": 14.372667000000007
+      }
+    },
+    "after": {
+      "samples": 960,
+      "groups": [
+        {
+          "index": 0,
+          "style": "balanced",
+          "samples": 32,
+          "candidateCount": 18,
+          "requiredCount": 5,
+          "uniqueMembers": 27,
+          "uniqueTopologies": 12,
+          "uniqueCoreTopologies": 9,
+          "optionalMemberDistance": 0.8671121497230377,
+          "edgeDistance": 0.7146604180649762
+        },
+        {
+          "index": 1,
+          "style": "balanced",
+          "samples": 32,
+          "candidateCount": 17,
+          "requiredCount": 3,
+          "uniqueMembers": 32,
+          "uniqueTopologies": 11,
+          "uniqueCoreTopologies": 9,
+          "optionalMemberDistance": 0.7597047665596054,
+          "edgeDistance": 0.9017191311506363
+        },
+        {
+          "index": 2,
+          "style": "balanced",
+          "samples": 32,
+          "candidateCount": 18,
+          "requiredCount": 3,
+          "uniqueMembers": 32,
+          "uniqueTopologies": 14,
+          "uniqueCoreTopologies": 11,
+          "optionalMemberDistance": 0.761161833238446,
+          "edgeDistance": 0.8750629854508886
+        },
+        {
+          "index": 3,
+          "style": "balanced",
+          "samples": 32,
+          "candidateCount": 20,
+          "requiredCount": 4,
+          "uniqueMembers": 29,
+          "uniqueTopologies": 12,
+          "uniqueCoreTopologies": 10,
+          "optionalMemberDistance": 0.8340581797235024,
+          "edgeDistance": 0.8644197135174491
+        },
+        {
+          "index": 4,
+          "style": "balanced",
+          "samples": 32,
+          "candidateCount": 15,
+          "requiredCount": 3,
+          "uniqueMembers": 32,
+          "uniqueTopologies": 10,
+          "uniqueCoreTopologies": 10,
+          "optionalMemberDistance": 0.7187787291113914,
+          "edgeDistance": 0.8107330907455592
+        },
+        {
+          "index": 5,
+          "style": "balanced",
+          "samples": 32,
+          "candidateCount": 15,
+          "requiredCount": 3,
+          "uniqueMembers": 32,
+          "uniqueTopologies": 11,
+          "uniqueCoreTopologies": 8,
+          "optionalMemberDistance": 0.6665795338174366,
+          "edgeDistance": 0.8397188703456183
+        },
+        {
+          "index": 6,
+          "style": "balanced",
+          "samples": 32,
+          "candidateCount": 15,
+          "requiredCount": 3,
+          "uniqueMembers": 30,
+          "uniqueTopologies": 14,
+          "uniqueCoreTopologies": 9,
+          "optionalMemberDistance": 0.676023047293208,
+          "edgeDistance": 0.7703674536306963
+        },
+        {
+          "index": 7,
+          "style": "balanced",
+          "samples": 32,
+          "candidateCount": 13,
+          "requiredCount": 3,
+          "uniqueMembers": 32,
+          "uniqueTopologies": 13,
+          "uniqueCoreTopologies": 8,
+          "optionalMemberDistance": 0.6864567332309275,
+          "edgeDistance": 0.7764873640994842
+        },
+        {
+          "index": 8,
+          "style": "balanced",
+          "samples": 32,
+          "candidateCount": 15,
+          "requiredCount": 3,
+          "uniqueMembers": 32,
+          "uniqueTopologies": 12,
+          "uniqueCoreTopologies": 9,
+          "optionalMemberDistance": 0.7090021761392733,
+          "edgeDistance": 0.81611927632398
+        },
+        {
+          "index": 9,
+          "style": "balanced",
+          "samples": 32,
+          "candidateCount": 20,
+          "requiredCount": 4,
+          "uniqueMembers": 32,
+          "uniqueTopologies": 10,
+          "uniqueCoreTopologies": 9,
+          "optionalMemberDistance": 0.8551127635805051,
+          "edgeDistance": 0.8309543321911625
+        },
+        {
+          "index": 10,
+          "style": "balanced",
+          "samples": 32,
+          "candidateCount": 19,
+          "requiredCount": 3,
+          "uniqueMembers": 31,
+          "uniqueTopologies": 14,
+          "uniqueCoreTopologies": 11,
+          "optionalMemberDistance": 0.7738530342865024,
+          "edgeDistance": 0.8779670004619756
+        },
+        {
+          "index": 11,
+          "style": "balanced",
+          "samples": 32,
+          "candidateCount": 28,
+          "requiredCount": 3,
+          "uniqueMembers": 31,
+          "uniqueTopologies": 10,
+          "uniqueCoreTopologies": 8,
+          "optionalMemberDistance": 0.8796038023356568,
+          "edgeDistance": 0.9348950788456776
+        },
+        {
+          "index": 12,
+          "style": "balanced",
+          "samples": 32,
+          "candidateCount": 18,
+          "requiredCount": 3,
+          "uniqueMembers": 32,
+          "uniqueTopologies": 12,
+          "uniqueCoreTopologies": 9,
+          "optionalMemberDistance": 0.8056444619448666,
+          "edgeDistance": 0.919715999384852
+        },
+        {
+          "index": 13,
+          "style": "balanced",
+          "samples": 32,
+          "candidateCount": 20,
+          "requiredCount": 4,
+          "uniqueMembers": 31,
+          "uniqueTopologies": 13,
+          "uniqueCoreTopologies": 9,
+          "optionalMemberDistance": 0.8740104821254018,
+          "edgeDistance": 0.827236040649306
+        },
+        {
+          "index": 14,
+          "style": "balanced",
+          "samples": 32,
+          "candidateCount": 14,
+          "requiredCount": 4,
+          "uniqueMembers": 27,
+          "uniqueTopologies": 10,
+          "uniqueCoreTopologies": 9,
+          "optionalMemberDistance": 0.7672403033794167,
+          "edgeDistance": 0.7996602365937081
+        },
+        {
+          "index": 0,
+          "style": "rich",
+          "samples": 32,
+          "candidateCount": 18,
+          "requiredCount": 5,
+          "uniqueMembers": 32,
+          "uniqueTopologies": 17,
+          "uniqueCoreTopologies": 13,
+          "optionalMemberDistance": 0.6742053813122373,
+          "edgeDistance": 0.7667838585227413
+        },
+        {
+          "index": 1,
+          "style": "rich",
+          "samples": 32,
+          "candidateCount": 17,
+          "requiredCount": 3,
+          "uniqueMembers": 32,
+          "uniqueTopologies": 17,
+          "uniqueCoreTopologies": 10,
+          "optionalMemberDistance": 0.5817813626785399,
+          "edgeDistance": 0.8603366276689121
+        },
+        {
+          "index": 2,
+          "style": "rich",
+          "samples": 32,
+          "candidateCount": 18,
+          "requiredCount": 3,
+          "uniqueMembers": 32,
+          "uniqueTopologies": 19,
+          "uniqueCoreTopologies": 13,
+          "optionalMemberDistance": 0.5796485940135129,
+          "edgeDistance": 0.8549705967514396
+        },
+        {
+          "index": 3,
+          "style": "rich",
+          "samples": 32,
+          "candidateCount": 20,
+          "requiredCount": 4,
+          "uniqueMembers": 32,
+          "uniqueTopologies": 21,
+          "uniqueCoreTopologies": 17,
+          "optionalMemberDistance": 0.6976423106463422,
+          "edgeDistance": 0.8765178124294578
+        },
+        {
+          "index": 4,
+          "style": "rich",
+          "samples": 32,
+          "candidateCount": 15,
+          "requiredCount": 3,
+          "uniqueMembers": 31,
+          "uniqueTopologies": 17,
+          "uniqueCoreTopologies": 13,
+          "optionalMemberDistance": 0.5195617610436157,
+          "edgeDistance": 0.812391474625877
+        },
+        {
+          "index": 5,
+          "style": "rich",
+          "samples": 32,
+          "candidateCount": 15,
+          "requiredCount": 3,
+          "uniqueMembers": 24,
+          "uniqueTopologies": 14,
+          "uniqueCoreTopologies": 8,
+          "optionalMemberDistance": 0.39192006470232277,
+          "edgeDistance": 0.7359360045042349
+        },
+        {
+          "index": 6,
+          "style": "rich",
+          "samples": 32,
+          "candidateCount": 15,
+          "requiredCount": 3,
+          "uniqueMembers": 29,
+          "uniqueTopologies": 16,
+          "uniqueCoreTopologies": 10,
+          "optionalMemberDistance": 0.48110882732858556,
+          "edgeDistance": 0.7345582078553795
+        },
+        {
+          "index": 7,
+          "style": "rich",
+          "samples": 32,
+          "candidateCount": 13,
+          "requiredCount": 3,
+          "uniqueMembers": 25,
+          "uniqueTopologies": 19,
+          "uniqueCoreTopologies": 14,
+          "optionalMemberDistance": 0.43748959933435716,
+          "edgeDistance": 0.7412721136878955
+        },
+        {
+          "index": 8,
+          "style": "rich",
+          "samples": 32,
+          "candidateCount": 15,
+          "requiredCount": 3,
+          "uniqueMembers": 26,
+          "uniqueTopologies": 20,
+          "uniqueCoreTopologies": 11,
+          "optionalMemberDistance": 0.4598668860261602,
+          "edgeDistance": 0.7842551215641966
+        },
+        {
+          "index": 9,
+          "style": "rich",
+          "samples": 32,
+          "candidateCount": 20,
+          "requiredCount": 4,
+          "uniqueMembers": 32,
+          "uniqueTopologies": 15,
+          "uniqueCoreTopologies": 10,
+          "optionalMemberDistance": 0.7331588326548004,
+          "edgeDistance": 0.87580724050862
+        },
+        {
+          "index": 10,
+          "style": "rich",
+          "samples": 32,
+          "candidateCount": 19,
+          "requiredCount": 3,
+          "uniqueMembers": 32,
+          "uniqueTopologies": 20,
+          "uniqueCoreTopologies": 13,
+          "optionalMemberDistance": 0.6395806254677218,
+          "edgeDistance": 0.8473808161273307
+        },
+        {
+          "index": 11,
+          "style": "rich",
+          "samples": 32,
+          "candidateCount": 28,
+          "requiredCount": 3,
+          "uniqueMembers": 32,
+          "uniqueTopologies": 16,
+          "uniqueCoreTopologies": 13,
+          "optionalMemberDistance": 0.8118383094152104,
+          "edgeDistance": 0.9429844573661742
+        },
+        {
+          "index": 12,
+          "style": "rich",
+          "samples": 32,
+          "candidateCount": 18,
+          "requiredCount": 3,
+          "uniqueMembers": 32,
+          "uniqueTopologies": 14,
+          "uniqueCoreTopologies": 7,
+          "optionalMemberDistance": 0.6702725366031815,
+          "edgeDistance": 0.8919020844959334
+        },
+        {
+          "index": 13,
+          "style": "rich",
+          "samples": 32,
+          "candidateCount": 20,
+          "requiredCount": 4,
+          "uniqueMembers": 32,
+          "uniqueTopologies": 16,
+          "uniqueCoreTopologies": 12,
+          "optionalMemberDistance": 0.7096508386326928,
+          "edgeDistance": 0.8469147663071043
+        },
+        {
+          "index": 14,
+          "style": "rich",
+          "samples": 32,
+          "candidateCount": 14,
+          "requiredCount": 4,
+          "uniqueMembers": 30,
+          "uniqueTopologies": 16,
+          "uniqueCoreTopologies": 13,
+          "optionalMemberDistance": 0.540916218637993,
+          "edgeDistance": 0.7991237194132433
+        }
+      ],
+      "meanUniqueTopologies": 14.5,
+      "meanUniqueCoreTopologies": 10.5,
+      "meanOptionalMemberDistance": 0.6854328048328818,
+      "meanEdgeDistance": 0.8310283964428168,
+      "meanLoops": 0.7302083333333333,
+      "meanCoreLoops": 0.7302083333333333,
+      "meanDiameterFraction": 0.7458560160903912,
+      "meanMembers": 9.410416666666666,
+      "disconnected": 0,
+      "isolates": 0,
+      "meanEdgeDegrees": 8.504256041799202,
+      "maxEdgeDegrees": 35.7463343938393,
+      "milliseconds": {
+        "median": 7.9244999999991705,
+        "p95": 22.041583000000173,
+        "max": 54.72233300000153
+      }
+    },
+    "tradeoffs": [
+      "平均骨架结构种类从3.57升至10.50；完整图纯拓扑种类从15.57降至14.50，不是全部多样性指标增加。",
+      "选星与边集合差异增加，平均成员数减少；平均连线从7.49度增至8.50度，最长边降低。",
+      "960个新样本全部连通不构成任意边界可连通的保证。"
+    ],
+    "performanceOptimizationPreservedAll960Figures": true
+  },
+  "regression": {
+    "command": "node --test --test-concurrency=2 tests/test_constellation_morphology.mjs tests/test_constellation_regional_sampling.mjs tests/test_constellation_manual_figures.mjs tests/test_constellation_boundary_points.mjs tests/test_constellation_workflow.mjs tests/test_zodiac.mjs",
+    "tests": 40,
+    "passed": 40,
+    "failed": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "durationMilliseconds": 27114.336458,
+    "log": "reports/zodiac_morphology/verified-regression.tap",
+    "coverage": [
+      "十二颗全必选固定星位、24个种子：成员数与身份不变时至少八种结构，同时存在长链、多分叉和多环；骨架保环。",
+      "真实区域的独立亮星 oracle、完整弧归属、源数据与其他星座保持、手动边界内重生成、manual-3 重放。",
+      "独立密集大圆弧采样与球面交点检查，不仅调用生成器的合法性函数。",
+      "48颗必选星组成两个分离星团，覆盖超过32成员时的稀疏候选和跨团桥接；全部保留、连通、度数不超过四，连线合法。",
+      "必选亮星超过预算、反序输入确定性、稀疏及分片区域、无星、重合与对跖端点、邻座占用冲突。",
+      "手动连线、边界拐点、收藏与旧配方相关回归，以及 V1/V2 既有显示契约。"
+    ],
+    "limitation": "仅运行列出的六个测试文件；未把未运行的全仓测试记为通过。"
+  },
+  "browser": {
+    "interface": "Codex CUA in-app browser",
+    "url": "http://127.0.0.1:8765/web/constellations/?revision=regional-morphology-2",
+    "checked": [
+      "本区重新生成进入通过包围检查的草稿",
+      "撤销和重做恢复成员表",
+      "连续重生成改变候选",
+      "取消恢复进入编辑前的成员",
+      "确认后成为未收藏临时方案",
+      "切换亮星骨架显示",
+      "最终代码 reload 后再次重生成及取消恢复"
+    ],
+    "finalReloadObserved": {
+      "generatedMembers": 14,
+      "restoredMembers": 12,
+      "editorHiddenAfterCancel": true,
+      "consoleWarningsAndErrors": []
+    },
+    "locatorCorrection": "一次 getByLabel 定位连线方案失败；改为页面实际的 #variant 后通过。此为验收定位修正。",
+    "savedOrOverwrittenFavourites": false,
+    "limitation": "覆盖列出的桌面流程；没有本次新增移动布局、截图像素或用户感知实验结论。"
+  },
+  "largeRequiredSetPerformance": {
+    "comparison": "本次第二代算法加入缓存及大图稀疏候选前后，非第一代与第二代的比较。",
+    "generator": {
+      "n": [
+        50,
+        100,
+        200
+      ],
+      "id": "fixed-${i}",
+      "app_mag": "2+i/(n*2)",
+      "longitude": "32+8*cos(i*2.4)*sqrt(i/n)",
+      "latitude": "12+8*sin(i*2.4)*sqrt(i/n)",
+      "territories": "所有64800个格子归属0，15个空星座",
+      "seed": "many-bright",
+      "index": 0,
+      "style": "balanced"
+    },
+    "before": {
+      "origin": "独立只读子代理 morphology_audit 实测，以下毫秒数取约数",
+      "milliseconds": [
+        830,
+        5612,
+        38775
+      ],
+      "codeHashes": {
+        "design/zodiac_draw_sampling_example.json": "44de8a87804a1df6faf4ffa26676c3ddfe011e131b5dae2af8f4d835a28d2147",
+        "output/output_20260915_nebula_03/sky_view_20260915_nebula_03.json": "42508bc926cf9cffd2928341224d63cf53234099b44ed8ba6eeebcc77bdf73f8",
+        "web/constellations/regional_figures.mjs": "008d0178f2e0dfe280a63b68a774fb23cae0177acce272474f26d32a2965df36",
+        "web/constellations/regional_graph.mjs": "eb1190219d133dd82bd6418d7cff8052d72cdc260cccf15552c16faf85a7db43"
+      }
+    },
+    "after": {
+      "origin": "主代理在最终实现上单次实测",
+      "milliseconds": [
+        170.88,
+        537.47,
+        2498.014292
+      ],
+      "components": [
+        1,
+        1,
+        1
+      ],
+      "allRequiredMembersRetained": true
+    },
+    "approach": "一次调用内缓存相同成员序列的几何候选；超过32个成员改用四个亮度层的八近邻边并集及角距MST桥接，再执行全部原有几何限制。",
+    "limitation": "合成压力场景、非重复隔离基准；候选稀疏化及八次搜索均不保证找到所有可行连接。"
+  },
+  "visualReview": {
+    "paths": [
+      "reports/zodiac_morphology/comparison/Z01.png",
+      "reports/zodiac_morphology/comparison/Z06.png",
+      "reports/zodiac_morphology/comparison/Z11.png"
+    ],
+    "selection": "rich模式，指定区域0/5/10，morphology-0至3；前四种子直接绘图，未择优挑选。",
+    "rows": [
+      "旧完整",
+      "新完整",
+      "旧骨架",
+      "新骨架"
+    ],
+    "goldRings": "所有必选亮星",
+    "allThreeInspected": true,
+    "comparisonFiguresUnchangedAfterPerformanceOptimization": true
+  },
+  "sourceReferences": {
+    "groupingPaper": {
+      "url": "https://arxiv.org/html/2010.06108v3",
+      "authors": [
+        "Charles Kemp",
+        "Duane W. Hamacher",
+        "Daniel R. Little",
+        "Simon J. Cropper"
+      ],
+      "publicationYear": 2022,
+      "cultures": 27,
+      "boundary": "支持亮度、距离和局部背景对分组的作用，不直接给出组内连线；良好连续性未改善论文的分组模型。"
+    },
+    "stellarium": {
+      "modern": {
+        "source": "https://github.com/Stellarium/stellarium/blob/master/skycultures/modern/index.json",
+        "gitBlob": "09872ba40293423bd15e37706866cc4782178554",
+        "sha256": "1f2f5ffd6c9e25a7d0dcfdbf1f756e2db03dd3b8ed4ec016a2839b09f6b0fe1e",
+        "accessed": "2026-09-17",
+        "attribution": "Stellarium contributors; source data CC BY-SA 4.0; statistics computed from undirected consecutive line segments",
+        "constellations": {
+          "Lib": {
+            "vertices": 5,
+            "edges": 5,
+            "components": 1,
+            "independentCycles": 1,
+            "branches": 1,
+            "tips": 1,
+            "maximumDegree": 3
+          },
+          "Ari": {
+            "vertices": 4,
+            "edges": 3,
+            "components": 1,
+            "independentCycles": 0,
+            "branches": 0,
+            "tips": 2,
+            "maximumDegree": 2
+          },
+          "Cnc": {
+            "vertices": 6,
+            "edges": 5,
+            "components": 1,
+            "independentCycles": 0,
+            "branches": 2,
+            "tips": 4,
+            "maximumDegree": 3
+          },
+          "Cap": {
+            "vertices": 9,
+            "edges": 9,
+            "components": 1,
+            "independentCycles": 1,
+            "branches": 3,
+            "tips": 4,
+            "maximumDegree": 4
+          },
+          "Gem": {
+            "vertices": 17,
+            "edges": 16,
+            "components": 1,
+            "independentCycles": 0,
+            "branches": 4,
+            "tips": 8,
+            "maximumDegree": 4
+          },
+          "Leo": {
+            "vertices": 9,
+            "edges": 10,
+            "components": 1,
+            "independentCycles": 2,
+            "branches": 3,
+            "tips": 1,
+            "maximumDegree": 3
+          },
+          "Oph": {
+            "vertices": 7,
+            "edges": 7,
+            "components": 1,
+            "independentCycles": 1,
+            "branches": 1,
+            "tips": 1,
+            "maximumDegree": 3
+          },
+          "Psc": {
+            "vertices": 20,
+            "edges": 21,
+            "components": 1,
+            "independentCycles": 2,
+            "branches": 2,
+            "tips": 0,
+            "maximumDegree": 3
+          },
+          "Sgr": {
+            "vertices": 21,
+            "edges": 24,
+            "components": 1,
+            "independentCycles": 4,
+            "branches": 9,
+            "tips": 6,
+            "maximumDegree": 4
+          },
+          "Sco": {
+            "vertices": 13,
+            "edges": 12,
+            "components": 1,
+            "independentCycles": 0,
+            "branches": 1,
+            "tips": 4,
+            "maximumDegree": 4
+          },
+          "Tau": {
+            "vertices": 12,
+            "edges": 12,
+            "components": 1,
+            "independentCycles": 1,
+            "branches": 4,
+            "tips": 4,
+            "maximumDegree": 3
+          },
+          "Aqr": {
+            "vertices": 15,
+            "edges": 14,
+            "components": 1,
+            "independentCycles": 0,
+            "branches": 2,
+            "tips": 4,
+            "maximumDegree": 3
+          },
+          "Vir": {
+            "vertices": 12,
+            "edges": 12,
+            "components": 1,
+            "independentCycles": 1,
+            "branches": 4,
+            "tips": 4,
+            "maximumDegree": 3
+          }
+        }
+      },
+      "modern_rey": {
+        "source": "https://github.com/Stellarium/stellarium/blob/master/skycultures/modern_rey/index.json",
+        "gitBlob": "efcc89750d126970d0103a739ea5cd0e65e339af",
+        "sha256": "538a480671d587d46cb7761102b291bbe932cc7dac1966080e742aec907f86c0",
+        "accessed": "2026-09-17",
+        "attribution": "Stellarium contributors; source data CC BY-SA 4.0; statistics computed from undirected consecutive line segments",
+        "constellations": {
+          "Leo": {
+            "vertices": 16,
+            "edges": 18,
+            "components": 1,
+            "independentCycles": 3,
+            "branches": 6,
+            "tips": 5,
+            "maximumDegree": 5
+          },
+          "Tau": {
+            "vertices": 20,
+            "edges": 20,
+            "components": 1,
+            "independentCycles": 1,
+            "branches": 5,
+            "tips": 7,
+            "maximumDegree": 5
+          },
+          "Ari": {
+            "vertices": 10,
+            "edges": 12,
+            "components": 1,
+            "independentCycles": 3,
+            "branches": 5,
+            "tips": 2,
+            "maximumDegree": 4
+          },
+          "Gem": {
+            "vertices": 18,
+            "edges": 17,
+            "components": 1,
+            "independentCycles": 0,
+            "branches": 4,
+            "tips": 8,
+            "maximumDegree": 4
+          },
+          "Cnc": {
+            "vertices": 6,
+            "edges": 6,
+            "components": 1,
+            "independentCycles": 1,
+            "branches": 2,
+            "tips": 2,
+            "maximumDegree": 3
+          },
+          "Vir": {
+            "vertices": 15,
+            "edges": 17,
+            "components": 1,
+            "independentCycles": 3,
+            "branches": 6,
+            "tips": 3,
+            "maximumDegree": 4
+          },
+          "Lib": {
+            "vertices": 6,
+            "edges": 6,
+            "components": 1,
+            "independentCycles": 1,
+            "branches": 2,
+            "tips": 2,
+            "maximumDegree": 3
+          },
+          "Oph": {
+            "vertices": 20,
+            "edges": 21,
+            "components": 1,
+            "independentCycles": 2,
+            "branches": 4,
+            "tips": 4,
+            "maximumDegree": 4
+          },
+          "Sco": {
+            "vertices": 20,
+            "edges": 19,
+            "components": 1,
+            "independentCycles": 0,
+            "branches": 1,
+            "tips": 3,
+            "maximumDegree": 3
+          },
+          "Sgr": {
+            "vertices": 18,
+            "edges": 22,
+            "components": 1,
+            "independentCycles": 5,
+            "branches": 9,
+            "tips": 3,
+            "maximumDegree": 4
+          },
+          "Cap": {
+            "vertices": 13,
+            "edges": 14,
+            "components": 1,
+            "independentCycles": 2,
+            "branches": 5,
+            "tips": 4,
+            "maximumDegree": 4
+          },
+          "Aqr": {
+            "vertices": 21,
+            "edges": 23,
+            "components": 1,
+            "independentCycles": 3,
+            "branches": 4,
+            "tips": 4,
+            "maximumDegree": 5
+          },
+          "Psc": {
+            "vertices": 19,
+            "edges": 20,
+            "components": 1,
+            "independentCycles": 2,
+            "branches": 2,
+            "tips": 0,
+            "maximumDegree": 3
+          }
+        }
+      }
+    },
+    "textualMorphology": "十三座的 Constellation Guide 页面逐项链接在 design/zodiac_figure_morphology.md；形态描述是常见画法的项目总结，不宣称唯一权威轮廓。",
+    "templatesCopiedIntoGenerator": false
+  },
+  "preservation": {
+    "checkedCount": 40,
+    "unchangedCount": 40,
+    "changed": [],
+    "sha256": {
+      "web/constellations/boundary_geometry.mjs": "86932753bb5e92055f1ce07c6b69760b8e46b95eca61f4b5df26a80cd0b6006f",
+      "tests/test_constellation_boundary_points.mjs": "fc51ceada2d189a3c6fd7c08c30751393eb21143375dfcc4bce689428bae2d12",
+      "design/zodiac_draw_minimum_example.json": "0d88b82d035bab3518671932552cf6b7d3695a918209931de5650ec8098ae4ec",
+      "design/zodiac_draw_free_example.json": "2b565c6e1e2241b614879a03900ef4a715036181002a6caa67cd23e6f1ba3b89",
+      "design/zodiac_draw_clean_example.json": "b46171264a4cc4d00f633348387bb2efe52c46c2fc2c3712d1842aef3644d2c2",
+      "design/spin_validation.json": "a8db6b3e450b185e7bea1a6eb65afb2e558a3362168511db601863c16676cb95",
+      "design/zodiac_view_validation.json": "2e1a7b01343b082a9e6d782e5329a47047229e6af6995b438e163518b5167dc2",
+      "design/zodiac_workflow_validation.json": "07767e5268082d3d0b3885e6b4453f4844ef95c1b4ac23ccbdd334e309c7244e",
+      "design/zodiac_draw_manual_example.json": "2d0d2993abd893bb36ce335d85cfbd9f8c0006a9da23e005cee7bd29259cf9bb",
+      "design/zodiac_local_validation.json": "f89cc0af5bcd3e1d8cb9efeb8e6cd8b8d2f459cb2610b8593b6dfc017cf76e3a",
+      "design/zodiac_candidates_v1.json": "07e79a209f40517171995ce7cecc0e4a4d0b73d2d862eaf651245b9fbfbb5ad7",
+      "design/zodiac_draw_local_example.json": "50628276b41187253ec78dea32438e6c30c660fce07c947db33fc11c9273eee5",
+      "design/zodiac_boundary_points_validation.json": "23400d5354e46978e926a7412b4e8e6691da54ce2bf83f46dd15cc4ebbeb77a3",
+      "design/zodiac_candidates_validation.json": "2478aa804c3c4fd727b3719c96fc8214b9e6e5b943a3972ad86805d18a962778",
+      "design/zodiac_candidate_validation.json": "b0a816fdc878f8bdee2abf9e8331608a91d48fe664f5820771048517aa41d373",
+      "design/zodiac_minimum_validation.json": "e2813e7ae253f650f8c9654295f179f429bf6d7c56faa4fc5027204080550c14",
+      "design/zodiac_boundary_validation.json": "1a126ce6ef2847e3b2393cfc51553563df9f6e90143a4b3b790a4f0423ce13a1",
+      "design/zodiac_free_validation.json": "92431b0d9ce6c2f871abe5d9bc2d1d4cc1d8bc7948dac6dec7b244db8c8c42e7",
+      "design/zodiac_draw_ecliptic_example.json": "88a04325668b2575e6d297d3c81e515d2c136ff97cb5c138bda472eb3ee82872",
+      "design/zodiac_draw_sampling_example.json": "44de8a87804a1df6faf4ffa26676c3ddfe011e131b5dae2af8f4d835a28d2147",
+      "design/zodiac_draw_example.json": "c664d8b27cf142d141ec73c459639d0ef0459bbf63d18d039c94bf59f88411c3",
+      "design/zodiac_regions_validation.json": "496d1704fda5d3a92b754085669d4fd4d0badca84ea3c36d0430ed69b20cb7c6",
+      "design/zodiac_regional_validation.json": "1265358d37af0b08753333ca865aaae2846340ff4c3536a9c6f26346a89b87c0",
+      "design/zodiac_draw_ordered_example.json": "7527d4618c550bcab3a394a2ebaf392757b62db00747fa291d4b552b7e97d858",
+      "design/zodiac_ecliptic_validation.json": "7fb4be1702a8f5d75f0d1d308c542c24c3fd82ba72377bd2eae75fa6fe6241d7",
+      "design/spin_epoch_verification.json": "85fc2df65444a6cfcce5fb4c3e4438f0b88762572d5d9d5499a6ef96e217222d",
+      "design/zodiac_fitted_validation.json": "b5887b1387fc2d0a83ea261f26ad28cd1443c52ce017e34cc270edfea1af99ce",
+      "design/zodiac_draw_fitted_example.json": "4c12b7fbc44778195b948428aeb6531199fe22a6fb2e5357276ab06066ba07a0",
+      "design/zodiac_manual_validation.json": "587c11f4acabf2d67034b4e54ccde3705247fec36e6ba6d89db12846c5415b31",
+      "web/constellations/generator_legacy.mjs": "a769dc777e34866b3c9fa5519db4e659d7ef593110b6c56da481a384a6adaa6d",
+      "web/constellations/generator_free.mjs": "0a0ae0424f8df06abfce5dddcead564c84baef4ee6626e6ebda2091efcf3721a",
+      "web/constellations/generator.mjs": "ce7cc81b4015e3d857f2fd60cf03f0e967243680591c2719f299b324c136c3cd",
+      "web/constellations/generator_fitted.mjs": "fbd34d053bb55805c631a8cdc89f7e18b9d0887b3d71e1e062e5477aaf81e142",
+      "web/constellations/generator_worker.mjs": "84b569abfbcdcd477e9df8ec8f4d6f01d5fb80105b7d2e990c46bbac0ccc86e3",
+      "web/constellations/generator_ecliptic.mjs": "6654d4f2a56a17c26b30f954bced3ef469ed2d9be4398b9fd2cb481c728881e1",
+      "web/constellations/generator_ordered.mjs": "bf91bc486c2941a9ccde0842c5542ff41854922061bad7df9d68dc2defe94f59",
+      "web/constellations/generator_sampling.mjs": "2e3187e9fffc602d4e77dc9e7dffe4fbe0087ec8e664a93a1e3928aab8f48459",
+      "web/constellations/generator_balanced.mjs": "3fbd280fe68feeaf6223fa88c64c421b539b11916bf12b0394e034a39fac4d61",
+      "web/constellations/generator_clean.mjs": "f9d0258f21acf457cdf3acb8b53168b45d0973cb9576cc82a77db88b786314ef",
+      "web/constellations/generator_minimum.mjs": "4febadd00218b03ec794e09093c4f9b93ab81ff22f0eff646984e66627c36b7a"
+    },
+    "note": "对比任务开始时40个历史配方、验证记录、生成器及既有边界编辑文件指纹；不以可能由并行任务改变的Git HEAD代替文件核验。源星表另由新旧审计报告SHA-256核对。"
+  },
+  "verificationFileHashes": {
+    "tests/test_constellation_morphology.mjs": "2f735740265d8e50e6ba8fcaa6f3944c3637f9d2b4fa2e9357c1d0e6a1c2a2f0",
+    "tests/test_constellation_regional_sampling.mjs": "4c15020edc4bbd04afd1cddcaf9c330b73b1fa6301a63c97c1c1dcb496a6199e",
+    "tests/test_constellation_manual_figures.mjs": "a308296547e24bcbc427d8561c31111b30ae1627f27e7ce0d564a9f559f2e89a",
+    "tests/test_constellation_boundary_points.mjs": "fc51ceada2d189a3c6fd7c08c30751393eb21143375dfcc4bce689428bae2d12",
+    "tests/test_constellation_workflow.mjs": "25dea2239065f84afc1bcef92e6559d9bb9f629df0fb957da8ab0042c19070d7",
+    "tests/test_zodiac.mjs": "63b19c598a43a09566dd3d99530b9f4de12a5bae9b8c4f256986e48a9e1bdedd",
+    "src/audit_regional_figures.mjs": "2977a6b080e8b5165ae9e794924567fb04f6a039c9d5dacea8ffb7e828bf506b",
+    "src/plot_regional_figures.py": "0ab1f03db8fd9bcfc4e005a3ca116436ae33915d1b8867903479f08a5104df26",
+    "web/constellations/geometry.mjs": "522f8c1f1cc816230fc0c24ff50a2ab4b2db6f9f24080a2d7dc0bfc818741e85",
+    "web/constellations/figure.mjs": "48de55792038f19a00509470cd75b859444fe1080ee619b47d86810adb941c08",
+    "web/constellations/manual_figures.mjs": "657d5d32b127c4f28255b51f8c88c3fbf653e8dbf9c5cb79793fe556ea0c5620",
+    "web/constellations/territories.mjs": "f578463c2695f605abc60036a56194d077a86b751ab28e92c1f31c8266fdc1c9",
+    "web/constellations/bright_figures.mjs": "aa4d825623fb71bd316b1d4d08609273b4376d72dc57da8647bb28b3a53399c0"
+  },
+  "artifacts": {
+    "sha256": {
+      "reports/zodiac_morphology/before-32.json": "73f9b747f9129c967d4923b18d253e377481488cf4967b4df35bf9a8ac99ba0e",
+      "reports/zodiac_morphology/after-verified.json": "2f7945668eac3244fa4c920bce78cfe29a5cd99686792119c2f863be61fae050",
+      "reports/zodiac_morphology/references.json": "02b8f8946a7bca4e5a366335bab9731a046f5ebcbe91b350377cbdb905dead30",
+      "reports/zodiac_morphology/verified-regression.tap": "df0fc1b7d24b76e82edc7f698d15925f260f7d2d43057111c817f92001043f62",
+      "reports/zodiac_morphology/comparison/Z01.png": "65e01f12461335416786cd1316f4ee0167bc30de447ef86f96d546e3f90552c0",
+      "reports/zodiac_morphology/comparison/Z06.png": "cd290210c7e20ed86bc35f9a6dabfa0e851ca9c344bffa4bc8ad32bd06509a6f",
+      "reports/zodiac_morphology/comparison/Z11.png": "df8d27c4ec088549f0af8841fb9e42c22ea00abe1a72de2332bfad142f8c433a"
+    },
+    "storage": "reports/为本地忽略目录；本文件保留可纳入版本控制的指标、出处、检查结果和指纹。原始样本与对照图可由src审计、绘图脚本重新生成。"
+  },
+  "limitations": [
+    "启发式文化绘图工具；不保证图形符合用户的文化联想或肉眼识别，不声称科学最优。",
+    "论文借鉴用于局部显著性和多尺度联系；五种结构倾向不是学习得到的十二星座模板。",
+    "成员目标变化会贡献部分集合差异；另有固定成员测试独立检查连线变化。",
+    "软件几何检查没有覆盖地表大气、星云、双月光及实际观测条件。"
+  ]
+}

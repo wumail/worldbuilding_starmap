@@ -3,10 +3,10 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import {fileURLToPath} from 'node:url';
 import {catalogueStars,SOURCE} from './build_zodiac_candidates.mjs';
-import {generateDraw,prepareDraw,DEFAULT_SEED} from '../web/constellations/generator.mjs';
+import {generateDraw,prepareDraw,DEFAULT_SEED,DEFAULT_STYLE} from '../web/constellations/generator.mjs';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
-const args=process.argv.slice(2),options={seed:DEFAULT_SEED,style:'rich'};
+const args=process.argv.slice(2),options={seed:DEFAULT_SEED,style:DEFAULT_STYLE};
 for(let i=0;i<args.length;i++){
     if(args[i]==='--sampling-half-width'&&args[i+1]){options.samplingHalfWidthDegrees=Number(args[++i]);continue;}
     if(!['--seed','--style','--out'].includes(args[i])||!args[i+1])throw Error('用法：node src/draw_zodiac.mjs --seed terrax-001 --style rich --sampling-half-width 40 --out output/zodiac_draws/terrax-001.json');

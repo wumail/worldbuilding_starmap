@@ -1,6 +1,6 @@
 # 黄道采样滑块与候选窗口编辑
 
-本文保留 **draw-9 + manual-2** 的历史方法与验收。当前自动抽卡仍为 draw-9；新的手动编辑已升级为 manual-3，支持增删成员和连线，并解除自动选星与边界限制，见 [自由星座编辑](zodiac_manual_editing.md)。旧版本继续按原配方恢复。
+本文保留 **draw-9 + manual-2** 的历史方法与验收。当前自动抽卡为 [draw-10 清晰星形](zodiac_figure_clarity.md)，默认标准；手动编辑使用 manual-3，支持增删成员和连线，并解除自动选星与边界限制，见 [自由星座编辑](zodiac_manual_editing.md)。旧版本继续按原配方恢复。
 
 [打开工作台](../web/constellations/?seed=terrax-1ptws5s&sampling=40&revision=candidate-editor-band-1) · [可导入示例](zodiac_draw_sampling_example.json) · [验证记录](zodiac_candidate_validation.json) · [亮星与局部优先算法](zodiac_local_first.md)
 

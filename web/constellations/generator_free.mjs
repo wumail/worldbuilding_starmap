@@ -93,11 +93,12 @@ export function validateDraw(data,stars){
 }
 
 // Shared geometry contract; historical wrappers retain their original limits.
-export function validateGeometry(data,stars,{recipe,rules=RULES,adaptiveCore=false,maximumMembers=null,allowDisconnected=false}={}){
+export function validateGeometry(data,stars,{recipe,rules=RULES,adaptiveCore=false,minimumMembers=null,maximumMembers=null,
+    minimumCoreMembers=7,allowDisconnected=false,arcCoverage=arcCells}={}){
     const fail=m=>{throw Error(`候选检查未通过：${m}`);};
     if(!Array.isArray(data.regions)||data.regions.length!==15)fail('区域数量');
     let cells;try{cells=unpackGrid(data.territories,true);}catch(e){fail(e.message);}
-    const byId=new Map(stars.map(s=>[s.id,s])),used=new Set(),minimum=recipe.style==='rich'?10:8,maximum=maximumMembers??(recipe.style==='rich'?15:11);
+    const byId=new Map(stars.map(s=>[s.id,s])),used=new Set(),minimum=minimumMembers??(recipe.style==='rich'?10:8),maximum=maximumMembers??(recipe.style==='rich'?15:11);
     const pool=stars.filter(s=>s.app_mag<=rules.candidateMagnitude&&Math.abs(s.latitude)<=rules.searchLatitude),pools=Array.from({length:15},()=>[]);
     for(const s of pool){const i=cells[cellOf(s.direction)];if(i<15)pools[i].push(s);}
     if(data.sourceCount!==stars.length||data.candidateCount!==pool.length||data.eligibleCandidateCount!==pools.reduce((n,g)=>n+g.length,0))fail('星表计数');
@@ -112,7 +113,7 @@ export function validateGeometry(data,stars,{recipe,rules=RULES,adaptiveCore=fal
         if(!equivalentDraw(boundary,r.boundary)||!equivalentDraw(boundary.map(([ra,dec])=>fromEquatorial(vector(ra,dec))),r.polygon,'polygon'))fail('区域边界');
         const sections=intervals.filter(s=>s.index===i).map(({start,end})=>({start,end}));
         if(!equivalentDraw(sections,r.intervals)||Math.abs(r.eclipticSpan-sections.reduce((n,s)=>n+s.end-s.start,0))>1e-9||r.eclipticSpan<4-1e-9||r.eclipticSpan>65+1e-9)fail('黄道区间归属');
-        if(r.variants.length!==2||r.variants[0].id!=='core'||r.variants[1].id!=='extended'||(adaptiveCore?r.variants[0].members.length<7:r.variants[0].members.length!==7))fail('缺少骨架或完整星形');
+        if(r.variants.length!==2||r.variants[0].id!=='core'||r.variants[1].id!=='extended'||(adaptiveCore?r.variants[0].members.length<minimumCoreMembers:r.variants[0].members.length!==7))fail('缺少骨架或完整星形');
         const members=new Map(r.members.map(s=>[s.id,s])),points=graphPlane(r.members);
         if(r.variants[1].members.length!==r.members.length||r.variants[1].members.some(id=>!members.has(id)))fail('完整成员不一致');
         for(const s of r.members){
@@ -129,7 +130,7 @@ export function validateGeometry(data,stars,{recipe,rules=RULES,adaptiveCore=fal
                 const a=members.get(e.from),b=members.get(e.to),d=separation(a.direction,b.direction);
                 if(d>rules.maxEdge+1e-9||Math.abs(d-e.degrees)>1e-9)fail('连线长度');
                 if(v.edges.slice(j+1).some(f=>crossing(e,f,points)))fail('连线交叉');
-                if(!arcCells(a.direction,b.direction).every(k=>cells[k]===i))fail('连线穿过其他星座');
+                if(!arcCoverage(a.direction,b.direction).every(k=>cells[k]===i))fail('连线穿过其他星座');
                 if(r.members.some(s=>s.id!==e.from&&s.id!==e.to&&arcDistance(s.direction,a.direction,b.direction)<rules.lineClearance-1e-9))fail('连线穿过成员');
                 degrees.set(e.from,degrees.get(e.from)+1);degrees.set(e.to,degrees.get(e.to)+1);
             }

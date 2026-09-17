@@ -1,6 +1,6 @@
 # 黄道十五星座：亮星、局部优先边界与手动编辑
 
-本文保留 **`terrax-zodiac-draw-8`** 与 **`terrax-zodiac-manual-1`** 的方法和历史验收。当前默认为 [draw-9 与候选窗口编辑](zodiac_candidate_editing.md)，增加采样滑块与候选图内删线；沿用本文的亮星、包络和局部优先算法。旧版轮次继续恢复，以下历史数据与旧操作说明不改作新版验收证据。
+本文保留 **`terrax-zodiac-draw-8`** 与 **`terrax-zodiac-manual-1`** 的方法和历史验收。当前默认为 [draw-10 清晰星形](zodiac_figure_clarity.md)，参考布局沿用本文的亮星、包络和局部优先算法，再重选最终显示星形。旧版轮次继续恢复，以下历史数据与旧操作说明不改作新版验收证据。
 
 [打开工作台后导入旧示例](../web/constellations/) · [可导入的八代示例](zodiac_draw_local_example.json) · [历史验证报告](zodiac_local_validation.json) · [工作流与历史方法](zodiac_workflow.md) · [保留的 draw-7 方法](zodiac_minimum_corners.md)
 
@@ -116,4 +116,4 @@
 node --test tests/test_constellation_local_first.mjs tests/test_constellation_minimum_corners.mjs tests/test_constellation_fitted_regions.mjs tests/test_constellation_ecliptic_widths.mjs tests/test_constellation_free_regions.mjs tests/test_constellation_boundary_cleanup.mjs tests/test_constellation_workflow.mjs tests/test_constellation_candidates.mjs tests/test_zodiac.mjs tests/test_display_scale.mjs
 ```
 
-当前命令默认生成 draw-9，拒绝覆盖已有文件；恢复本文八代结果可在工作台导入保留的整轮文件。draw-1 至 draw-8 按原配方恢复。“整理本轮边界”及旧 `?refine=1` 仍只做 draw-3 → draw-4。正式 V1/V2 的十五个等宽天区尚未由工作台草案替换。
+当前命令默认生成 draw-10 标准模式，拒绝覆盖已有文件；恢复本文八代结果可在工作台导入保留的整轮文件。draw-1 至 draw-8 按原配方恢复。“整理本轮边界”及旧 `?refine=1` 仍只做 draw-3 → draw-4。正式 V1/V2 的十五个等宽天区尚未由工作台草案替换。

@@ -1,4 +1,4 @@
-import {generateDraw,prepareDraw} from './generator.mjs?revision=favourites-regional-1';
+import {generateDraw,prepareDraw} from './generator.mjs?revision=clarity-draw-10';
 import {sampleRegion} from './regional_figures.mjs';
 let stars,meta;
 self.onmessage=async({data})=>{

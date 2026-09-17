@@ -143,7 +143,7 @@ export function applyManualFigures(base,source,rawRecipe,{draft=false}={}){
             eclipticSpan:intervals.reduce((n,s)=>n+s.end-s.start,0),candidateCount:groups[i].length,brightCount:groups[i].filter(s=>s.app_mag<=4).length,
             structure:connectionStats(result.variants[1].members,result.variants[1].edges)};
     });
-    const {optimality,localOptimality,minimumCornersPolicy,localPolicy,boundaryCleanup,manualBoundary,manualEdits,brightPolicy,brightAudit:oldAudit,envelopePolicy,eclipticPolicy,...rest}=base;
+    const {optimality,localOptimality,minimumCornersPolicy,localPolicy,figurePolicy,boundaryCleanup,manualBoundary,manualEdits,brightPolicy,brightAudit:oldAudit,envelopePolicy,eclipticPolicy,...rest}=base;
     const data={...rest,schema:13,settings:{mode:'manual',coordinateGridDegrees:1,sourceSelection:'full-catalogue',containment:'members-and-minor-arcs'},recipe,regions,territories:packGrid(cells),sourceCount:source.length,candidateCount:source.length,
         eligibleCandidateCount:groups.reduce((n,g)=>n+g.length,0),selectedExtendedCount:regions.reduce((n,r)=>n+r.members.length,0),selectedCoreCount:regions.reduce((n,r)=>n+r.variants[0].members.length,0)};
     const issues=containmentIssues(data);if(!draft&&issues.length)fail(issues[0]);

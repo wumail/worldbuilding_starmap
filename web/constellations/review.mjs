@@ -3,7 +3,7 @@ import {eclipticCoordinates} from '../shared/zodiac.mjs';
 import {SYMBOL_REFERENCE} from '../shared/sky_render.mjs';
 import {AtlasStarPainter} from '../v1/sky_atlas_stars.mjs';
 import {RAD,delta,vector,coordinates,arc,tangentFrame,projectLocal,unprojectLocal} from './geometry.mjs?revision=favourites-regional-1';
-import {mountWorkflow} from './workflow.mjs?revision=boundary-points-1';
+import {mountWorkflow} from './workflow.mjs?revision=clarity-draw-10';
 import {mountCandidateView} from './candidate_view.mjs?revision=boundary-points-1';
 import {regionAt,boundaryPoints,unpackGrid,toEquatorial,fromEquatorial} from './territories.mjs';
 import {brightAudit} from './bright_figures.mjs';

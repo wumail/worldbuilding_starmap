@@ -1,6 +1,6 @@
 # 黄道十五星座：正交边界的最少拐点
 
-本文保留历史算法 **`terrax-zodiac-draw-7`** 的方法与验证，旧轮仍可按原配方恢复。当前默认为 [draw-9 与候选窗口编辑](zodiac_candidate_editing.md)，沿用 [draw-8 的亮星与局部优先算法](zodiac_local_first.md)；不继承本版占格最优声明。
+本文保留历史算法 **`terrax-zodiac-draw-7`** 的方法与验证，旧轮仍可按原配方恢复。当前默认为 [draw-10 清晰星形](zodiac_figure_clarity.md)，参考划界沿用 [draw-8 的亮星与局部优先算法](zodiac_local_first.md)；不继承本版占格最优声明。
 
 draw-7 边界只沿第 0 日参考赤经线、赤纬线，不允许斜边。在其 **1° 网格、固定星形及下述归属约束**下，联合求出十五区的全局最少拐点；达到最少后，再求占格数最少的解。
 
@@ -106,4 +106,4 @@ draw-7 边界只沿第 0 日参考赤经线、赤纬线，不允许斜边。在�
 node --test tests/test_constellation_minimum_corners.mjs tests/test_constellation_fitted_regions.mjs tests/test_constellation_ecliptic_widths.mjs tests/test_constellation_free_regions.mjs tests/test_constellation_boundary_cleanup.mjs tests/test_constellation_workflow.mjs tests/test_constellation_candidates.mjs tests/test_zodiac.mjs tests/test_display_scale.mjs
 ```
 
-当前离线命令默认生成 draw-9；恢复上述七代结果请在工作台导入保留的整轮文件，配方明确指定 draw-7。draw-1 至 draw-7 继续按原配方恢复；“整理本轮边界”和旧 `?refine=1` 仍只做 draw-3 → draw-4。正式 V1/V2 的十五个等宽天区没有被工作台草案替换。
+当前离线命令默认生成 draw-10 标准模式；恢复上述七代结果请在工作台导入保留的整轮文件，配方明确指定 draw-7。draw-1 至 draw-7 继续按原配方恢复；“整理本轮边界”和旧 `?refine=1` 仍只做 draw-3 → draw-4。正式 V1/V2 的十五个等宽天区没有被工作台草案替换。

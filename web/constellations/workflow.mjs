@@ -1,5 +1,5 @@
-import {ALGORITHM, isManual, SUPPORTED_ALGORITHMS, DEFAULT_SEED, normalizeRecipe, redrawRecipe, equivalentDraw} from './generator.mjs?revision=favourites-regional-1';
-import {mountCandidateEditor} from './candidate_editor.mjs?revision=boundary-points-1';
+import {ALGORITHM, isManual, SUPPORTED_ALGORITHMS, DEFAULT_SEED, DEFAULT_STYLE, normalizeRecipe, redrawRecipe, equivalentDraw} from './generator.mjs?revision=clarity-draw-10';
+import {mountCandidateEditor} from './candidate_editor.mjs?revision=regional-clarity-3';
 import {FREE_EDIT_ALGORITHM} from './manual_figures.mjs';
 import {DEFAULT_SAMPLING} from './sampling.mjs';
 
@@ -10,7 +10,7 @@ const notesOf=value=>Object.fromEntries(Array.from({length:15},(_,i)=>`Z${String
 const locksOf=value=>Array.isArray(value)?[...new Set(value.filter(i=>Number.isInteger(i)&&i>=0&&i<15))].sort((a,b)=>a-b):[];
 
 export function mountWorkflow({stars,baseline,onChange,onMetadata,getLayout,getView,redraw,onEditing,onActivity}) {
-    const worker=new Worker(new URL('./generator_worker.mjs?revision=favourites-regional-1',import.meta.url),{type:'module'}),pending=new Map();
+    const worker=new Worker(new URL('./generator_worker.mjs?revision=clarity-draw-10',import.meta.url),{type:'module'}),pending=new Map();
     worker.postMessage({type:'init',stars,meta:{catalogue:baseline.catalogue,sha256:baseline.sha256}});
     let records=[],current,region=0,currentData=baseline,busy=false,request=0,canStore=true,lastRegionKey='',editing=false,preview=null,nextRound=1,lastFavouriteId=null;
     const message=text=>{$('draw-status').textContent=text;};
@@ -40,7 +40,7 @@ export function mountWorkflow({stars,baseline,onChange,onMetadata,getLayout,getV
         for(const b of $('region-tabs').children)b.disabled=on||editing;
         $('reroll').disabled=on||editing||!current?.recipe||isManual(current.recipe)||current.locks.length===15;
         $('lock-region').disabled=on||editing||!current?.recipe;
-        for(const id of ['edit-boundary','edit-lines','regenerate-candidate'])$(id).disabled=on||!currentData.territories||!current?.recipe;
+        for(const id of ['edit-boundary','edit-lines','regenerate-candidate','regional-complexity'])$(id).disabled=on||!currentData.territories||!current?.recipe;
         onActivity?.();
     }
     function refresh(){
@@ -49,7 +49,7 @@ export function mountWorkflow({stars,baseline,onChange,onMetadata,getLayout,getV
         $('rounds').value=current?.favourite?current.id:'';
         $('favourite').textContent=current?.favourite?'★ 已收藏本轮':'☆ 收藏本轮';$('favourite').setAttribute('aria-pressed',String(!!current?.favourite));
         const fine=current?.recipe?.algorithm==='terrax-zodiac-draw-3',clean=current?.recipe?.algorithm==='terrax-zodiac-draw-4',expanded=current?.recipe?.algorithm==='terrax-zodiac-draw-5',fitted=current?.recipe?.algorithm==='terrax-zodiac-draw-6';
-        $('round-description').textContent=current?.recipe?`${current.recipe.seed} · ${isManual(current.recipe)?'手动编辑 · 已验证':[ALGORITHM,'terrax-zodiac-draw-8'].includes(current.recipe.algorithm)?'亮星已纳入 · 局部优先协调':current.recipe.algorithm==='terrax-zodiac-draw-7'?'总拐点最少 · 旧选星规则':fitted?'贴合星形 · 尚未求最少拐点':fine?'先选星形，再划天区 · 细格边界':clean?'简洁边界 · 旧黄道宽度规则':expanded?'旧扩张边界 · 黄道宽度已检查':'旧分区'} · ${current.recipe.style==='rich'?'丰富':'适中'} · 已锁定 ${current.locks.length} / 15 座`:'保留的初稿 · 88 颗主干星 / 117 颗扩展成员';
+        $('round-description').textContent=current?.recipe?`${current.recipe.seed} · ${isManual(current.recipe)?'手动编辑 · 已验证':current.recipe.algorithm===ALGORITHM?'清晰星形 · 亮星已纳入': ['terrax-zodiac-draw-9','terrax-zodiac-draw-8'].includes(current.recipe.algorithm)?'亮星已纳入 · 局部优先协调':current.recipe.algorithm==='terrax-zodiac-draw-7'?'总拐点最少 · 旧选星规则':fitted?'贴合星形 · 尚未求最少拐点':fine?'先选星形，再划天区 · 细格边界':clean?'简洁边界 · 旧黄道宽度规则':expanded?'旧扩张边界 · 黄道宽度已检查':'旧分区'} · ${{simple:'简洁',balanced:'标准',rich:'丰富'}[current.recipe.style]} · 已锁定 ${current.locks.length} / 15 座`:'保留的初稿 · 88 颗主干星 / 117 颗扩展成员';
         $('layout-note').hidden=!current?.recipe||current.recipe.algorithm===ALGORITHM;
         $('layout-note').textContent=fine?'本轮保留了细格边界。“整理本轮边界”只合并小台阶，保留星形、黄道宽度、锁定与笔记。点击“按种子生成”可另建贴合星形的新版。':clean?'本轮保留旧黄道宽度，可能有多个窄区。点击“按种子生成”可另建同时检查宽度与星形余量的新版；已收藏的原轮次、锁定和笔记仍可回看。':expanded?'本轮保留旧扩张边界，部分边界可能远离星形。点击“按种子生成”可另建贴合星形的新版；成员可能改变，已收藏原轮中的锁定和笔记保留。':'本轮按旧规则保留。点击“按种子生成”可创建新版分区；已收藏的旧轮次、锁定和笔记仍可回看。';
         if(fitted)$('layout-note').textContent='本轮保留原有贴合边界，尚未求最少拐点。点击“按种子生成”可另建已证明最优的正交边界；已收藏的原轮次、锁定和笔记仍可回看。';
@@ -69,7 +69,7 @@ export function mountWorkflow({stars,baseline,onChange,onMetadata,getLayout,getV
     async function activate(record,data){
         const result=data??(record.recipe?await compute(record.recipe):baseline);
         current=record;currentData=result;lastRegionKey='';if(record.favourite)lastFavouriteId=record.id;
-        if(record.recipe){$('seed').value=record.recipe.seed;$('complexity').value=record.recipe.style;}
+        if(record.recipe)$('seed').value=record.recipe.seed;
         $('sampling-width').value=result.sampling?.halfWidthDegrees??DEFAULT_SAMPLING;
         onChange(result);refresh();persist();
     }
@@ -92,7 +92,7 @@ export function mountWorkflow({stars,baseline,onChange,onMetadata,getLayout,getV
     }
     const editor=mountCandidateEditor({stars,getLayout,getView,redraw,onActivity,
         onPreview(next){preview=next;onChange(next);},
-        onResample:(current,index)=>requestWorker({type:'sample-region',current,index,seed:`region-${index}-${token()}`,style:current.recipe?.style??'rich'}),
+        onResample:(current,index,style)=>requestWorker({type:'sample-region',current,index,seed:`region-${index}-${token()}`,style}),
         onClose(saved){editing=false;preview=null;onEditing(null);onChange(currentData,{preserveView:true});refresh();message(saved?'修改已应用为未收藏的新结果，锁定与笔记已复制；请收藏要保留的方案。':'已取消编辑，恢复进入编辑前的候选。');},
         async onSave(recipe){
             setBusy(true);
@@ -164,10 +164,10 @@ export function mountWorkflow({stars,baseline,onChange,onMetadata,getLayout,getV
             const selected=records.find(r=>r.id===saved?.current)??previousCurrent??records.find(r=>r.id===lastFavouriteId);
             try{
                 const url=new URL(location.href),requestedSeed=url.searchParams.get('seed'),requestedRefine=url.searchParams.get('refine')==='1';
-                if(requestedSeed!==null){await create({seed:requestedSeed,style:'rich',samplingHalfWidthDegrees:url.searchParams.has('sampling')?Number(url.searchParams.get('sampling')):DEFAULT_SAMPLING});url.searchParams.delete('seed');url.searchParams.delete('sampling');history.replaceState(null,'',url);}
+                if(requestedSeed!==null){await create({seed:requestedSeed,style:DEFAULT_STYLE,samplingHalfWidthDegrees:url.searchParams.has('sampling')?Number(url.searchParams.get('sampling')):DEFAULT_SAMPLING});url.searchParams.delete('seed');url.searchParams.delete('sampling');history.replaceState(null,'',url);}
                 else if(requestedRefine&&selected?.recipe?.algorithm==='terrax-zodiac-draw-3')await refine(selected);
                 else if(selected){await activate(selected);message('已恢复上次查看的一轮。');}
-                else await create({seed:DEFAULT_SEED,style:'rich'});
+                else await create({seed:DEFAULT_SEED,style:DEFAULT_STYLE});
                 if(requestedRefine){url.searchParams.delete('refine');history.replaceState(null,'',url);}
             }catch(error){await activate(initialRecord(),baseline);message(error.message);}
             finally{setBusy(false);}

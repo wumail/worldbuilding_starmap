@@ -1,0 +1,1162 @@
+{
+  "date": "2026-09-17",
+  "algorithm": "terrax-zodiac-draw-10",
+  "regionalMethod": "regional-figure-sampling-3",
+  "defaultStyle": "balanced",
+  "scope": {
+    "newSeedFigures": true,
+    "nextRoundFigures": true,
+    "fixedBoundaryReroll": true,
+    "currentRegionResampling": true,
+    "layoutAlgorithm": "terrax-zodiac-draw-9",
+    "layoutReferenceStyle": "rich",
+    "initialGroupingAndBoundarySearchChanged": false,
+    "officialV1V2Changed": false
+  },
+  "complexity": {
+    "simple": {
+      "members": [
+        4,
+        7
+      ],
+      "softBranches": 1,
+      "maximumLoops": 0,
+      "softCoreMembers": 5
+    },
+    "balanced": {
+      "members": [
+        6,
+        10
+      ],
+      "softBranches": 2,
+      "maximumLoops": 1,
+      "softCoreMembers": 7
+    },
+    "rich": {
+      "members": [
+        8,
+        13
+      ],
+      "softBranches": 3,
+      "maximumLoops": 2,
+      "softCoreMembers": 8
+    },
+    "budgetExceptions": "Retain all actual regional top-three / apparent magnitude <=3 anchors. Automatic seed figures additionally retain outline support and necessary connector members. Branch targets grow for large mandatory sets. Core cycles <=1, simple 0."
+  },
+  "selection": "Eight proposals; minimum connected components, quality loss <= best +0.45, then novelty and seeded randomness. Soft penalties for acute turns, crowded branches and nearby parallel arcs.",
+  "regression": {
+    "runs": [
+      {
+        "path": "reports/zodiac_clarity/verified-integration-regression.tap",
+        "sha256": "d98f52e4a34ec846613de47bd56fea7ae094aca43c7b07c74d27a11c699660ac",
+        "tests": 53,
+        "pass": 53,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0
+      },
+      {
+        "path": "reports/zodiac_clarity/final-replay-tests.tap",
+        "sha256": "5a51eab786ee0be917dc689887350e5c72098c60b695edd4d739c3e7e1c7950c",
+        "tests": 14,
+        "pass": 14,
+        "fail": 0,
+        "skipped": 0,
+        "cancelled": 0
+      }
+    ],
+    "countsOverlap": true,
+    "scope": [
+      "all 15 seed regions, actual geometry, deterministic replay and tamper rejection",
+      "new defaults, URL seed, next-round chosen style and old favourite selection",
+      "old draw-9 reproduction and legacy manual-format rejection for new bases",
+      "manual-3 replay, metadata and free editing",
+      "regional clarity controls and removed-line visibility",
+      "real bright-star preservation, full arc containment, loops, sparse large-member connectivity",
+      "workflow, boundary points and shared zodiac regression"
+    ]
+  },
+  "regionalAudit": {
+    "path": "reports/zodiac_clarity/after-shared-engine.json",
+    "sha256": "6a4c0e3c0adcb8c539cce4d255afd1e8f7b06b1755b35fdeace568bba445a16e",
+    "fixture": "design/zodiac_draw_sampling_example.json",
+    "samples": 1440,
+    "regions": 15,
+    "styles": 3,
+    "seedsPerStyle": 32,
+    "checks": {
+      "importantStarsPreserved": true,
+      "membersAndArcsContained": true,
+      "inputsUnchanged": true
+    },
+    "summary": {
+      "samples": 1440,
+      "meanUniqueTopologies": 4.688888888888889,
+      "meanUniqueCoreTopologies": 3.311111111111111,
+      "meanOptionalMemberDistance": 0.7441081477132635,
+      "meanEdgeDistance": 0.7959226802747809,
+      "meanLoops": 0.36180555555555555,
+      "meanCoreLoops": 0.22083333333333333,
+      "meanDiameterFraction": 0.8581193131713999,
+      "meanMembers": 7.959722222222222,
+      "disconnected": 0,
+      "isolates": 0,
+      "meanEdgeDegrees": 8.709877859441567,
+      "maxEdgeDegrees": 42.563800156978274,
+      "milliseconds": {
+        "median": 8.825082999999722,
+        "p95": 27.118749999999636,
+        "max": 48.08904199999961
+      }
+    },
+    "sharedEngineRefactor": {
+      "figuresAndAllNonTimingRowFieldsIdentical": true,
+      "comparisonPath": "reports/zodiac_clarity/after-verified.json",
+      "samples": 1440
+    },
+    "commonStyleComparison": {
+      "before": {
+        "samples": 960,
+        "meanUniqueTopologies": 14.5,
+        "meanUniqueCoreTopologies": 10.5,
+        "meanOptionalMemberDistance": 0.6854328048328818,
+        "meanEdgeDistance": 0.8310283964428168,
+        "meanLoops": 0.7302083333333333,
+        "meanCoreLoops": 0.7302083333333333,
+        "meanDiameterFraction": 0.7458560160903912,
+        "meanMembers": 9.410416666666666,
+        "disconnected": 0,
+        "isolates": 0,
+        "meanEdgeDegrees": 8.504256041799202,
+        "maxEdgeDegrees": 35.7463343938393
+      },
+      "after": {
+        "samples": 960,
+        "meanUniqueTopologies": 6,
+        "meanUniqueCoreTopologies": 4.033333333333333,
+        "meanOptionalMemberDistance": 0.6884415674480309,
+        "meanEdgeDistance": 0.819464821219787,
+        "meanLoops": 0.5427083333333333,
+        "meanCoreLoops": 0.33125,
+        "meanDiameterFraction": 0.8107206364237612,
+        "meanMembers": 9.205208333333333,
+        "disconnected": 0,
+        "isolates": 0,
+        "meanEdgeDegrees": 8.169572565864451,
+        "maxEdgeDegrees": 35.78294418213156
+      }
+    },
+    "independentAngles": {
+      "definition": "All unordered incident arc pairs measured in the unit-sphere tangent plane. Angles below 30 degrees include degree-two reversals and branch crowding. Counts are not a perceptual experiment.",
+      "before": {
+        "path": "reports/zodiac_morphology/after-verified.json",
+        "summary": [
+          {
+            "style": "balanced",
+            "variant": "full",
+            "samples": 480,
+            "narrow20": 224,
+            "narrow25": 285,
+            "narrow30": 388,
+            "sharpTurns": 149,
+            "crowdedJunctionAngles": 239,
+            "branches": 710,
+            "adjacentBranchEdges": 277,
+            "figuresWithNarrowAngles": 261,
+            "medianMinimumAngle": 28.55206248632123
+          },
+          {
+            "style": "balanced",
+            "variant": "core",
+            "samples": 480,
+            "narrow20": 168,
+            "narrow25": 218,
+            "narrow30": 308,
+            "sharpTurns": 142,
+            "crowdedJunctionAngles": 166,
+            "branches": 518,
+            "adjacentBranchEdges": 164,
+            "figuresWithNarrowAngles": 221,
+            "medianMinimumAngle": 31.559384072278455
+          },
+          {
+            "style": "rich",
+            "variant": "full",
+            "samples": 480,
+            "narrow20": 366,
+            "narrow25": 457,
+            "narrow30": 586,
+            "sharpTurns": 184,
+            "crowdedJunctionAngles": 402,
+            "branches": 1132,
+            "adjacentBranchEdges": 599,
+            "figuresWithNarrowAngles": 325,
+            "medianMinimumAngle": 19.166621662528648
+          },
+          {
+            "style": "rich",
+            "variant": "core",
+            "samples": 480,
+            "narrow20": 234,
+            "narrow25": 294,
+            "narrow30": 386,
+            "sharpTurns": 163,
+            "crowdedJunctionAngles": 223,
+            "branches": 696,
+            "adjacentBranchEdges": 300,
+            "figuresWithNarrowAngles": 252,
+            "medianMinimumAngle": 28.14843644497367
+          }
+        ]
+      },
+      "after": {
+        "path": "reports/zodiac_clarity/after-shared-engine.json",
+        "summary": [
+          {
+            "style": "simple",
+            "variant": "full",
+            "samples": 480,
+            "narrow20": 2,
+            "narrow25": 2,
+            "narrow30": 5,
+            "sharpTurns": 3,
+            "crowdedJunctionAngles": 2,
+            "branches": 107,
+            "adjacentBranchEdges": 0,
+            "figuresWithNarrowAngles": 5,
+            "medianMinimumAngle": 61.723838331087435
+          },
+          {
+            "style": "simple",
+            "variant": "core",
+            "samples": 480,
+            "narrow20": 1,
+            "narrow25": 1,
+            "narrow30": 2,
+            "sharpTurns": 1,
+            "crowdedJunctionAngles": 1,
+            "branches": 57,
+            "adjacentBranchEdges": 0,
+            "figuresWithNarrowAngles": 2,
+            "medianMinimumAngle": 73.26656183032374
+          },
+          {
+            "style": "balanced",
+            "variant": "full",
+            "samples": 480,
+            "narrow20": 0,
+            "narrow25": 0,
+            "narrow30": 8,
+            "sharpTurns": 3,
+            "crowdedJunctionAngles": 5,
+            "branches": 507,
+            "adjacentBranchEdges": 88,
+            "figuresWithNarrowAngles": 8,
+            "medianMinimumAngle": 45.178005853161544
+          },
+          {
+            "style": "balanced",
+            "variant": "core",
+            "samples": 480,
+            "narrow20": 0,
+            "narrow25": 0,
+            "narrow30": 3,
+            "sharpTurns": 2,
+            "crowdedJunctionAngles": 1,
+            "branches": 247,
+            "adjacentBranchEdges": 0,
+            "figuresWithNarrowAngles": 3,
+            "medianMinimumAngle": 52.45517077596598
+          },
+          {
+            "style": "rich",
+            "variant": "full",
+            "samples": 480,
+            "narrow20": 0,
+            "narrow25": 0,
+            "narrow30": 11,
+            "sharpTurns": 4,
+            "crowdedJunctionAngles": 7,
+            "branches": 711,
+            "adjacentBranchEdges": 102,
+            "figuresWithNarrowAngles": 11,
+            "medianMinimumAngle": 42.550640393224015
+          },
+          {
+            "style": "rich",
+            "variant": "core",
+            "samples": 480,
+            "narrow20": 0,
+            "narrow25": 0,
+            "narrow30": 1,
+            "sharpTurns": 1,
+            "crowdedJunctionAngles": 0,
+            "branches": 363,
+            "adjacentBranchEdges": 10,
+            "figuresWithNarrowAngles": 1,
+            "medianMinimumAngle": 47.9790820829705
+          }
+        ]
+      }
+    }
+  },
+  "fixedUserCase": {
+    "description": "Z11, morphology-1, rich, same eleven original members; only wiring changes in full graph",
+    "image": "reports/zodiac_clarity/fixed-members/Z11.png",
+    "imageSha256": "004fb323120f32a7959e4ef7400bc1cb2623d86bd6446798f87b1b871b5b4bdf",
+    "sameMembers": true,
+    "requiredBrightStarsPreserved": true,
+    "results": {
+      "before": {
+        "index": 10,
+        "style": "rich",
+        "seed": "morphology-1",
+        "required": [
+          "20260915_galactic_01_005302",
+          "20260915_galactic_01_010622",
+          "20260915_galactic_01_009327"
+        ],
+        "figure": {
+          "index": 10,
+          "members": [
+            "20260915_galactic_01_001036",
+            "20260915_galactic_01_002227",
+            "20260915_galactic_01_002332",
+            "20260915_galactic_01_003442",
+            "20260915_galactic_01_004250",
+            "20260915_galactic_01_005302",
+            "20260915_galactic_01_006415",
+            "20260915_galactic_01_007985",
+            "20260915_galactic_01_009324",
+            "20260915_galactic_01_009327",
+            "20260915_galactic_01_010622"
+          ],
+          "coreMembers": [
+            "20260915_galactic_01_002227",
+            "20260915_galactic_01_002332",
+            "20260915_galactic_01_003442",
+            "20260915_galactic_01_005302",
+            "20260915_galactic_01_006415",
+            "20260915_galactic_01_007985",
+            "20260915_galactic_01_009324",
+            "20260915_galactic_01_009327",
+            "20260915_galactic_01_010622"
+          ],
+          "edges": [
+            [
+              "20260915_galactic_01_001036",
+              "20260915_galactic_01_002227"
+            ],
+            [
+              "20260915_galactic_01_002227",
+              "20260915_galactic_01_003442"
+            ],
+            [
+              "20260915_galactic_01_002227",
+              "20260915_galactic_01_005302"
+            ],
+            [
+              "20260915_galactic_01_002227",
+              "20260915_galactic_01_009327"
+            ],
+            [
+              "20260915_galactic_01_002332",
+              "20260915_galactic_01_006415"
+            ],
+            [
+              "20260915_galactic_01_002332",
+              "20260915_galactic_01_009324"
+            ],
+            [
+              "20260915_galactic_01_003442",
+              "20260915_galactic_01_005302"
+            ],
+            [
+              "20260915_galactic_01_003442",
+              "20260915_galactic_01_009324"
+            ],
+            [
+              "20260915_galactic_01_003442",
+              "20260915_galactic_01_009327"
+            ],
+            [
+              "20260915_galactic_01_004250",
+              "20260915_galactic_01_006415"
+            ],
+            [
+              "20260915_galactic_01_005302",
+              "20260915_galactic_01_007985"
+            ],
+            [
+              "20260915_galactic_01_006415",
+              "20260915_galactic_01_009327"
+            ],
+            [
+              "20260915_galactic_01_007985",
+              "20260915_galactic_01_010622"
+            ]
+          ],
+          "coreEdges": [
+            [
+              "20260915_galactic_01_002227",
+              "20260915_galactic_01_003442"
+            ],
+            [
+              "20260915_galactic_01_002227",
+              "20260915_galactic_01_005302"
+            ],
+            [
+              "20260915_galactic_01_002227",
+              "20260915_galactic_01_009327"
+            ],
+            [
+              "20260915_galactic_01_002332",
+              "20260915_galactic_01_006415"
+            ],
+            [
+              "20260915_galactic_01_002332",
+              "20260915_galactic_01_009324"
+            ],
+            [
+              "20260915_galactic_01_003442",
+              "20260915_galactic_01_005302"
+            ],
+            [
+              "20260915_galactic_01_003442",
+              "20260915_galactic_01_009324"
+            ],
+            [
+              "20260915_galactic_01_003442",
+              "20260915_galactic_01_009327"
+            ],
+            [
+              "20260915_galactic_01_005302",
+              "20260915_galactic_01_007985"
+            ],
+            [
+              "20260915_galactic_01_006415",
+              "20260915_galactic_01_009327"
+            ],
+            [
+              "20260915_galactic_01_007985",
+              "20260915_galactic_01_010622"
+            ]
+          ]
+        },
+        "full": {
+          "components": 1,
+          "loops": 3,
+          "branches": 5,
+          "tips": 3,
+          "isolates": 0,
+          "maxDegree": 4,
+          "diameterFraction": 0.6,
+          "topology": "[1,3,3,[3,3,3,4,4]]"
+        },
+        "core": {
+          "components": 1,
+          "loops": 3,
+          "branches": 4,
+          "tips": 1,
+          "isolates": 0,
+          "maxDegree": 4,
+          "diameterFraction": 0.625,
+          "topology": "[1,3,1,[3,3,3,4]]"
+        },
+        "angles": {
+          "full": {
+            "minimumAngle": 10.571887735670185,
+            "narrow20": 3,
+            "narrow25": 3,
+            "narrow30": 6,
+            "sharpTurns": 2,
+            "crowdedJunctionAngles": 4,
+            "branches": 5,
+            "adjacentBranchEdges": 6
+          },
+          "core": {
+            "minimumAngle": 10.571887735670185,
+            "narrow20": 3,
+            "narrow25": 3,
+            "narrow30": 5,
+            "sharpTurns": 2,
+            "crowdedJunctionAngles": 3,
+            "branches": 4,
+            "adjacentBranchEdges": 5
+          }
+        }
+      },
+      "after": {
+        "index": 10,
+        "style": "rich",
+        "seed": "morphology-1",
+        "required": [
+          "20260915_galactic_01_005302",
+          "20260915_galactic_01_010622",
+          "20260915_galactic_01_009327"
+        ],
+        "figure": {
+          "index": 10,
+          "members": [
+            "20260915_galactic_01_001036",
+            "20260915_galactic_01_002227",
+            "20260915_galactic_01_002332",
+            "20260915_galactic_01_003442",
+            "20260915_galactic_01_004250",
+            "20260915_galactic_01_005302",
+            "20260915_galactic_01_006415",
+            "20260915_galactic_01_007985",
+            "20260915_galactic_01_009324",
+            "20260915_galactic_01_009327",
+            "20260915_galactic_01_010622"
+          ],
+          "coreMembers": [
+            "20260915_galactic_01_001036",
+            "20260915_galactic_01_002227",
+            "20260915_galactic_01_003442",
+            "20260915_galactic_01_005302",
+            "20260915_galactic_01_006415",
+            "20260915_galactic_01_009324",
+            "20260915_galactic_01_009327",
+            "20260915_galactic_01_010622"
+          ],
+          "edges": [
+            [
+              "20260915_galactic_01_001036",
+              "20260915_galactic_01_002227"
+            ],
+            [
+              "20260915_galactic_01_001036",
+              "20260915_galactic_01_003442"
+            ],
+            [
+              "20260915_galactic_01_001036",
+              "20260915_galactic_01_009327"
+            ],
+            [
+              "20260915_galactic_01_002227",
+              "20260915_galactic_01_005302"
+            ],
+            [
+              "20260915_galactic_01_002332",
+              "20260915_galactic_01_004250"
+            ],
+            [
+              "20260915_galactic_01_003442",
+              "20260915_galactic_01_009324"
+            ],
+            [
+              "20260915_galactic_01_004250",
+              "20260915_galactic_01_006415"
+            ],
+            [
+              "20260915_galactic_01_005302",
+              "20260915_galactic_01_010622"
+            ],
+            [
+              "20260915_galactic_01_006415",
+              "20260915_galactic_01_009327"
+            ],
+            [
+              "20260915_galactic_01_007985",
+              "20260915_galactic_01_010622"
+            ],
+            [
+              "20260915_galactic_01_009324",
+              "20260915_galactic_01_009327"
+            ]
+          ],
+          "coreEdges": [
+            [
+              "20260915_galactic_01_001036",
+              "20260915_galactic_01_002227"
+            ],
+            [
+              "20260915_galactic_01_001036",
+              "20260915_galactic_01_003442"
+            ],
+            [
+              "20260915_galactic_01_001036",
+              "20260915_galactic_01_009327"
+            ],
+            [
+              "20260915_galactic_01_002227",
+              "20260915_galactic_01_005302"
+            ],
+            [
+              "20260915_galactic_01_003442",
+              "20260915_galactic_01_009324"
+            ],
+            [
+              "20260915_galactic_01_005302",
+              "20260915_galactic_01_010622"
+            ],
+            [
+              "20260915_galactic_01_006415",
+              "20260915_galactic_01_009327"
+            ],
+            [
+              "20260915_galactic_01_009324",
+              "20260915_galactic_01_009327"
+            ]
+          ]
+        },
+        "full": {
+          "components": 1,
+          "loops": 1,
+          "branches": 2,
+          "tips": 2,
+          "isolates": 0,
+          "maxDegree": 3,
+          "diameterFraction": 0.8,
+          "topology": "[1,1,2,[3,3]]"
+        },
+        "core": {
+          "components": 1,
+          "loops": 1,
+          "branches": 2,
+          "tips": 2,
+          "isolates": 0,
+          "maxDegree": 3,
+          "diameterFraction": 0.7142857142857143,
+          "topology": "[1,1,2,[3,3]]"
+        },
+        "angles": {
+          "full": {
+            "minimumAngle": 53.0031358716427,
+            "narrow20": 0,
+            "narrow25": 0,
+            "narrow30": 0,
+            "sharpTurns": 0,
+            "crowdedJunctionAngles": 0,
+            "branches": 2,
+            "adjacentBranchEdges": 1
+          },
+          "core": {
+            "minimumAngle": 53.0031358716427,
+            "narrow20": 0,
+            "narrow25": 0,
+            "narrow30": 0,
+            "sharpTurns": 0,
+            "crowdedJunctionAngles": 0,
+            "branches": 2,
+            "adjacentBranchEdges": 1
+          }
+        }
+      }
+    }
+  },
+  "seedAudit": {
+    "path": "reports/zodiac_clarity/seed-audit/verified.json",
+    "sha256": "2cd1569e22633e93c061f52e4d81ec641c119ee1b9b7b9b65cf7f7c42db8a05d",
+    "runs": [
+      {
+        "algorithm": "terrax-zodiac-draw-9",
+        "seed": "terrax-001",
+        "style": "balanced",
+        "status": "validated",
+        "milliseconds": 5601.8502499999995,
+        "members": 159,
+        "file": "reports/zodiac_clarity/seed-audit/terrax-zodiac-draw-9-terrax-001-balanced.json"
+      },
+      {
+        "algorithm": "terrax-zodiac-draw-9",
+        "seed": "terrax-001",
+        "style": "rich",
+        "status": "validated",
+        "milliseconds": 84.8529580000004,
+        "members": 184,
+        "file": "reports/zodiac_clarity/seed-audit/terrax-zodiac-draw-9-terrax-001-rich.json"
+      },
+      {
+        "algorithm": "terrax-zodiac-draw-10",
+        "seed": "terrax-001",
+        "style": "simple",
+        "status": "validated",
+        "milliseconds": 219.83591700000034,
+        "members": 132,
+        "file": "reports/zodiac_clarity/seed-audit/terrax-zodiac-draw-10-terrax-001-simple.json"
+      },
+      {
+        "algorithm": "terrax-zodiac-draw-10",
+        "seed": "terrax-001",
+        "style": "balanced",
+        "status": "validated",
+        "milliseconds": 267.1285000000007,
+        "members": 138,
+        "file": "reports/zodiac_clarity/seed-audit/terrax-zodiac-draw-10-terrax-001-balanced.json"
+      },
+      {
+        "algorithm": "terrax-zodiac-draw-10",
+        "seed": "terrax-001",
+        "style": "rich",
+        "status": "validated",
+        "milliseconds": 372.69045800000004,
+        "members": 159,
+        "file": "reports/zodiac_clarity/seed-audit/terrax-zodiac-draw-10-terrax-001-rich.json"
+      },
+      {
+        "algorithm": "terrax-zodiac-draw-9",
+        "seed": "terrax-1ptws5s",
+        "style": "balanced",
+        "status": "validated",
+        "milliseconds": 4936.069124999999,
+        "members": 158,
+        "file": "reports/zodiac_clarity/seed-audit/terrax-zodiac-draw-9-terrax-1ptws5s-balanced.json"
+      },
+      {
+        "algorithm": "terrax-zodiac-draw-9",
+        "seed": "terrax-1ptws5s",
+        "style": "rich",
+        "status": "validated",
+        "milliseconds": 74.89462500000081,
+        "members": 183,
+        "file": "reports/zodiac_clarity/seed-audit/terrax-zodiac-draw-9-terrax-1ptws5s-rich.json"
+      },
+      {
+        "algorithm": "terrax-zodiac-draw-10",
+        "seed": "terrax-1ptws5s",
+        "style": "simple",
+        "status": "validated",
+        "milliseconds": 185.05062499999985,
+        "members": 129,
+        "file": "reports/zodiac_clarity/seed-audit/terrax-zodiac-draw-10-terrax-1ptws5s-simple.json"
+      },
+      {
+        "algorithm": "terrax-zodiac-draw-10",
+        "seed": "terrax-1ptws5s",
+        "style": "balanced",
+        "status": "validated",
+        "milliseconds": 252.4310000000005,
+        "members": 137,
+        "file": "reports/zodiac_clarity/seed-audit/terrax-zodiac-draw-10-terrax-1ptws5s-balanced.json"
+      },
+      {
+        "algorithm": "terrax-zodiac-draw-10",
+        "seed": "terrax-1ptws5s",
+        "style": "rich",
+        "status": "validated",
+        "milliseconds": 457.94474999999875,
+        "members": 161,
+        "file": "reports/zodiac_clarity/seed-audit/terrax-zodiac-draw-10-terrax-1ptws5s-rich.json"
+      },
+      {
+        "algorithm": "terrax-zodiac-draw-9",
+        "seed": "terrax-002",
+        "style": "balanced",
+        "status": "validated",
+        "milliseconds": 80045.390041,
+        "members": 164,
+        "file": "reports/zodiac_clarity/seed-audit/terrax-zodiac-draw-9-terrax-002-balanced.json"
+      },
+      {
+        "algorithm": "terrax-zodiac-draw-9",
+        "seed": "terrax-002",
+        "style": "rich",
+        "status": "validated",
+        "milliseconds": 59.050124999994296,
+        "members": 182,
+        "file": "reports/zodiac_clarity/seed-audit/terrax-zodiac-draw-9-terrax-002-rich.json"
+      },
+      {
+        "algorithm": "terrax-zodiac-draw-10",
+        "seed": "terrax-002",
+        "style": "simple",
+        "status": "validated",
+        "milliseconds": 154.64866599999368,
+        "members": 131,
+        "file": "reports/zodiac_clarity/seed-audit/terrax-zodiac-draw-10-terrax-002-simple.json"
+      },
+      {
+        "algorithm": "terrax-zodiac-draw-10",
+        "seed": "terrax-002",
+        "style": "balanced",
+        "status": "validated",
+        "milliseconds": 189.74858299999323,
+        "members": 138,
+        "file": "reports/zodiac_clarity/seed-audit/terrax-zodiac-draw-10-terrax-002-balanced.json"
+      },
+      {
+        "algorithm": "terrax-zodiac-draw-10",
+        "seed": "terrax-002",
+        "style": "rich",
+        "status": "validated",
+        "milliseconds": 302.05783299999894,
+        "members": 169,
+        "file": "reports/zodiac_clarity/seed-audit/terrax-zodiac-draw-10-terrax-002-rich.json"
+      }
+    ],
+    "summaries": {
+      "terrax-zodiac-draw-9": [
+        {
+          "style": "balanced",
+          "variant": "full",
+          "samples": 45,
+          "narrow20": 6,
+          "narrow25": 8,
+          "narrow30": 11,
+          "sharpTurns": 4,
+          "crowdedJunctionAngles": 7,
+          "branches": 104,
+          "adjacentBranchEdges": 49,
+          "figuresWithNarrowAngles": 9,
+          "medianMinimumAngle": 63.48944527284843
+        },
+        {
+          "style": "balanced",
+          "variant": "core",
+          "samples": 45,
+          "narrow20": 0,
+          "narrow25": 0,
+          "narrow30": 0,
+          "sharpTurns": 0,
+          "crowdedJunctionAngles": 0,
+          "branches": 27,
+          "adjacentBranchEdges": 2,
+          "figuresWithNarrowAngles": 0,
+          "medianMinimumAngle": 85.7670052224941
+        },
+        {
+          "style": "rich",
+          "variant": "full",
+          "samples": 45,
+          "narrow20": 12,
+          "narrow25": 15,
+          "narrow30": 23,
+          "sharpTurns": 7,
+          "crowdedJunctionAngles": 16,
+          "branches": 163,
+          "adjacentBranchEdges": 99,
+          "figuresWithNarrowAngles": 18,
+          "medianMinimumAngle": 31.7311653976717
+        },
+        {
+          "style": "rich",
+          "variant": "core",
+          "samples": 45,
+          "narrow20": 0,
+          "narrow25": 0,
+          "narrow30": 0,
+          "sharpTurns": 0,
+          "crowdedJunctionAngles": 0,
+          "branches": 23,
+          "adjacentBranchEdges": 0,
+          "figuresWithNarrowAngles": 0,
+          "medianMinimumAngle": 79.46930825354174
+        }
+      ],
+      "terrax-zodiac-draw-10": [
+        {
+          "style": "simple",
+          "variant": "full",
+          "samples": 45,
+          "narrow20": 1,
+          "narrow25": 1,
+          "narrow30": 5,
+          "sharpTurns": 2,
+          "crowdedJunctionAngles": 3,
+          "branches": 27,
+          "adjacentBranchEdges": 0,
+          "figuresWithNarrowAngles": 5,
+          "medianMinimumAngle": 43.915284507261994
+        },
+        {
+          "style": "simple",
+          "variant": "core",
+          "samples": 45,
+          "narrow20": 0,
+          "narrow25": 0,
+          "narrow30": 0,
+          "sharpTurns": 0,
+          "crowdedJunctionAngles": 0,
+          "branches": 9,
+          "adjacentBranchEdges": 0,
+          "figuresWithNarrowAngles": 0,
+          "medianMinimumAngle": 62.71731905853039
+        },
+        {
+          "style": "balanced",
+          "variant": "full",
+          "samples": 45,
+          "narrow20": 1,
+          "narrow25": 1,
+          "narrow30": 2,
+          "sharpTurns": 1,
+          "crowdedJunctionAngles": 1,
+          "branches": 65,
+          "adjacentBranchEdges": 14,
+          "figuresWithNarrowAngles": 2,
+          "medianMinimumAngle": 40.951774725371074
+        },
+        {
+          "style": "balanced",
+          "variant": "core",
+          "samples": 45,
+          "narrow20": 0,
+          "narrow25": 0,
+          "narrow30": 0,
+          "sharpTurns": 0,
+          "crowdedJunctionAngles": 0,
+          "branches": 26,
+          "adjacentBranchEdges": 0,
+          "figuresWithNarrowAngles": 0,
+          "medianMinimumAngle": 45.13992155239286
+        },
+        {
+          "style": "rich",
+          "variant": "full",
+          "samples": 45,
+          "narrow20": 0,
+          "narrow25": 0,
+          "narrow30": 3,
+          "sharpTurns": 1,
+          "crowdedJunctionAngles": 2,
+          "branches": 81,
+          "adjacentBranchEdges": 13,
+          "figuresWithNarrowAngles": 3,
+          "medianMinimumAngle": 42.595068077836814
+        },
+        {
+          "style": "rich",
+          "variant": "core",
+          "samples": 45,
+          "narrow20": 0,
+          "narrow25": 0,
+          "narrow30": 1,
+          "sharpTurns": 0,
+          "crowdedJunctionAngles": 1,
+          "branches": 37,
+          "adjacentBranchEdges": 2,
+          "figuresWithNarrowAngles": 1,
+          "medianMinimumAngle": 47.86284439009433
+        }
+      ]
+    },
+    "checks": {
+      "sourceUnchanged": true,
+      "boundariesIdenticalAcrossMethodsAndStyles": true,
+      "brightStarsPreserved": true,
+      "connected": true,
+      "completeArcsContained": true
+    },
+    "newRounds": 9,
+    "newFigures": 135,
+    "oldComparisonRounds": 6,
+    "timingCaution": "Runs are ordered old-before-new and share caches. Timings are not cold-start benchmarks."
+  },
+  "cli": {
+    "example": "design/zodiac_draw_clarity_example.json",
+    "seed": "terrax-001",
+    "style": "balanced",
+    "members": 138,
+    "log": "reports/zodiac_clarity/seed-cli-default-2.log",
+    "sha256": "b3e76a83cbdd7a48319a698727f92a22a545af1ab3d5889572deefc0f42edaac"
+  },
+  "browser": {
+    "interface": "Native Chrome via CUA; disposable incognito test window",
+    "seedSmoke": {
+      "url": "http://127.0.0.1:8765/web/constellations/?revision=clarity-draw-10#Z11",
+      "nextRoundStyle": "标准 · 清楚轮廓",
+      "localStyle": "标准",
+      "status": "terrax-001 · 清晰星形 · 亮星已纳入 · 标准",
+      "members": 138,
+      "generationValidationPassed": true
+    },
+    "regionalSmokeBeforeSeedIntegration": [
+      "standard local default independent of existing rich round",
+      "simple / standard / rich menu",
+      "simple regeneration: seven members, zero cycles, one branch; bright 3/3",
+      "editable draft with undo / confirm / cancel controls",
+      "old-edge display initially off; turning it on preserves figure counts"
+    ],
+    "notCompletedThisRevision": [
+      "native end-to-end undo / redo / confirm / cancel after seed integration",
+      "native 390px visual recheck"
+    ],
+    "controllerTestsCover": [
+      "style routing, defaults, busy state",
+      "old-edge default / reset, draft undo / redo and confirm / cancel",
+      "old favourite style preserved and next new round defaults standard"
+    ],
+    "notes": "No claim that DOM-controller tests validate narrow-screen layout. The in-app browser was unavailable; native desktop smoke succeeded. Further native interactions stopped after focus moved to the user window."
+  },
+  "plots": {
+    "sameScale": true,
+    "fixedUserCaseInspected": true,
+    "balancedZ11FourSeedSheetInspected": true,
+    "paths": [
+      "reports/zodiac_clarity/fixed-members/Z11.png",
+      "reports/zodiac_clarity/comparison-balanced/Z11.png",
+      "reports/zodiac_clarity/comparison-rich/Z11.png"
+    ]
+  },
+  "preservation": [
+    {
+      "baseline": "reports/zodiac_clarity/preservation.json",
+      "baselineSha256": "663f0e2709e40a1f020d72eee2a1d6aa385bd50ecc16e9a77066bf853360b7c0",
+      "filesChecked": 246,
+      "unchanged": 223,
+      "authorizedChanges": {
+        "design/zodiac_figure_morphology.md": {
+          "before": "db73324447a0bf5b41a9cf041a21864cd145613c9efef11ed067b719004ec862",
+          "after": "8905ad611886fe174fe91a18e9fac5b775322f80eb413303d614bda98423cc9f"
+        },
+        "src/audit_regional_figures.mjs": {
+          "before": "2977a6b080e8b5165ae9e794924567fb04f6a039c9d5dacea8ffb7e828bf506b",
+          "after": "239ea95adf4bee041ac4869e9cb46bd5b5a87b31174930c43ad22841f5922a1f"
+        },
+        "src/plot_regional_figures.py": {
+          "before": "0ab1f03db8fd9bcfc4e005a3ca116436ae33915d1b8867903479f08a5104df26",
+          "after": "ab7bae5860a64d8abbf9e7ad09540eafeb758cea26e787c46a4c49dc325f0b14"
+        },
+        "tests/test_constellation_morphology.mjs": {
+          "before": "2f735740265d8e50e6ba8fcaa6f3944c3637f9d2b4fa2e9357c1d0e6a1c2a2f0",
+          "after": "94717c287c86f8bffb5237620e41c350b881315b0b5b3e533eb2bd0c4a57843c"
+        },
+        "web/constellations/regional_graph.mjs": {
+          "before": "28a10b4d26f04b6e382e06f9cf806fe5c8c6b97ac900ab41807ef58924aed223",
+          "after": "7a1d72d6f0d96748fad30326919eb491ec4d37e9f03a3191493a83c8c301a7da"
+        },
+        "design/zodiac_candidate_editing.md": {
+          "before": "9b20b1b60a58685b4fea3fe6b468bf70575c38d7885c6b7fb1c3b264317f166c",
+          "after": "c77a80994a328c979bee167a5dfc515bd0c3085426d7d7c6333c3e181ee19bc1"
+        },
+        "design/zodiac_local_first.md": {
+          "before": "3995b43def3a1353480a5ef2b642a2eaf0c382e7a3674e458f0ed5330382420d",
+          "after": "9d3733607b643b20d8af38fbb82a0a9fb76573d0a3db2d3450ef905dab293a40"
+        },
+        "design/zodiac_minimum_corners.md": {
+          "before": "e5b8077ef7c410ecb20d9302a99778b7b9225c4cdebcdff51c3721b1e392b216",
+          "after": "39f2676ffc4123f14d07e588c991a9525da90171d72458182c1413d552137920"
+        },
+        "design/zodiac_regional_sampling.md": {
+          "before": "aa3dcd691feb133fe6d24bf0bedccc64204de226668577ce17c6913ad3cb9362",
+          "after": "df15a3f3855631065fc3989271a957435eda7b2457b3ca240c6ad219f4f59e03"
+        },
+        "design/zodiac_workflow.md": {
+          "before": "77f505236aa85410ee90f224b63ab598ed9fcc09fff90398ea790847de0f3f75",
+          "after": "acdf3e4f594ec4371d6d6296722a6d96cf933d9cc1df03e6e709551cfa574675"
+        },
+        "src/draw_zodiac.mjs": {
+          "before": "c5abb89e62eab2cc01bbaebd89ea4a932e19f64066fde0c1c67b36a26920f36c",
+          "after": "ee3426ab3866109c94c070b983ad949dd82312e237517904ddba3d94d554839f"
+        },
+        "tests/test_constellation_candidate_edits.mjs": {
+          "before": "c4ec2e3bdf4b340237bf56643263397a99d01dd174065f84da3c7cd76cf68044",
+          "after": "9ab5cdbb4e4d91d338a3b1d6113269f75e2069aab5c486559721198094f9c636"
+        },
+        "web/README.md": {
+          "before": "c3baf1487cc64b08d66fda195e2f06095a29cd53c4dccf4d3080a1ca2c687821",
+          "after": "6dd295fa297194b68034d24a0ccfde7376f2ef8123082e30b5f48ee3df3efed8"
+        },
+        "web/constellations/candidate_editor.mjs": {
+          "before": "ecb51d14e73977521b4e3a0b7b930c09d97ed6f0d59eaf95ad1565c8e833f892",
+          "after": "1c7daefa99b64c4197dd8060fab04e8aea4ba644665fefb39984837883adf56d"
+        },
+        "web/constellations/generator.mjs": {
+          "before": "ce7cc81b4015e3d857f2fd60cf03f0e967243680591c2719f299b324c136c3cd",
+          "after": "e158a9c1f4204e216dc766c4dc6630b5f0345989a7ff382f907c93449f2bebe7"
+        },
+        "web/constellations/generator_free.mjs": {
+          "before": "0a0ae0424f8df06abfce5dddcead564c84baef4ee6626e6ebda2091efcf3721a",
+          "after": "3a8635af201fe4a9bdf27e57b468cf330012b426f4ccc6a4aef7c8fbf7000882"
+        },
+        "web/constellations/generator_worker.mjs": {
+          "before": "84b569abfbcdcd477e9df8ec8f4d6f01d5fb80105b7d2e990c46bbac0ccc86e3",
+          "after": "8517bf615fa3598064aa7f3352a0ab6e521f32e0632a6e141b340de032af2f88"
+        },
+        "web/constellations/index.html": {
+          "before": "552b2f32444cf3e3209f6413ff6c51c4a5c5700f4ccf3fc5ed20202f02b40a85",
+          "after": "d0624a7e59de56e856eaf21175646c041ce5be760fddc30f14633e405258dc0e"
+        },
+        "web/constellations/manual_figures.mjs": {
+          "before": "657d5d32b127c4f28255b51f8c88c3fbf653e8dbf9c5cb79793fe556ea0c5620",
+          "after": "418a8aecbf48d005bf4a3704c091084b3572090ac47d146dba872c49c8e0f173"
+        },
+        "web/constellations/regional_figures.mjs": {
+          "before": "4bc808b60226914634302c4854967a21b05b1ad1a9f076d1192474f7f2cfd47c",
+          "after": "996c9280a574076e437d7767e9475f96fdf1f9beee104f5749d317eb02abeffe"
+        },
+        "web/constellations/review.css": {
+          "before": "8c9c0d87731735ca83c0de33e5147b69e131f59bf2f35eb75543f5593b978c36",
+          "after": "1e43b924b615170c68c59d635539e19ffb2e4559c92c86d7296904ca212ee685"
+        },
+        "web/constellations/review.mjs": {
+          "before": "fc23810140204d48024a24489b9c0d2e4b4d549d9ed5b03d481dde0ff3564189",
+          "after": "b71c5dd90f5b0d0fd10b4797152130db45ee939d82167cec8cd7c473b3c708fb"
+        },
+        "web/constellations/workflow.mjs": {
+          "before": "19feeb27701c49eeb0cc9d721dc3c9277bcf6fa5650438e48eff04cc716d07a2",
+          "after": "d88855a9ca646045d3c050eb904beb964e7ff38cc7de4ce005f44652bed49207"
+        }
+      },
+      "unexpectedChanges": []
+    },
+    {
+      "baseline": "/tmp/zodiac-preservation.json",
+      "baselineSha256": "db22479532b6bebfc8de805ffaed9cedb6a61d9a8a5f6aa36202f8032f5236fe",
+      "filesChecked": 40,
+      "unchanged": 37,
+      "authorizedChanges": {
+        "web/constellations/generator_free.mjs": {
+          "before": "0a0ae0424f8df06abfce5dddcead564c84baef4ee6626e6ebda2091efcf3721a",
+          "after": "3a8635af201fe4a9bdf27e57b468cf330012b426f4ccc6a4aef7c8fbf7000882"
+        },
+        "web/constellations/generator.mjs": {
+          "before": "ce7cc81b4015e3d857f2fd60cf03f0e967243680591c2719f299b324c136c3cd",
+          "after": "e158a9c1f4204e216dc766c4dc6630b5f0345989a7ff382f907c93449f2bebe7"
+        },
+        "web/constellations/generator_worker.mjs": {
+          "before": "84b569abfbcdcd477e9df8ec8f4d6f01d5fb80105b7d2e990c46bbac0ccc86e3",
+          "after": "8517bf615fa3598064aa7f3352a0ab6e521f32e0632a6e141b340de032af2f88"
+        }
+      },
+      "unexpectedChanges": []
+    }
+  ],
+  "sourceSha256": "42508bc926cf9cffd2928341224d63cf53234099b44ed8ba6eeebcc77bdf73f8",
+  "codeAndFixtureSha256": {
+    "web/constellations/generator_clarity.mjs": "bea82331b25bed5e77808a32d899dfcbbe4a5cd51155da838fb59450d666572e",
+    "web/constellations/regional_figures.mjs": "996c9280a574076e437d7767e9475f96fdf1f9beee104f5749d317eb02abeffe",
+    "web/constellations/regional_graph.mjs": "7a1d72d6f0d96748fad30326919eb491ec4d37e9f03a3191493a83c8c301a7da",
+    "web/constellations/regional_quality.mjs": "9c4365195b0aa06b47b66c02ba79bc0ef491e1c7bc19a3f28c0455ec50771c35",
+    "web/constellations/generator.mjs": "e158a9c1f4204e216dc766c4dc6630b5f0345989a7ff382f907c93449f2bebe7",
+    "web/constellations/generator_free.mjs": "3a8635af201fe4a9bdf27e57b468cf330012b426f4ccc6a4aef7c8fbf7000882",
+    "web/constellations/generator_fitted.mjs": "fbd34d053bb55805c631a8cdc89f7e18b9d0887b3d71e1e062e5477aaf81e142",
+    "web/constellations/generator_sampling.mjs": "2e3187e9fffc602d4e77dc9e7dffe4fbe0087ec8e664a93a1e3928aab8f48459",
+    "web/constellations/manual_figures.mjs": "418a8aecbf48d005bf4a3704c091084b3572090ac47d146dba872c49c8e0f173",
+    "web/constellations/candidate_editor.mjs": "1c7daefa99b64c4197dd8060fab04e8aea4ba644665fefb39984837883adf56d",
+    "web/constellations/workflow.mjs": "d88855a9ca646045d3c050eb904beb964e7ff38cc7de4ce005f44652bed49207",
+    "web/constellations/generator_worker.mjs": "8517bf615fa3598064aa7f3352a0ab6e521f32e0632a6e141b340de032af2f88",
+    "web/constellations/index.html": "d0624a7e59de56e856eaf21175646c041ce5be760fddc30f14633e405258dc0e",
+    "web/constellations/review.mjs": "b71c5dd90f5b0d0fd10b4797152130db45ee939d82167cec8cd7c473b3c708fb",
+    "web/constellations/review.css": "1e43b924b615170c68c59d635539e19ffb2e4559c92c86d7296904ca212ee685",
+    "src/draw_zodiac.mjs": "ee3426ab3866109c94c070b983ad949dd82312e237517904ddba3d94d554839f",
+    "src/audit_regional_figures.mjs": "239ea95adf4bee041ac4869e9cb46bd5b5a87b31174930c43ad22841f5922a1f",
+    "src/audit_regional_clarity.mjs": "27772bf09e51014a95191679f80b1b424fe4f5dc96e4147df0f5ddac2fada0a0",
+    "src/audit_seed_clarity.mjs": "f241a81c9a7017373c618c15174d13247cf5320974dfc5049e32171a31922b89",
+    "src/plot_regional_figures.py": "ab7bae5860a64d8abbf9e7ad09540eafeb758cea26e787c46a4c49dc325f0b14",
+    "tests/test_constellation_draw_clarity.mjs": "fc21fb63eff615eb820acf55b8592a9a093a019244e422f5d067ab6d570b4eb8",
+    "tests/test_constellation_morphology.mjs": "94717c287c86f8bffb5237620e41c350b881315b0b5b3e533eb2bd0c4a57843c",
+    "tests/test_constellation_regional_controls.mjs": "5a16b1ccf978402853ff13354762f46017f0ce350bec7f17c8361bb5d50bf2fa",
+    "tests/test_constellation_seed_controls.mjs": "98771cdf661c77ab843a6ccfe6a794244f0ec4207bb1fb1f3f38c0659b00ba46",
+    "tests/fixtures/regional_clutter.json": "5ef3048761c33c3e01053cdc15fb93529445b83f4e4886425a0bfb8a381d4d8a",
+    "design/zodiac_draw_clarity_example.json": "b3e76a83cbdd7a48319a698727f92a22a545af1ab3d5889572deefc0f42edaac"
+  },
+  "limitations": [
+    "Complexity and branch targets are soft; mandatory bright, outline and connector members may exceed them.",
+    "Novelty is bounded by quality. Topology and edge-diversity statistics can decline while clarity improves.",
+    "Finite sampling cannot guarantee all sharp angles disappear or find every legal connected graph.",
+    "Manual regions may be disconnected or contain holes; regional suggestions remain legal forests where needed. Automatic seed figures must be connected.",
+    "Boundary certificate pertains to the retained draw-9 reference layout, not a new optimum for final draw-10 wiring.",
+    "Only three root seeds were compared for full rounds. Existing boundary solver may take much longer on difficult seeds.",
+    "Automatic figure diameter/common window retained; allowed maximum edge is now 56 degrees. Free manual edits keep their separate geometry contract.",
+    "Historical reports are retained. Intermediate failed solver experiments and an earlier timeout log are not counted as passed checks.",
+    "No perception study; formal V1/V2 star maps are not changed."
+  ],
+  "implementationNotes": {
+    "legacyReplay": "Explicit draw-9 dispatch retained. Manual-1/2 reject draw-10 base; manual-3 supports it.",
+    "fallback": "Recover necessary connector members from legal reference tree, then rerun new wiring algorithm; no old draw-9 edge fallback.",
+    "research": "design/zodiac_figure_morphology.md retains the 13-constellation study and source references; historical measurements kept in design/zodiac_morphology_validation.json."
+  }
+}

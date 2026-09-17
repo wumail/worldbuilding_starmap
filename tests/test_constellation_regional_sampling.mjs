@@ -8,22 +8,20 @@ import {manualRecipe,applyManualFigures,manualArcCells,moveManualBoundary} from 
 import {cellOf,unpackGrid,packGrid} from '../web/constellations/territories.mjs';
 import {separation} from '../web/constellations/geometry.mjs';
 import {prepareDraw,generateDraw,equivalentDraw} from '../web/constellations/generator.mjs';
-const read=p=>JSON.parse(fs.readFileSync(new URL('../'+p,import.meta.url))),base=read('reports/zodiac_candidate_editor/example-data.json'),meta=read('design/zodiac_candidates_v1.json'),stars=catalogueStars(read(meta.catalogue)),lookup=new Map(stars.map(s=>[s.id,s])),cells=unpackGrid(base.territories);
+const read=p=>JSON.parse(fs.readFileSync(new URL('../'+p,import.meta.url))),base=read('design/zodiac_draw_sampling_example.json').data,meta=read('design/zodiac_candidates_v1.json'),stars=catalogueStars(read(meta.catalogue)),lookup=new Map(stars.map(s=>[s.id,s])),cells=unpackGrid(base.territories);
 const shape=r=>({members:r.members,variants:r.variants});
 function apply(current,result){const r=manualRecipe(base,current);r.figures=r.figures.filter(f=>f.index!==result.figure.index);r.figures.push(result.figure);return applyManualFigures(base,stars,r);}
 function smallRegion(chosen){const next=new Int8Array(cells);for(let i=0;i<next.length;i++)if(next[i]===0)next[i]=15;for(const s of chosen)next[cellOf(s.direction)]=0;const recipe=manualRecipe(base,{...base,territories:packGrid(next)});recipe.figures=[{index:0,members:[],coreMembers:[],edges:[],coreEdges:[]}];return applyManualFigures(base,stars,recipe);}
 
 test('all fifteen regions resample actual in-bound stars, preserve their important stars and keep every edge inside',()=>{
-    const original=JSON.stringify(base),source=JSON.stringify(stars),reports=[];
+    const original=JSON.stringify(base),source=JSON.stringify(stars);
     for(let i=0;i<15;i++)for(let j=0;j<3;j++){
-        const t=performance.now(),r=sampleRegion(base,stars,i,`region-sample-${j}`),group=stars.filter(s=>cells[cellOf(s.direction)]===i),required=majorStars(group).map(s=>s.id);
+        const r=sampleRegion(base,stars,i,`region-sample-${j}`),group=stars.filter(s=>cells[cellOf(s.direction)]===i),required=majorStars(group).map(s=>s.id);
         assert.ok(r.changed);assert.ok(r.figure.members.every(id=>cells[cellOf(lookup.get(id).direction)]===i));
         assert.ok(required.every(id=>r.figure.members.includes(id)&&r.figure.coreMembers.includes(id)));
         for(const edge of [...r.figure.edges,...r.figure.coreEdges])assert.ok(manualArcCells(...edge.map(id=>lookup.get(id).direction)).every(k=>cells[k]===i));
-        reports.push({region:i+1,seed:r.seed,members:r.figure.members.length,edges:r.figure.edges.length,candidates:r.candidateCount,milliseconds:performance.now()-t});
     }
     assert.equal(JSON.stringify(base),original);assert.equal(JSON.stringify(stars),source);
-    fs.writeFileSync(new URL('../reports/zodiac_regional_sampling/samples.json',import.meta.url),JSON.stringify(reports,null,2));
 });
 test('same input and seed reproduce; different seeds genuinely sample different members',()=>{
     const a=sampleRegion(base,stars,0,'repeat'),b=sampleRegion(base,[...stars].reverse(),0,'repeat');assert.deepEqual(a,b);

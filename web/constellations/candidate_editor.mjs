@@ -3,6 +3,7 @@ import {fromEquatorial,unpackGrid} from './territories.mjs';
 import {gridEdits} from './boundary_edits.mjs?revision=candidate-editor-band-1';
 import {manualRecipe,applyManualFigures,editManualFigure,moveManualBoundary,regionRings,manualBoundaryRings,cornerCount,edgeKey} from './manual_figures.mjs';
 import {shiftBoundarySegment,isBoundaryCorner,moveBoundaryCorner,removeBoundaryCorner,boundaryStep} from './boundary_geometry.mjs';
+import {REGIONAL_COMPLEXITIES} from './regional_quality.mjs';
 
 const $=id=>document.getElementById(id);
 export function edgePoints(a,b,target=null){
@@ -36,7 +37,7 @@ export function mountCandidateEditor({stars,getLayout,getView,redraw,onActivity,
         $('boundary-point-controls').hidden=selectedCorner<0;$('boundary-edge-controls').hidden=selectedCorner>=0;
         $('boundary-width-label').hidden=$('boundary-tool').value!=='insert';
         $('boundary-selection').textContent=selectedCorner>=0?'已选拐点 · 可拖动、输入坐标或删除':selected>=0?'已选边 · 可拖动或连续微调':'圆点是拐点，方块是整边；空白处可拖动视野';
-        $('regenerate-candidate').disabled=locked;
+        $('regenerate-candidate').disabled=locked;$('regional-complexity').disabled=locked;$('candidate-show-removed').disabled=locked;
         $('candidate-add-member').disabled=saving||!s||member;$('candidate-remove-member').disabled=saving||!member;
         $('candidate-selected').textContent=s?`${s.id} · ${s.app_mag.toFixed(2)} 等 · ${member?'当前成员':'背景星'}`:'尚未选星';
         $('candidate-count').textContent=`${r.id} · ${r.members.length} 颗成员 · ${r.variants[1].edges.length} 条连线 · ${cornerCount(r)} 个拐点`;
@@ -92,11 +93,11 @@ export function mountCandidateEditor({stars,getLayout,getView,redraw,onActivity,
     async function regenerate(){
         if(!mode||saving)return;saving=true;chosen=null;drag=null;controls();notice('正在当前星区内重新采样和生成星形…');
         try{
-            const result=await onResample(data(),index);
+            const style=$('regional-complexity').value,result=await onResample(data(),index,style);
             if(!result.changed){notice('本区暂未找到不同的组合；当前草稿保持原样，可扩大边界或手动修改。');return;}
             const recipe=manualRecipe(base,data());recipe.figures=recipe.figures.filter(f=>f.index!==index);recipe.figures.push(result.figure);
             publish(applyManualFigures(base,stars,recipe,{draft:true}));
-            notice(`本区已重新生成：从 ${result.candidateCount} 颗候选中选取 ${result.figure.members.length} 颗成员。边界及其他星座保持原样；可继续重生成、手调、撤销或确认。`);
+            notice(`本区已按“${REGIONAL_COMPLEXITIES[style].label}”重新生成：从 ${result.candidateCount} 颗候选中选取 ${result.figure.members.length} 颗成员。可继续重生成、手调、撤销或确认。`);
         }catch(error){notice(`未替换星形：${error.message}`);}
         finally{saving=false;controls();redraw();}
     }
@@ -121,9 +122,11 @@ export function mountCandidateEditor({stars,getLayout,getView,redraw,onActivity,
             }
         }else{
             for(const e of r.variants[1].edges){const points=arc(byId.get(e.from).direction,byId.get(e.to).direction,.25).map(project);edgeHits.push({...e,points});ctx.strokeStyle='rgba(222,199,147,.65)';ctx.lineWidth=1.5;stroke(ctx,points);}
-            const original=history[0].regions[index],remaining=new Set(r.variants[1].edges.map(e=>edgeKey(e.from,e.to)));
-            ctx.setLineDash([3,5]);ctx.strokeStyle='rgba(220,132,122,.38)';ctx.lineWidth=1;
-            for(const e of original.variants[1].edges)if(!remaining.has(edgeKey(e.from,e.to)))stroke(ctx,arc(byId.get(e.from).direction,byId.get(e.to).direction,.25).map(project));
+            if($('candidate-show-removed').checked){
+                const original=history[0].regions[index],remaining=new Set(r.variants[1].edges.map(e=>edgeKey(e.from,e.to)));
+                ctx.setLineDash([3,5]);ctx.strokeStyle='rgba(220,132,122,.38)';ctx.lineWidth=1;
+                for(const e of original.variants[1].edges)if(!remaining.has(edgeKey(e.from,e.to)))stroke(ctx,arc(byId.get(e.from).direction,byId.get(e.to).direction,.25).map(project));
+            }
             ctx.setLineDash([]);ctx.strokeStyle='rgba(164,200,218,.65)';ctx.lineWidth=.8;
             for(const s of r.members){const p=project(s.direction);if(p.visible){ctx.beginPath();ctx.arc(p.x,p.y,5,0,Math.PI*2);ctx.stroke();}}
         }
@@ -213,6 +216,7 @@ export function mountCandidateEditor({stars,getLayout,getView,redraw,onActivity,
     $('candidate-add-member').onclick=()=>edit({type:'add-member',id:chosen});
     $('candidate-remove-member').onclick=()=>edit({type:'remove-member',id:chosen});
     $('candidate-clear-star').onclick=()=>{chosen=null;controls();redraw();};
+    $('candidate-show-removed').onchange=()=>redraw();
     function travel(step){if(saving||position+step<0||position+step>=history.length)return;position+=step;clearSelection();endDrag();onPreview(data());notice('已恢复草稿记录。');controls();redraw();}
     $('candidate-undo').onclick=()=>travel(-1);$('candidate-redo').onclick=()=>travel(1);
     function finish(saved){endDrag();clearSelection();mode=null;history=[];handles=[];vertices=[];edgeHits=[];starHits=[];panel.hidden=true;$('candidate-count').textContent='';canvas.classList.remove('editing');for(const id of ['edit-boundary','edit-lines'])$(id).setAttribute('aria-pressed','false');onClose(saved);}
@@ -225,7 +229,7 @@ export function mountCandidateEditor({stars,getLayout,getView,redraw,onActivity,
     return {
         start(original,automatic,region,kind){
             base=automatic;baseCells=unpackGrid(base.territories);history=[structuredClone(original)];position=0;index=region;saving=false;
-            $('candidate-tool').value='select';$('boundary-tool').value='move';panel.hidden=false;canvas.classList.add('editing');setMode(kind);
+            $('candidate-tool').value='select';$('boundary-tool').value='move';$('candidate-show-removed').checked=false;panel.hidden=false;canvas.classList.add('editing');setMode(kind);
         },setMode,choose,paint,regenerate,
         get active(){return !!mode;},get working(){return saving||!!drag;},
         get status(){return {active:!!mode,working:saving||!!drag,mode,index,selectedEdge:selected,selectedCorner,selectedStar:chosen,tool:mode?$('candidate-tool').value:null,boundaryTool:mode?$('boundary-tool').value:null,historyPosition:position,historyLength:history.length,

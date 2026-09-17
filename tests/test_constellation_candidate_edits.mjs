@@ -45,7 +45,7 @@ test('requested sampling bands retain geometry and brightness; a difficult sampl
     const measured=[];
     for(const seed of ['terrax-1ptws5s','terrax-b1bxb1'])for(const width of [30,40,55]){
         const start=performance.now();let data;
-        try{data=generateDraw(stars,meta,{seed,samplingHalfWidthDegrees:width});}
+        try{data=generateDraw(stars,meta,{algorithm:'terrax-zodiac-draw-9',seed,samplingHalfWidthDegrees:width});}
         catch(error){
             assert.equal(seed,'terrax-b1bxb1');assert.equal(width,55);assert.match(error.message,/尚未证明最优/);
             measured.push({seed,width,status:'rejected-unproven',reason:error.message,seconds:(performance.now()-start)/1000});continue;
@@ -62,7 +62,7 @@ test('requested sampling bands retain geometry and brightness; a difficult sampl
     fs.writeFileSync(new URL('example-data.json',out),JSON.stringify(example,null,2));
 });
 test('manual deletion can disconnect the figure without deleting stars or weakening automatic connectedness',()=>{
-    const d=example??generateDraw(stars,meta,{seed:'terrax-1ptws5s'}),recipe=candidateRecipe(d,d),unique=new Map();
+    const d=example??generateDraw(stars,meta,{algorithm:'terrax-zodiac-draw-9',seed:'terrax-1ptws5s'}),recipe=candidateRecipe(d,d),unique=new Map();
     for(const v of d.regions[0].variants)for(const e of v.edges)unique.set([e.from,e.to].sort().join('/'),[0,e.from,e.to]);
     recipe.removedEdges=[...unique.values()];const next=applyCandidateEdits(d,stars,recipe);
     assert.deepEqual(next.regions.map(r=>r.members),d.regions.map(r=>r.members));assert.deepEqual(next.territories,d.territories);
@@ -77,7 +77,7 @@ test('manual deletion can disconnect the figure without deleting stars or weaken
     assert.throws(()=>redrawRecipe(recipe,[],'reroll'));assert.throws(()=>normalizeRecipe({algorithm:EDIT_ALGORITHM,base:recipe,edits:[],removedEdges:[]}));
 });
 test('combined line and boundary edits replay, preserve both changes, and reject moving members outside their region',()=>{
-    const d=example??generateDraw(stars,meta,{seed:'terrax-1ptws5s'}),first=d.regions[0].variants[1].edges[0],recipe=candidateRecipe(d,d);
+    const d=example??generateDraw(stars,meta,{algorithm:'terrax-zodiac-draw-9',seed:'terrax-1ptws5s'}),first=d.regions[0].variants[1].edges[0],recipe=candidateRecipe(d,d);
     recipe.removedEdges=[[0,first.from,first.to]];const removed=applyCandidateEdits(d,stars,recipe);let next,action;
     for(let i=0;i<15&&!next;i++)for(let edge=0;edge<removed.regions[i].boundary.length&&!next;edge++)for(const step of [-1,1]){
         const a=removed.regions[i].boundary[edge],b=removed.regions[i].boundary[(edge+1)%removed.regions[i].boundary.length],coordinate=a[1]===b[1]?a[1]:a[0];
