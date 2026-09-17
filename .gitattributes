@@ -1,0 +1,1 @@
+output/output_20260915_*/star_map_*.json filter=lfs diff=lfs merge=lfs -text
