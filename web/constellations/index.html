@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark">
   <title>Terrax · 星座抽卡工作台</title>
-  <link rel="stylesheet" href="review.css?revision=candidate-zoom-1">
+  <link rel="stylesheet" href="review.css?revision=boundary-points-1">
 </head>
 <body>
 <main>
@@ -59,9 +59,26 @@
           <span>滚轮缩放 · 拖动空白处移动 · 点击星点选星</span>
         </div>
         <div id="candidate-editor" hidden aria-label="当前候选编辑工具">
-          <div id="boundary-controls" class="boundary-controls">
-            <label><span id="boundary-axis">边界位置</span><input id="boundary-coordinate" type="number" step="1" aria-label="选中边界的参考坐标"></label>
-            <button id="boundary-minus">−1°</button><button id="boundary-plus">+1°</button><button id="boundary-apply">应用坐标</button>
+          <div id="boundary-controls" class="boundary-tools">
+            <div class="boundary-controls">
+              <label>边界工具<select id="boundary-tool"><option value="move">选择与移动</option><option value="insert">新增拐点</option></select></label>
+              <label id="boundary-width-label" hidden>新增段宽度（°）<input id="boundary-width" type="number" min="1" step="1" value="4"></label>
+              <p id="boundary-selection" role="status"></p>
+            </div>
+            <div class="boundary-position-controls">
+            <div id="boundary-edge-controls" class="boundary-controls">
+              <label><span id="boundary-axis">边界位置</span><input id="boundary-coordinate" type="number" step="1" aria-label="选中边界的参考坐标"></label>
+              <button id="boundary-minus">−1°</button><button id="boundary-plus">+1°</button><button id="boundary-apply">应用坐标</button>
+            </div>
+            <div id="boundary-point-controls" class="boundary-controls" hidden>
+              <label>拐点赤经（°）<input id="boundary-ra" type="number" step="1"></label>
+              <label>拐点赤纬（°）<input id="boundary-dec" type="number" min="-90" max="90" step="1"></label>
+              <button id="boundary-point-apply">应用拐点坐标</button>
+              <label>删除时的合并方向<select id="boundary-join"><option value="previous">合并前一条边</option><option value="next">合并后一条边</option></select></label>
+              <button id="boundary-remove">删除拐点</button>
+            </div>
+            </div>
+            <p class="boundary-help">拖动时预览，松开后加入草稿。新增或删除会连同相邻折点一起调整，保持横平竖直；支持撤销。</p>
           </div>
           <div id="figure-controls" class="candidate-actions" hidden>
             <label>操作 <select id="candidate-tool"><option value="select">选星</option><option value="connect">连接两颗星</option><option value="erase">删除连线</option></select></label>
@@ -72,7 +89,7 @@
           <p id="candidate-validation" role="status"></p>
           <p id="candidate-message" role="status" aria-live="polite"></p>
         </div>
-        <canvas id="detail" aria-label="当前候选的局部星图"></canvas>
+        <canvas id="detail" tabindex="0" aria-label="当前候选的局部星图；编辑边界时可用方向键微调选中拐点，Delete 删除，Escape 取消拖动"></canvas>
         <div class="detail-footer"><span id="scale-note"></span><span id="view-scale-note">十五张局部图共用角尺度 · 立体投影</span></div>
         <p id="inspection" class="inspection" role="status">点击星点可查看原始编号和视星等。</p>
       </div>
@@ -111,5 +128,5 @@
     </section>
   </div>
 </main>
-<script type="module" src="review.mjs?revision=candidate-zoom-1"></script>
+<script type="module" src="review.mjs?revision=boundary-points-1"></script>
 </body></html>

@@ -1,0 +1,143 @@
+{
+  "date": "2026-09-17",
+  "revision": "boundary-points-1",
+  "scope": "Candidate-window orthogonal boundary point editing; no star-data or automatic-generator changes",
+  "operations": {
+    "insert": "Click an edge to add a real one-cell step, or drag it outward/inward; adjustable width defaults to 4 degrees",
+    "corner": "Drag a corner in two axes or apply numeric RA/declination; preserve surviving selection for consecutive nudges",
+    "delete": "Merge the previous or next edge, removing related redundant corners while keeping orthogonality",
+    "preview": "Build contours from the same proposed ownership cells committed on pointerup; empty regions and invalid moves are indicated",
+    "shortcuts": "Canvas-focused arrow keys, Shift for 10 degrees, Delete/Backspace, Escape, Ctrl/Command Z and Shift Z",
+    "draft": "One gesture produces one undo record; Escape and pointer cancellation discard preview; confirm requires global member and minor-arc containment",
+    "storage": "Existing manual-3 recipe; confirmation creates an unfavourited result and does not overwrite existing favourites"
+  },
+  "automatedGeometry": {
+    "passed": 18,
+    "failed": 0,
+    "tests": [
+      "inserting a partial step adds real corners without shifting the remainder of the edge",
+      "partial steps preserve their intended span and side across the zero-degree seam",
+      "moving each rectangle corner changes both incident edges and exactly the expected cell union",
+      "removing an inserted corner can merge the step, while both collapse directions remain selectable",
+      "shared neighbours receive retracted strips and a cancelled proposal leaves all original cells intact",
+      "holes, disconnected components and both polar limits support local steps without changing remote parts",
+      "invalid widths, polar coordinates and degenerate or stale edges fail without mutating the source",
+      "new corners persist through manual-3 replay, preserving stars and full-arc containment checks",
+      "manual member edits use real stars beyond the automatic magnitude/member limits and replay IDs and edges",
+      "the brightest member, every member and all incident edges can be removed without auto-restoration",
+      "manual edges may exceed 13 degrees and the automatic degree limit, provided their true arcs fit",
+      "out-of-bound stars remain an editable draft but cannot be confirmed; fictitious and shared members are rejected",
+      "containment checks the whole spherical edge, both variants and neighbouring constellations",
+      "manual boundaries are not capped by 8 degree envelopes, 40 degree moves, ecliptic width or automatic topology",
+      "global arc containment matches dense independent sampling across seams and near both poles",
+      "manual-3 survives generator replay and tamper validation while historical manual-2 and draw-9 stay unchanged",
+      "a manual figure may deliberately contain crossing edges and disconnected members",
+      "a winding polar boundary closes on the sky without a spurious full-width line on the map"
+    ],
+    "command": "node --test tests/test_constellation_boundary_points.mjs tests/test_constellation_manual_figures.mjs",
+    "log": "reports/zodiac_boundary_points/tests.tap"
+  },
+  "browser": {
+    "passed": 26,
+    "errors": [],
+    "checks": [
+      "saved draw replays unchanged; candidate boundary mode exposes both corner and edge handles",
+      "click inserts real local corners; preview equals committed cells, keeps all figures and blocks wheel scrolling during the gesture",
+      "dragging a new step uses live grid preview and creates exactly one undo entry on release; undo and redo restore it",
+      "Escape and pointercancel discard drag previews without changing draft history and restore navigation",
+      "returning an edge drag to its start is a no-op; selected edges survive consecutive one-degree adjustments",
+      "corner dragging changes both coordinates without shifting the canvas; numeric edits, continued keyboard nudges and keyboard undo/redo work",
+      "both deletion merge directions use the selected corner, preserve orthogonality and can be undone; Delete key is wired",
+      "cancel restores the original; confirmation retains the view and creates a new unfavourited manual-3 draw; explicit favourite replays after reload",
+      "exported point edits pass deterministic import verification with figures, boundary and notes preserved",
+      "out-of-bounds manual drafts remain editable but cannot be confirmed; undo restores valid containment",
+      "390px layout fits the screen and corner picking opens the correct editing controls",
+      "no browser runtime errors",
+      "DPR 2 corner picking follows CSS coordinates with no canvas jump; dragging back to the original corner creates no edit",
+      "DPR 2 drag inverse reaches the intended angular coordinates and its exact preview is committed",
+      "view controls are available outside editing and the saved draw replays unchanged",
+      "zoom changes projection scale while leaving physical stars, display enhancement, figures and favourites unchanged",
+      "buttons, slider, wheel and reset agree, enforce zoom limits and keep the page still while scrolling over the chart",
+      "normal viewing supports accurate star picking after zoom and pan, without a spurious click when a drag ends",
+      "entering editing retains the viewing scale and positions; editing pans only the view and creates no draft history",
+      "zoomed background stars can join the figure; undo, redo, tool changes and confirmation preserve the viewport and original favourite",
+      "cancel and regional regeneration retain the view without affecting confirmed data or disabling navigation afterwards",
+      "boundary handles still take precedence over view dragging at the zoomed position",
+      "switching candidates or rounds resets the view and all fifteen candidates retain a common baseline angular scale",
+      "390px viewing and editing controls fit the screen, with correct star picking after zoom",
+      "built-in initial charts support zoom and a reload restores the saved figure without persisting viewport changes",
+      "no browser runtime errors"
+    ],
+    "viewports": [
+      "1500x1100 at DPR 1",
+      "390x950 at DPR 1",
+      "1400x1100 at DPR 2",
+      "390x900 at DPR 1 (view regression)"
+    ],
+    "scripts": [
+      "reports/zodiac_boundary_points/browser_checks.mjs",
+      "reports/zodiac_boundary_points/retina_checks.mjs",
+      "reports/zodiac_candidate_zoom/browser_checks.mjs"
+    ],
+    "logs": [
+      "reports/zodiac_boundary_points/browser.log",
+      "reports/zodiac_boundary_points/retina.log",
+      "reports/zodiac_boundary_points/zoom-regression.log"
+    ],
+    "screenshots": [
+      "reports/zodiac_boundary_points/desktop-points.png",
+      "reports/zodiac_boundary_points/mobile-points.png",
+      "reports/zodiac_boundary_points/retina-points.png"
+    ],
+    "isolatedBrowserStorage": true,
+    "visualInspection": "Primary agent inspected desktop and narrow-screen captures"
+  },
+  "independentReview": [
+    {
+      "scope": "Read-only geometry scout",
+      "finding": "Corner sweep could collapse an outline while the idealized preview still showed a polygon",
+      "resolution": "Removed idealized corner/step preview. UI now rebuilds preview from actual proposed cells, commits those cells, and indicates an empty or invalid preview"
+    },
+    {
+      "scope": "Read-only interaction scout",
+      "findings": [
+        "Drag returning inside the initial three-pixel threshold could retain stale target",
+        "Wheel during boundary drag could scroll the page"
+      ],
+      "resolution": "Track started movement, update the release target, and prevent wheel default before the zoom lock; actual browser checks cover both"
+    }
+  ],
+  "initialFindings": [
+    "The first geometry run passed 17 of 18 checks; fixed corner movement across artificial meridian split points, with seam and 230-degree-wide regression cases now passing",
+    "Browser fixture comparison initially caught runtime trigonometric last-bit differences between Node and Chrome; the test now compares the before/after figures rebuilt in the same browser, without changing production data",
+    "Local Python preview initially reset simultaneous module requests; restarted this temporary loopback server with a larger connection queue and completed all browser checks"
+  ],
+  "staticChecks": {
+    "modulesSyntaxChecked": 33,
+    "uniqueDomIds": 96,
+    "editorDomReferences": "passed",
+    "gitDiffCheck": "passed",
+    "protectedPathsChanged": [],
+    "sourceSha256": "42508bc926cf9cffd2928341224d63cf53234099b44ed8ba6eeebcc77bdf73f8"
+  },
+  "source": "output/output_20260915_nebula_03/sky_view_20260915_nebula_03.json",
+  "sourceSha256": "42508bc926cf9cffd2928341224d63cf53234099b44ed8ba6eeebcc77bdf73f8",
+  "codeSha256": {
+    "web/constellations/boundary_geometry.mjs": "86932753bb5e92055f1ce07c6b69760b8e46b95eca61f4b5df26a80cd0b6006f",
+    "web/constellations/candidate_editor.mjs": "ecb51d14e73977521b4e3a0b7b930c09d97ed6f0d59eaf95ad1565c8e833f892",
+    "web/constellations/candidate_view.mjs": "dbbfed6b0ea0935753704ec894edc537cca3333f3e90983904b1417620955e7e",
+    "web/constellations/manual_figures.mjs": "657d5d32b127c4f28255b51f8c88c3fbf653e8dbf9c5cb79793fe556ea0c5620",
+    "web/constellations/index.html": "552b2f32444cf3e3209f6413ff6c51c4a5c5700f4ccf3fc5ed20202f02b40a85",
+    "web/constellations/review.css": "8c9c0d87731735ca83c0de33e5147b69e131f59bf2f35eb75543f5593b978c36",
+    "web/constellations/review.mjs": "fc23810140204d48024a24489b9c0d2e4b4d549d9ed5b03d481dde0ff3564189",
+    "web/constellations/workflow.mjs": "19feeb27701c49eeb0cc9d721dc3c9277bcf6fa5650438e48eff04cc716d07a2",
+    "tests/test_constellation_boundary_points.mjs": "fc51ceada2d189a3c6fd7c08c30751393eb21143375dfcc4bce689428bae2d12"
+  },
+  "limitations": [
+    "Boundary edits remain on the shared one-degree reference RA/declination grid; no diagonal edges or sub-degree points",
+    "An inserted step keeps one grid cell at both ends; edges shorter than three degrees must first be lengthened or another edge chosen",
+    "Deleting a right-angle corner also merges related points; the merge direction is selectable",
+    "Large sweeps may merge or remove components. Some two-edge moves require adjusting a neighbouring edge first. Containment is enforced on confirmation, not on intermediate drafts",
+    "Existing stereographic distortion and temporary viewport semantics remain. Multi-finger pinch zoom is not added"
+  ]
+}

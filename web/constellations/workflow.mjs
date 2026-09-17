@@ -1,5 +1,5 @@
 import {ALGORITHM, isManual, SUPPORTED_ALGORITHMS, DEFAULT_SEED, normalizeRecipe, redrawRecipe, equivalentDraw} from './generator.mjs?revision=favourites-regional-1';
-import {mountCandidateEditor} from './candidate_editor.mjs?revision=candidate-zoom-1';
+import {mountCandidateEditor} from './candidate_editor.mjs?revision=boundary-points-1';
 import {FREE_EDIT_ALGORITHM} from './manual_figures.mjs';
 import {DEFAULT_SAMPLING} from './sampling.mjs';
 

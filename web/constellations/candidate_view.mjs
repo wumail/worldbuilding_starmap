@@ -31,7 +31,7 @@ export function mountCandidateView({canvas,getLayout,redraw,blocked=()=>false}){
         if(!home||blocked())return;stopDrag();view={...home,center:{...home.center}};refresh();redraw();
     };
     canvas.addEventListener('wheel',e=>{
-        if(!view||blocked()||drag)return;e.preventDefault();
+        if(!view)return;e.preventDefault();if(blocked()||drag)return;
         const pixels=e.deltaY*(e.deltaMode===1?16:e.deltaMode===2?canvas.clientHeight:1);
         zoomTo(view.zoom*Math.exp(-pixels*.001));
     },{passive:false});

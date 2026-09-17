@@ -1,8 +1,9 @@
-import {RAD,vector,coordinates,dot,cross,separation,wrap,delta} from './geometry.mjs?revision=candidate-editor-band-1';
+import {RAD,vector,coordinates,dot,cross,separation,wrap} from './geometry.mjs?revision=candidate-editor-band-1';
 import {cellOf,toEquatorial,fromEquatorial,unpackGrid,packGrid,territoryIntervals} from './territories.mjs';
 import {normalizeEdits,gridEdits} from './boundary_edits.mjs?revision=candidate-editor-band-1';
 import {connectionStats} from './candidate_edits.mjs';
 import {brief,brightAudit} from './bright_figures.mjs';
+import {shiftBoundarySegment} from './boundary_geometry.mjs';
 
 // A separate replay contract: historical manual-1/2 and automatic draws keep
 // their original selection, topology and aesthetic constraints.
@@ -102,18 +103,7 @@ export const cornerCount=r=>regionRings(r).reduce((n,ring)=>n+ring.filter((p,i)=
 export function moveManualBoundary(data,index,ringIndex,edgeIndex,target){
     if(!Number.isFinite(target))fail('请输入有限的边界坐标');
     const ring=regionRings(data.regions[index])[ringIndex],a=ring?.[edgeIndex],b=ring?.[(edgeIndex+1)%ring.length];if(!a||!b)fail('请选择一条边界');
-    const horizontal=a[1]===b[1],cells=unpackGrid(data.territories),next=new Int8Array(cells);
-    const start=horizontal?a[1]+90:a[0],end=horizontal?Math.round(target)+90:a[0]+delta(Math.round(target),a[0]);
-    if(horizontal&&(end<0||end>180))fail('赤纬坐标应位于 −90° 至 90°');
-    const at=(x,y)=>y<0||y>=180?-1:y*360+wrap(x),lo=Math.min(start,end),hi=Math.max(start,end);
-    const alongA=horizontal?a[0]:a[1]+90,alongB=horizontal?a[0]+delta(b[0],a[0]):b[1]+90;
-    for(let u=Math.min(alongA,alongB);u<Math.max(alongA,alongB);u++){
-        const minus=horizontal?at(u,start-1):at(start-1,u),plus=horizontal?at(u,start):at(start,u),insideMinus=minus>=0&&cells[minus]===index;
-        if(insideMinus===(plus>=0&&cells[plus]===index))fail('边界已变化，请重新选择');
-        const outsideIndex=insideMinus?plus:minus,outside=outsideIndex<0?15:cells[outsideIndex],expanding=(end>start)===insideMinus;
-        for(let v=lo;v<hi;v++){const k=horizontal?at(u,v):at(v,u);if(k<0)continue;if(expanding)next[k]=index;else if(cells[k]===index)next[k]=outside;}
-    }
-    return next;
+    return shiftBoundarySegment(unpackGrid(data.territories),index,a,b,target);
 }
 export function containmentIssues(data){
     const cells=unpackGrid(data.territories),problems=[],used=new Map();
