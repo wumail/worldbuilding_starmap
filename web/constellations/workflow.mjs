@@ -1,5 +1,5 @@
 import {ALGORITHM, isManual, SUPPORTED_ALGORITHMS, DEFAULT_SEED, normalizeRecipe, redrawRecipe, equivalentDraw} from './generator.mjs?revision=favourites-regional-1';
-import {mountCandidateEditor} from './candidate_editor.mjs?revision=favourites-regional-1';
+import {mountCandidateEditor} from './candidate_editor.mjs?revision=candidate-zoom-1';
 import {FREE_EDIT_ALGORITHM} from './manual_figures.mjs';
 import {DEFAULT_SAMPLING} from './sampling.mjs';
 
@@ -9,7 +9,7 @@ const token=()=>crypto.getRandomValues(new Uint32Array(2)).join('-');
 const notesOf=value=>Object.fromEntries(Array.from({length:15},(_,i)=>`Z${String(i+1).padStart(2,'0')}`).filter(id=>typeof value?.[id]==='string').map(id=>[id,value[id].slice(0,2000)]));
 const locksOf=value=>Array.isArray(value)?[...new Set(value.filter(i=>Number.isInteger(i)&&i>=0&&i<15))].sort((a,b)=>a-b):[];
 
-export function mountWorkflow({stars,baseline,onChange,onMetadata,getLayout,redraw,onEditing}) {
+export function mountWorkflow({stars,baseline,onChange,onMetadata,getLayout,getView,redraw,onEditing,onActivity}) {
     const worker=new Worker(new URL('./generator_worker.mjs?revision=favourites-regional-1',import.meta.url),{type:'module'}),pending=new Map();
     worker.postMessage({type:'init',stars,meta:{catalogue:baseline.catalogue,sha256:baseline.sha256}});
     let records=[],current,region=0,currentData=baseline,busy=false,request=0,canStore=true,lastRegionKey='',editing=false,preview=null,nextRound=1,lastFavouriteId=null;
@@ -41,6 +41,7 @@ export function mountWorkflow({stars,baseline,onChange,onMetadata,getLayout,redr
         $('reroll').disabled=on||editing||!current?.recipe||isManual(current.recipe)||current.locks.length===15;
         $('lock-region').disabled=on||editing||!current?.recipe;
         for(const id of ['edit-boundary','edit-lines','regenerate-candidate'])$(id).disabled=on||!currentData.territories||!current?.recipe;
+        onActivity?.();
     }
     function refresh(){
         const placeholder=document.createElement('option');placeholder.value='';placeholder.disabled=true;placeholder.textContent=records.length?'选择收藏方案':'暂无收藏方案';
@@ -89,10 +90,10 @@ export function mountWorkflow({stars,baseline,onChange,onMetadata,getLayout,redr
         if(record?.recipe?.algorithm!=='terrax-zodiac-draw-3')return;
         await create({...record.recipe,algorithm:'terrax-zodiac-draw-4'},{locks:record.locks,notes:record.notes,refined:true});
     }
-    const editor=mountCandidateEditor({stars,getLayout,redraw,
+    const editor=mountCandidateEditor({stars,getLayout,getView,redraw,onActivity,
         onPreview(next){preview=next;onChange(next);},
         onResample:(current,index)=>requestWorker({type:'sample-region',current,index,seed:`region-${index}-${token()}`,style:current.recipe?.style??'rich'}),
-        onClose(saved){editing=false;preview=null;onEditing(null);onChange(currentData);refresh();message(saved?'修改已应用为未收藏的新结果，锁定与笔记已复制；请收藏要保留的方案。':'已取消编辑，恢复进入编辑前的候选。');},
+        onClose(saved){editing=false;preview=null;onEditing(null);onChange(currentData,{preserveView:true});refresh();message(saved?'修改已应用为未收藏的新结果，锁定与笔记已复制；请收藏要保留的方案。':'已取消编辑，恢复进入编辑前的候选。');},
         async onSave(recipe){
             setBusy(true);
             try{await create(recipe,{locks:current.locks,notes:current.notes,manual:true});}
@@ -174,8 +175,7 @@ export function mountWorkflow({stars,baseline,onChange,onMetadata,getLayout,redr
         regionChanged:updateRegion,
         chooseStar:id=>editor.choose(id),
         paintEditor:(ctx,layout)=>editor.paint(ctx,layout),
-        get editView(){return editor.view;},
-        get status(){return {busy,editing,roundCount:records.length,favouriteCount:records.length,nextRound,canStore,currentId:current?.id,recipe:current?.recipe,locks:[...(current?.locks??[])],favourite:!!current?.favourite};},
+        get status(){return {busy,editing,editingBusy:editor.working,roundCount:records.length,favouriteCount:records.length,nextRound,canStore,currentId:current?.id,recipe:current?.recipe,locks:[...(current?.locks??[])],favourite:!!current?.favourite};},
         get editor(){return editor.status;},
         get record(){return current?structuredClone(current):null;},
         get data(){return structuredClone(preview??currentData);},

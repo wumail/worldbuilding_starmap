@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark">
   <title>Terrax · 星座抽卡工作台</title>
-  <link rel="stylesheet" href="review.css?revision=favourites-regional-1">
+  <link rel="stylesheet" href="review.css?revision=candidate-zoom-1">
 </head>
 <body>
 <main>
@@ -52,6 +52,12 @@
       <div class="panel detail-panel">
         <div class="section-title"><h2 id="detail-title"></h2><div><button id="previous" aria-label="上一个候选">←</button><button id="next" aria-label="下一个候选">→</button><button id="export">保存局部图片</button></div></div>
         <div class="candidate-actions"><button id="edit-boundary">编辑边界</button><button id="edit-lines">编辑星座与连线</button><button id="regenerate-candidate">本区重新生成</button><span id="candidate-count"></span></div>
+        <div class="candidate-view-controls" role="group" aria-label="候选视野">
+          <button id="candidate-view-minus" aria-label="缩小候选视野">−</button>
+          <label>视野缩放 <input id="candidate-view-zoom" type="range" min=".2" max="6" step=".01" value="1"><output id="candidate-view-value" for="candidate-view-zoom">1.00×</output></label>
+          <button id="candidate-view-plus" aria-label="放大候选视野">＋</button><button id="candidate-view-reset">复位视野</button>
+          <span>滚轮缩放 · 拖动空白处移动 · 点击星点选星</span>
+        </div>
         <div id="candidate-editor" hidden aria-label="当前候选编辑工具">
           <div id="boundary-controls" class="boundary-controls">
             <label><span id="boundary-axis">边界位置</span><input id="boundary-coordinate" type="number" step="1" aria-label="选中边界的参考坐标"></label>
@@ -62,7 +68,6 @@
             <button id="candidate-add-member">加入星座</button><button id="candidate-remove-member">移除成员及连线</button><button id="candidate-clear-star">清除选星</button>
             <p id="candidate-selected" role="status"></p>
           </div>
-          <div class="candidate-view-controls"><label>视野缩放 <input id="candidate-view-zoom" type="range" min=".2" max="6" step=".01" value="1"></label><button id="candidate-view-reset">复位视野</button><span>拖动空白处移动视野</span></div>
           <div class="candidate-actions"><button id="candidate-undo">撤销</button><button id="candidate-redo">重做</button><button id="candidate-confirm">确认</button><button id="candidate-cancel">取消</button></div>
           <p id="candidate-validation" role="status"></p>
           <p id="candidate-message" role="status" aria-live="polite"></p>
@@ -106,5 +111,5 @@
     </section>
   </div>
 </main>
-<script type="module" src="review.mjs?revision=favourites-regional-1"></script>
+<script type="module" src="review.mjs?revision=candidate-zoom-1"></script>
 </body></html>

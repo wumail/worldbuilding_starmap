@@ -1,0 +1,95 @@
+{
+  "date": "2026-09-17",
+  "revision": "candidate-zoom-1",
+  "scope": "Shared candidate-window viewing state for normal browsing and editing; no generator or star-data changes",
+  "zoom": {
+    "minimum": 0.2,
+    "maximum": 6,
+    "default": 1,
+    "controls": [
+      "wheel",
+      "range slider",
+      "plus and minus buttons",
+      "reset"
+    ],
+    "pan": "drag empty sky",
+    "resetOn": [
+      "candidate selection",
+      "round selection",
+      "page reload"
+    ],
+    "preserveOn": [
+      "enter editing",
+      "switch editor tool",
+      "draft changes",
+      "undo",
+      "redo",
+      "confirm",
+      "cancel",
+      "regional regeneration"
+    ]
+  },
+  "browser": {
+    "passed": 14,
+    "checks": [
+      "view controls are available outside editing and the saved draw replays unchanged",
+      "zoom changes projection scale while leaving physical stars, display enhancement, figures and favourites unchanged",
+      "buttons, slider, wheel and reset agree, enforce zoom limits and keep the page still while scrolling over the chart",
+      "normal viewing supports accurate star picking after zoom and pan, without a spurious click when a drag ends",
+      "entering editing retains the viewing scale and positions; editing pans only the view and creates no draft history",
+      "zoomed background stars can join the figure; undo, redo, tool changes and confirmation preserve the viewport and original favourite",
+      "cancel and regional regeneration retain the view without affecting confirmed data or disabling navigation afterwards",
+      "boundary handles still take precedence over view dragging at the zoomed position",
+      "switching candidates or rounds resets the view and all fifteen candidates retain a common baseline angular scale",
+      "390px viewing and editing controls fit the screen, with correct star picking after zoom",
+      "built-in initial charts support zoom and a reload restores the saved figure without persisting viewport changes",
+      "no browser runtime errors",
+      "DPR 2 canvas uses full backing resolution and CSS-coordinate picking remains accurate at 3x zoom",
+      "DPR 2 editing preserves the projection and hit location, and cancellation clears the tool highlight"
+    ],
+    "errors": [],
+    "viewports": [
+      "1500x1100 at DPR 1",
+      "390x900 at DPR 1",
+      "1400x1050 at DPR 2"
+    ],
+    "logs": [
+      "reports/zodiac_candidate_zoom/browser-checks.log",
+      "reports/zodiac_candidate_zoom/retina-checks.log"
+    ],
+    "reports": [
+      "reports/zodiac_candidate_zoom/browser-validation.json",
+      "reports/zodiac_candidate_zoom/retina-validation.json"
+    ],
+    "screenshots": [
+      "reports/zodiac_candidate_zoom/desktop-zoom.png",
+      "reports/zodiac_candidate_zoom/mobile-zoom.png",
+      "reports/zodiac_candidate_zoom/retina-zoom.png"
+    ],
+    "isolatedBrowserStorage": true
+  },
+  "automatedGeometry": {
+    "passed": 1,
+    "failed": 0,
+    "scope": "Stereographic pointer inverse away from center and across RA seam",
+    "log": "reports/zodiac_candidate_zoom/projection-tests.tap"
+  },
+  "staticChecks": {
+    "modulesSyntaxChecked": 31,
+    "uniqueDomIds": 85,
+    "gitDiffCheck": "passed",
+    "protectedPathsChanged": []
+  },
+  "source": "output/output_20260915_nebula_03/sky_view_20260915_nebula_03.json",
+  "sourceSha256": "42508bc926cf9cffd2928341224d63cf53234099b44ed8ba6eeebcc77bdf73f8",
+  "independentReview": "Read-only scout checked the shared view, drawing and hit coordinates, edit transitions, event precedence and busy-state controls; no confirmed new issue. Actual browser checks and final validation performed by the primary agent.",
+  "initialAttempts": [
+    "First browser attempt could not connect because the local preview server was stopped; restarted it on loopback port 8765.",
+    "A subsequent attempt timed out before module initialization without a JavaScript error. The next run with request diagnostics completed all 12 browser checks, followed by the two DPR 2 checks."
+  ],
+  "limitations": [
+    "Viewing uses the existing stereographic projection and retains its peripheral distortion and antipodal singularity.",
+    "The viewport is temporary display state, not persisted in the constellation recipe or favourites.",
+    "Multi-finger touch zoom is not implemented; buttons and slider remain available on touch screens."
+  ]
+}

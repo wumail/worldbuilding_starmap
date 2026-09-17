@@ -1,5 +1,5 @@
-import {vector,delta,arc,coordinates,unprojectLocal,cross,dot} from './geometry.mjs?revision=candidate-editor-band-1';
-import {fromEquatorial,unpackGrid,boundaryPoints} from './territories.mjs';
+import {vector,delta,arc} from './geometry.mjs?revision=candidate-editor-band-1';
+import {fromEquatorial,unpackGrid} from './territories.mjs';
 import {gridEdits} from './boundary_edits.mjs?revision=candidate-editor-band-1';
 import {manualRecipe,applyManualFigures,editManualFigure,moveManualBoundary,regionRings,cornerCount,edgeKey} from './manual_figures.mjs';
 
@@ -17,19 +17,20 @@ function pathDistance(points,p){
     }
     return distance;
 }
-export function mountCandidateEditor({stars,getLayout,redraw,onPreview,onClose,onSave,onResample}){
+export function mountCandidateEditor({stars,getLayout,getView,redraw,onActivity,onPreview,onClose,onSave,onResample}){
     const panel=$('candidate-editor'),canvas=$('detail'),byId=new Map(stars.map(s=>[s.id,s]));
-    let base,baseCells,history=[],position=0,index=0,mode=null,selected=-1,drag=null,handles=[],edgeHits=[],starHits=[],saving=false,chosen=null,view=null,initialView=null;
+    let base,baseCells,history=[],position=0,index=0,mode=null,selected=-1,drag=null,handles=[],edgeHits=[],starHits=[],saving=false,chosen=null;
     const data=()=>history[position],notice=message=>{$('candidate-message').textContent=message;};
     const issues=()=>data()?.manualEdits?.issues??[];
     const changed=()=>JSON.stringify(manualRecipe(base,history[0]))!==JSON.stringify(manualRecipe(base,data()));
     function controls(){
+        onActivity?.();
         if(!mode)return;
         const r=data().regions[index],s=byId.get(chosen),member=r.members.some(s=>s.id===chosen),pending=issues();
         $('candidate-undo').disabled=saving||position<=0;$('candidate-redo').disabled=saving||position>=history.length-1;
         $('candidate-confirm').disabled=saving||!changed()||pending.length>0;$('candidate-cancel').disabled=saving;
         for(const id of ['boundary-coordinate','boundary-apply','boundary-minus','boundary-plus'])$(id).disabled=saving||selected<0;
-        for(const id of ['candidate-tool','candidate-view-zoom','candidate-view-reset','candidate-clear-star'])$(id).disabled=saving;
+        for(const id of ['candidate-tool','candidate-clear-star'])$(id).disabled=saving;
         $('regenerate-candidate').disabled=saving;
         $('candidate-add-member').disabled=saving||!s||member;$('candidate-remove-member').disabled=saving||!member;
         $('candidate-selected').textContent=s?`${s.id} · ${s.app_mag.toFixed(2)} 等 · ${member?'当前成员':'背景星'}`:'尚未选星';
@@ -98,32 +99,25 @@ export function mountCandidateEditor({stars,getLayout,redraw,onPreview,onClose,o
     }
     const pointer=e=>{const r=canvas.getBoundingClientRect();return {x:e.clientX-r.left,y:e.clientY-r.top};};
     canvas.addEventListener('pointerdown',e=>{
-        if(!mode||saving||e.button>0)return;const p=pointer(e);e.preventDefault();
+        if(!mode||saving||e.button!==0||!e.isPrimary)return;const p=pointer(e);
         const nearest=(items,measure)=>items.map((h,j)=>({...h,slot:j,d:measure(h)})).sort((a,b)=>a.d-b.d)[0];
         if(mode==='lines'){
             if($('candidate-tool').value==='erase'){
-                const hit=nearest(edgeHits,h=>pathDistance(h.points,p));if(hit?.d<=9){edit({type:'remove-edge',from:hit.from,to:hit.to});return;}
-            }else {const hit=nearest(starHits,h=>Math.hypot(h.x-p.x,h.y-p.y));if(hit?.d<=10){choose(hit.id);return;}}
+                const hit=nearest(edgeHits,h=>pathDistance(h.points,p));if(hit?.d<=9){e.preventDefault();edit({type:'remove-edge',from:hit.from,to:hit.to});return;}
+            }else {const hit=nearest(starHits,h=>Math.hypot(h.x-p.x,h.y-p.y));if(hit?.d<=10){e.preventDefault();choose(hit.id);return;}}
         }else {
             const h=nearest(handles,h=>pathDistance(h.points,p));
             if(h?.d<=12){selected=h.slot;$('boundary-axis').textContent=h.horizontal?'赤纬位置':'赤经位置';$('boundary-coordinate').value=h.coordinate;
-                drag={kind:'edge',handle:h.slot,target:h.coordinate};canvas.setPointerCapture(e.pointerId);controls();redraw();return;}
+                e.preventDefault();drag={kind:'edge',handle:h.slot,target:h.coordinate};canvas.setPointerCapture(e.pointerId);controls();redraw();return;}
         }
-        drag={kind:'pan',start:p,layout:getLayout(),center:{...view.center}};canvas.setPointerCapture(e.pointerId);
     });
     canvas.addEventListener('pointermove',e=>{
         if(!drag||saving)return;const p=pointer(e);
-        if(drag.kind==='edge'){const c=getLayout().unprojectEquatorial(p.x,p.y),h=handles[drag.handle];drag.target=Math.round(h.horizontal?c.latitude:c.longitude);}
-        else{
-            const l=drag.layout,at=p=>unprojectLocal(p.x,p.y,l.frame,l.width/2,l.height/2,l.ppd),a=at(p),b=at(drag.start),axis=cross(a,b),c=dot(a,b),v=l.frame.center;
-            // Rodrigues rotation mapping the pointer ray back to its grabbed sky direction.
-            if(c>-1+1e-10){const first=cross(axis,v),second=cross(axis,first);view.center=coordinates(v.map((x,i)=>x+first[i]+second[i]/(1+c)));}
-        }
+        const c=getLayout().unprojectEquatorial(p.x,p.y),h=handles[drag.handle];drag.target=Math.round(h.horizontal?c.latitude:c.longitude);
         redraw();
     });
     canvas.addEventListener('pointerup',()=>{if(!drag)return;const d=drag;drag=null;if(d.kind==='edge')move(d.target);});
     canvas.addEventListener('pointercancel',()=>{drag=null;redraw();});canvas.addEventListener('lostpointercapture',()=>{drag=null;});
-    canvas.addEventListener('wheel',e=>{if(!mode||saving)return;e.preventDefault();view.zoom=Math.max(.2,Math.min(6,view.zoom*Math.exp(-e.deltaY*.001)));$('candidate-view-zoom').value=view.zoom;redraw();},{passive:false});
     const numeric=()=>{const value=$('boundary-coordinate').value;if(!value.trim())throw Error('请输入边界坐标');return Number(value);};
     function nudge(step){try{move(numeric()+step);}catch(error){notice(error.message);}}
     $('boundary-apply').onclick=()=>nudge(0);$('boundary-minus').onclick=()=>nudge(-1);$('boundary-plus').onclick=()=>nudge(1);
@@ -131,11 +125,9 @@ export function mountCandidateEditor({stars,getLayout,redraw,onPreview,onClose,o
     $('candidate-add-member').onclick=()=>edit({type:'add-member',id:chosen});
     $('candidate-remove-member').onclick=()=>edit({type:'remove-member',id:chosen});
     $('candidate-clear-star').onclick=()=>{chosen=null;controls();redraw();};
-    $('candidate-view-zoom').oninput=e=>{view.zoom=Number(e.target.value);redraw();};
-    $('candidate-view-reset').onclick=()=>{view=structuredClone(initialView);$('candidate-view-zoom').value=view.zoom;redraw();};
     function travel(step){if(saving||position+step<0||position+step>=history.length)return;position+=step;selected=-1;drag=null;onPreview(data());notice('已恢复草稿记录。');controls();redraw();}
     $('candidate-undo').onclick=()=>travel(-1);$('candidate-redo').onclick=()=>travel(1);
-    function finish(saved){mode=null;history=[];handles=[];edgeHits=[];starHits=[];drag=null;view=null;panel.hidden=true;$('candidate-count').textContent='';canvas.classList.remove('editing');onClose(saved);}
+    function finish(saved){mode=null;history=[];handles=[];edgeHits=[];starHits=[];drag=null;panel.hidden=true;$('candidate-count').textContent='';canvas.classList.remove('editing');for(const id of ['edit-boundary','edit-lines'])$(id).setAttribute('aria-pressed','false');onClose(saved);}
     $('candidate-cancel').onclick=()=>{if(!saving)finish(false);};
     $('candidate-confirm').onclick=async()=>{
         if(saving||issues().length||!changed())return;saving=true;controls();notice('正在验证包围关系并应用本轮修改…');
@@ -145,12 +137,11 @@ export function mountCandidateEditor({stars,getLayout,redraw,onPreview,onClose,o
     return {
         start(original,automatic,region,kind){
             base=automatic;baseCells=unpackGrid(base.territories);history=[structuredClone(original)];position=0;index=region;saving=false;
-            initialView={center:{...original.regions[index].center},fitCenter:{...original.regions[index].center},zoom:1,fitPoints:regionRings(original.regions[index]).flatMap(r=>boundaryPoints(r))};view=structuredClone(initialView);
-            $('candidate-view-zoom').value=1;$('candidate-tool').value='select';panel.hidden=false;canvas.classList.add('editing');setMode(kind);
+            $('candidate-tool').value='select';panel.hidden=false;canvas.classList.add('editing');setMode(kind);
         },setMode,choose,paint,regenerate,
-        get view(){return view;},get active(){return !!mode;},
+        get active(){return !!mode;},get working(){return saving;},
         get status(){return {active:!!mode,working:saving,mode,index,selectedEdge:selected,selectedStar:chosen,tool:mode?$('candidate-tool').value:null,historyPosition:position,historyLength:history.length,
-            changedCells:mode?gridEdits(base,data()).length:0,issues:mode?[...issues()]:[],view:mode?{center:view.center,zoom:view.zoom}:null,
+            changedCells:mode?gridEdits(base,data()).length:0,issues:mode?[...issues()]:[],view:mode?{center:getView().center,zoom:getView().zoom}:null,
             handles:handles.map(({ring,edge,x,y,horizontal,coordinate})=>({ring,edge,x,y,horizontal,coordinate})),starHits,
             edgeHits:edgeHits.map(({from,to,points})=>({from,to,points:points.filter(p=>p.visible!==false).map(p=>({x:p.x,y:p.y}))}))};}
     };

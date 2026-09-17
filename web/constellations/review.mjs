@@ -3,7 +3,8 @@ import {eclipticCoordinates} from '../shared/zodiac.mjs';
 import {SYMBOL_REFERENCE} from '../shared/sky_render.mjs';
 import {AtlasStarPainter} from '../v1/sky_atlas_stars.mjs';
 import {RAD,delta,vector,coordinates,arc,tangentFrame,projectLocal,unprojectLocal} from './geometry.mjs?revision=favourites-regional-1';
-import {mountWorkflow} from './workflow.mjs?revision=favourites-regional-1';
+import {mountWorkflow} from './workflow.mjs?revision=candidate-zoom-1';
+import {mountCandidateView} from './candidate_view.mjs?revision=candidate-zoom-1';
 import {regionAt,boundaryPoints,unpackGrid,toEquatorial,fromEquatorial} from './territories.mjs';
 import {brightAudit} from './bright_figures.mjs';
 import {connectionStats} from './candidate_edits.mjs';
@@ -15,7 +16,7 @@ const $=id=>document.getElementById(id), overview=$('overview'),detail=$('detail
 const contexts=new Map([overview,detail].map(c=>[c,c.getContext('2d')]));
 const painters=new Map([...contexts].map(([canvas,ctx])=>[canvas,new AtlasStarPainter(ctx)]));
 const state={region:0,variant:'extended',scale:2.5,limit:6.5,lines:true,boundaries:true,numbers:false,sectors:false,compare:false,inspected:null};
-let data,stars,overviewLayout,detailLayout,workflow,hits=[],frames=0,regionalAudit=[],savedView=null;
+let data,stars,overviewLayout,detailLayout,workflow,viewport,hits=[],frames=0,regionalAudit=[],savedView=null;
 const colors=['#acc9d7','#aaa6ce','#d5b393','#b4ccaa','#cbb9cb'];
 const rgb=(color,alpha)=>{const n=parseInt(color.slice(1),16);return `rgba(${n>>16},${n>>8&255},${n&255},${alpha})`;};
 const num=x=>Number(x).toFixed(1);
@@ -101,15 +102,15 @@ function drawOverview() {
     overview.dataset.samplingHalfWidth=String(currentWidth);overview.dataset.previewHalfWidth=String(previewWidth);overview.dataset.samplingCandidates=String(info.candidateCount);
 }
 function drawDetail() {
-    const {ctx,width,height}=canvasStart(detail),r=data.regions[state.region],view=workflow?.editView;
+    const {ctx,width,height}=canvasStart(detail),r=data.regions[state.region],view=viewport?.view,reference=view?.reference??data;
     const center=view?.center??r.center,frame=tangentFrame(center.longitude,center.latitude);
-    let ppd=Math.min((width-44)/(data.territories?72:58),(height-44)/(data.territories?56:52));
+    let ppd=Math.min((width-44)/(reference.territories?72:58),(height-44)/(reference.territories?56:52));
     const fitScale=(points,fitCenter)=>{
         const f=tangentFrame(fitCenter.longitude,fitCenter.latitude),p=points.map(v=>projectLocal(v,f,0,0,1)).filter(p=>Number.isFinite(p.x+p.y));
         if(p.length)ppd=Math.min(ppd,(width-44)/(2*(Math.max(...p.map(p=>Math.abs(p.x)))+4)),(height-44)/(2*(Math.max(...p.map(p=>Math.abs(p.y)))+4)));
     };
-    if(view){fitScale(view.fitPoints,view.fitCenter);ppd*=view.zoom;}
-    else if(isFreeEdit(data))for(const region of data.regions)fitScale(region.members.map(s=>s.direction),region.center);
+    if(isFreeEdit(reference))for(const region of reference.regions)fitScale(region.members.map(s=>s.direction),region.center);
+    ppd*=view?.zoom??1;
     const project=v=>{const p=projectLocal(v,frame,width/2,height/2,ppd);if(isFreeEdit(data)||view)p.visible=Number.isFinite(p.x+p.y);return p;};
     hits=[];detailLayout={frame,ppd,width,height,project,hits,unprojectEquatorial:(x,y)=>coordinates(toEquatorial(unprojectLocal(x,y,frame,width/2,height/2,ppd)))};
     if(!state.compare){ctx.strokeStyle='rgba(124,176,210,.4)';ctx.lineWidth=.8;for(const beta of [-roundSampling(data),roundSampling(data)])pathLine(ctx,samplingCurve(beta),project);}
@@ -131,13 +132,14 @@ function drawDetail() {
         if(state.numbers){ctx.font='11px system-ui';ctx.fillStyle='rgba(191,202,217,.62)';variant.members.forEach((id,i)=>{const s=byId.get(id);if(s.app_mag>state.limit)return;const p=project(s.direction);ctx.fillText(String(i+1).padStart(2,'0'),p.x+7,p.y-7);});}
         if(state.inspected){const s=stars.find(s=>s.id===state.inspected);if(s.app_mag<=state.limit){const p=project(s.direction);ctx.strokeStyle='#c7b18b';ctx.lineWidth=.8;ctx.setLineDash([2,3]);ctx.beginPath();ctx.arc(p.x,p.y,8,0,2*Math.PI);ctx.stroke();ctx.setLineDash([]);}}
     }
-    ctx.fillStyle='#74849b';ctx.font='10px system-ui';ctx.textAlign='left';ctx.fillText('北 ↑    东 ←',16,24);ctx.textAlign='right';ctx.fillText(`${r.id} · ${variant.label} · ${state.scale.toFixed(1)}×`,width-16,24);ctx.textAlign='left';
+    ctx.fillStyle='#74849b';ctx.font='10px system-ui';ctx.textAlign='left';ctx.fillText('北 ↑    东 ←',16,24);ctx.textAlign='right';ctx.fillText(`${r.id} · ${variant.label} · 星点 ${state.scale.toFixed(1)}×`,width-16,24);ctx.textAlign='left';
     const length=ppd*5;ctx.strokeStyle='#66768b';ctx.lineWidth=.7;ctx.beginPath();ctx.moveTo(18,height-24);ctx.lineTo(18+length,height-24);ctx.stroke();ctx.fillText('5° · 中央角尺度',18,height-33);
     if(data.recipe){ctx.textAlign='right';ctx.fillText(`${data.recipe.seed} · ${workflow?.record.id??''}`,width-16,height-20,Math.max(90,width-190));ctx.textAlign='left';}
     workflow?.paintEditor(ctx,detailLayout);
-    $('scale-note').textContent=`显示 ${state.scale.toFixed(1)}× · 中央 ${ppd.toFixed(1)} 像素 / 度`;
-    $('view-scale-note').textContent=view?'编辑中 · 可拖动与缩放视野 · 立体投影':'十五张局部图共用角尺度 · 立体投影';
+    $('scale-note').textContent=`星点增强 ${state.scale.toFixed(1)}× · 中央 ${ppd.toFixed(1)} 像素 / 度`;
+    $('view-scale-note').textContent=`${workflow?.status.editing?'编辑中 · ':''}视野 ${(view?.zoom??1).toFixed(2)}× · 复位后共用角尺度 · 立体投影`;
     detail.dataset.pixelsPerDegree=String(ppd);detail.dataset.visibleStars=String(hits.length);
+    viewport?.refresh();
 }
 function updateInformation() {
     const r=data.regions[state.region],variant=currentVariant(r),byId=new Map(r.members.map(s=>[s.id,s]));
@@ -167,10 +169,10 @@ function updateInformation() {
 function inspect(star){state.inspected=star.id;$('inspection').textContent=`${star.id} · ${star.app_mag.toFixed(2)} 等 · 黄经 ${star.longitude.toFixed(2)}° · 黄纬 ${star.latitude.toFixed(2)}° · ${star.distance_pc.toFixed(1)} pc`;draw();}
 function clearInspection(){state.inspected=null;$('inspection').textContent='点击星点可查看原始编号和视星等。';}
 function draw(){if(!data)return;drawOverview();drawDetail();updateInformation();frames++;document.body.dataset.region=data.regions[state.region].id;document.body.dataset.variant=state.variant;document.body.dataset.displayScale=String(state.scale);}
-function selectRegion(index){if(workflow?.status.editing||workflow?.status.busy)return;state.region=(index+15)%15;clearInspection();history.replaceState(null,'',`#${data.regions[state.region].id}`);draw();}
+function selectRegion(index){if(workflow?.status.editing||workflow?.status.busy)return;state.region=(index+15)%15;viewport.setScene(data,state.region);clearInspection();history.replaceState(null,'',`#${data.regions[state.region].id}`);draw();}
 
-function applyData(next){
-    data=next;clearInspection();
+function applyData(next,{preserveView=false}={}){
+    data=next;if(!workflow?.status.editing)viewport?.setScene(data,state.region,{preserve:preserveView});clearInspection();
     regionalAudit=data.territories?brightAudit(data,stars,unpackGrid(data.territories)):[];
     $('summary').textContent=`${data.sourceCount.toLocaleString()} 颗背景星 · ${data.selectedExtendedCount} 颗完整成员 · 15 个不等宽区域`;
     const spans=data.regions.map(r=>r.eclipticSpan),measured=spans.every(Number.isFinite);
@@ -205,13 +207,14 @@ async function init(){
     overview.onclick=e=>{const rect=overview.getBoundingClientRect(),x=e.clientX-rect.left,y=e.clientY-rect.top,l=overviewLayout;if(x<l.left||x>l.right)return;const index=regionAt(data,fromEquatorial(vector((l.right-x)/l.plotWidth*360,(l.cy-y)/l.ppd)));if(index<15)selectRegion(index);};
     detail.onclick=e=>{if(workflow?.status.editing||workflow?.status.busy)return;const rect=detail.getBoundingClientRect(),x=e.clientX-rect.left,y=e.clientY-rect.top;const hit=hits.map(h=>({...h,d:Math.hypot(h.x-x,h.y-y)})).filter(h=>h.d<9).sort((a,b)=>a.d-b.d)[0];if(hit)inspect(hit.star);};
     $('export').onclick=()=>{const round=data.recipe?`${data.recipe.seed.replace(/[^a-zA-Z0-9_-]/g,'_')}-${workflow.record.id}-`:'';const filename=`Terrax-${round}${data.regions[state.region].id}-${state.variant}-${state.scale.toFixed(1)}x-${state.compare||!state.lines?'no-lines':'lines'}.png`;detail.toBlob(blob=>{if(!blob){$('inspection').textContent='图片保存失败，请重试。';return;}const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=filename;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);},'image/png');};
-    workflow=mountWorkflow({stars,baseline:data,onChange:applyData,onMetadata:updateInformation,getLayout:()=>detailLayout,redraw:draw,
+    workflow=mountWorkflow({stars,baseline:data,onChange:applyData,onMetadata:updateInformation,getLayout:()=>detailLayout,getView:()=>viewport.view,redraw:draw,onActivity:()=>viewport?.refresh(),
         onEditing(mode){
             if(mode){savedView={variant:state.variant,limit:state.limit,lines:state.lines,boundaries:state.boundaries};Object.assign(state,{variant:'extended',limit:6.5,lines:true,boundaries:true,compare:false});}
             else if(savedView){Object.assign(state,savedView);savedView=null;}
             $('variant').value=state.variant;$('limit').value=String(state.limit);$('lines').checked=state.lines;$('boundaries').checked=state.boundaries;clearInspection();
         }});
+    viewport=mountCandidateView({canvas:detail,getLayout:()=>detailLayout,redraw:draw,blocked:()=>workflow.status.busy||workflow.status.editingBusy});
     $('loading').hidden=true;$('review').hidden=false;await workflow.start();new ResizeObserver(()=>draw()).observe(detail);draw();document.body.dataset.state='ready';
-    window.constellationReview={get status(){return {...state,frames,sourceCount:stars.length,sourceHash:digest,regions:data.regions.length,ppd:detailLayout.ppd,visibleStars:hits.length,workflow:workflow.status};},get editor(){return workflow.editor;},get data(){return workflow.data;},get record(){return workflow.record;},get projectedMembers(){return data.regions[state.region].members.map(s=>({id:s.id,app_mag:s.app_mag,...detailLayout.project(s.direction)}));}};
+    window.constellationReview={get status(){return {...state,frames,sourceCount:stars.length,sourceHash:digest,regions:data.regions.length,ppd:detailLayout.ppd,visibleStars:hits.length,view:viewport.status,workflow:workflow.status};},get editor(){return workflow.editor;},get data(){return workflow.data;},get record(){return workflow.record;},get projectedStars(){return hits.map(({star,x,y})=>({id:star.id,app_mag:star.app_mag,x,y}));},get projectedMembers(){return data.regions[state.region].members.map(s=>({id:s.id,app_mag:s.app_mag,...detailLayout.project(s.direction)}));}};
 }
 init().catch(error=>{$('loading').hidden=false;$('loading').classList.add('error');$('loading').textContent=error.message;document.body.dataset.state='error';console.error(error);});
