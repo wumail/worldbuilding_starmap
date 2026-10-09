@@ -33,7 +33,8 @@ def projector(center):
     return project
 
 
-def draw_region(region):
+def draw_region(region, output_dir=None):
+    output_dir = Path(output_dir) if output_dir is not None else ROOT / "generation"
     stars = {s["label"]: s for s in region["stars"]}
     variant = next(v for v in region["variants"] if v["id"] == "extended")
     xs, ys = [s["x"] for s in stars.values()], [s["y"] for s in stars.values()]
@@ -74,7 +75,7 @@ def draw_region(region):
                         "app_mag": s["app_mag"], "color_hex": s["color_hex"]})
 
     small_overlay = overlay.resize((SIZE, SIZE), Image.Resampling.LANCZOS)
-    small_overlay.save(ROOT / "generation" / f'{region["id"]}-overlay.png')
+    small_overlay.save(output_dir / f'{region["id"]}-overlay.png')
     reference = Image.alpha_composite(Image.new("RGBA", overlay.size, BG), overlay)
     draw = ImageDraw.Draw(reference)
     try:
@@ -85,7 +86,7 @@ def draw_region(region):
         draw.text(((a["x"] + 11) * SS, (a["y"] - 26) * SS), a["label"],
                   font=font, fill="#e3edf5")
     reference = reference.resize((SIZE, SIZE), Image.Resampling.LANCZOS).convert("RGB")
-    reference.save(ROOT / "generation" / f'{region["id"]}-reference.png')
+    reference.save(output_dir / f'{region["id"]}-reference.png')
     return {"id": region["id"], "stars": anchors, "edges": variant["edges"],
             "scalePixelsPerDegree": SIZE / span, "center": [cx, cy]}
 

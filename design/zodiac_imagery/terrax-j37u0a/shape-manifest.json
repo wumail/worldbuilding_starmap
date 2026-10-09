@@ -1675,19 +1675,6 @@
       "stars": [
         {
           "label": "A",
-          "id": "20260915_galactic_01_001311",
-          "app_mag": 4.387911684997661,
-          "x": 7.026113909480349,
-          "y": -0.11194142045616859,
-          "direction": [
-            -0.7774221912848381,
-            0.6232145842106277,
-            -0.08496068811547516
-          ],
-          "color_hex": "#cad7ff"
-        },
-        {
-          "label": "B",
           "id": "20260915_galactic_01_002800",
           "app_mag": 3.5906909382734744,
           "x": 11.859577466112992,
@@ -1700,20 +1687,20 @@
           "color_hex": "#f8f7ff"
         },
         {
-          "label": "C",
-          "id": "20260915_galactic_01_003421",
-          "app_mag": 3.6409434400723857,
-          "x": -6.804720494642518,
-          "y": 16.56620443696975,
+          "label": "B",
+          "id": "20260915_galactic_01_003362",
+          "app_mag": 4.0133298442702685,
+          "x": 5.263999883473786,
+          "y": 1.9181890847796959,
           "direction": [
-            -0.8885903284809709,
-            0.41202862687638014,
-            0.20159275474194238
+            -0.7982705794324294,
+            0.6002227722846393,
+            -0.04996704557561227
           ],
           "color_hex": "#f8f7ff"
         },
         {
-          "label": "D",
+          "label": "C",
           "id": "20260915_galactic_01_004059",
           "app_mag": 2.13238745549205,
           "x": 12.29186080252139,
@@ -1726,24 +1713,11 @@
           "color_hex": "#aabfff"
         },
         {
-          "label": "E",
-          "id": "20260915_galactic_01_005114",
-          "app_mag": 3.5001197844410696,
-          "x": -14.201095673912109,
-          "y": 16.690893365500926,
-          "direction": [
-            -0.9337804808427511,
-            0.2951739396968305,
-            0.2023026419029978
-          ],
-          "color_hex": "#aabfff"
-        },
-        {
-          "label": "F",
+          "label": "D",
           "id": "20260915_galactic_01_006326",
           "app_mag": 2.964921035805738,
           "x": -6.06428495143108,
-          "y": 11.913648513399524,
+          "y": 11.913648513399526,
           "direction": [
             -0.8947248195951314,
             0.4293408623347773,
@@ -1752,7 +1726,7 @@
           "color_hex": "#fff4ea"
         },
         {
-          "label": "G",
+          "label": "E",
           "id": "20260915_galactic_01_008728",
           "app_mag": 3.8672935112717526,
           "x": -14.184200354910141,
@@ -1765,20 +1739,20 @@
           "color_hex": "#ffd2a1"
         },
         {
-          "label": "H",
-          "id": "20260915_galactic_01_008893",
-          "app_mag": 4.237295335034428,
-          "x": -11.358227590435273,
-          "y": 10.296540762334555,
+          "label": "F",
+          "id": "20260915_galactic_01_010911",
+          "app_mag": 3.1050788623234755,
+          "x": -0.3591417100818235,
+          "y": -2.442313991150433,
           "direction": [
-            -0.9330712485473092,
-            0.34685802559535084,
-            0.09522371140876851
+            -0.8475347813163309,
+            0.5155597449042224,
+            -0.12602755212005118
           ],
-          "color_hex": "#ffd2a1"
+          "color_hex": "#fff4ea"
         },
         {
-          "label": "I",
+          "label": "G",
           "id": "20260915_galactic_01_C000012",
           "app_mag": 2.670902386103226,
           "x": 10.010543737435759,
@@ -1791,11 +1765,11 @@
           "color_hex": "#9bb0ff"
         },
         {
-          "label": "J",
+          "label": "H",
           "id": "20260915_galactic_01_C000013",
           "app_mag": 1.068328055704395,
-          "x": 11.212826672827875,
-          "y": -13.978044319231719,
+          "x": 11.212826672827877,
+          "y": -13.978044319231724,
           "direction": [
             -0.6903173685590472,
             0.6503835698810195,
@@ -1814,9 +1788,8 @@
             "D",
             "E",
             "F",
-            "H",
-            "I",
-            "J"
+            "G",
+            "H"
           ],
           "edges": [
             [
@@ -1825,43 +1798,40 @@
             ],
             [
               "A",
-              "F"
+              "G"
             ],
             [
               "B",
-              "I"
+              "D"
             ],
             [
-              "C",
+              "B",
               "F"
             ],
             [
-              "D",
-              "J"
+              "C",
+              "H"
             ],
             [
               "E",
               "F"
             ],
             [
-              "I",
-              "J"
+              "G",
+              "H"
             ]
           ],
           "graph": {
             "components": [
               [
                 "A",
-                "F",
-                "E",
-                "C",
                 "B",
-                "I",
-                "J",
-                "D"
-              ],
-              [
-                "H"
+                "G",
+                "D",
+                "F",
+                "H",
+                "E",
+                "C"
               ]
             ],
             "independentCycles": 0,
@@ -1871,11 +1841,9 @@
               "E"
             ],
             "junctions": [
-              "F"
+              "B"
             ],
-            "isolated": [
-              "H"
-            ]
+            "isolated": []
           }
         },
         {
@@ -1888,9 +1856,7 @@
             "E",
             "F",
             "G",
-            "H",
-            "I",
-            "J"
+            "H"
           ],
           "edges": [
             [
@@ -1899,7 +1865,7 @@
             ],
             [
               "A",
-              "F"
+              "C"
             ],
             [
               "A",
@@ -1911,56 +1877,44 @@
             ],
             [
               "B",
-              "I"
-            ],
-            [
-              "C",
               "F"
             ],
             [
-              "D",
-              "J"
+              "C",
+              "H"
             ],
             [
               "E",
               "F"
             ],
             [
-              "I",
-              "J"
+              "G",
+              "H"
             ]
           ],
           "graph": {
             "components": [
               [
                 "A",
-                "G",
-                "F",
-                "E",
-                "C",
                 "B",
-                "I",
-                "J",
-                "D"
-              ],
-              [
-                "H"
+                "C",
+                "G",
+                "D",
+                "F",
+                "H",
+                "E"
               ]
             ],
             "independentCycles": 1,
             "endpoints": [
-              "C",
-              "E",
-              "G"
+              "D",
+              "E"
             ],
             "junctions": [
               "A",
-              "B",
-              "F"
+              "B"
             ],
-            "isolated": [
-              "H"
-            ]
+            "isolated": []
           }
         }
       ],
@@ -4122,5 +4076,15 @@
     }
   ],
   "catalogueSha256": "42508bc926cf9cffd2928341224d63cf53234099b44ed8ba6eeebcc77bdf73f8",
-  "note": "Saved user-edited draw-9 figures. Original star positions and full/core edge sets retained; not regenerated with draw-10."
+  "note": "Saved user-edited draw-9 figures. Original star positions and full/core edge sets retained; not regenerated with draw-10.",
+  "regionSources": {
+    "Z07": {
+      "sourceExtract": "source-Z07-20260918.json",
+      "sourceExtractSha256": "bf11e9fa3d332ab9672a1dc1e4d44ca6aba526e5d65d60deb4c361b8c4c3ddf9",
+      "originalSource": "/Users/wumail/Downloads/Terrax-terrax-j37u0a-1984347830-318612566.json",
+      "recordId": "1984347830-318612566",
+      "updated": "2026-09-18"
+    }
+  },
+  "regionSourceNote": "source and sourceSha256 identify the original baseline. regionSources identifies later user-authored figure updates. Z07 uses the original projection center and uniformly fits the updated members."
 }

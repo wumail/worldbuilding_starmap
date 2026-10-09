@@ -1,0 +1,96 @@
+{
+  "source": "/Users/wumail/Downloads/Terrax-terrax-j37u0a-1984347830-318612566.json",
+  "recordId": "1984347830-318612566",
+  "recordTitle": "第 56 轮 · terrax-j37u0a · 手动编辑",
+  "seed": "terrax-j37u0a",
+  "extractionMethod": "Read the exact members, coreMembers, edges and coreEdges of recipe.figures[index=6] through Chrome native UI. Direct file reads are blocked by macOS. The original file SHA-256 is not available.",
+  "figure": {
+    "index": 6,
+    "members": [
+      "20260915_galactic_01_002800",
+      "20260915_galactic_01_003362",
+      "20260915_galactic_01_004059",
+      "20260915_galactic_01_006326",
+      "20260915_galactic_01_008728",
+      "20260915_galactic_01_010911",
+      "20260915_galactic_01_C000012",
+      "20260915_galactic_01_C000013"
+    ],
+    "coreMembers": [
+      "20260915_galactic_01_002800",
+      "20260915_galactic_01_003362",
+      "20260915_galactic_01_004059",
+      "20260915_galactic_01_006326",
+      "20260915_galactic_01_008728",
+      "20260915_galactic_01_010911",
+      "20260915_galactic_01_C000012",
+      "20260915_galactic_01_C000013"
+    ],
+    "edges": [
+      [
+        "20260915_galactic_01_002800",
+        "20260915_galactic_01_003362"
+      ],
+      [
+        "20260915_galactic_01_002800",
+        "20260915_galactic_01_004059"
+      ],
+      [
+        "20260915_galactic_01_002800",
+        "20260915_galactic_01_C000012"
+      ],
+      [
+        "20260915_galactic_01_003362",
+        "20260915_galactic_01_006326"
+      ],
+      [
+        "20260915_galactic_01_003362",
+        "20260915_galactic_01_010911"
+      ],
+      [
+        "20260915_galactic_01_004059",
+        "20260915_galactic_01_C000013"
+      ],
+      [
+        "20260915_galactic_01_008728",
+        "20260915_galactic_01_010911"
+      ],
+      [
+        "20260915_galactic_01_C000012",
+        "20260915_galactic_01_C000013"
+      ]
+    ],
+    "coreEdges": [
+      [
+        "20260915_galactic_01_002800",
+        "20260915_galactic_01_003362"
+      ],
+      [
+        "20260915_galactic_01_002800",
+        "20260915_galactic_01_C000012"
+      ],
+      [
+        "20260915_galactic_01_003362",
+        "20260915_galactic_01_006326"
+      ],
+      [
+        "20260915_galactic_01_003362",
+        "20260915_galactic_01_010911"
+      ],
+      [
+        "20260915_galactic_01_004059",
+        "20260915_galactic_01_C000013"
+      ],
+      [
+        "20260915_galactic_01_008728",
+        "20260915_galactic_01_010911"
+      ],
+      [
+        "20260915_galactic_01_C000012",
+        "20260915_galactic_01_C000013"
+      ]
+    ]
+  },
+  "projectionNote": "Use the original pack Z07 projection center and exact saved catalogue directions; fit the new membership uniformly.",
+  "catalogueSha256": "42508bc926cf9cffd2928341224d63cf53234099b44ed8ba6eeebcc77bdf73f8"
+}
